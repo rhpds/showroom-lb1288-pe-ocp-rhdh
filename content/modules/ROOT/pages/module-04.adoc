@@ -1,0 +1,13 @@
+:imagesdir: ../assets/images
+
+
+= Module 4: Setup Developer Inner-Loop
+
+== Outcome/Activities
+
+* Developer is assigned the task of enhancing an existing application
+* PE onboards  existing app (all the components, APIs etc) on Dev cluster through RHDH
+* Development commences in dev local environment. Checks is Dependency Analyser is clear of CVEs.
+* Once code is ready, Developer issues a PR from the feature branch of their fork to the project repo
+
+* More streamlined less ad-hoc approach to application deployment pipelines

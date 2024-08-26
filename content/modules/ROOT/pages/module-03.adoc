@@ -1,0 +1,12 @@
+:imagesdir: ../assets/images
+
+
+= Module 3: Test drive RHDH
+
+== Outcome/Activities
+
+* PE creates a simple s/w template 
+* Beta-Developer takes the IDP for a test drive with a simple software template
+* Beta-Developer get rapidly familiar with the org's env with feature of RHDH
+* Developer has access to only what is allowed based on RBAC
+

@@ -1,0 +1,16 @@
+:imagesdir: ../assets/images
+
+= Module 8: Observability: Platform improvements
+
+== Outcome/Activities
+
+* Monitoring by developers: 
+Single pane of glass
+* Monitoring by PE
+- Statistics around usage, security
+* Monitoring of clusters using ACS
+* Feedback loop with developer community 
+* Platform Improvements 
+- Creating new dynamic plugins
+- Self service for resources such as Kafka, AI (Orchestrator)
+
