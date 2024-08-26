@@ -1,6 +1,6 @@
 :imagesdir: ../assets/images
 
-= Module 8: Observability: Platform improvements
+= Module 8: Continuous Platform improvements
 
 == Outcome/Activities
 
