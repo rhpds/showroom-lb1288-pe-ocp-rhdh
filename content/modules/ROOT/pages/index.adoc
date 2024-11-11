@@ -6,14 +6,14 @@
 
 Login as Platform Enginner with
 
-* pe1/{{openshift_cluster_user_password}}
-* pe2/{{openshift_cluster_user_password}
+* pe1/{openshift_cluster_user_password}
+* pe2/{openshift_cluster_user_password}
 
 
 Login as Developer with
 
-* dev1/{{openshift_cluster_user_password}
-* dev2/{{openshift_cluster_user_password}
+* dev1/{openshift_cluster_user_password}
+* dev2/{openshift_cluster_user_password}
 
 == Variables
 
