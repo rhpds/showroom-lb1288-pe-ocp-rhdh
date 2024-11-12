@@ -3,6 +3,7 @@
 
 = Platform Engineering Roadshow
 
+== Introduction
 Organizations often struggle with a variety of circumstances that can impact productivity within the teams (high cognitive load, lack of standardization, domain knowledge fragmentation).  +
 This could result in inefficient or reduced Productivity, higher maintenance costs and/or security vulnerabilities.
 
@@ -16,6 +17,17 @@ This roadshow is meant for Platform Engineers who are in charge of
 
 Development Teams who are  in charge of creating a software solution and empower (traditionally speaking) in picking their own tools for coding, building, deploying, running, monitoring and documentation may also benefit from this.
 
+
+== Environment details
+
+=== Login Details 
+
+* Login as Platform Enginner with
+** pe1/{openshift_cluster_user_password}
+** pe2/{openshift_cluster_user_password}
+* Login as Developer with
+** dev1/{openshift_cluster_user_password}
+** dev2/{openshift_cluster_user_password}
 
 
 == *What you will  learn:*
