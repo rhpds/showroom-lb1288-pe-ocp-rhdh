@@ -17,10 +17,52 @@ This roadshow is meant for Platform Engineers who are in charge of
 
 Development Teams who are  in charge of creating a software solution and empower (traditionally speaking) in picking their own tools for coding, building, deploying, running, monitoring and documentation may also benefit from this.
 
+== *What you will  learn:*
+
+* Understand the need to implement Platform Engineering disciplines in their organization and see the clearly benefits of improving the Developer Productivity
+* How to design a Thinest Viable Platform (TVP) based on the needs of ALL development teams in the organization and ensure they are highly productive as possible
+* Constantly assessing the investment into their own IDP and understand how they can enhance and convince ALL development teams to start adopting
+* See how Red Hat can help as a partner in your Platform Engineering journey
+
 
 == Environment details
 
-=== Login Details 
+=== Important URLs
+
+* *Red Hat OpenShift*
+** URL: [Console^]
+** login details: 
+
+* *Red Hat Developer Hub*
+** URL: https://backstage-backstage.{openshift_cluster_ingress_domain}
+** login details: 
+
+* *Red Hat build of Keycloak*
+** URL
+** Login into OpenShift, and get the password from `rhbk-initial-password` Secret from the `keycloak` namespace
+
+* *Gitlab*
+** URL: https://gitlab-gitlab.{openshift_cluster_ingress_domain}
+** login details: 
+** As Platform Engineer: pe1/{common_password} or  pe2/{common_password} 
+** As Developer: dev1/{common_password} or  dev2/{common_password} 
+
+* *Quay*
+** URL:
+** login details: Acess the above URL and create a new account ideally with dev1/{common_password}. This is just to make it easier for you to recall the Quay account password.
+
+* *GitOps*
+** URL: https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}
+** username: admin
+** password: Fetch password store in secret `openshift-gitops-cluster` in namespace `openshift-gitops` in {openshift_cluster_console_url}
+
+* *Project GitOps*
+** URL: https://rhdh-gitops-server-rhdh-gitops.{openshift_cluster_ingress_domain}
+** login details: 
+** As Platform Engineer: pe1/{common_password} or  pe2/{common_password} 
+** As Developer: dev1/{common_password} or  dev2/{common_password} 
+
+=== User login details for various activities
 
 * Login as Platform Enginner with
 ** pe1/{openshift_cluster_user_password}
@@ -28,11 +70,3 @@ Development Teams who are  in charge of creating a software solution and empower
 * Login as Developer with
 ** dev1/{openshift_cluster_user_password}
 ** dev2/{openshift_cluster_user_password}
-
-
-== *What you will  learn:*
-
-* Understand the need to implement Platform Engineering disciplines in their organization and see the clearly benefits of improving the Developer Productivity
-* How to design a Thinest Viable Platform (TVP) based on the needs of ALL development teams in the organization and ensure they are highly productive as possible
-* Constantly assessing the investment into their own IDP and understand how they can enhance and convince ALL development teams to start adopting
-* See how Red Hat can help as a partner in your Platform Engineering journey
