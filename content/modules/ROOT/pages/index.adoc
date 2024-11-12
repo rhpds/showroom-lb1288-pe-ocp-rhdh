@@ -52,7 +52,7 @@ Development Teams who are  in charge of creating a software solution and empower
 ** login details: Acess the above URL and create a new account ideally with dev1/{common_password}. This is just to make it easier for you to recall the Quay account password.
 
 * *GitOps*
-** URL: https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}
+** URL: https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/k8s/ns/openshift-gitops/secrets/openshift-gitops-cluster
 ** username: admin
 ** password: Fetch password store in secret `openshift-gitops-cluster` in namespace `openshift-gitops` in {openshift_cluster_console_url}
 
