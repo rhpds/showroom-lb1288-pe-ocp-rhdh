@@ -2,8 +2,20 @@
 
 = Module 1: Discovery
 
-== Outcome/Activities
+== Objectives
 
 * Discuss the challenges currently faced by developers and the need for a  an Internal Developer Platform 
 * Learn why a developer platform is necessary for rapid innovation
 
+
+== Your lab environment
+
+== Introductions to Concepts
+
+
+== Activity 1 
+
+
+== Activity 2
+
+== Conclusion

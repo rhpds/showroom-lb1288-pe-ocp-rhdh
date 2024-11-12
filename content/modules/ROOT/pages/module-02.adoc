@@ -2,7 +2,7 @@
 
 = Module 2: Design the Internal Developer Platform 
 
-== Outcome/Activities
+== Objectives
 
 Learn how to architect, install and bootstrap RHDH to create a MVP for Beta-developers
 
@@ -10,3 +10,16 @@ Learn how to architect, install and bootstrap RHDH to create a MVP for Beta-deve
 * Install the platform and all dependencies such as GitLab/SSO
 * Bootstrap developer experience with Components, APIs, and Docs
 * Ready for developer onboarding
+
+
+== Your lab environment
+
+== Introductions to Concepts
+
+
+== Activity 1 
+
+
+== Activity 2
+
+== Conclusion

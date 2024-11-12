@@ -3,9 +3,21 @@
 
 = Module 5: Build, Test, & Deploy (outer loop)
 
-== Outcome/Activities
+== Objectives
 
 
 * Make AI models available as APIs
 * Dev requests for access to the API endpoints securely and provided with API Key/Secret
 * PE monitors performance of the models and usage metrics
+
+== Your lab environment
+
+== Introductions to Concepts
+
+
+== Activity 1 
+
+
+== Activity 2
+
+== Conclusion

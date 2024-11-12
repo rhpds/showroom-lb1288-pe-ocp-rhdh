@@ -1,13 +1,29 @@
 :imagesdir: ../assets/images
 
-= Module 7: Observability: Security
+= Module 7: Continuous Platform improvements
+
+== Objectives
+
+* Monitoring by developers: 
+Single pane of glass
+* Monitoring by PE
+- Statistics around usage, security
+* Monitoring of clusters using ACS
+* Feedback loop with developer community 
+* Platform Improvements 
+- Creating new dynamic plugins
+- Self service for resources such as Kafka, AI (Orchestrator)
 
 
-== Outcome/Activities
 
-* SecOps is alerted about a compromised library
-* PE  runs a vulnerability scan to detect which applications are affected, and whom to contact.
-* Affected teams  are alerted need to issue fixes asap.
-* PE checks existing software templates for the detected vulnerabilities.
-* Changes are rolled out to RHDH Software Template catalogue if needed
-* ( Policy Exception request for a low severity issue may be approved by SecOps)
+== Your lab environment
+
+== Introductions to Concepts
+
+
+== Activity 1 
+
+
+== Activity 2
+
+== Conclusion

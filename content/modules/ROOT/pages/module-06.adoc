@@ -1,13 +1,27 @@
 :imagesdir: ../assets/images
 
-
-= Module 5: Integrating AI
-
-== Outcome/Activities
-
-* may move to end of 8 as self service
-* Make AI models available as APIs
-* Dev requests for access to the API endpoints securely and provided with API Key/Secret
-* PE monitors performance of the models and usage metrics
+= Module 6: Observability: Security
 
 
+== Objectives
+
+* SecOps is alerted about a compromised library
+* PE  runs a vulnerability scan to detect which applications are affected, and whom to contact.
+* Affected teams  are alerted need to issue fixes asap.
+* PE checks existing software templates for the detected vulnerabilities.
+* Changes are rolled out to RHDH Software Template catalogue if needed
+* ( Policy Exception request for a low severity issue may be approved by SecOps)
+
+
+
+== Your lab environment
+
+== Introductions to Concepts
+
+
+== Activity 1 
+
+
+== Activity 2
+
+== Conclusion

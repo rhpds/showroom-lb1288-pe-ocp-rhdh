@@ -3,7 +3,7 @@
 
 = Module 4: Setup Developer Inner-Loop
 
-== Outcome/Activities
+== Objectives
 
 * Developer is assigned the task of enhancing an existing application
 * PE onboards  existing app (all the components, APIs etc) on Dev cluster through RHDH
@@ -11,3 +11,16 @@
 * Once code is ready, Developer issues a PR from the feature branch of their fork to the project repo
 
 * More streamlined less ad-hoc approach to application deployment pipelines
+
+
+== Your lab environment
+
+== Introductions to Concepts
+
+
+== Activity 1 
+
+
+== Activity 2
+
+== Conclusion

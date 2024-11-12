@@ -3,10 +3,23 @@
 
 = Module 3: Test drive RHDH
 
-== Outcome/Activities
+== Objectives
 
 * PE creates a simple s/w template 
 * Beta-Developer takes the IDP for a test drive with a simple software template
 * Beta-Developer get rapidly familiar with the org's env with feature of RHDH
 * Developer has access to only what is allowed based on RBAC
 
+
+
+== Your lab environment
+
+== Introductions to Concepts
+
+
+== Activity 1 
+
+
+== Activity 2
+
+== Conclusion
