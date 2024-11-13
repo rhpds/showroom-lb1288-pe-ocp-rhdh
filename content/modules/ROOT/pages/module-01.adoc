@@ -9,6 +9,10 @@
 
 
 == Your lab environment
+[%collapsible]
+====
+include::env.adoc[]
+====
 
 == Introductions to Concepts
 
