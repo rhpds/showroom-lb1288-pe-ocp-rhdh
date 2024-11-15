@@ -17,7 +17,7 @@ include::style.adoc[]
 
 === *Your lab environment*
 
-._Click to view_
+.+++<u>Click to view</u>+++
 [%collapsible]
 ====
 include::env.adoc[]
@@ -35,7 +35,27 @@ In this section, we will shadow the platform team
 
 And right after that, we will shadow an App Developer use all these tools to accelerate their developer process
 
-== Platform Engineer:  Software template to import existing applications
+[source, yaml]
+----
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: import-existing-app-envelope-catalog
+  title: Import Existing App to Catalog Envelope
+  description: Import existing application, autocreate config-info.yaml and conditionally setup techdocs.
+  tags:
+    - import
+    - catalog
+    - register
+spec:
+  owner: parasol-authors
+  system: parasol-rhdh
+  type: template
+----
+
+== Shadowing the Platform Engineer
+
+=== Software templates to import existing applications
 
 A typical software application consistes of source-code, kubernetes manifests and also DevOps entities such as pipelines to help in the CI/CD process. 
 
@@ -68,19 +88,45 @@ There are two options in terms of where these files  (Catalog Info and TechDocs)
 
 In this case, so as to not change existing source code, Parasol team goes with the 2nd approach of creating _an *Envelope* of all the `catalog-info.yaml` files_ of the apps.
 
-=== Platform Engineer:  Explore the `import-app` Software Template
+=== Explore the `import-existing-app` Software Template
 
-Since you have already learnt how to create a Softar Template, we will walk through a template that has been built for you. This template does the following things
+Since you have already learnt how to create a Softar Template, we will walk through a template that has been built for you. 
 
-. Gather details of where this Envelope repo lives
-. Gather details of the application that needs to be onboarded
-. Gather details of the application's dependencies, required integrations on the Developer Hub etc
-. Update the *_Envelope repo_* as a two step process
-.. Merge Request 1: Create a new folder within  the *_Envelope repo_* and push these changes
-.. Merge Request 2: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a Mergar Request
+Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-app-template/-/blob/main/template.yaml[here^] to view the `import-existing-app` Software Template
+
+This template does the following things.
+
+*Section 1: Gather the following details*
+
+. Git repo details about where this Envelope repo lives
+. Details about the application that needs to be onboarded
+. Details about the application's dependencies, required integrations on the Developer Hub etc
+
+*Section 2: Action steps*
+
+Update the *_Envelope repo_* as a two step process
+
+.. *Merge Request 1*: Create a new folder within  the *_Envelope repo_* and push these changes
+.. *Merge Request 2*: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a Mergar Request
 
 
 
-== Activity 2
+
+
+
+=== Add the  the `import-app` Software Template to Developer Hub
+
+* Adds new Onboard existing component template(import-existing-app-template)
+
+image::register-component.png[] 
+
+
+
+View template
+
+
+Repeat Onboard existing API template(import-existing-app-template)
+
+Uses the existing-app-template to onboard parasol-API, parasol-store, parasol-db, parasol-web
 
 == Conclusion
