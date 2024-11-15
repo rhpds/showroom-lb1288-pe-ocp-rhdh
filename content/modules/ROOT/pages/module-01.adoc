@@ -29,14 +29,15 @@ The team hears about the magic words - _Internal Developer Platform (IDP)_, and 
 
 Red Hat Developer Hub streamlines development through a unified and open platform that reduces cognitive load and frustration for developers. It provides a pre-architected and supported approaches that can help Parasol get their applications into production faster and more securely—without sacrificing code quality.
 
-Red Hat Developer Hub and its associated plugins extend the popular upstream Backstage product by providing additional features such as integration with OpenShift, enterprise role-based access control (RBAC), and dynamic plugins - while including all the nice goodies that come with Backstage project itself
+Red Hat Developer Hub and its associated plugins extend the popular upstream Backstage product by providing additional features such as integration with OpenShift, enterprise role-based access control (RBAC), and dynamic plugins - while including all the nice goodies that come with Backstage project itself.
 
 
 == Hello Workshop!
 
 In this workshop, you will walk through in the steps of the platform engineers
+
 * discover what this Internal Developer Platform (IDP) is all about
-* how to design, architect and roll out an MVP
+* how to design, architect and roll out a TVP (Thinnest Viable Product)
 * gain feedback from developers through a test-drive
 * onboard existing applications for a single-pane-of-glass approach
 * setup workflows - from laptop to Production

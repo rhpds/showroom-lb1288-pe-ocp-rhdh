@@ -16,6 +16,12 @@ Learn how to architect, install and bootstrap RHDH to create a MVP for Beta-deve
 
 == Your lab environment
 
+.Click to view the lab environment details
+[%collapsible]
+====
+include::env.adoc[]
+====
+
 == Introductions to Concepts
 
 

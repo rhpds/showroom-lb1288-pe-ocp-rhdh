@@ -16,6 +16,12 @@ include::style.adoc[]
 
 == Your lab environment
 
+.Click to view the lab environment details
+[%collapsible]
+====
+include::env.adoc[]
+====
+
 == Introductions to Concepts
 
 
