@@ -1,9 +1,14 @@
 ++++
 
 <style> 
-    .doc {
-        max-width: 70rem;
-        } 
+.doc {
+    max-width: 70rem;
+} 
+
+.underline {
+  cursor: pointer;
+}
+
 </style>
 
 ++++

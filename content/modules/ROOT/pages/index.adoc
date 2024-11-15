@@ -27,4 +27,9 @@ Development Teams who are  in charge of creating a software solution and empower
 * See how Red Hat can help as a partner in your Platform Engineering journey
 
 
+== *Lab environment details:*
+.Click to view
+[%collapsible]
+====
 include::env.adoc[]
+====

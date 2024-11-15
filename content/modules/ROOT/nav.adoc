@@ -12,5 +12,5 @@
 
 * xref:module-08.adoc[7. Continuous Platform improvements]
 
-
+* xref:env.adoc[My lab environment details]
 
