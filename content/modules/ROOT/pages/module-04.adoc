@@ -111,7 +111,7 @@ Update the *_Envelope repo_* as a two step process
 
 
 
-
+include::https://gitlab-gitlab.apps.sno.sandbox1537.opentlc.com/rhdh/import-existing-app-template/-/raw/main/template.yaml[tag=section, indent=0]
 
 
 === Add the  the `import-app` Software Template to Developer Hub
