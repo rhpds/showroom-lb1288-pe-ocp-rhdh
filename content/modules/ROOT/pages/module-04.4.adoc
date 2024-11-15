@@ -1,0 +1,11 @@
+:imagesdir: ../assets/images
+
+
+= Module 4: Setup Developer Inner-Loop
+
+include::style.adoc[]
+
+== [PE] 4.4 PE: Onboard parasol-store Dev Template
+
+Create a new template with  parasol-store-dev-template
+https://gitlab-gitlab.apps.sno.sandbox1887.opentlc.com/rhdh/parasol-store-dev-template

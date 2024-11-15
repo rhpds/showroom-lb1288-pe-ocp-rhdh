@@ -1,0 +1,42 @@
+:imagesdir: ../assets/images
+
+
+= Module 4:  PE: Onboard parasol-API
+
+include::style.adoc[]
+
+
+
+* Platform config
+** Edit developer-hub-config to include 
+** Public
+
+
+* Onboard parasol-API
+** Provide information about Catalog Envelope to which API will be included
+*** Note: the catalog-info.yaml files will be registered in a separate repository called envelope-catalog repos
+*** Each system/domain should have their own envelope-catalog repo
+*** In this page, give details of the Catalog Envelope
+
+* Provide information about your existing API
+** Give full path of the API
+
+* Provide information about the new component for your existing API
+
+* Click Review & Create
+
+* Click on both the URLs and merge the requests
+
+* Open the envelope-parasol-catalog repo
+* URL to the catalog-info has been added to the envelope
+
+* Under the parasol-store-api folder docs  and catalog-info.yaml are created
+
+* In a few minutes you will notice that this API automatically starts appearing in the APIs section
+
+* This is because of the Autodiscovery feature of RHDH 
+https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/k8s/ns/backstage/configmaps/backstage-developer-hub-app-config 
+
+
+	
+

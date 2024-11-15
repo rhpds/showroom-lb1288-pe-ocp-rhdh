@@ -4,7 +4,12 @@
 
 * xref:module-03.adoc[3. Test drive Red Hat Developer Hub]
 
-* xref:module-04.adoc[4. Setup Developer Inner-Loop]
+* xref:module-04.adoc[4. Import existing apps and setup Developer Inner-Loop]
+** xref:module-04.1.adoc[4.1 PE: Import  existing app template]
+** xref:module-04.2.adoc[4.2 PE: Onboard parasol-API]
+** xref:module-04.3.adoc[4.3 PE: Onboard parasol-store]
+** xref:module-04.4.adoc[4.4 PE: Onboard parasol-store Dev Template]
+** xref:module-04.5.adoc[4.5 Developer Inner-Loop]
 
 * xref:module-05.adoc[5. Build, Test, & Deploy (outer loop)]
 

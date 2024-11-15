@@ -1,0 +1,27 @@
+:imagesdir: ../assets/images
+
+
+= Module 4: Setup Developer Inner-Loop
+
+include::style.adoc[]
+
+== [PE] 4.3 PE: Onboard parasol-store, parasol-web and parasol-db
+
+Onboard parasol-store
+Provide information about Catalog Envelope
+
+Provide information about your existing app
+
+Provide information about the new component for your existing app
+Dont forget to choose the parasol-store-api you imported in the previous step
+
+Review and Create
+Merge CRs
+
+Review the  envelope-parasol-catalog repo
+
+
+In a few minutes, globex-store will also start appearing
+
+You may now onboard globex-db and globex-web in a similar fashion
+

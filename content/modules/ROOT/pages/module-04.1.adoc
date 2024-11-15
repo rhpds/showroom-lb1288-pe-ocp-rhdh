@@ -1,0 +1,71 @@
+:imagesdir: ../assets/images
+
+
+= Module 4: Setup Developer Inner-Loop
+
+include::style.adoc[]
+
+== 4.1 [PE] Explore and Import the `import-existing-app` Software Template
+
+Since you have already learnt how to create a Softar Template, we will walk through a template that has been built for you. 
+
+Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-app-template/-/blob/main/template.yaml[here^] to view the `import-existing-app` Software Template
+
+This template does the following things.
+
+*Section 1: Gather the following details*
+
+. Git repo details about where this Envelope repo lives
+. Details about the application that needs to be onboarded
+. Details about the application's dependencies, required integrations on the Developer Hub etc
+
+
+[source, yaml, role=execute,subs="attributes"]
+----
+  parameters:
+    - title: Provide information about Catalog Envelope
+      properties:
+        gitlabHost:
+        envelopeGitlabOrganization:
+        envelopeRepositoryName:
+
+    - title: Provide information about your existing app
+      properties:
+        gitlabOrganization:
+        repositoryName:
+        system:
+        manifests:
+
+    - title: Provide information about the new component for your existing app
+      properties:
+        componentName:
+        componentOwner:
+        componentType:
+        description:
+        addTechDocs:
+        consumesApis:
+        componentLifecycle:
+
+----
+*Section 2: Action steps*
+
+Update the *_Envelope repo_* as a two step process
+
+.. *Merge Request 1*: Create a new folder within  the *_Envelope repo_* and push these changes
+.. *Merge Request 2*: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a Mergar Request
+
+== [PE] Add the  the `import-app` Software Template to Developer Hub
+
+* Adds new Onboard existing component template(import-existing-app-template)
+
+image::./m4/register-component.png[Lab Image]
+
+
+
+View template
+
+
+Repeat Onboard existing API template(import-existing-app-template)
+
+Uses the existing-app-template to onboard parasol-API, parasol-store, parasol-db, parasol-web
+

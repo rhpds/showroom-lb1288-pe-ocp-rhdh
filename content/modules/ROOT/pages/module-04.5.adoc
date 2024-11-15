@@ -1,0 +1,42 @@
+:imagesdir: ../assets/images
+
+
+= Module 4: Setup Developer Inner-Loop
+
+include::style.adoc[]
+
+== [PE] 4.5 Dev: innerloop
+
+
+
+Creates a branch parasol-store  on gitlab
+https://gitlab-gitlab.apps.sno.sandbox1887.opentlc.com/parasol/parasol-store
+
+
+
+
+launch parasol-store-dev-template with the branch name; provided with a namespace - parasol-store 
+
+Parasol Store Development - provide feature branch name my-feature-branch
+
+DB information - no need to make changes
+
+Review and create
+
+Open component
+
+View the deployment on OpenShift: https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/k8s/ns/parasol-store-my-feature-branch/apps~v1~Deployment 
+Makes a change  - push to gitlab
+
+Simple pipeline - see all that on RHDH
+You will see a new pipeline triggered
+
+The first pipeline was triggered when you registered using the s.w template
+The next is by git commit
+You can view the pipeline on OpenShift as well https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/pipelines/ns/parasol-store-my-feature-branch 
+
+Once you are happy with the changes, you are now ready to create a merge request to the main branch.
+This is the end of innerloop
+
+
+
