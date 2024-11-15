@@ -1,10 +1,9 @@
 :imagesdir: ../assets/images
 
-++++
-<style> .doc {max-width: 70rem;padding: 0 1rem 4rem} </style>
-++++
 
 = Platform Engineering Roadshow
+
+include::style.adoc[]
 
 == Introduction
 Organizations often struggle with a variety of circumstances that can impact productivity within the teams (high cognitive load, lack of standardization, domain knowledge fragmentation).  +

@@ -2,6 +2,9 @@
 
 = Module 7: Continuous Platform improvements
 
+include::style.adoc[]
+
+
 == Objectives
 
 * Monitoring by developers: 

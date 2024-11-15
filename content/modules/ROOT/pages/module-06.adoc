@@ -2,6 +2,9 @@
 
 = Module 6: Observability: Security
 
+include::style.adoc[]
+
+
 
 == Objectives
 

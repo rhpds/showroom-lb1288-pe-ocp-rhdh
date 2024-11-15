@@ -1,0 +1,9 @@
+++++
+
+<style> 
+    .doc {
+        max-width: 70rem;
+        } 
+</style>
+
+++++

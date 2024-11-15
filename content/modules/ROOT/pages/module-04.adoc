@@ -3,6 +3,8 @@
 
 = Module 4: Setup Developer Inner-Loop
 
+include::style.adoc[]
+
 == Objectives
 
 * Developer is assigned the task of enhancing an existing application

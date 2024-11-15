@@ -2,6 +2,9 @@
 
 = Module 1: Discovery
 
+include::style.adoc[]
+
+
 == Objectives
 
 * Discuss the challenges currently faced by developers and the need for a  an Internal Developer Platform 

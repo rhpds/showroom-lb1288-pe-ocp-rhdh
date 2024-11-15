@@ -3,6 +3,9 @@
 
 = Module 5: Build, Test, & Deploy (outer loop)
 
+include::style.adoc[]
+
+
 == Objectives
 
 

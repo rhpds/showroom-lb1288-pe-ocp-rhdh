@@ -3,6 +3,8 @@
 
 = Module 3: Test drive RHDH
 
+include::style.adoc[]
+
 == Objectives
 
 * PE creates a simple s/w template 

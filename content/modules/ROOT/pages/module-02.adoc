@@ -2,6 +2,8 @@
 
 = Module 2: Design the Internal Developer Platform 
 
+include::style.adoc[]
+
 == Objectives
 
 Learn how to architect, install and bootstrap RHDH to create a MVP for Beta-developers
