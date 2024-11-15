@@ -1,5 +1,5 @@
 name: modules
-title: Default Title
+title: Platform Engineering Workshop
 version: master
 nav:
   - modules/ROOT/nav.adoc
@@ -17,3 +17,6 @@ asciidoc:
     page-links:
     - url: https://redhat.com
       text: Red Hat
+    - url: https://www.redhat.com/en/engage/state-of-platform-engineering-age-of-ai
+      text: State of PE Report
+  

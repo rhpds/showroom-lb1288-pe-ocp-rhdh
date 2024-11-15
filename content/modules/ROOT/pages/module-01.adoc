@@ -10,19 +10,38 @@ include::style.adoc[]
 * Discuss the challenges currently faced by developers and the need for a  an Internal Developer Platform 
 * Learn why a developer platform is necessary for rapid innovation
 
+== Hello Parasol!
 
-== Your lab environment
-[%collapsible]
-====
-include::env.adoc[]
-====
+Parasol is an Insurance company but looking at rapidly expanding into different other verticals such as retail etc. With business booming, and their online presence increasing, the teams also grow in numbers. But the team, while being quite technically proficient, is quite siloed in their way of working especially because they are widespread and this results in difficulties in collaborating with each other.
 
-== Introductions to Concepts
+With a rapidly evolving and expanding team, it is getting harder and harder for the team to keep up with 
+
+* knowing who is doing what
+* onboarding new team members and get them to be effective ASAP
+* identifying existing resuable artifacts - reuse please!
+* providing self-service for developers without need to be listening to a please-wait music tone
+* offering choices of features, and easy ways to hit the road running
+
+The team hears about the magic words - _Internal Developer Platform (IDP)_, and some reasearch shows that Red Hat Developer Hub would be perfect because of how customizable it is and expecially the fact that it can run on on-prem to air gap sensitive content.
 
 
-== Activity 1 
+== Hello Red Hat Developer Hub!
+
+Red Hat Developer Hub streamlines development through a unified and open platform that reduces cognitive load and frustration for developers. It provides a pre-architected and supported approaches that can help Parasol get their applications into production faster and more securely—without sacrificing code quality.
+
+Red Hat Developer Hub and its associated plugins extend the popular upstream Backstage product by providing additional features such as integration with OpenShift, enterprise role-based access control (RBAC), and dynamic plugins - while including all the nice goodies that come with Backstage project itself
 
 
-== Activity 2
+== Hello Workshop!
+
+In this workshop, you will walk through in the steps of the platform engineers
+* discover what this Internal Developer Platform (IDP) is all about
+* how to design, architect and roll out an MVP
+* gain feedback from developers through a test-drive
+* onboard existing applications for a single-pane-of-glass approach
+* setup workflows - from laptop to Production
+* and a touch of Security as well
+
+All of this boiling down to _how to setup  Development Teams up for success in a cloud native, AI infused world_!
 
 == Conclusion
