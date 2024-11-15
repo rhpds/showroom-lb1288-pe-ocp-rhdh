@@ -1,4 +1,4 @@
-:imagesdir: ../assets/images/m4
+:imagesdir: ../assets/images
 
 
 = Module 4: Setup Developer Inner-Loop
@@ -110,15 +110,11 @@ Update the *_Envelope repo_* as a two step process
 .. *Merge Request 2*: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a Mergar Request
 
 
-
-include::https://gitlab-gitlab.apps.sno.sandbox1537.opentlc.com/rhdh/import-existing-app-template/-/raw/main/template.yaml[tag=section, indent=0]
-
-
 === Add the  the `import-app` Software Template to Developer Hub
 
 * Adds new Onboard existing component template(import-existing-app-template)
 
-image::register-component.png[] 
+image::./m4/register-component.png[Lab Image]
 
 
 
