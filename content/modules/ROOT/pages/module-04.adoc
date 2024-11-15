@@ -1,4 +1,4 @@
-:imagesdir: ../assets/images
+:imagesdir: ../assets/images/m4
 
 
 = Module 4: Setup Developer Inner-Loop
@@ -15,18 +15,70 @@ include::style.adoc[]
 * More streamlined less ad-hoc approach to application deployment pipelines
 
 
-== Your lab environment
+=== *Your lab environment*
 
-.Click to view the lab environment details
+._Click to view_
 [%collapsible]
 ====
 include::env.adoc[]
 ====
 
-== Introductions to Concepts
+== Introductions
 
+Red Hat Develper Hub has been setup, and taken for a test drive too. What is next is now to onboarding existing projects and applications, and then set them up for developer teams. 
 
-== Activity 1 
+In this section, we will shadow the platform team 
+
+. setting up a Software Template to onboard existing applications
+. import existing applications
+. enabling auto-discovery of components
+
+And right after that, we will shadow an App Developer use all these tools to accelerate their developer process
+
+== Platform Engineer:  Software template to import existing applications
+
+A typical software application consistes of source-code, kubernetes manifests and also DevOps entities such as pipelines to help in the CI/CD process. 
+
+The Platform Engg. team focuses on the online web app of Parasol consisting of 
+
+* `parasol-web` online web-app (Node + Angular)
+* `parasol-store` core services called parasol-store (Quarkus), and 
+* `parasol-db` core database (PostgreSQL)
+
+Developer Hub identifies components based on a `catalog-info.yaml` file in the repository. This file contains details about 
+
+* where the source code is
+* how to access the documentation
+* who the owners are
+* what are the dependencies and dependants etc.
+
+With the right plugins, this `catalog-info.yaml` file can also help to show these critical information in a single pane of glass  within the component itself:
+
+* CI pipelines
+* CD deployments
+* Git merge statuses
+* Cluster details
+
+To make importing a large number of existing applications into Developer Hub possible/feasible, the Platform Egineering (PE) team creates a *Software Template* that can automate both creation of the `catalog-info.yaml` file, and also auto-create `techdocs` skeleton structure.
+
+There are two options in terms of where these files  (Catalog Info and TechDocs) could be stored for these existing software apps.
+
+. The entities can be added to the same Git repositories as the existing source-code repo
+. Create an entity which acts like a collection of all of the catalog-info files and techdocs of the existing code
+
+In this case, so as to not change existing source code, Parasol team goes with the 2nd approach of creating _an *Envelope* of all the `catalog-info.yaml` files_ of the apps.
+
+=== Platform Engineer:  Explore the `import-app` Software Template
+
+Since you have already learnt how to create a Softar Template, we will walk through a template that has been built for you. This template does the following things
+
+. Gather details of where this Envelope repo lives
+. Gather details of the application that needs to be onboarded
+. Gather details of the application's dependencies, required integrations on the Developer Hub etc
+. Update the *_Envelope repo_* as a two step process
+.. Merge Request 1: Create a new folder within  the *_Envelope repo_* and push these changes
+.. Merge Request 2: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a Mergar Request
+
 
 
 == Activity 2
