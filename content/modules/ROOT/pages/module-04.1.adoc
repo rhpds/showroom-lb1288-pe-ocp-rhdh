@@ -1,60 +1,82 @@
 :imagesdir: ../assets/images
 
 
-= Module 4: Setup Developer Inner-Loop
+= Module 4.1: Create S/W Templates to Import Existing API/apps as a Platform Engineer
 
 include::style.adoc[]
 
-== 4.1 [PE] Explore and Import the `import-existing-app` Software Template
+There are two templates created for importing existing sowftware into Developer Hub for APIs and apps/service. While it is possible to use the same template to import both of them, there are some key differences in the 
 
-Since you have already learnt how to create a Softar Template, we will walk through a template that has been built for you. 
+== 4.1 Explore and Import the `import-existing-api` Software Template
 
-Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-app-template/-/blob/main/template.yaml[here^] to view the `import-existing-app` Software Template
+=== *Your lab environment*
+
+.+++<u>Click to view</u>+++
+[%collapsible]
+====
+include::env.adoc[]
+====
+
+Since you have already learnt how to create a Software Template, we will walk through a template that has been built for you. 
+
+Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^] to view the `import-existing-app` Software Template
 
 This template does the following things.
 
 *Section 1: Gather the following details*
 
-. Git repo details about where this Envelope repo lives
-. Details about the application that needs to be onboarded
-. Details about the application's dependencies, required integrations on the Developer Hub etc
 
-
-[source, yaml, role=execute,subs="attributes"]
-----
+```yaml
+  #  The `parameters` section defines the data gathered from the user
   parameters:
-    - title: Provide information about Catalog Envelope
+    # Git repo details about where this API Envelope repo lives
+    - title: Provide information about Catalog Envelope to which API will be included
       properties:
         gitlabHost:
         envelopeGitlabOrganization:
         envelopeRepositoryName:
 
-    - title: Provide information about your existing app
+    # Details about the API that needs to be imported
+    - title: Provide information about your existing API
       properties:
         gitlabOrganization:
         repositoryName:
-        system:
-        manifests:
-
-    - title: Provide information about the new component for your existing app
-      properties:
+        #Path to where API spec is defined
+        apiPathText:
+        #Type of API - Options are openapi/grpc etc - which helps in visualising the API
+        apiType:
+    
+    # Additionals details about the existing API being imported as a component
+    - title: Provide information about the new component for your existing API
         componentName:
         componentOwner:
-        componentType:
         description:
-        addTechDocs:
-        consumesApis:
-        componentLifecycle:
 
-----
+```
+
 *Section 2: Action steps*
 
 Update the *_Envelope repo_* as a two step process
 
 .. *Merge Request 1*: Create a new folder within  the *_Envelope repo_* and push these changes
-.. *Merge Request 2*: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a Mergar Request
+.. *Merge Request 2*: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a _Merge Request_
 
-== [PE] Add the  the `import-app` Software Template to Developer Hub
+== Add the  the `import-api-catalog` Software Template to Developer Hub
+
+* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^])  and login using `pe1/{common_password}`
+* Click on the Create menu on the left-hand navigation. 
+
+image::./m4/nav-create.png[]
+* Click on the `Register Existing Component` button on the top-right of the page to launch the *Register an existing component* wizard 
+
+image::./m4/nav-register-wizard.png[]
+* Paste the following URL into the `Select URL` field and click on *Analyze* button
++
+[source,bash,role=execute,subs="attributes"]
+----
+https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml
+----
+
 
 * Adds new Onboard existing component template(import-existing-app-template)
 

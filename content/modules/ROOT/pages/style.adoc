@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+u {
+    cursor: pointer;
+}
+
 </style>
 
 ++++
