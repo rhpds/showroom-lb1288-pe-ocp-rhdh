@@ -1,29 +1,76 @@
 :imagesdir: ../assets/images
 
 
-= Module 4:  PE: Onboard parasol-API
+= Module 4.2:  PE: Onboard parasol-API
 
 include::style.adoc[]
 
 
+// * Platform config
+// ** Edit developer-hub-config to include 
+// ** Public
 
-* Platform config
-** Edit developer-hub-config to include 
-** Public
+
+== Import parasol-API
+
+* As a first step, we will import the API so that this API can then associated to the App automatically.
+* From the *Create* section, click on the *Import* button of `Import API to Existing Catalog Envelope` template.
+
+image:m4/import-api-template.png[width=40%]
+
+=== Step 1: Provide information about Catalog Envelope to which API will be included
+
+Fill out the following values and click *Next*
+
+image:m4/import-api-template-1.png[]
+
+[cols="1,2,2", options="header"]
+|====
+| *Field*  | *Description* | *Value*
+| Gitlab Hostname | Keep default value |` https://gitlab-gitlab.{openshift_cluster_ingress_domain}`
+| GitLab Organization | Enter value | `parasol`
+| Repository Name | Enter value. TODO: What is Envelope | `envelope-parasol-catalog`
+|====
+
+=== Step 2: Provide information about your existing API
+
+Fill out the following values and click *Next*
+image:m4/import-api-template-2.png[]
+
+[cols="1,2,2", options="header"]
+|====
+
+| *Field*  | *Description* | *Value*
+| GitLab Organization | This is the Git org where the repo resides| `parasol`
+| Repository Name | enter this value | `parasol-store-api` 
+| System Name | TODO: System  | `system:default/parasol-system`
+| Path to where API spec is defined | Enter full path of the API | `https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-api/-/blob/main/openapi.yaml`
+| A Short Description Of This Component | Enter value | `API for parasol-store`
+| Type Of API | Choose from options | `openapi` 
+|====
+
+=== Step 3: Provide information about the new component for your existing app
+
+Fill out the following values and click *Next*
+image:m4/import-api-template-3.png[]
+
+[cols="1,2,2", options="header"]
+|====
+| *Field*  | *Description* | *Value*
+| Component Name | This is how this API will be identified by Developer Hub | `parasol-store-api` 
+| Owner | Choose from dropdown | `group:default/dev1`
+| A Short Description Of This Component |Enter a suitable description | Open API specification for the parasol-store application
+| Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known  values `experimental`, `production` and `deprecated`)
+
+ | `Production` 
+|====
 
 
-* Onboard parasol-API
-** Provide information about Catalog Envelope to which API will be included
-*** Note: the catalog-info.yaml files will be registered in a separate repository called envelope-catalog repos
-*** Each system/domain should have their own envelope-catalog repo
-*** In this page, give details of the Catalog Envelope
+=== Step 4: Review & Create
 
-* Provide information about your existing API
-** Give full path of the API
+Review the fields, and click on the *Create* button
 
-* Provide information about the new component for your existing API
-
-* Click Review & Create
+image:m4/import-api-template-4.png[]
 
 * Click on both the URLs and merge the requests
 

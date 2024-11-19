@@ -14,7 +14,7 @@ There are two templates created for importing existing sowftware into Developer 
 include::env.adoc[]
 ====
 
-== 4.1 Explore and Import the `import-existing-api` Software Template
+== Explore and Import the `import-existing-api` Software Template
 
 
 Since you have already learnt how to create a Software Template, we will walk through a template that has been built for you. 
@@ -87,7 +87,7 @@ image::./m4/nav-access-api-template.png[]
 * Let us now register the import-app template as well
 
 
-== 4.2 Explore and Import the `import-existing-app` Software Template
+== Explore and Import the `import-existing-app` Software Template
 
 * Repeat the same steps to import the `import-existing-app-template`
 * Click *Create* (left hand nav) ->  *Register Existing Component* (top right)
@@ -99,8 +99,49 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 ----
 * Review, and Import the template by clicking on the *Import* button
 
-== 4.3 View available templates
+== View available templates
 
 * Navigate back to  *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
 
 image::./m4/import-templates-list.png[]
+
+
+
+== Prepare Red Hat Developer Hub with the right Dynamic Plugin
+
+The templates described above need a couple of Dynamic Plugins. 
+
+*What are Dynamic Plugins?* +
+The Red Hat Developer Hub  application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be sideloaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
+
+The import templates need 2 dynamic plugins that are described below.
+
+```yaml
+- package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-module-utils-dynamic <1>
+  disabled: false
+- package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-gitlab-dynamic <2>
+  disabled: false
+```
+<1> This plugin helps in maniplating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported
+<2> This plugin helps to discover catalog files located in your GitLab instance. In the next step we will turn ON the auto-discovery feature.
+
+
+=== Update RHDH config
+
+. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}rhdh/developer-hub-config/[rhdh/developer-hub-config repository on GitLab^].
+. Open the *values.yaml* file, then select *Edit > Edit single file*.
+. Locate the comment `#PASTE_DYNAMIC_PLUGINS_HERE`
+. Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment
+
+[source,bash,role=execute,subs="attributes"]
+----
+      - package: ./dynamic-plugins/dist/backstage-plugin-techdocs
+        disabled: false
+      - package: ./dynamic-plugins/dist/backstage-plugin-techdocs
+        disabled: false
+----
+
+
+
+
+== Turn auto-discovery
