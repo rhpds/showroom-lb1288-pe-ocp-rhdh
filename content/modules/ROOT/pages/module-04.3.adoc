@@ -20,35 +20,44 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-
 == App Developer: Onboard parasol-store Dev Template
 
 
+* Creates a branch of `parasol-store`  on gitlab
+https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store with name of the branch as `my-feature-branch`
 
-Creates a branch parasol-store  on gitlab
-https://gitlab-gitlab.apps.sno.sandbox1887.opentlc.com/parasol/parasol-store
+image:./m4/create-branch.png[]
 
+image:./m4/create-branch-name.png[]
 
+* Launch `parasol-store-dev-template` with the branch name; provided with a namespace - `parasol-store` 
+* In Step 1: Provide Information for the sandbox deployment
+** Parasol Store Development - provide feature branch name my-feature-branch
+* In Step 2: Provide database information
+** Keep all the fields as it is - no need to make changes
 
+* Click on *Review*, and proceed to *Create*
 
-launch parasol-store-dev-template with the branch name; provided with a namespace - parasol-store 
+* Open component
 
-Parasol Store Development - provide feature branch name my-feature-branch
+image:./m4/parasol-branch-component.png[]
+** You can see under the *CI* tab, a pipeline being run
 
-DB information - no need to make changes
+image:./m4/parasol-branch-first-pipeline.png[]
 
-Review and create
+image:./m4/parasol-branch-first-pipeline-success.png[]
 
-Open component
+** You can see under the *Topology* tab, that the pod is running successfully
 
-View the deployment on OpenShift: https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/k8s/ns/parasol-store-my-feature-branch/apps~v1~Deployment 
-Makes a change  - push to gitlab
+* View the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps~v1~Deployment
 
-Simple pipeline - see all that on RHDH
-You will see a new pipeline triggered
+image:./m4/parasol-branch-deployment1.png[]
 
-The first pipeline was triggered when you registered using the s.w template
-The next is by git commit
-You can view the pipeline on OpenShift as well https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/pipelines/ns/parasol-store-my-feature-branch 
+* Makes a change  - push to gitlab; You will see a new pipeline triggered
 
-Once you are happy with the changes, you are now ready to create a merge request to the main branch.
-This is the end of innerloop
+* The first pipeline was triggered when you registered using the s.w template. and the next is by git commit
+
+* You can view the pipeline on OpenShift as well https://console-openshift-console.{openshift_cluster_ingress_domain}/pipelines/ns/parasol-store-my-feature-branch 
+
+* Once you are happy with the changes, you are now ready to create a merge request to the main branch.
+* This is the end of innerloop
 
 
 
