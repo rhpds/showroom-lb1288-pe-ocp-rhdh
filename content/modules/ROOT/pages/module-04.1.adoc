@@ -138,7 +138,7 @@ The import-existing-app/api templates need 2 dynamic plugins that are described 
 
 . Make sure the copied YAML aligns exactly
 +
-image::./m4/copy-dynamic-plugin.png[width]
+image::./m4/copy-dynamic-plugin.png[]
 . Don't Save yet. We need to next turn on auto-discovery
 
 == Turn auto-discovery
@@ -155,7 +155,7 @@ image::./m4/copy-dynamic-plugin.png[width]
               skipForkedRepos: true
               entityFilename: envelope.yaml
               catalogPath: /**/envelope.yaml
-              projectPattern: \b(envelop\w*)
+              projectPattern: \b(envelope\w*)
               excludeRepos: []
               schedule:
                 frequency:
@@ -166,8 +166,10 @@ image::./m4/copy-dynamic-plugin.png[width]
                   minutes: 3
 ----
 
-
 . Make sure the copied YAML aligns exactly
 +
-image::./m4/copy-auto-discovery.png[width]
+image::./m4/copy-auto-discovery.png[]
+. This YAML snippet enables auto-discovery for all files names *envelope.yaml* [entityFilename] where the repo name starts with the word *envelop* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
++
+image::./m4/commit-rhdh-config.png[]
