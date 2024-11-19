@@ -191,3 +191,10 @@ Click on the `parasol-store` link to view the component. You can step through ea
 TODO: walk through catalog-info.yaml
 
  
+
+== [Optional] Onboard  parasol-web
+
+You can now optionally import  parasol-web  component as well.
+
+* The org is `parasol`
+* Repo for parasol-web is `parasol-web`

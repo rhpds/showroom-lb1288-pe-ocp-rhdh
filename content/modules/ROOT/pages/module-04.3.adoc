@@ -1,27 +1,54 @@
 :imagesdir: ../assets/images
 
 
-= Module 4: Setup Developer Inner-Loop
+= Module 4.3: Setup Developer Inner-Loop
 
 include::style.adoc[]
 
-== [PE] 4.3 PE: Onboard parasol-store, parasol-web and parasol-db
+== Platform Engineer: Onboard parasol-store Dev Template
 
-Onboard parasol-store
-Provide information about Catalog Envelope
-
-Provide information about your existing app
-
-Provide information about the new component for your existing app
-Dont forget to choose the parasol-store-api you imported in the previous step
-
-Review and Create
-Merge CRs
-
-Review the  envelope-parasol-catalog repo
+. To help developers to be able to accelerate development through RHDH, the PE create a new template with  parasol-store-dev-template.
+. Click on *Create* and Regiser Existing Component with this template
++
++
+[source,bash,role=execute,subs="attributes"]
+----
+https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-template/-/blob/main/template.yaml
+----
 
 
-In a few minutes, globex-store will also start appearing
+== App Developer: Onboard parasol-store Dev Template
 
-You may now onboard globex-db and globex-web in a similar fashion
+
+
+Creates a branch parasol-store  on gitlab
+https://gitlab-gitlab.apps.sno.sandbox1887.opentlc.com/parasol/parasol-store
+
+
+
+
+launch parasol-store-dev-template with the branch name; provided with a namespace - parasol-store 
+
+Parasol Store Development - provide feature branch name my-feature-branch
+
+DB information - no need to make changes
+
+Review and create
+
+Open component
+
+View the deployment on OpenShift: https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/k8s/ns/parasol-store-my-feature-branch/apps~v1~Deployment 
+Makes a change  - push to gitlab
+
+Simple pipeline - see all that on RHDH
+You will see a new pipeline triggered
+
+The first pipeline was triggered when you registered using the s.w template
+The next is by git commit
+You can view the pipeline on OpenShift as well https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/pipelines/ns/parasol-store-my-feature-branch 
+
+Once you are happy with the changes, you are now ready to create a merge request to the main branch.
+This is the end of innerloop
+
+
 
