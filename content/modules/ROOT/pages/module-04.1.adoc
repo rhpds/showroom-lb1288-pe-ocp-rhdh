@@ -103,7 +103,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 
 * Navigate back to  *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
 
-image::./m4/import-templates-list.png[]
+image::./m4/import-templates-list.png[width=60%]
 
 
 
