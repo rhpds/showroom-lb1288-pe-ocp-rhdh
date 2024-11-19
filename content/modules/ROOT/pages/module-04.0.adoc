@@ -5,27 +5,10 @@
 
 include::style.adoc[]
 
-== Objectives
 
-* Developer is assigned the task of enhancing an existing application
-* PE onboards  existing app (all the components, APIs etc) on Dev cluster through RHDH
-* Development commences in dev local environment. Checks is Dependency Analyser is clear of CVEs.
-* Once code is ready, Developer issues a PR from the feature branch of their fork to the project repo
+== Overview
 
-* More streamlined less ad-hoc approach to application deployment pipelines
-
-
-=== *Your lab environment*
-
-.+++<u>Click to view</u>+++
-[%collapsible]
-====
-include::env.adoc[]
-====
-
-== Introductions
-
-Red Hat Develper Hub has been setup, and taken for a test drive too. What is next is now to onboarding existing projects and applications, and then set them up for developer teams. 
+Red Hat Develper Hub has been setup, and taken for a test drive too. The next steps is to onboard existing projects and applications so that the developer teams can access them through one plane of glass. 
 
 In this section, we will shadow the platform team 
 
@@ -34,6 +17,15 @@ In this section, we will shadow the platform team
 . enabling auto-discovery of components
 
 And right after that, we will shadow an App Developer use all these tools to accelerate their developer process
+
+== Objectives
+
+* Developer is assigned the task of enhancing an existing application
+* PE onboards  existing app (all the components, APIs etc) on Dev cluster through RHDH
+* Development commences in dev local environment. Checks is Dependency Analyser is clear of CVEs.
+* Once code is ready, Developer issues a PR from the feature branch of their fork to the project repo
+
+* More streamlined less ad-hoc approach to application deployment pipelines
 
 
 == Shadowing the Platform Engineer
@@ -47,6 +39,7 @@ The Platform Engg. team focuses on the online web app of Parasol consisting of
 * `parasol-web` online web-app (Node + Angular)
 * `parasol-store` core services called parasol-store (Quarkus), and 
 * `parasol-db` core database (PostgreSQL)
+* `parasol-api` (OpenAPI Spec)
 
 Developer Hub identifies components based on a `catalog-info.yaml` file in the repository. This file contains details about 
 
