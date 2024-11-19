@@ -103,7 +103,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 
 * Navigate back to  *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
 
-image::./m4/import-templates-list.png[width=60%]
+image::./m4/import-templates-list.png[width=70%]
 
 
 
@@ -114,25 +114,19 @@ The templates described above need a couple of Dynamic Plugins.
 *What are Dynamic Plugins?* +
 The Red Hat Developer Hub  application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be sideloaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
 
-The import templates need 2 dynamic plugins that are described below.
+The import-existing-app/api templates need 2 dynamic plugins that are described below.
 
-```yaml
-- package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-module-utils-dynamic <1>
-  disabled: false
-- package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-gitlab-dynamic <2>
-  disabled: false
-```
-<1> This plugin helps in maniplating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported
-<2> This plugin helps to discover catalog files located in your GitLab instance. In the next step we will turn ON the auto-discovery feature.
+1. `roadiehq-scaffolder-backend-module-utils-dynamic`: This plugin helps in maniplating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported
+2. `backstage-plugin-catalog-backend-module-gitlab-dynamic`: This plugin helps to discover catalog files located in your GitLab instance. In the next step we will turn ON the auto-discovery feature.
 
 
 === Update RHDH config
 
-. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}rhdh/developer-hub-config/[rhdh/developer-hub-config repository on GitLab^].
-. Open the *values.yaml* file, then select *Edit > Edit single file*.
+. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^].
+. You should aready be in Edit mode of the `values.yaml` file.
 . Locate the comment `#PASTE_DYNAMIC_PLUGINS_HERE`
 . Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment
-
++
 [source,bash,role=execute,subs="attributes"]
 ----
       - package: ./dynamic-plugins/dist/backstage-plugin-techdocs
@@ -142,6 +136,38 @@ The import templates need 2 dynamic plugins that are described below.
 ----
 
 
-
+. Make sure the copied YAML aligns exactly
++
+image::./m4/copy-dynamic-plugin.png[width]
+. Don't Save yet. We need to next turn on auto-discovery
 
 == Turn auto-discovery
+. Locate the comment `#PASTE_AUTO_DISCOVERY_HERE`
+. Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment
++
+[source,bash,role=execute,subs="attributes"]
+----
+          gitlab:
+            envelop-catalog-entity:
+              host: {{ gitlab_host }}
+              filters:
+                branch: main
+              skipForkedRepos: true
+              entityFilename: envelope.yaml
+              catalogPath: /**/envelope.yaml
+              projectPattern: \b(envelop\w*)
+              excludeRepos: []
+              schedule:
+                frequency:
+                  seconds: 15
+                initialDelay:
+                  seconds: 15
+                timeout:
+                  minutes: 3
+----
+
+
+. Make sure the copied YAML aligns exactly
++
+image::./m4/copy-auto-discovery.png[width]
+. Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
