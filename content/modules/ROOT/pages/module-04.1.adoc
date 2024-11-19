@@ -129,9 +129,9 @@ The import-existing-app/api templates need 2 dynamic plugins that are described 
 +
 [source,bash,role=execute,subs="attributes"]
 ----
-      - package: ./dynamic-plugins/dist/backstage-plugin-techdocs
+      - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-module-utils-dynamic
         disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-techdocs
+      - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-gitlab-dynamic
         disabled: false
 ----
 
@@ -149,7 +149,7 @@ image::./m4/copy-dynamic-plugin.png[]
 ----
           gitlab:
             envelop-catalog-entity:
-              host: {{ gitlab_host }}
+              host: gitlab-gitlab.{openshift_cluster_ingress_domain}
               filters:
                 branch: main
               skipForkedRepos: true
