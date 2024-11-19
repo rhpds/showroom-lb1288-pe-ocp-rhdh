@@ -1,20 +1,15 @@
 :imagesdir: ../assets/images
 
 
-= Module 4.2:  PE: Onboard parasol-API
+= Module 4.2:  As a Platform Engineer: Onboard Parasol API and Parasol Store service
 
 include::style.adoc[]
 
 
-// * Platform config
-// ** Edit developer-hub-config to include 
-// ** Public
-
-
-== Import parasol-API
+== Import parasol-store-api OpenAPI 
 
 * As a first step, we will import the API so that this API can then associated to the App automatically.
-* From the *Create* section, click on the *Import* button of `Import API to Existing Catalog Envelope` template.
+* From the *Create* section, click on the *Choose* button of `Import API to Existing Catalog Envelope` template.
 
 image:m4/import-api-template.png[width=40%]
 
@@ -27,7 +22,7 @@ image:m4/import-api-template-1.png[]
 [cols="1,2,2", options="header"]
 |====
 | *Field*  | *Description* | *Value*
-| Gitlab Hostname | Keep default value |` https://gitlab-gitlab.{openshift_cluster_ingress_domain}`
+| Gitlab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
 | GitLab Organization | Enter value | `parasol`
 | Repository Name | Enter value. TODO: What is Envelope | `envelope-parasol-catalog`
 |====
@@ -82,8 +77,117 @@ image:m4/import-api-template-4.png[]
 * In a few minutes you will notice that this API automatically starts appearing in the APIs section
 
 * This is because of the Autodiscovery feature of RHDH 
-https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/k8s/ns/backstage/configmaps/backstage-developer-hub-app-config 
 
 
-	
 
+=== Gitlab Merge Requests 
+
+. The wizard is complete and you are presented with two Merge Requests
++
+image:m4/import-api-template-5.png[]
+. Click on each of the links to open the merge request, and complete the merge by click on the *Merge* button
+.. Open PR for update to catalog envelope
++
+image:m4/api-template-merge-component.png[]
+.. Open PR with catalog-info.yaml
++
+image:m4/api-template-merge-envelope.png[]
+
+=== View the component in RHDH API
+
+In a few minutes the API you just imported will start appearing in the API section of RHDH automatically. This is because of the auto-discover feature that you had enabled in the previous steps
++
+image:m4/view-api.png[]
+
+
+== Import parasol-store service
+
+* From the *Create* section, click on the *Choose* button of `Import Existing App to Catalog Envelope` template.
+
+image:m4/import-app-template.png[width=40%]
+
+Fill out the following values in the wizard similar by going through the steps. Refer to the following table for the data for each step
+
+=== Step 1: Import existing application, autocreate config-info.yaml and conditionally setup techdocs.
+
+image:m4/import-app-template-1.png[]
+[cols="1,2,2", options="header"]
+|====
+| *Field*  | *Description* | *Value*
+| Gitlab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
+| GitLab Organization | Enter value | `parasol`
+| Repository Name | Enter value. TODO: What is Envelope | `envelope-parasol-catalog`
+|====
+
+
+
+=== Step  2: Provide information about your existing app*
+
+image:m4/import-app-template-2.png[]
+
+[cols="1,2,2", options="header"]
+|====
+| GitLab Organization | This is the Git org where the repo resides| `parasol`
+| Repository Name | enter this value | `parasol-store` 
+| System Name | TODO: System  | `system:default/parasol-system`
+
+| Does this repo contain manifests? | This option conditionally auto-generates the labels which will be used to pull in CI/CD, Deployment and other details| Check the box
+| A Short Description Of This Component | Enter value | `API for parasol-store`
+| Type Of API | Choose from options | `openapi` 
+|====
+
+
+=== Step 3: Provide information about the new component for your existing app
+
+image:m4/import-app-template-3.png[]
+
+[cols="1,2,2", options="header"]
+|====
+| *Field*  | *Description* | *Value*
+| Component Name | This is how this API will be identified by Developer Hub | `parasol-store` 
+| Owner | Choose from dropdown | `group:default/dev1`
+| Type | The type of component. Well-known and common values: service, website, library. | service
+| A Short Description Of This Component |Enter a suitable description | Core services for the Parasol application
+| Check to add TechDocs | This option conditionally auto-generates TechDocs skeleton for the component | Check the box
+| Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known  values `experimental`, `production` and `deprecated`)
+
+ | `Production` 
+|====
+
+
+=== Step 4: Review & Create
+
+Review the fields, and click on the *Create* button
+
+image:m4/import-app-template-4.png[]
+
+=== Gitlab Merge Requests 
+
+. The wizard is complete and you are presented with two Merge Requests
++
+image:m4/import-app-template-5.png[]
+. Click on each of the links to open the merge request, and complete the merge by click on the *Merge* button
+.. Open PR for update to catalog envelope
++
+image:m4/app-template-merge-component.png[]
+.. Open PR with catalog-info.yaml
++
+image:m4/app-template-merge-envelope.png[]
+
+=== Explore the `parasol-store` component in RHDH Catalog section
+
+In a few minutes the `parasol-store` Component you just imported will start appearing in the Catalog section of RHDH automatically. This is because of the auto-discover feature that you had enabled in the previous steps
++
+image:m4/view-parasol-store-component.png[]
+
+Click on the `parasol-store` link to view the component. You can step through each of the tabs to see how RHDH provides a single pane of glass to see
+
+* Topology showing the deployments on OpenShift
+* CI showing *Pipeline Runs* is currently empty, because there are no pipeline runs yet.
+* CD tab showing the deployed components/systems using ArgoCD plugin
+* Api tab showing the Consume API `parasol-store-api`
+* View docs
+
+TODO: walk through catalog-info.yaml
+
+ 
