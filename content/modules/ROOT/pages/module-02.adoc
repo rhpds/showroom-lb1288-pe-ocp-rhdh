@@ -43,13 +43,9 @@ For the purposes of this workshop, we'll assume that your organization has stand
 
 For convenience, {product_name_rhdh} has been predeployed via OpenShift GitOps using the official https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/assembly-install-rhdh-ocp-helm[{product_name_rhdh} Helm Chart].
 
-Helpful links:
+{nbsp} +
 
-* OpenShift GitOps 
-
-TODO: Add note about the existing Argo CD application and link to the configuration repository in GitLab. Provide an overview of 
-
-.Click to view the lab environment details
+.Lab environment details (click to expand)
 [%collapsible]
 ====
 include::env.adoc[]
