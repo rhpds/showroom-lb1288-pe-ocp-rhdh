@@ -7,7 +7,13 @@ include::style.adoc[]
 
 A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will be in innerloop where the developer writes code, builds and tests it in a continuous loop.
 
-So as to help the developer continue to work on the enhancement, the Platform Engineer creates a new S/W template that creates a Sandbox enviroment for the Developer for a this `parasol-store` application. This template sets up a development pipeline as well so as it make it quick and easy, and production-like for a developer to just focus on coding rather than worrying about setting up the environment with the dependencies.
+So as to help the developer continue to work on the enhancement, the Platform Engineer creates a new S/W template that can setup a Sandbox enviroment for the Developer for this `parasol-store` application. The template performs a number of things
+
+* Creates GitOps/Argo manifests within the user's repo
+* Sets up a development pipelines to make innerloop easy 
+* The  Sandbox connects to the *developer* DB instance 
+
+With this, the Platform Engneers are able to provide an environment that allows the developer to just focus on coding. The templates make it easy for developers to set up sandboxes repeatedly in a self-service fashion.
 
 
 == Platform Engineer: Onboard parasol-store Dev Template
@@ -20,7 +26,7 @@ So as to help the developer continue to work on the enhancement, the Platform En
 +
 [source,bash,role=execute,subs="attributes"]
 ----
-https://gitlab-gitlab.(openshift_cluster_ingress_domain)/rhdh/parasol-store-dev-template/-/blob/main/template.yaml
+https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-template/-/blob/main/template.yaml
 ----
 * Click on *Analyze* button followed by clicking the *Import* button to import the template.
 
@@ -98,10 +104,9 @@ Of course in real-life the developer would actually code this section :)
 
 image:./m4/parasol-webide-paste-uncomment.png[width=80%]
 
-* Click on the *Source Control* menu on the left-hand (highlighted below), add a Commit Message *Chore: Added a new REST endoint getCategoryList*, and click the *Commit and push to "my-feature-branch"* button
+* Click on the *Source Control* menu on the left-hand (highlighted below), add a Commit Message *Chore: Added a new REST endpoint getCategoryList*, and click the *Commit and push to "my-feature-branch"* button
 
 image:./m4/parasol-webide-paste-commit.png[width=80%]
-
 
 === View component on RHDH
 * Navigate back to the component on RHDH and you will see the pipeline in progress in the CI tab 
@@ -116,7 +121,6 @@ image:./m4/parasol-innerloop-pipeline-ok.png[width=80%]
 NOTE: The first pipeline was triggered when you registered using the s.w template. and the next is by git commit
 
 * Once you are happy with the changes, you are now ready to create a merge request to the main branch.
-* This is the end of innerloop
 
-
+* This is the end of innerloop. In the next section, the developer will create merge request to the main branch, to initiate the outer loop
 

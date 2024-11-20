@@ -5,28 +5,40 @@
 
 include::style.adoc[]
 
+== Overview
 
-== Objectives
-
-
-* Make AI models available as APIs
-* Dev requests for access to the API endpoints securely and provided with API Key/Secret
-* PE monitors performance of the models and usage metrics
-
-== Your lab environment
-
-.Click to view the lab environment details
-[%collapsible]
-====
-include::env.adoc[]
-====
-
-== Introductions to Concepts
+* PE builds  a production-level pipelines (pre and post merge) based org needs  via Tekton
+* Developer creates a new merge-request, the pre-merge pipeline is triggered via Gitlab webhook, and the image is built
+* An application owner/team member reviews and accepts the merge-request.
+* This kicks off a post-merge pipeline which updates manifests in Dev and Stage env 
+* This also issues a merge-request to deploy to Production Environment. 
+* Once this prod merge-request is accepted, the application is deployed to production through GitOps/ArgoCD
 
 
-== Activity 1 
+== Developer creates merge request from feature-branch to main
+* From the feature-branch components's overview page on RHDH, click on View
+Click Create merge request button
+parasol-store-build-pr-open pipeline kicks
+View on RHDH under the parasol-store component
+
+View on OpenShift
+https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/pipelines/ns/parasol-build 
+
+Dev merges PR on GitLab
+
+parasol-store-build-pr-merged  pipeline kicks
+https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/k8s/ns/parasol-build/tekton.dev~v1~Pipeline/parasol-store-build-pr-merged 
 
 
-== Activity 2
+Can view on RHDH as well
 
-== Conclusion
+Dev and staging manifest gets updated and redeploy automatically to deploy image in dev and staging namespaces
+This pipeline ppens a merge request  for production manifests: https://gitlab-gitlab.apps.sno.sandbox1887.opentlc.com/parasol/parasol-store-manifests/-/merge_requests
+
+Merge the PR. This will trigger redeployment in PROD in the GitOps
+Navigate to the CD  tab of parasol-store
+
+In a few minutes, it will be deployed successfully
+
+
+

@@ -96,7 +96,7 @@ image:m4/api-template-merge-envelope.png[]
 === View the component in RHDH API
 
 In a few minutes the API you just imported will start appearing in the API section of RHDH automatically. This is because of the auto-discover feature that you had enabled in the previous steps
-+
+
 image:m4/view-api.png[]
 
 
@@ -177,7 +177,7 @@ image:m4/app-template-merge-envelope.png[]
 === Explore the `parasol-store` component in RHDH Catalog section
 
 In a few minutes the `parasol-store` Component you just imported will start appearing in the Catalog section of RHDH automatically. This is because of the auto-discover feature that you had enabled in the previous steps
-+
+
 image:m4/view-parasol-store-component.png[]
 
 Click on the `parasol-store` link to view the component. You can step through each of the tabs to see how RHDH provides a single pane of glass to see
