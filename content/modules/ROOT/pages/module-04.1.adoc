@@ -1,29 +1,23 @@
 :imagesdir: ../assets/images
 
 
-= Module 4.1: Create S/W Templates to Import Existing API/apps as a Platform Engineer
+= Module 4.1: Import Existing API/Apps
 
 include::style.adoc[]
 
-There are two templates created for importing existing sowftware into Developer Hub for APIs and apps/service. While it is possible to use the same template to import both of them, there are some key differences in the 
-=== *Your lab environment*
+There are two templates created for importing existing software into Developer Hub for APIs and apps/service. While it is possible to use the same template to import both of them, there are some key differences in the 
 
-.+++<u>Click to view</u>+++
-[%collapsible]
-====
-include::env.adoc[]
-====
 
-== 4.1 Explore and Import the `import-existing-api` Software Template
+== Explore and Import the `import-existing-api` Software Template
 
 
 Since you have already learnt how to create a Software Template, we will walk through a template that has been built for you. 
 
-Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^] to view the `import-existing-app` Software Template
+Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^, window="_gitlab"] to view the `import-existing-app` Software Template
 
 This template does the following things.
 
-*Section 1: Gather the following details*
+=== *Section 1: Gather the following details*
 
 
 ```yaml
@@ -46,7 +40,7 @@ This template does the following things.
         #Type of API - Options are openapi/grpc etc - which helps in visualising the API
         apiType:
     
-    # Additionals details about the existing API being imported as a component
+    # Additional details about the existing API being imported as a component
     - title: Provide information about the new component for your existing API
         componentName:
         componentOwner:
@@ -54,7 +48,7 @@ This template does the following things.
 
 ```
 
-*Section 2: Action steps*
+=== *Section 2: Action steps*
 
 Update the *_Envelope repo_* as a two step process
 
@@ -63,7 +57,7 @@ Update the *_Envelope repo_* as a two step process
 
 == Add the  the `import-api-catalog` Software Template to Developer Hub
 
-* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^])  and login using `pe1/{common_password}`
+* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="_rhdh"])  and login using `pe1/{common_password}`
 * Click on the Create menu on the left-hand navigation. 
 
 image::./m4/nav-create.png[]
@@ -87,7 +81,7 @@ image::./m4/nav-access-api-template.png[]
 * Let us now register the import-app template as well
 
 
-== 4.2 Explore and Import the `import-existing-app` Software Template
+== Explore and Import the `import-existing-app` Software Template
 
 * Repeat the same steps to import the `import-existing-app-template`
 * Click *Create* (left hand nav) ->  *Register Existing Component* (top right)
@@ -99,8 +93,77 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 ----
 * Review, and Import the template by clicking on the *Import* button
 
-== 4.3 View available templates
+== View available templates
 
 * Navigate back to  *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
 
-image::./m4/import-templates-list.png[]
+image::./m4/import-templates-list.png[width=70%]
+
+
+
+== Prepare Red Hat Developer Hub with the right Dynamic Plugin
+
+The templates described above need a couple of Dynamic Plugins. 
+
+*What are Dynamic Plugins?* +
+The Red Hat Developer Hub  application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
+
+The import-existing-app/api templates need 2 dynamic plugins that are described below.
+
+1. `roadiehq-scaffolder-backend-module-utils-dynamic`: This plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported
+2. `backstage-plugin-catalog-backend-module-gitlab-dynamic`: This plugin helps to discover catalog files located in your GitLab instance. In the next step we will turn ON the auto-discovery feature.
+
+
+=== Update RHDH config
+
+. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"].
+. You should already be in Edit mode of the `values.yaml` file.
+. Locate the comment `#PASTE_DYNAMIC_PLUGINS_HERE`
+. Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment
++
+[source,bash,role=execute,subs="attributes"]
+----
+      - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-module-utils-dynamic
+        disabled: false
+      - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-gitlab-dynamic
+        disabled: false
+----
+
+
+. Make sure the copied YAML aligns exactly
++
+image::./m4/copy-dynamic-plugin.png[]
+. Don't Save yet. We need to next turn on auto-discovery
+
+== Turn auto-discovery
+. Locate the comment `#PASTE_AUTO_DISCOVERY_HERE`
+. Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment
++
+[source,bash,role=execute,subs="attributes"]
+----
+          gitlab:
+            envelop-catalog-entity:
+              host: gitlab-gitlab.{openshift_cluster_ingress_domain}
+              filters:
+                branch: main
+              skipForkedRepos: true
+              entityFilename: envelope.yaml
+              catalogPath: /**/envelope.yaml
+              projectPattern: \b(envelope\w*)
+              excludeRepos: []
+              schedule:
+                frequency:
+                  seconds: 15
+                initialDelay:
+                  seconds: 15
+                timeout:
+                  minutes: 3
+----
+
+. Make sure the copied YAML aligns exactly
++
+image::./m4/copy-auto-discovery.png[]
+. This YAML snippet enables auto-discovery for all files names *envelope.yaml* [entityFilename] where the repo name starts with the word *envelop* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
+. Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
++
+image::./m4/commit-rhdh-config.png[]

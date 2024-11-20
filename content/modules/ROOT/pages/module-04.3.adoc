@@ -1,74 +1,126 @@
-* *Red Hat OpenShift*
-** URL: {openshift_cluster_console_url}[Console^]
-** login details:  admin/{common_password}
-
-* *Red Hat Developer Hub*
-** URL: https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^]
-** login details: 
-
-
-* *Gitlab*
-** URL: https://gitlab-gitlab.{openshift_cluster_ingress_domain}[click here^]
-** Login details: 
-** As Platform Engineer: pe1/{common_password} or  pe2/{common_password} 
-** As Developer: dev1/{common_password} or  dev2/{common_password} 
-
-* *Red Hat build of Keycloak*
-** *URL*: https://sso.{openshift_cluster_ingress_domain}[click here^]
-** *Credentials*
-- *username*: `admin`
-- *password*:
-*** Login into OpenShift, and get the password from `keycloak-initial-admin` Secret from the `keycloak` namespace. This can be accessed from {openshift_cluster_console_url}/k8s/ns/keycloak/secrets/keycloak-initial-admin[here^]. Copy  the `password` from the Data section at the bottom of the page
-* *Quay*
-** URL: https://quay.{openshift_cluster_ingress_domain}
-** login details: Acess the above URL and *Create Account*. It would be easier for you to recall the Quay account password if you use  dev1/{common_password}.
-
-
-* *GitOps*
-** URL: https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[click here^]
-** *username*: admin
-
-** *Password* 
-*** Fetch password store in secret `openshift-gitops-cluster` in namespace `openshift-gitops`. 
-*** {openshift_cluster_console_url}/k8s/ns/openshift-gitops/secrets/openshift-gitops-cluster[Click to access^].  
-*** Copy the `admin.password` from the bottom of the page.
-
-* *Project GitOps*
-** URL: https://rhdh-gitops-server-rhdh-gitops.{openshift_cluster_ingress_domain}[click here^]
-
-* *User login details for various activities*
-
-* *As Platform Engineer:* 
-** pe1/{common_password}
-** pe2/{common_password} 
-
-* *As Developer*
-*** dev1/{common_password}
-*** dev2/{common_password} 
 :imagesdir: ../assets/images
 
 
-= Module 4: Setup Developer Inner-Loop
+= Module 4.3: Setup Developer Sandbox
 
 include::style.adoc[]
 
-== [PE] 4.3 PE: Onboard parasol-store, parasol-web and parasol-db
+A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will where the developer writes test all changes in an isolated sandbox code in a continuous loop.
 
-Onboard parasol-store
-Provide information about Catalog Envelope
+So as to help the developer continue to work on the enhancement, the Platform Engineer creates a new S/W template that can setup a Sandbox environment for the Developer for this `parasol-store` application. The template performs a number of things
 
-Provide information about your existing app
+* Creates GitOps/Argo manifests within the user's repo
+* Sets up a development pipelines to make development easy 
+* The  Sandbox connects to the *developer* DB instance 
 
-Provide information about the new component for your existing app
-Dont forget to choose the parasol-store-api you imported in the previous step
-
-Review and Create
-Merge CRs
-
-Review the  envelope-parasol-catalog repo
+With this, the Platform Engineers are able to provide an environment that allows the developer to just focus on coding. The templates make it easy for developers to set up sandboxes repeatedly in a self-service fashion.
 
 
-In a few minutes, globex-store will also start appearing
+== Platform Engineer: Onboard parasol-store Dev Template
 
-You may now onboard globex-db and globex-web in a similar fashion
+* To help developers to be able to accelerate development through RHDH, the PE create a new template with  parasol-store-dev-template.
+
+=== Create a branch 
+* On RHDH, click on *Create* menu on the left-hand, and choose *Register Existing Component*.
+* Create a template by pasting this template URL into the *URL* textbox 
++
+[source,bash,role=execute,subs="attributes"]
+----
+https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-template/-/blob/main/template.yaml
+----
+* Click on *Analyze* button followed by clicking the *Import* button to import the template.
+
+== App Developer: Onboard parasol-store Dev Template
+
+* Click here to access the repo https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store
+* Click on the *(+)* button as shown in the screenshot below, and click on *New branch* menu
+
+image:./m4/create-branch.png[width=65%]
+
+* Ideally name the branch as `my-feature-branch` so as to make it easier to follow the rest of the instructions here
+
+image:./m4/create-branch-name.png[width=70%]
+
+=== Onboard branch using template
+
+* Click on *Create* menu on RHDH,  and you will see a the *Parasol Store Development* template. Click on *Choose*
+
+image:./m4/choose-parasol-store-template.png[width=30%]
+
+* In *Step 1: Provide Information for the sandbox deployment*
+** Enter the feature-branch name `my-feature-branch` or the name you have picked for your branch.
+
+image:./m4/choose-parasol-store-template-step1.png[]
+
+* In *Step 2: Provide database information*
+** Keep all the fields as it is - no need to make changes. The parameters are already set based on the OpenShift Service names from the existing deployments of the application
+
+image:./m4/choose-parasol-store-template-step2.png[]
+
+* Click on *Review*, and proceed to *Create*
+
+image:./m4/choose-parasol-store-template-step3.png[]
+
+* Click on the *Open component on catalog* link
+
+image:./m4/parasol-branch-component.png[]
+
+** You can see under the *CI* tab, a pipeline ia already running 
++
+image:./m4/parasol-branch-first-pipeline.png[]
++
+and turns green when it finishes the run successfully
++
+image:./m4/parasol-branch-first-pipeline-success.png[]
+
+** Explore the other tabs to see how RHDH allows a single pane of glass for the Developers' Sandbox environment
+
+* Click here if you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment
+
+image:./m4/parasol-branch-deployment1.png[]
+
+
+=== Enhancing the application
+
+* Click on the *<> View Source* button on the Component Overview page to open the source repository
+
+image:./m4/parasol-branch-component-overview.png[]
+
+* Switch to the *my-feature-branch* 
+
+image:./m4/parasol-switchbranch.png[]
+
+* Click on the Web IDE of the *my-feature-branch* to access the code via the inbuilt editor
+
+image:./m4/parasol-webide.png[]
+
+* From the IDE, type Ctrl+P to open the search menu and type *CatalogResource.java*.
+* The  `CatalogResource.java` has some code that has been commented out as shown below
+
+image:./m4/parasol-webide-paste-commented.png[width=80%]
+
+* Delete these two liine _DELETE THIS LINE TO UNCOMMENT CODE_ to uncomment and activate this code +
+Of course in real-life the developer would actually code this section :) 
+
+image:./m4/parasol-webide-paste-uncomment.png[width=80%]
+
+* Click on the *Source Control* menu on the left-hand (highlighted below), add a Commit Message *Chore: Added a new REST endpoint getCategoryList*, and click the *Commit and push to "my-feature-branch"* button
+
+image:./m4/parasol-webide-paste-commit.png[width=80%]
+
+=== View component on RHDH
+* Navigate back to the component on RHDH and you will see the pipeline in progress in the CI tab 
++
+
+image:./m4/parasol-innerloop-pipeline1.png[width=80%]
+
+* Very shortly, the pipeline will be marked as *Succeeded*
++
+image:./m4/parasol-innerloop-pipeline-ok.png[width=80%]
++
+NOTE: The first pipeline was triggered when you registered using the s.w template. and the next is by git commit
+
+* Once you are happy with the changes, you are now ready to create a merge request to the main branch.
+
+* This is the end of development within the Sandbox. In the next section, the developer will create merge request to the main branch, to initiate the outer loop
 
