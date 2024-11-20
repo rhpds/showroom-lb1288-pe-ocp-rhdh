@@ -131,7 +131,7 @@ techdocs:
     runIn: local
 ```
 
-Since you're using the {product_name_rhdh} Helm Chart to install and manage your internal developer portal, your configuration is nested under an `upstream.backstage.appConfig` property a Helm Values file. View your configuration by visiting your https://gitlab-gitlab.{openshift_cluster_ingress_domain}rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository on GitLab].
+Since you're using the {product_name_rhdh} Helm Chart to install and manage your internal developer portal, your configuration is nested under an `upstream.backstage.appConfig` property a Helm Values file. View your configuration by visiting your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository on GitLab].
 
 Your workshop environment has been pre-configured such that this repository in GitLab is continuously monitored and deployed using a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps] (login using the `admin` user and the password found in the https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/openshift-gitops/secrets/openshift-gitops-cluster[openshift-gitops-cluster Secret]).
 
@@ -161,7 +161,7 @@ You previously learned that the Software Catalog contains Entities, and saw a sa
 
 Another option for importing and synchronizoing Entities is via _providers_. Providers are typically provided by way of plugins, and are configured using the `catalog.providers` entry in the `appConfig`. Let's use the Keycloak plugin to synchronize Users and Groups to your Software Catalog.
 
-. View your https://gitlab-gitlab.apps.cluster-6qqts.dynamic.redhatworkshops.io/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in the developer-hub-config repository].
+. View your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in the developer-hub-config repository].
 . Select **Edit > Edit single file**.
 . Find the `janus-idp-backstage-plugin-keycloak-backend-dynamic` package under the `dynamic.plugins` field, and set `disabled: false`.
 . Uncomment the `keycloakOrg` configuration within the `appConfig.catalog.providers` block.
@@ -217,7 +217,7 @@ The high-level steps involve:
 
 === Configure the OpenID Connect Authentication Provider
 
-. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}rhdh/developer-hub-config/[rhdh/developer-hub-config repository on GitLab].
+. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/[rhdh/developer-hub-config repository on GitLab].
 . Open the *values.yaml* file, then select *Edit > Edit single file*.
 . Locate the `appConfig.auth` object in the YAML.
 . Delete the `auth.providers.guest` configuration.
@@ -256,7 +256,7 @@ https://npmjs.com/package/@backstage/plugin-catalog-backend-module-gitlab/v/0.3.
 
 To install and configure this plugin:
 
-. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository] in your GitLab instance.
+. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository] in your GitLab instance.
 . Select *Edit *Edit single file*.
 . Add the following block to the `dynamic.plugins` section of the YAML:
 +

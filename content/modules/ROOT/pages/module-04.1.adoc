@@ -112,18 +112,18 @@ image::./m4/import-templates-list.png[width=70%]
 The templates described above need a couple of Dynamic Plugins. 
 
 *What are Dynamic Plugins?* +
-The Red Hat Developer Hub  application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be sideloaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
+The Red Hat Developer Hub  application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
 
 The import-existing-app/api templates need 2 dynamic plugins that are described below.
 
-1. `roadiehq-scaffolder-backend-module-utils-dynamic`: This plugin helps in maniplating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported
+1. `roadiehq-scaffolder-backend-module-utils-dynamic`: This plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported
 2. `backstage-plugin-catalog-backend-module-gitlab-dynamic`: This plugin helps to discover catalog files located in your GitLab instance. In the next step we will turn ON the auto-discovery feature.
 
 
 === Update RHDH config
 
 . Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^].
-. You should aready be in Edit mode of the `values.yaml` file.
+. You should already be in Edit mode of the `values.yaml` file.
 . Locate the comment `#PASTE_DYNAMIC_PLUGINS_HERE`
 . Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment
 +

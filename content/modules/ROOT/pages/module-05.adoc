@@ -16,9 +16,18 @@ include::style.adoc[]
 
 
 == Developer creates merge request from feature-branch to main
-* From the feature-branch components's overview page on RHDH, click on View
-Click Create merge request button
-parasol-store-build-pr-open pipeline kicks
+* From the feature-branch components's overview page on RHDH, click on *View Source* link to access the git repo of this component.
+* You will see an alert asking you to create a *merge request*
++
+image:./m5/view-merge-alert.png[]
++
+NOTE: If you don't see this alert, you can access this via the *Code -> Merge Requests* left-hand menu, and proceed to click on the *New merge request* button
+
+* In the *New merge request* page, continue to create this merge request by clicking on the *Create merge request* button at the bottom of the page
++
+image:./m5/create-merge-alert.png[width=60%]
+
+* parasol-store-build-pr-open pipeline kicks
 View on RHDH under the parasol-store component
 
 View on OpenShift
