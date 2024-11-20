@@ -1,29 +1,23 @@
 :imagesdir: ../assets/images
 
 
-= Module 4.1: Create S/W Templates to Import Existing API/apps as a Platform Engineer
+= Module 4.1: Import Existing API/Apps
 
 include::style.adoc[]
 
-There are two templates created for importing existing sowftware into Developer Hub for APIs and apps/service. While it is possible to use the same template to import both of them, there are some key differences in the 
-=== *Your lab environment*
+There are two templates created for importing existing software into Developer Hub for APIs and apps/service. While it is possible to use the same template to import both of them, there are some key differences in the 
 
-.+++<u>Click to view</u>+++
-[%collapsible]
-====
-include::env.adoc[]
-====
 
 == Explore and Import the `import-existing-api` Software Template
 
 
 Since you have already learnt how to create a Software Template, we will walk through a template that has been built for you. 
 
-Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^] to view the `import-existing-app` Software Template
+Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^, window="_gitlab"] to view the `import-existing-app` Software Template
 
 This template does the following things.
 
-*Section 1: Gather the following details*
+=== *Section 1: Gather the following details*
 
 
 ```yaml
@@ -46,7 +40,7 @@ This template does the following things.
         #Type of API - Options are openapi/grpc etc - which helps in visualising the API
         apiType:
     
-    # Additionals details about the existing API being imported as a component
+    # Additional details about the existing API being imported as a component
     - title: Provide information about the new component for your existing API
         componentName:
         componentOwner:
@@ -54,7 +48,7 @@ This template does the following things.
 
 ```
 
-*Section 2: Action steps*
+=== *Section 2: Action steps*
 
 Update the *_Envelope repo_* as a two step process
 
@@ -63,7 +57,7 @@ Update the *_Envelope repo_* as a two step process
 
 == Add the  the `import-api-catalog` Software Template to Developer Hub
 
-* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^])  and login using `pe1/{common_password}`
+* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="_rhdh"])  and login using `pe1/{common_password}`
 * Click on the Create menu on the left-hand navigation. 
 
 image::./m4/nav-create.png[]
@@ -122,7 +116,7 @@ The import-existing-app/api templates need 2 dynamic plugins that are described 
 
 === Update RHDH config
 
-. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^].
+. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"].
 . You should already be in Edit mode of the `values.yaml` file.
 . Locate the comment `#PASTE_DYNAMIC_PLUGINS_HERE`
 . Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment

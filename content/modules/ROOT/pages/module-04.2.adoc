@@ -17,9 +17,13 @@ image:m4/import-api-template.png[width=40%]
 
 Fill out the following values and click *Next*
 
+.Click to view a screenshot
+[%collapsible]
+====
 image:m4/import-api-template-1.png[]
+====
 
-[cols="1,2,2", options="header"]
+[cols="1,1,2", options="header"]
 |====
 | *Field*  | *Description* | *Value*
 | Gitlab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
@@ -30,7 +34,12 @@ image:m4/import-api-template-1.png[]
 === Step 2: Provide information about your existing API
 
 Fill out the following values and click *Next*
+
+.Click to view a screenshot
+[%collapsible]
+====
 image:m4/import-api-template-2.png[]
+====
 
 [cols="1,2,2", options="header"]
 |====
@@ -47,14 +56,19 @@ image:m4/import-api-template-2.png[]
 === Step 3: Provide information about the new component for your existing app
 
 Fill out the following values and click *Next*
+
+.Click to view a screenshot
+[%collapsible]
+====
 image:m4/import-api-template-3.png[]
+====
 
 [cols="1,2,2", options="header"]
 |====
 | *Field*  | *Description* | *Value*
 | Component Name | This is how this API will be identified by Developer Hub | `parasol-store-api` 
 | Owner | Choose from dropdown | `group:default/dev1`
-| A Short Description Of This Component |Enter a suitable description | Open API specification for the parasol-store application
+| A Short Description Of This Component |Enter a suitable description | `Open API specification for the parasol-store application`
 | Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known  values `experimental`, `production` and `deprecated`)
 
  | `Production` 
@@ -65,7 +79,12 @@ image:m4/import-api-template-3.png[]
 
 Review the fields, and click on the *Create* button
 
+.Click to view a screenshot
+[%collapsible]
+====
 image:m4/import-api-template-4.png[]
+====
+
 
 * Click on both the URLs and merge the requests
 
@@ -111,7 +130,7 @@ Fill out the following values in the wizard similar by going through the steps. 
 === Step 1: Import existing application, autocreate config-info.yaml and conditionally setup techdocs.
 
 image:m4/import-app-template-1.png[]
-[cols="1,2,2", options="header"]
+[cols="1,1,2", options="header"]
 |====
 | *Field*  | *Description* | *Value*
 | Gitlab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
@@ -121,7 +140,7 @@ image:m4/import-app-template-1.png[]
 
 
 
-=== Step  2: Provide information about your existing app*
+=== Step  2: Provide information about your existing app
 
 image:m4/import-app-template-2.png[]
 
