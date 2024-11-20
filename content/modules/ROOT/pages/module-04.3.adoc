@@ -5,56 +5,115 @@
 
 include::style.adoc[]
 
+A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will be in innerloop where the developer writes code, builds and tests it in a continuous loop.
+
+So as to help the developer continue to work on the enhancement, the Platform Engineer creates a new S/W template that creates a Sandbox enviroment for the Developer for a this `parasol-store` application. This template sets up a development pipeline as well so as it make it quick and easy, and production-like for a developer to just focus on coding rather than worrying about setting up the environment with the dependencies.
+
+
 == Platform Engineer: Onboard parasol-store Dev Template
 
-. To help developers to be able to accelerate development through RHDH, the PE create a new template with  parasol-store-dev-template.
-. Click on *Create* and Regiser Existing Component with this template
-+
+* To help developers to be able to accelerate development through RHDH, the PE create a new template with  parasol-store-dev-template.
+
+=== Create a branch 
+* On RHDH, click on *Create* menu on the left-hand, and choose *Regiser Existing Component*.
+* Create a template by pasting this template URL into the *URL* textbox 
 +
 [source,bash,role=execute,subs="attributes"]
 ----
-https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-template/-/blob/main/template.yaml
+https://gitlab-gitlab.(openshift_cluster_ingress_domain)/rhdh/parasol-store-dev-template/-/blob/main/template.yaml
 ----
-
+* Click on *Analyze* button followed by clicking the *Import* button to import the template.
 
 == App Developer: Onboard parasol-store Dev Template
 
+* Click here to access the repo https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store
+* Click on the *(+)* button as shown in the screenshot below, and click on *New branch* menu
 
-* Creates a branch of `parasol-store`  on gitlab
-https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store with name of the branch as `my-feature-branch`
+image:./m4/create-branch.png[width=65%]
 
-image:./m4/create-branch.png[]
+* Ideally name the branch as `my-feature-branch` so as to make it easier to follow the rest of the instructions here
 
-image:./m4/create-branch-name.png[]
+image:./m4/create-branch-name.png[width=70%]
 
-* Launch `parasol-store-dev-template` with the branch name; provided with a namespace - `parasol-store` 
-* In Step 1: Provide Information for the sandbox deployment
-** Parasol Store Development - provide feature branch name my-feature-branch
-* In Step 2: Provide database information
-** Keep all the fields as it is - no need to make changes
+=== Onboard branch using template
+
+* Click on *Create* menu on RHDH,  and you will see a the *Parasol Store Development* template. Click on *Choose*
+
+image:./m4/choose-parasol-store-template.png[width=30%]
+
+* In *Step 1: Provide Information for the sandbox deployment*
+** Enter the feature-branch name `my-feature-branch` or the name you have picked for your branch.
+
+image:./m4/choose-parasol-store-template-step1.png[]
+
+* In *Step 2: Provide database information*
+** Keep all the fields as it is - no need to make changes. The parameters are already set based on the OpenShift Service names from the existing deployments of the application
+
+image:./m4/choose-parasol-store-template-step2.png[]
 
 * Click on *Review*, and proceed to *Create*
 
-* Open component
+image:./m4/choose-parasol-store-template-step3.png[]
+
+* Click on the *Open component on catalog* link
 
 image:./m4/parasol-branch-component.png[]
-** You can see under the *CI* tab, a pipeline being run
 
+** You can see under the *CI* tab, a pipeline ia already running 
++
 image:./m4/parasol-branch-first-pipeline.png[]
-
++
+and turns green when it finishes the run successfully
++
 image:./m4/parasol-branch-first-pipeline-success.png[]
 
-** You can see under the *Topology* tab, that the pod is running successfully
+** Explore the other tabs to see how RHDH allows a single pane of glass for the Developers' innerloop
 
-* View the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps~v1~Deployment
+* Click here if you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment
 
 image:./m4/parasol-branch-deployment1.png[]
 
-* Makes a change  - push to gitlab; You will see a new pipeline triggered
 
-* The first pipeline was triggered when you registered using the s.w template. and the next is by git commit
+=== Enhancing the application
 
-* You can view the pipeline on OpenShift as well https://console-openshift-console.{openshift_cluster_ingress_domain}/pipelines/ns/parasol-store-my-feature-branch 
+* Click on the *<> View Source* button on the Component Overview page to open the source repository
+
+image:./m4/parasol-branch-component-overview.png[]
+
+* Switch to the *my-feature-branch* 
+
+image:./m4/parasol-switchbranch.png[]
+
+* Click on the Web IDE of the *my-feature-branch* to access the code via the inbuilt editor
+
+image:./m4/parasol-webide.png[]
+
+* From the IDE, type Ctrl+P to open the search menu and type *CatalogResource.java*.
+* The  `CatalogResource.java` has some code that has been commented out as shown below
+
+image:./m4/parasol-webide-paste-commented.png[width=80%]
+
+* Delete these two liine _DELETE THIS LINE TO UNCOMMENT CODE_ to incomment and activiate this code +
+Of course in real-life the developer would actually code this section :) 
+
+image:./m4/parasol-webide-paste-uncomment.png[width=80%]
+
+* Click on the *Source Control* menu on the left-hand (highlighted below), add a Commit Message *Chore: Added a new REST endoint getCategoryList*, and click the *Commit and push to "my-feature-branch"* button
+
+image:./m4/parasol-webide-paste-commit.png[width=80%]
+
+
+=== View component on RHDH
+* Navigate back to the component on RHDH and you will see the pipeline in progress in the CI tab 
++
+
+image:./m4/parasol-innerloop-pipeline1.png[width=80%]
+
+* Very shortly, the pipeline will be marked as *Succeeded*
++
+image:./m4/parasol-innerloop-pipeline-ok.png[width=80%]
++
+NOTE: The first pipeline was triggered when you registered using the s.w template. and the next is by git commit
 
 * Once you are happy with the changes, you are now ready to create a merge request to the main branch.
 * This is the end of innerloop
