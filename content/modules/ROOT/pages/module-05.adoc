@@ -15,8 +15,8 @@ include::style.adoc[]
 * Once this prod merge-request is accepted, the application is deployed to production through GitOps/ArgoCD
 
 
-== Developer creates merge request from feature-branch to main
-* From the feature-branch components's overview page on RHDH, click on *View Source* link to access the git repo of this component.
+== As Developer: Merge request from feature-branch to main
+* On RHDH, navigate to the Catalog menu, and access the sandbox component you had created. This will be From the feature-branch components's overview page on RHDH, click on *View Source* link to access the git repo of this component.
 * You will see an alert asking you to create a *merge request*
 +
 image:./m5/view-merge-alert.png[]
@@ -28,9 +28,10 @@ NOTE: If you don't see this alert, you can access this via the *Code -> Merge Re
 image:./m5/create-merge-alert.png[width=60%]
 
 * parasol-store-build-pr-open pipeline kicks
-View on RHDH under the parasol-store component
 
-View on OpenShift
+* View on RHDH under the parasol-store component
+
+* View on OpenShift
 https://console-openshift-console.apps.sno.sandbox1887.opentlc.com/pipelines/ns/parasol-build 
 
 Dev merges PR on GitLab

@@ -107,10 +107,10 @@ image:m4/import-api-template-5.png[]
 . Click on each of the links to open the merge request, and complete the merge by click on the *Merge* button
 .. Open PR for update to catalog envelope
 +
-image:m4/api-template-merge-component.png[]
+image:m4/api-template-merge-component.png[width=70%]
 .. Open PR with catalog-info.yaml
 +
-image:m4/api-template-merge-envelope.png[]
+image:m4/api-template-merge-envelope.png[width=70%]
 
 === View the component in RHDH API
 
@@ -188,10 +188,10 @@ image:m4/import-app-template-5.png[]
 . Click on each of the links to open the merge request, and complete the merge by click on the *Merge* button
 .. Open PR for update to catalog envelope
 +
-image:m4/app-template-merge-component.png[]
+image:m4/app-template-merge-component.png[width=70%]
 .. Open PR with catalog-info.yaml
 +
-image:m4/app-template-merge-envelope.png[]
+image:m4/app-template-merge-envelope.png[width=70%]
 
 === Explore the `parasol-store` component in RHDH Catalog section
 
