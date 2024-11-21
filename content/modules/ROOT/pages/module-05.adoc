@@ -58,7 +58,8 @@ image:./m5/parasol-store-argo-dev.png[]
 ** *Staging Argo*
 +
 image:./m5/parasol-store-argo-staging.png[]
-[NOTE] You can click on the `parasol-store` deploy highlighted to view the deployment YAML of both dev and staging, and you can verify they are both pointing to the same Quay image 
++
+NOTE: You can click on the `parasol-store` deploy highlighted to view the deployment YAML of both dev and staging, and you can verify they are both pointing to the same Quay image 
 
 
 == Updates to Prod Argo Manifests
@@ -93,7 +94,7 @@ image:./m5/parasol-store-prod-argo-sync-progress.png[width=70%]
 +
 image:./m5/parasol-store-prod-argo-sync-done.png[width=70%]
 +
-[NOTE] In ArgoCD, open the *parasol-store* deployment, and you can validate that the image deployed on Prod is the same image as in Dev and Staging that we saw earlier.
+NOTE: In ArgoCD, open the *parasol-store* deployment, and you can validate that the image deployed on Prod is the same image as in Dev and Staging that we saw earlier.
 
 
 == Conclusion
