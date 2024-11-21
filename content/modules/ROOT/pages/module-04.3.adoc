@@ -34,11 +34,11 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-
 
 * Click here to access the repo https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store
 * Click on the *(+)* button as shown in the screenshot below, and click on *New branch* menu
-
++
 image:./m4/create-branch.png[width=65%]
 
-* Ideally name the branch as `my-feature-branch` so as to make it easier to follow the rest of the instructions here
-
+* Name the branch as `my-feature-branch` so as to make it easier to follow the rest of the instructions
++
 image:./m4/create-branch-name.png[width=70%]
 
 === Onboard branch using template
@@ -75,43 +75,37 @@ image:./m4/parasol-branch-first-pipeline-success.png[]
 
 ** Explore the other tabs to see how RHDH allows a single pane of glass for the Developers' Sandbox environment
 
-* Click here if you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment
+* If you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment[click here^, window="_console"]
 
 image:./m4/parasol-branch-deployment1.png[]
 
 
 === Enhancing the application
 
-* Click on the *<> View Source* button on the Component Overview page to open the source repository
-
+* Click on the *< > View Source* button on the Component Overview page to open the source repository
++
 image:./m4/parasol-branch-component-overview.png[]
 
 * Switch to the *my-feature-branch* 
-
++
 image:./m4/parasol-switchbranch.png[]
 
 * Click on the Web IDE of the *my-feature-branch* to access the code via the inbuilt editor
-
++
 image:./m4/parasol-webide.png[]
 
-* From the IDE, type Ctrl+P to open the search menu and type *CatalogResource.java*.
-* The  `CatalogResource.java` has some code that has been commented out as shown below
+* For the sake of the workshop, let us make some changes to the README file. +
+E.g. add this text to the README file `This service store provides the core services of Parasol web-app`
 
-image:./m4/parasol-webide-paste-commented.png[width=80%]
-
-* Delete these two liine _DELETE THIS LINE TO UNCOMMENT CODE_ to uncomment and activate this code +
-Of course in real-life the developer would actually code this section :) 
-
-image:./m4/parasol-webide-paste-uncomment.png[width=80%]
-
-* Click on the *Source Control* menu on the left-hand (highlighted below), add a Commit Message *Chore: Added a new REST endpoint getCategoryList*, and click the *Commit and push to "my-feature-branch"* button
-
+* Click on the *Source Control* menu on the left-hand (highlighted below), add a Commit Message *Chore: Improved README file*, and click the *Commit and push to "my-feature-branch"* button
++
 image:./m4/parasol-webide-paste-commit.png[width=80%]
+* You can now close the gitlab browser.
 
 === View component on RHDH
-* Navigate back to the component on RHDH and you will see the pipeline in progress in the CI tab 
+* In RHDH, navigate to the `parasol-store` component. You can https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store/ci[click here^, window="_rhdh"] to access it.
+*  Access the CI tab  to view the pipeline
 +
-
 image:./m4/parasol-innerloop-pipeline1.png[width=80%]
 
 * Very shortly, the pipeline will be marked as *Succeeded*

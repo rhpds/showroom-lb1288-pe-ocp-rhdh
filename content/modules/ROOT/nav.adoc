@@ -14,7 +14,5 @@
 
 * xref:module-06.adoc[6. Observability: Security]
 
-// * xref:module-07.adoc[7. Continuous Platform improvements]
-
 * xref:env.adoc[My lab environment details]
 
