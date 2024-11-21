@@ -167,3 +167,16 @@ image::./m4/copy-auto-discovery.png[]
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
 +
 image::./m4/commit-rhdh-config.png[]
+
+== Refresh RHDH on Argo
+
+Argo is tuned to pull changes from the repo every two minutes or so. +
+Instead of waiting that to kick in, 
+
+* https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[click here^, window="_argo"] to login 
+* *username*: admin
+* *Password* : {openshift_gitops_password}
++
+image::./m4/rhdh-argo-refresh.png[]
+* Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will Sync the content from Gitlab.
+* The card will turn green when it is ready. Go ahead and refresh RHDH
