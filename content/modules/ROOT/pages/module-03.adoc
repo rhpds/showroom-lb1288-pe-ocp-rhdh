@@ -1,33 +1,197 @@
 :imagesdir: ../assets/images
 
 
-= Module 3: Test drive RHDH
+= Module 3: Software Templates and Developer Experience
 
 include::style.adoc[]
 
-== Objectives
+== Overview
 
-* PE creates a simple s/w template 
-* Beta-Developer takes the IDP for a test drive with a simple software template
-* Beta-Developer get rapidly familiar with the org's env with feature of RHDH
-* Developer has access to only what is allowed based on RBAC
+Software Templates in {product_name_rhdh} enable your team(s) to create Components and - through the use of "actions" provided by plugins - create resources in other systems such as your GitLab and OpenShift GitOps instances. Each Template is stored as an Entity, meaning you can import them similar to any other Entity.
 
+Platform engineers will typically be the authors of Templates, and use them to create "golden paths" that follow best-practices and use approved processes and tooling. Development teams will be the consumers of Templates to create new software. Using Templates reduces cognitive load on the development teams by allowing them to focus on development tasks, while platform concerns are addressed by the template.
 
+Templates are defined using YAML, but are rendered as a rich form in the {product_name_rhdh} UI when used by development teams.
 
-== Your lab environment
+== Module Objectives
 
-.Click to view the lab environment details
+* Create a Template (as the Platform Engineer)
+* Register the Template in the Software Catalog
+* Create a new Component, GitLab Repository, and GitOps Application from the Template (as a Developer)
+
+== Workshop Environment
+
+Your workshop environment has been preconfigured with the following software and platform components:
+
+* Red Hat Build of Keycloak
+* OpenShift GitOps
+* OpenShift Pipelines
+* GitLab
+
+For the purposes of this workshop, we'll assume that your organization has standardized on these tools, and it's your objective as the platform engineer to integrate them with {product_name_rhdh}.
+
+For convenience, {product_name_rhdh} has been predeployed via OpenShift GitOps using the official https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/assembly-install-rhdh-ocp-helm[{product_name_rhdh} Helm Chart^, window="_content"]. Specifically, a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap] Application has been configured to deploy the official {product_name_rhdh} Helm Chart along with a set prerequisite Secrets and ConfigMaps.
+
+{nbsp} +
+
+.Lab environment details (click to expand)
 [%collapsible]
 ====
 include::env.adoc[]
 ====
 
-== Introductions to Concepts
+== Introduction to Concepts
 
+For convenience, we've provided a sample Template in the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple] repository in GitLab. Let's explore the Template structure.
 
-== Activity 1 
+=== Template YAML Structure
 
+At a basic level, the Template is similar to the Component Entity you encounteed in the _catalog-info.yaml_ in the prior module; resembling a Kubernetes Custom Resource Definition.
 
-== Activity 2
+```yaml
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: quarkus-web-template
+  title: Quarkus Service
+  description: Create a simple microservice using Quarkus with ArgoCD
+  tags:
+    - recommended
+    - java
+    - quarkus
+    - maven
+spec:
+  owner: rhdh
+  type: service
+  # other fields removed for brevity
+```
+
+Where the Template Entity differs is that it contains additional fields:
+
+* spec.parameters
+* spec.steps
+* spec.output
+
+=== Parameters
+
+The _spec.parameters_ field is used by platform engineers to enable developers to customise the output of the Template. Typically this customisation will be limited to parameters such as the name of the Component, Java package name, repository name, etc.
+
+Here's an example of the parameters:
+
+```yaml
+spec:
+  parameters:
+    # Parameters can be spread across multipe forms/pages, each
+    # with their own titles and set of parameters
+    - title: Provide Information for Application
+      required:
+        - component_id
+        - java_package_name
+      properties:
+        component_id:
+          title: Name
+          type: string
+          description: Unique name of the component
+          default: my-quarkus-app
+          ui:field: EntityNamePicker
+          ui:autofocus: true
+          maxLength: 18
+        group_id:
+          title: Group Id
+          type: string
+          default: com.redhat.rhdh
+          description: Maven Group Id
+```
+
+You might have recognized this as a https://json-schema.org/[JSON Schema] structure. By using JSON Schema you can define the parameters that are supported by the template, and more importantly, enforce validation on those parameters. The rendering of the form in the {product_name_rhdh} UI is managed by the https://github.com/rjsf-team/react-jsonschema-form[react-jsonschema-form] library.
+
+The properties that have a `ui` prefix might have piqued your interest. These are special properties that provide instructions to the form, for example to enable autocomplete or autofocus certain form fields when it is diplayed in the {product_name_rhdh} UI.
+
+=== Steps
+
+Once a developer has entered and confirmed their parameters, the Template is executed by the scaffolder - a service within the {product_name_rhdh} backend.
+
+The scaffolder executes the actions defined in _spec.steps_, for example to publish code to a Git repository and register it in the Software Catalog:
+
+```yaml
+spec:
+  steps:
+  - id: publish
+    name: Publish
+    # Use the publish action provided by the GitLab plugin
+    action: publish:gitlab
+    input:
+      # Construct a URL to the repository using the provied hostname, logged in
+      # username, and provided component_id
+      repoUrl: "${{ parameters.repo.host }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
+      repoVisibility: public
+      defaultBranch: main
+      sourcePath: ./${{ user.entity.metadata.name }}-${{parameters.component_id}}
+  - id: register
+    name: Register
+    # Register a new component using the built-in register action
+    action: catalog:register
+    input:
+      repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+      catalogInfoPath: "/catalog-info.yaml"
+```
+
+== Activity: Import the Software Template
+
+The Software Template you'll be using in this activity is stored in the _template.yaml_ file in the https://gitlab-gitlab.apps.cluster-kccz6.dynamic.redhatworkshops.io/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple, window="_blank"] repository in GitLab.
+
+Register this template using the {product_name_rhdh} UI:
+
+. Login to your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}].
+. Select *Create* from the sidemenu.
+. Click the *Register Existing Component* button.
++
+image::./m3/rhdh-catalog-create.png[The empty Create UI]
+. Enter the following URL in the *Select URL* field:
++
+[source,subs=attributes+]
+----
+https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple/-/blob/main/template.yaml?ref_type=heads
+----
+. You'll be asked to review the entities being imported, as shown:
++
+image::./m3/rhdh-register-template.png[Registering and Entity]
+. Click *Import* when prompted.
+
+Return to the Software Catalog and set the _Kind_ filter to _Template_. Your new *Quarkus Service* template will be listed. Clicking on the template reveals that it looks a lot like the Component Entity you imported in th previous module.
+
+== Activity: Developer On-Boarding Example
+
+Until now, you've been acting in the role of a platform engineer. Let's switch persona to that of a developer. Open a private browsing session, or sign out of {product_name_rhdh} using the Settings screen as shown.
+
+image::./m3/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
+
+Login to {product_name_rhdh} as `dev1` using the password `{common_password}`.
+
+TODO: Quay sign up using TechDocs guide....
+
+== Activity: Create a new Component from the Template
+
+Create a new software Component and supporting infrastructure using the *Quarkus Service* template that was created by the platform engineer:
+
+. Make sure you've logged in to {product_name_rhdh} as `dev1` using the password `{common_password}`.
+. Select the *Create* item from the sidemenu.
+. Click the *Choose* button on the *Quarkus Service*.
++
+image:
+. You'll be prompted to enter a set of application parameters. Thankfully defaults are provided by the template, so you can simply click *Next*.
+. When prompted to *Provide Image Registry Information*:
+  * Select the *Quay* image registry.
+  * Enter your Quay password: `{common_password}`
+  * Click *Next*.
+. Select the default *Repository Location* and click *Review*.
+
+image::./m3/rhdh-template-review.png[Reviewing template parameters in {product_name_rhdh}]
+
+Confirm you're satisfied with your parameters and click *Create*. After a few moments the process should be finished, and you'll see a screen with a series of green checkmarks.
+
+image::./m3/rhdh-template-success.png[A successful template run in {product_name_rhdh}]
+
+== Activity
 
 == Conclusion
