@@ -118,51 +118,17 @@ The import-existing-app/api templates need 2 dynamic plugins that are described 
 
 . Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"].
 . You should already be in Edit mode of the `values.yaml` file.
-. Locate the comment `#PASTE_DYNAMIC_PLUGINS_HERE`
-. Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment
+. Locate the comment *# ============ DYNAMIC_PLUGINS_IMPORT_COMPONENTS ============ #*
+. Highlight the YAML as shown in the below screenshot, and comment those lines. Type *Ctrl+ /* command to do so.
 +
-[source,bash,role=execute,subs="attributes"]
-----
-      - package: ./dynamic-plugins/dist/roadiehq-scaffolder-backend-module-utils-dynamic
-        disabled: false
-      - package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-gitlab-dynamic
-        disabled: false
-----
-
-
-. Make sure the copied YAML aligns exactly
-+
-image::./m4/copy-dynamic-plugin.png[]
+image::./m4/uncomment-dynamic-plugin.png[width=60%]
 . Don't Save yet. We need to next turn on auto-discovery
 
 == Turn auto-discovery
-. Locate the comment `#PASTE_AUTO_DISCOVERY_HERE`
-. Move cursor to the beginning of the line (hit backspace repeatedly) and paste the following YAML snippet below the comment
+. Locate the comment *# ============ AUTO_DISCOVERY_IMPORT_COMPONENTS ============ #*
+. Highlight the YAML as shown in the below screenshot, and comment those lines. Type *Ctrl+ /* command to do so.
 +
-[source,bash,role=execute,subs="attributes"]
-----
-          gitlab:
-            envelop-catalog-entity:
-              host: gitlab-gitlab.{openshift_cluster_ingress_domain}
-              filters:
-                branch: main
-              skipForkedRepos: true
-              entityFilename: envelope.yaml
-              catalogPath: /**/envelope.yaml
-              projectPattern: \b(envelope\w*)
-              excludeRepos: []
-              schedule:
-                frequency:
-                  seconds: 15
-                initialDelay:
-                  seconds: 15
-                timeout:
-                  minutes: 3
-----
-
-. Make sure the copied YAML aligns exactly
-+
-image::./m4/copy-auto-discovery.png[]
+image::./m4/uncomment-auto-discovery.png[width=60%]
 . This YAML snippet enables auto-discovery for all files names *envelope.yaml* [entityFilename] where the repo name starts with the word *envelop* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
 +
@@ -170,13 +136,12 @@ image::./m4/commit-rhdh-config.png[]
 
 == Refresh RHDH on Argo
 
-Argo is tuned to pull changes from the repo every two minutes or so. +
-Instead of waiting that to kick in, 
+Argo is tuned to pull changes from the repo every two minutes or so. Instead of waiting that to kick in, you can *Refresh* the RHDH Argo Application as follows:
 
-* https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[click here^, window="_argo"] to login 
+* Access ArgoCD from https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ here^, window="_argo"], and login 
 * *username*: admin
 * *Password* : {openshift_gitops_password}
+* Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will Sync the content from Gitlab.
 +
 image::./m4/rhdh-argo-refresh.png[]
-* Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will Sync the content from Gitlab.
-* The card will turn green when it is ready. Go ahead and refresh RHDH
+* The card will turn green when it is ready. Go ahead and refresh RHDH. This might take a minute or so, since the backstage pod gets redeployed with the new configuration
