@@ -145,3 +145,23 @@ Argo is tuned to pull changes from the repo every two minutes or so. Instead of 
 +
 image::./m4/rhdh-argo-refresh.png[]
 * The card will turn green when it is ready. Go ahead and refresh RHDH. This might take a minute or so, since the backstage pod gets redeployed with the new configuration
+
+
+== Onboard Parasol's System and Domain
+
+In a previous chapter you learnt about how System and Domain help in organizing the components in RHDH. In this section you will setup Parasol's System and Domain
+
+. From RHDH, navigate to Create menu; choose *Register Existing Component* button
+. Paste the below URL and click on *Analyze*
++
+```
+https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/rhdh-entities/-/blob/main/locations.yaml
+```
+. Click *Import* in the Review section.
++
+image::./m4/rhdh-system.png[]
+. The Systems and Domain are setup. These help to form important abstraction level to help us reason about software ecosystems.
+* _systems_ are the basic level of encapsulation for related entities
+* _domains_ are useful to group a collection of systems that share terminology, domain models, business purpose etc.
++
+Read more https://backstage.io/docs/features/software-catalog/system-model/#system[here^, window="_content"]
