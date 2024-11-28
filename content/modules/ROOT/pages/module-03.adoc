@@ -138,7 +138,7 @@ spec:
 
 == Platform Engineer Activity: Import the Software Template
 
-The Software Template you'll be using in this activity is stored in the _template.yaml_ file in the https://gitlab-gitlab.apps.cluster-kccz6.dynamic.redhatworkshops.io/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple, window="_blank"] repository in GitLab.
+The Software Template you'll be using in this activity is stored in the _template.yaml_ file in the https://gitlab-gitlab.apps.cluster-kccz6.dynamic.redhatworkshops.io/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple, window="_gitlab"] repository in GitLab.
 
 Register this template using the {product_name_rhdh} UI:
 

@@ -267,7 +267,7 @@ The high-level steps involve:
 . Delete the existing `auth` configuration that contains the `guest` provider.
 . Uncomment the entire `auth` configuration containing the `oidc` provider, and the `signInPage` setting below it.
 +
-image::./m2/auth-section-original.png[appConfig.auth object in the YAML]
+image::./m2/auth-section-original.png[appConfig.auth object in the YAML, width=80%]
 
 . The end result will look similar to:
 +
@@ -306,13 +306,11 @@ Commit the changes with a message similar to `feat: enable openid connect`, and 
 
 === Login using OpenID Connnect Authentication
 
-Once the latest version of your `appConfig` has been synchronized and rolled out, visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[{product_name_rhdh} instance^, window="_rhdh"]. You will be prompted to sign-in using OpenID Connect.
-
+. Once the latest version of your `appConfig` has been synchronized and rolled out, visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[{product_name_rhdh} instance^, window="_rhdh"]. You will be prompted to sign-in using OpenID Connect.
++
 image::./m2/rhdh-oidc-login.png[OIDC Sign-In Prompt]
-
-Login using the username `pe1` and password `{common_password}` in the popup that appears. After logging in, visit the *Settings* page in {product_name_rhdh} to confirm you're logged in as the `pe1` user.
-
-image::./m2/rhdh-pe1-user.png[Viewing the user details on the Settings UI in {product_name_rhdh}]
+. Login using the username `pe1` and password `{common_password}` in the popup that appears. After logging in, visit the *Settings* page in {product_name_rhdh} to confirm you're logged in as the `pe1` user.
++ image::./m2/rhdh-pe1-user.png[Viewing the user details on the Settings UI in {product_name_rhdh}]
 
 == Activity: Enabling GitLab Entity Discovery & TechDocs
 
@@ -330,47 +328,41 @@ To install and configure this plugin:
 . Uncomment the following section in `dynamic.plugins` section of the YAML, to enable the TechDocs and GitLab dynamic plugins. +
 Look for the `TECHDOCS_GITLAB` block; highlight the block, then press `CMD + SHIFT` or `CTRL +SHIFT`.
 +
-image::./m2/gitlab-techdoc-plugin.png[TechDocs and GitLab dynamic plugins]
-. Find the `appConfig.catalog.providers` configuration and uncomment the following block as shown below.+
+image::./m2/gitlab-techdoc-plugin.png[TechDocs and GitLab dynamic plugins, width=60%]
+. Find the `appConfig.catalog.providers` configuration and uncomment the following block as shown below. +
 Look for the `GITLAB_CATALOG_PROVIDER` block; highlight the block, then press `CMD + SHIFT` or `CTRL +SHIFT`.
 +
-image::./m2/gitlab-catalog-provider.png[GitLab Catalog Provider]
-
-
+image::./m2/gitlab-catalog-provider.png[GitLab Catalog Provider, width=70%]
 // . Verify that you indentation matches that shown in the screenshot, then commit your changes with the message `feat: add gitlab autodiscovery`.
 // +
 // image::./m2/gitlab-discovery.png[GitLab code editor showing catalog providers configuration for {product_name_rhdh}]
-
-
 . Click the *Refresh* button on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="_argo"].
 
 === Verify GitLab Entity Discovery is Active
 
-After a few moments your new {product_name_rhdh} configuration will finish rolling out. Check the logs for the new https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/core%7Ev1%7EPod[{product_name_rhdh} Pod^, window="_console"]. You should see that the a repository was discovered - that means the repository contains https://backstage.io/docs/features/software-catalog/descriptor-format/[catalog-info.yaml, window="_blank"] file.
-
+. After a few moments your new {product_name_rhdh} configuration will finish rolling out. Check the logs for the new https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/core%7Ev1%7EPod[{product_name_rhdh} Pod^, window="_console"]. You should see that the a repository was discovered - that means the repository contains https://backstage.io/docs/features/software-catalog/descriptor-format/[catalog-info.yaml, window="_blank"] file.
++
 image::./m2/rhdh-logs-gitlab-discovery.png[GitLab Autodiscovery Logs in the OpenShift Console]
-
-The repository in question is the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/global/global-techdocs[global/global-techdocs^, window="_gitlab"]. This repository contains a _catalog-info.yaml_ that defines a Component, and an annotation `backstage.io/techdocs-ref` that tells the TechDocs plugin where to find the source for documentation builds for the Component. 
-
+. The repository in question is the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/global/global-techdocs[global/global-techdocs^, window="_gitlab"]. This repository contains a _catalog-info.yaml_ that defines a Component, and an annotation `backstage.io/techdocs-ref` that tells the TechDocs plugin where to find the source for documentation builds for the Component. 
++
 image::./m2/global-techdocs-cat-info.png[Global TechDocs catalog-info.yaml file]
 
-Visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}^, window="_rhdh"] and view the Software Catalog. Make sure that the _Kind_ dropdown is set to _Component_. You should see the _global-techdocs_ Component.
-
+. Visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}^, window="_rhdh"] and view the Software Catalog. Make sure that the _Kind_ dropdown is set to _Component_. You should see the _global-techdocs_ Component.
++
 image::./m2/global-techdocs-component.png[The Global TechDocs Component in the Software Catalog]
 
 === Viewing TechDocs
 
-Click the _global-techdocs_ Component name in the Software Catalog, then and select the Docs tab. It should compile and render the TechDocs.
-
+. Click the _global-techdocs_ Component name in the Software Catalog, then and select the Docs tab. It should compile and render the TechDocs.
++
 image::./m2/global-techdocs-docs.png[Global TechDocs being rendered]
-
-You might have noticed that the side-menu has a new _Docs_ entry too. This appeared when you enabled the TechDocs plugin! 
-
+. You might have noticed that the side-menu has a new _Docs_ entry too. This appeared when you enabled the TechDocs plugin! 
++
 image::./m2/global-docs-menu.png[Docs side-menu]
 
 
 TODO: 
-* How are techdocs identified?
+
 * Types of deployment - local vs AWS bucket/external
 
 == Conclusion
