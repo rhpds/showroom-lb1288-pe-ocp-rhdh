@@ -22,14 +22,7 @@ Development Teams who are  in charge of creating a software solution and empower
 == *What you will  learn:*
 
 * Understand the need to implement Platform Engineering disciplines in their organization and see the clearly benefits of improving the Developer Productivity
-* How to design a Thinest Viable Platform (TVP) based on the needs of ALL development teams in the organization and ensure they are highly productive as possible
+* How to design a Thinnest Viable Platform (TVP) based on the needs of ALL development teams in the organization and ensure they are highly productive as possible
 * Constantly assessing the investment into their own IDP and understand how they can enhance and convince ALL development teams to start adopting
 * See how Red Hat can help as a partner in your Platform Engineering journey
 
-
-== *Lab environment details:*
-.Click to view
-[%collapsible]
-====
-include::env.adoc[]
-====
