@@ -8,7 +8,7 @@ include::style.adoc[]
 
 == Overview
 
-Red Hat Developer Hub has been setup, and taken for a test drive too. The next steps is to onboard existing projects and applications so that the developer teams can access them through one plane of glass. 
+Red Hat Developer Hub has been setup, and taken for a test drive too. The next step is to onboard existing projects and applications so that the developer teams can access them through one plane of glass. 
 
 In this section, we will shadow the platform team 
 
@@ -22,7 +22,7 @@ And right after that, we will shadow an App Developer use all these tools to acc
 
 * Developer is assigned the task of enhancing an existing application
 * PE onboards  existing app (all the components, APIs etc) on Dev cluster through RHDH
-* Development commences in dev local environment. Checks is Dependency Analyzer is clear of CVEs.
+* Development commences in the developer's local environment. 
 * Once code is ready, Developer issues a PR from the feature branch of their fork to the project repo
 
 * More streamlined less ad-hoc approach to application deployment pipelines

@@ -5,7 +5,7 @@
 
 include::style.adoc[]
 
-A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will where the developer writes test all changes in an isolated sandbox code in a continuous loop.
+A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of the `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will where the developer writes test all changes in an isolated sandbox code in a continuous loop.
 
 So as to help the developer continue to work on the enhancement, the Platform Engineer creates a new S/W template that can setup a Sandbox environment for the Developer for this `parasol-store` application. The template performs a number of things
 
@@ -18,10 +18,10 @@ With this, the Platform Engineers are able to provide an environment that allows
 
 == Platform Engineer: Onboard parasol-store Dev Template
 
-* To help developers to be able to accelerate development through RHDH, the PE create a new template with  parasol-store-dev-template.
+* To help developers to be able to accelerate development through RHDH, the PE creates a new template with  parasol-store-dev-template.
 
 === Create a branch 
-* On RHDH, click on *Create* menu on the left-hand, and choose *Register Existing Component*.
+* On RHDH, visit the *Create* menu on the left-hand, and choose *Register Existing Component*.
 * Create a template by pasting this template URL into the *URL* textbox 
 +
 [source,bash,role=execute,subs="attributes"]
@@ -41,9 +41,9 @@ image:./m4/create-branch.png[width=65%]
 +
 image:./m4/create-branch-name.png[width=70%]
 
-=== Onboard branch using template
+=== Onboard the Feature Branch using template
 
-* Click on *Create* menu on RHDH,  and you will see a the *Parasol Store Development* template. Click on *Choose*
+* Visit the *Create* menu on RHDH,  and you will see the *Parasol Store Development* template. Click on *Choose*
 
 image:./m4/choose-parasol-store-template.png[width=30%]
 
@@ -65,7 +65,7 @@ image:./m4/choose-parasol-store-template-step3.png[]
 
 image:./m4/parasol-branch-component.png[]
 
-** You can see under the *CI* tab, a pipeline ia already running 
+** You can see under the *CI* tab, a pipeline is already running 
 +
 image:./m4/parasol-branch-first-pipeline.png[]
 +

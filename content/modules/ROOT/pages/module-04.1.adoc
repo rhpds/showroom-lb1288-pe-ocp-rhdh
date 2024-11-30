@@ -118,18 +118,18 @@ The import-existing-app/api templates need 2 dynamic plugins that are described 
 
 . Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"].
 . You should already be in Edit mode of the `values.yaml` file.
-. Locate the comment *# ============ DYNAMIC_PLUGINS_IMPORT_COMPONENTS ============ #*
+. Locate the comment `# ============ DYNAMIC_PLUGINS_IMPORT_COMPONENTS ============ #`
 . Highlight the YAML as shown in the below screenshot, and comment those lines. Type *Ctrl+ /* command to do so.
 +
 image::./m4/uncomment-dynamic-plugin.png[width=60%]
 . Don't Save yet. We need to next turn on auto-discovery
 
 == Turn auto-discovery
-. Locate the comment *# ============ AUTO_DISCOVERY_IMPORT_COMPONENTS ============ #*
+. Locate the comment `# ============ AUTO_DISCOVERY_IMPORT_COMPONENTS ============ #`
 . Highlight the YAML as shown in the below screenshot, and comment those lines. Type *Ctrl+ /* command to do so.
 +
 image::./m4/uncomment-auto-discovery.png[width=60%]
-. This YAML snippet enables auto-discovery for all files names *envelope.yaml* [entityFilename] where the repo name starts with the word *envelop* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
+. This YAML snippet enables auto-discovery for all files named *envelope.yaml* [entityFilename] where the repo name starts with the word *envelope* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
 +
 image::./m4/commit-rhdh-config.png[]
@@ -141,7 +141,7 @@ Argo is tuned to pull changes from the repo every two minutes or so. Instead of 
 * Access ArgoCD from https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ here^, window="_argo"], and login 
 * *username*: admin
 * *Password* : {openshift_gitops_password}
-* Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will Sync the content from Gitlab.
+* Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will sync the content from Gitlab.
 +
 image::./m4/rhdh-argo-refresh.png[]
 * The card will turn green when it is ready. Go ahead and refresh RHDH. This might take a minute or so, since the backstage pod gets redeployed with the new configuration
@@ -154,13 +154,14 @@ In a previous chapter you learnt about how System and Domain help in organizing 
 . From RHDH, navigate to Create menu; choose *Register Existing Component* button
 . Paste the below URL and click on *Analyze*
 +
-```
+[source,yaml,subs=attributes+]
+----
 https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/rhdh-entities/-/blob/main/locations.yaml
-```
+----
 . Click *Import* in the Review section.
 +
 image::./m4/rhdh-system.png[]
-. The Systems and Domain are setup. These help to form important abstraction level to help us reason about software ecosystems.
+. The Systems and Domain are setup. These help form an important abstraction level to help us reason about software ecosystems.
 * _systems_ are the basic level of encapsulation for related entities
 * _domains_ are useful to group a collection of systems that share terminology, domain models, business purpose etc.
 +

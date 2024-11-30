@@ -30,23 +30,16 @@ Your workshop environment has been preconfigured with the following software and
 
 For the purposes of this workshop, we'll assume that your organization has standardized on these tools, and it's your objective as the platform engineer to integrate them with {product_name_rhdh}.
 
-For convenience, {product_name_rhdh} has been predeployed via OpenShift GitOps using the official https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/assembly-install-rhdh-ocp-helm[{product_name_rhdh} Helm Chart^, window="_content"]. Specifically, a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap] Application has been configured to deploy the official {product_name_rhdh} Helm Chart along with a set prerequisite Secrets and ConfigMaps.
+For convenience, {product_name_rhdh} has been predeployed via OpenShift GitOps using the official https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/assembly-install-rhdh-ocp-helm[{product_name_rhdh} Helm Chart^, window="_content"]. Specifically, a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap^, window="_rhdh"] Application has been configured to deploy the official {product_name_rhdh} Helm Chart along with a set prerequisite Secrets and ConfigMaps.
 
-{nbsp} +
-
-.Lab environment details (click to expand)
-[%collapsible]
-====
-include::env.adoc[]
-====
 
 == Introduction to Concepts
 
-For convenience, we've provided a sample Template in the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple] repository in GitLab. Let's explore the Template structure.
+For convenience, we've provided a sample Template in the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple^, window="_gitlab"] repository in GitLab. Let's explore the Template structure.
 
 === Template YAML Structure
 
-At a basic level, the Template is similar to the Component Entity you encounteed in the _catalog-info.yaml_ in the prior module; resembling a Kubernetes Custom Resource Definition.
+At a basic level, the Template is similar to the Component Entity you encountered in the _catalog-info.yaml_ in the prior module; resembling a Kubernetes Custom Resource Definition.
 
 ```yaml
 apiVersion: scaffolder.backstage.io/v1beta3
@@ -81,7 +74,7 @@ Here's an example of the parameters:
 ```yaml
 spec:
   parameters:
-    # Parameters can be spread across multipe forms/pages, each
+    # Parameters can be spread across multiple forms/pages, each
     # with their own titles and set of parameters
     - title: Provide Information for Application
       required:
@@ -105,7 +98,7 @@ spec:
 
 You might have recognized this as a https://json-schema.org/[JSON Schema] structure. By using JSON Schema you can define the parameters that are supported by the template, and more importantly, enforce validation on those parameters. The rendering of the form in the {product_name_rhdh} UI is managed by the https://github.com/rjsf-team/react-jsonschema-form[react-jsonschema-form] library.
 
-The properties that have a `ui` prefix might have piqued your interest. These are special properties that provide instructions to the form, for example to enable autocomplete or autofocus certain form fields when it is diplayed in the {product_name_rhdh} UI.
+The properties that have a `ui` prefix might have piqued your interest. These are special properties that provide instructions to the form, for example to enable autocomplete or autofocus certain form fields when it is displayed in the {product_name_rhdh} UI.
 
 === Steps
 
@@ -121,7 +114,7 @@ spec:
     # Use the publish action provided by the GitLab plugin
     action: publish:gitlab
     input:
-      # Construct a URL to the repository using the provied hostname, logged in
+      # Construct a URL to the repository using the provided hostname, logged in
       # username, and provided component_id
       repoUrl: "${{ parameters.repo.host }}?owner=${{ user.entity.metadata.name }}&repo=${{parameters.component_id}}"
       repoVisibility: public
@@ -158,7 +151,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-s
 image::./m3/rhdh-register-template.png[Registering and Entity]
 . Click *Import* when prompted.
 
-Return to the Software Catalog and set the _Kind_ filter to _Template_. Your new *Quarkus Service* template will be listed. Clicking on the template reveals that it looks a lot like the Component Entity you imported in th previous module.
+Return to the Software Catalog and set the _Kind_ filter to _Template_. Your new *Quarkus Service* template will be listed. Clicking on the template reveals that it looks a lot like the Component Entity you imported in the previous module.
 
 == Developer Activity: Developer On-Boarding Example
 

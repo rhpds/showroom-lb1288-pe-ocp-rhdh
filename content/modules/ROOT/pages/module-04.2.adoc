@@ -8,7 +8,7 @@ include::style.adoc[]
 
 == Import parasol-store-api OpenAPI 
 
-* As a first step, we will import the API so that this API can then associated to the App automatically.
+* As a first step, we will import the API so that this API can then be associated with the App automatically.
 * From the *Create* section, click on the *Choose* button of `Import API to Existing Catalog Envelope` template.
 
 image:m4/import-api-template.png[width=40%]
@@ -125,7 +125,7 @@ image:m4/view-api.png[]
 
 image:m4/import-app-template.png[width=40%]
 
-Fill out the following values in the wizard similar by going through the steps. Refer to the following table for the data for each step
+Fill out the following values in the wizard similarly by going through the steps. Refer to the following table for the data for each step
 
 === Step 1: Import existing application, autocreate config-info.yaml and conditionally setup techdocs.
 
@@ -213,7 +213,7 @@ TODO: walk through catalog-info.yaml
 
 == [Optional] Onboard  parasol-web
 
-You can now optionally import  parasol-web  component as well.
+You can now optionally import the parasol-web  component as well.
 
 * The org is `parasol`
 * Repo for parasol-web is `parasol-web`
