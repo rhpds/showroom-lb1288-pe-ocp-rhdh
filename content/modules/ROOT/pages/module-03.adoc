@@ -96,9 +96,24 @@ spec:
           description: Maven Group Id
 ```
 
-You might have recognized this as a https://json-schema.org/[JSON Schema] structure. By using JSON Schema you can define the parameters that are supported by the template, and more importantly, enforce validation on those parameters. The rendering of the form in the {product_name_rhdh} UI is managed by the https://github.com/rjsf-team/react-jsonschema-form[react-jsonschema-form] library.
+You might have recognized this as a https://json-schema.org/[JSON Schema] structure. By using JSON Schema you can define the parameters that are supported by the template, and more importantly, enforce validation on those parameters. The rendering of the form in the {product_name_rhdh} UI is managed by the https://github.com/rjsf-team/react-jsonschema-form[react-jsonschema-form^, window="_content"] library.
+
+
+.Click to learn more about `react-jsonschema-form` library
+[%collapsible]
+====
+image:m4/import-api-template-1.png[]
+====
 
 The properties that have a `ui` prefix might have piqued your interest. These are special properties that provide instructions to the form, for example to enable autocomplete or autofocus certain form fields when it is displayed in the {product_name_rhdh} UI.
+
+TODO: 
+
+* Discuss Quay and OpenShift as repositories
+* Discuss why the template need dev to create a Quay account
+* Best practices about this sandbox env being created  in developer's personal git repo and personal Quay
+* Because this template is meant for experimental purposes and not meant for production. 
+
 
 === Steps
 
@@ -135,14 +150,15 @@ The Software Template you'll be using in this activity is stored in the _templat
 
 Register this template using the {product_name_rhdh} UI:
 
-. Login to your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}].
+. Login to your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}]. +
+If prompted, login as *(pe1/{common_password})*
 . Select *Create* from the sidemenu.
 . Click the *Register Existing Component* button.
 +
 image::./m3/rhdh-catalog-create.png[The empty Create UI]
-. Enter the following URL in the *Select URL* field:
+. Enter the following URL in the *Select URL* field and click *Analyze*:
 +
-[source,subs=attributes+]
+[source,bash,role=execute,subs=attributes+]
 ----
 https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple/-/blob/main/template.yaml?ref_type=heads
 ----
@@ -153,24 +169,31 @@ image::./m3/rhdh-register-template.png[Registering and Entity]
 
 Return to the Software Catalog and set the _Kind_ filter to _Template_. Your new *Quarkus Service* template will be listed. Clicking on the template reveals that it looks a lot like the Component Entity you imported in the previous module.
 
+image::./m3/rhdh-quarkus-template.png[Registering and Entity]
+
 == Developer Activity: Developer On-Boarding Example
 
 Until now, you've been acting in the role of a platform engineer. Let's switch persona to that of a developer. 
 
 === Login to {product_name_rhdh} as a Developer
 
-Sign out of {product_name_rhdh} using the Settings screen as shown.
-
+. Navigate to the *Settings* side-menu and click on th kebab menu in the *Profile* card
++
+image::./m3/rhdh-settings.png[Settings of {product_name_rhdh}]
+. Sign out of {product_name_rhdh} using the Settings screen as shown.
++
 image::./m3/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
 
-Login to {product_name_rhdh} as `dev1` using the password `{common_password}`. 
+. Login to {product_name_rhdh} as `dev1` using the password `{common_password}`. 
 
 ==== Create an Account in Quay
 
 You'll need an account in Quay to push your developers container images to.
 
-. Visit the https://quay.{openshift_cluster_ingress_domain}[Quay Registry] deployed in your workshop environment.
+. Visit the https://quay.{openshift_cluster_ingress_domain}[Quay Registry^, window="_quay"]] deployed in your workshop environment.
 . Click the *Create Account* link.
++
+image::./m3/quay-create-account-link.png[Creating a Quay Account, width="60%"]
 . Enter the following information:
   * Username: `dev1`
   * Email: `dev1@rhdh.com`

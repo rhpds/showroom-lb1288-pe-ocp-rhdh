@@ -21,7 +21,7 @@ With this, the Platform Engineers are able to provide an environment that allows
 * To help developers to be able to accelerate development through RHDH, the PE creates a new template with  parasol-store-dev-template.
 
 === Create a branch 
-* On RHDH, visit the *Create* menu on the left-hand, and choose *Register Existing Component*.
+* On RHDH, choose *Create* menu on the left-hand, and choose *Register Existing Component*.
 * Create a template by pasting this template URL into the *URL* textbox 
 +
 [source,bash,role=execute,subs="attributes"]
@@ -43,7 +43,7 @@ image:./m4/create-branch-name.png[width=70%]
 
 === Onboard the Feature Branch using template
 
-* Visit the *Create* menu on RHDH,  and you will see the *Parasol Store Development* template. Click on *Choose*
+* In {product_name_rhdh}, choose the *Create* side-menu, and you will see the *Parasol Store Development* template. Click on *Choose*
 
 image:./m4/choose-parasol-store-template.png[width=30%]
 
