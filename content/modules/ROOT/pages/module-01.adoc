@@ -7,7 +7,7 @@ include::style.adoc[]
 
 == Objectives
 
-* Discuss the challenges currently faced by developers and the need for a  an Internal Developer Platform 
+* Discuss the challenges currently faced by developers and the need for an Internal Developer Platform 
 * Learn why a developer platform is necessary for rapid innovation
 
 == Hello Parasol!

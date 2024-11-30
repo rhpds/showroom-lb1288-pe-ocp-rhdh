@@ -21,7 +21,7 @@ This template does the following things.
 
 
 ```yaml
-  #  The `parameters` section defines the data gathered from the user
+  # The `parameters` section defines the data gathered from the user
   parameters:
     # Git repo details about where this API Envelope repo lives
     - title: Provide information about Catalog Envelope to which API will be included
@@ -52,12 +52,12 @@ This template does the following things.
 
 Update the *_Envelope repo_* as a two step process
 
-.. *Merge Request 1*: Create a new folder within  the *_Envelope repo_* and push these changes
+.. *Merge Request 1*: Create a new folder within the *_Envelope repo_* and push these changes
 .. *Merge Request 2*: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a _Merge Request_
 
-== Add the  the `import-api-catalog` Software Template to Developer Hub
+== Add the the `import-api-catalog` Software Template to Developer Hub
 
-* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="_rhdh"])  and login using `pe1/{common_password}`
+* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="_rhdh"]) and login using `pe1/{common_password}`
 * Click on the Create menu on the left-hand navigation. 
 
 image::./m4/nav-create.png[]
@@ -84,7 +84,7 @@ image::./m4/nav-access-api-template.png[]
 == Explore and Import the `import-existing-app` Software Template
 
 * Repeat the same steps to import the `import-existing-app-template`
-* Click *Create* (left hand nav) ->  *Register Existing Component* (top right)
+* Click *Create* (left hand nav) -> *Register Existing Component* (top right)
 * Paste the following URL 
 +
 [source,bash,role=execute,subs="attributes"]
@@ -95,7 +95,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 
 == View available templates
 
-* Navigate back to  *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
+* Navigate back to *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
 
 image::./m4/import-templates-list.png[width=70%]
 
@@ -106,7 +106,7 @@ image::./m4/import-templates-list.png[width=70%]
 The templates described above need a couple of Dynamic Plugins. 
 
 *What are Dynamic Plugins?* +
-The Red Hat Developer Hub  application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
+The Red Hat Developer Hub application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
 
 The import-existing-app/api templates need 2 dynamic plugins that are described below.
 

@@ -9,8 +9,8 @@ include::style.adoc[]
 == Objectives
 
 * SecOps is alerted about a compromised library
-* PE  runs a vulnerability scan to detect which applications are affected, and whom to contact.
-* Affected teams  are alerted need to issue fixes asap.
+* PE runs a vulnerability scan to detect which applications are affected, and whom to contact.
+* Affected teams are alerted need to issue fixes asap.
 * PE checks existing software templates for the detected vulnerabilities.
 * Changes are rolled out to RHDH Software Template catalogue if needed
 * ( Policy Exception request for a low severity issue may be approved by SecOps)

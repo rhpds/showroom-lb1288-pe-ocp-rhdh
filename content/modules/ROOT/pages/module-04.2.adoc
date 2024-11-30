@@ -1,7 +1,7 @@
 :imagesdir: ../assets/images
 
 
-= Module 4.2:  As a Platform Engineer: Onboard Parasol API and Parasol Store service
+= Module 4.2: As a Platform Engineer: Onboard Parasol API and Parasol Store service
 
 include::style.adoc[]
 
@@ -25,7 +25,7 @@ image:m4/import-api-template-1.png[]
 
 [cols="1,1,2", options="header"]
 |====
-| *Field*  | *Description* | *Value*
+| *Field* | *Description* | *Value*
 | Gitlab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
 | GitLab Organization | Enter value | `parasol`
 | Repository Name | Enter value. TODO: What is Envelope | `envelope-parasol-catalog`
@@ -44,10 +44,10 @@ image:m4/import-api-template-2.png[]
 [cols="1,2,2", options="header"]
 |====
 
-| *Field*  | *Description* | *Value*
+| *Field* | *Description* | *Value*
 | GitLab Organization | This is the Git org where the repo resides| `parasol`
 | Repository Name | enter this value | `parasol-store-api` 
-| System Name | TODO: System  | `system:default/parasol-system`
+| System Name | TODO: System | `system:default/parasol-system`
 | Path to where API spec is defined | Enter full path of the API | `https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-api/-/blob/main/openapi.yaml`
 | A Short Description Of This Component | Enter value | `API for parasol-store`
 | Type Of API | Choose from options | `openapi` 
@@ -65,7 +65,7 @@ image:m4/import-api-template-3.png[]
 
 [cols="1,2,2", options="header"]
 |====
-| *Field*  | *Description* | *Value*
+| *Field* | *Description* | *Value*
 | Component Name | This is how this API will be identified by Developer Hub | `parasol-store-api` 
 | Owner | Choose from dropdown | `group:default/dev1`
 | A Short Description Of This Component |Enter a suitable description | `Open API specification for the parasol-store application`
@@ -91,7 +91,7 @@ image:m4/import-api-template-4.png[]
 * Open the envelope-parasol-catalog repo
 * URL to the catalog-info has been added to the envelope
 
-* Under the parasol-store-api folder docs  and catalog-info.yaml are created
+* Under the parasol-store-api folder docs and catalog-info.yaml are created
 
 * In a few minutes you will notice that this API automatically starts appearing in the APIs section
 
@@ -132,7 +132,7 @@ Fill out the following values in the wizard similarly by going through the steps
 image:m4/import-app-template-1.png[]
 [cols="1,1,2", options="header"]
 |====
-| *Field*  | *Description* | *Value*
+| *Field* | *Description* | *Value*
 | Gitlab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
 | GitLab Organization | Enter value | `parasol`
 | Repository Name | Enter value. TODO: What is Envelope | `envelope-parasol-catalog`
@@ -140,7 +140,7 @@ image:m4/import-app-template-1.png[]
 
 
 
-=== Step  2: Provide information about your existing app
+=== Step 2: Provide information about your existing app
 
 image:m4/import-app-template-2.png[]
 
@@ -148,7 +148,7 @@ image:m4/import-app-template-2.png[]
 |====
 | GitLab Organization | This is the Git org where the repo resides| `parasol`
 | Repository Name | enter this value | `parasol-store` 
-| System Name | TODO: System  | `system:default/parasol-system`
+| System Name | TODO: System | `system:default/parasol-system`
 
 | Does this repo contain manifests? | This option conditionally auto-generates the labels which will be used to pull in CI/CD, Deployment and other details| Check the box
 | A Short Description Of This Component | Enter value | `API for parasol-store`
@@ -162,7 +162,7 @@ image:m4/import-app-template-3.png[]
 
 [cols="1,2,2", options="header"]
 |====
-| *Field*  | *Description* | *Value*
+| *Field* | *Description* | *Value*
 | Component Name | This is how this API will be identified by Developer Hub | `parasol-store` 
 | Owner | Choose from dropdown | `group:default/dev1`
 | Type | The type of component. Well-known and common values: service, website, library. | service
@@ -211,9 +211,9 @@ TODO: walk through catalog-info.yaml
 
  
 
-== [Optional] Onboard  parasol-web
+== [Optional] Onboard parasol-web
 
-You can now optionally import the parasol-web  component as well.
+You can now optionally import the `parasol-web` component as well.
 
 * The org is `parasol`
 * Repo for parasol-web is `parasol-web`

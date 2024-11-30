@@ -21,7 +21,7 @@ And right after that, we will shadow an App Developer use all these tools to acc
 == Objectives
 
 * Developer is assigned the task of enhancing an existing application
-* PE onboards  existing app (all the components, APIs etc) on Dev cluster through RHDH
+* PE onboards existing app (all the components, APIs etc) on Dev cluster through RHDH
 * Development commences in the developer's local environment. 
 * Once code is ready, Developer issues a PR from the feature branch of their fork to the project repo
 
@@ -48,7 +48,7 @@ Developer Hub identifies components based on a `catalog-info.yaml` file in the r
 * who the owners are
 * what are the dependencies and dependents etc.
 
-With the right plugins, this `catalog-info.yaml` file can also help to show these critical information in a single pane of glass  within the component itself:
+With the right plugins, this `catalog-info.yaml` file can also help to show these critical information in a single pane of glass within the component itself:
 
 * CI pipelines
 * CD deployments
@@ -57,7 +57,7 @@ With the right plugins, this `catalog-info.yaml` file can also help to show thes
 
 To make importing a large number of existing applications into Developer Hub possible/feasible, the Platform Engineering (PE) team creates a *Software Template* that can automate both creation of the `catalog-info.yaml` file, and also auto-create `techdocs` skeleton structure.
 
-There are two options in terms of where these files  (Catalog Info and TechDocs) could be stored for these existing software apps.
+There are two options in terms of where these files (Catalog Info and TechDocs) could be stored for these existing software apps.
 
 . The entities can be added to the same Git repositories as the existing source-code repo
 . Create an entity which acts like a collection of all of the catalog-info files and TechDocs of the existing code

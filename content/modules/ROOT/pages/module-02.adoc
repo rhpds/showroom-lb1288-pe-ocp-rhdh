@@ -77,7 +77,7 @@ The Software Catalog is a centralised asset tracker for all of the software in y
 * APIs: Represent interfaces such as REST, gRPC, and GraphQL APIs.
 * Systems: Collections of Components that make up an application or platform.
 * Domains: A higher-level grouping of Systems and Entities.
-* User: Individual users that are part of your organization.  
+* User: Individual users that are part of your organization.
 * Group: Groups of Users.
 
 Entities are typically imported and synchronized in one of three ways:
