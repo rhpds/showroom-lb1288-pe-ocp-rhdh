@@ -187,7 +187,7 @@ The sign-in page will be displayed, with the option to login as a Guest. Click t
 
 NOTE: Ignore the GitHub sign-in method if it's displayed. It is not configured and will not work. 
 
-image::./m2/backstage-guest-signin.png[Red Hat Developer Hub deployment on OpenShift]
+image::./m2/backstage-guest-signin.png[Red Hat Developer Hub deployment on OpenShift, width=60%]
 
 WARNING: The Guest sign-in option is currently enabled, but you'll configure a production-ready sign-in option based on OpenID Connect shortly. The Guest sign-in option is only meant for development and testing purposes.
 
@@ -206,7 +206,7 @@ Another option for importing and synchronizing Entities is via _providers_. Prov
 . You will find the `janus-idp-backstage-plugin-keycloak-backend-dynamic` package under the `dynamic.plugins` field that is set `disabled: false`. This means that, this plugin has been enabled in your installation.
 . Uncomment the `keycloakOrg` configuration within the `appConfig.catalog.providers` block (look for `KEYCLOAK_CATALOG_PROVIDERS`, highlight the block, then press `CMD + SHIFT` or `CTRL +SHIFT`).
 +
-image::./m2/keycloak-commented-block.png[]
+image::./m2/keycloak-commented-block.png[width=60%]
 
 This block of configuration instructs the Keycloak provider to synchronize Users and Groups from the specified Keycloak Realm to the Software Catalog. Doing so will enable developers and platform engineers to associate Users and Groups with Entities in the Software Catalog - very useful for finding out which individual or team is responsible for a particular microservice or database, for example.
 
