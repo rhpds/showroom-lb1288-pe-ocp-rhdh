@@ -153,8 +153,7 @@ The Software Template you'll be using in this activity is stored in the _templat
 
 Register this template using the {product_name_rhdh} UI:
 
-. Login to your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}]. +
-If prompted, login as *(pe1/{common_password})*
+. Login to your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}]. If prompted, login as *(pe1/{common_password})*.
 . Select *Create* from the sidemenu.
 . Click the *Register Existing Component* button.
 +
@@ -189,11 +188,11 @@ image::./m3/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
 
 . Login to {product_name_rhdh} as `dev1` using the password `{common_password}`. 
 
-==== Create an Account in Quay
+=== Create an Account in Quay
 
 You'll need an account in Quay to push your developers container images to.
 
-. Visit the https://quay.{openshift_cluster_ingress_domain}[Quay Registry^, window="_quay"]] deployed in your workshop environment.
+. Visit the https://quay.{openshift_cluster_ingress_domain}[Quay Registry^, window="_quay"] deployed in your workshop environment.
 . Click the *Create Account* link.
 +
 image::./m3/quay-create-account-link.png[Creating a Quay Account, width="60%"]
