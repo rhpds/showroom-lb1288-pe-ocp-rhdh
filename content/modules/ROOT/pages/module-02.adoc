@@ -6,7 +6,7 @@ include::style.adoc[]
 
 == Overview
 
-{product_name_rhdh} is based on the https://backstage.io/[Backstage^, window="_content"] framework for building internal developer portals. This project was donated to the https://www.cncf.io/projects/backstage/[CNCF^, window="_content"] by Spotify in 2020. Platform engineers can use {product_name_rhdh} to build internal developer portals. Doing so involves integrating with various data sources, catalog existing software components, infrastructure, and resources, configuring single sign-on, and more.
+{product_name_rhdh} is based on the https://backstage.io/[Backstage^, window="content"] framework for building internal developer portals. This project was donated to the https://www.cncf.io/projects/backstage/[CNCF^, window="content"] by Spotify in 2020. Platform engineers can use {product_name_rhdh} to build internal developer portals. Doing so involves integrating with various data sources, catalog existing software components, infrastructure, and resources, configuring single sign-on, and more.
 
 In this module you'll learn how to architect, install, and bootstrap an instance of {product_name_rhdh} to create a minimum viable internal developer portal for a select group of developers within your organization.
 
@@ -19,7 +19,7 @@ The initial use cases for your developer portal are:
 
 == Module Objectives
 
-Satisfying the previously defined use cases involves configuring {product_name_rhdh} to integrate with your existing platforms, tools, and infrastructure. For example, if your organization uses OpenShift Pipelines for continuous integration, you'll need to configure the {product_name_rhdh} instance with the appropriate integration to fetch and display data from an OpenShift cluster used to perform https://tekton.dev/docs/pipelines/pipelineruns/[Pipeline Runs^, window="_content"].
+Satisfying the previously defined use cases involves configuring {product_name_rhdh} to integrate with your existing platforms, tools, and infrastructure. For example, if your organization uses OpenShift Pipelines for continuous integration, you'll need to configure the {product_name_rhdh} instance with the appropriate integration to fetch and display data from an OpenShift cluster used to perform https://tekton.dev/docs/pipelines/pipelineruns/[Pipeline Runs^, window="content"].
 
 It could be said that the value of an internal developer portal is proportional to the thought and energy invested into it by the platform engineer(s), and developers using it.
 
@@ -27,7 +27,7 @@ In this module you'll:
 
 * Identify the platform requirements and dependencies, such as single sign-on (SSO), source code management (SCM), RBAC, resources, existing assets
 * Integrate {product_name_rhdh} with the dependant services, such as GitLab and Keycloak
-* Learn about https://backstage.io/docs/features/software-catalog/[Backstage Entities^, window="_content"], e.g Components, APIs, and Docs
+* Learn about https://backstage.io/docs/features/software-catalog/[Backstage Entities^, window="content"], e.g Components, APIs, and Docs
 * Ready for developer onboarding
 
 == Workshop Environment
@@ -41,7 +41,7 @@ Your workshop environment has been preconfigured with the following software and
 
 For the purposes of this workshop, we'll assume that your organization has standardized on these tools, and it's your objective as the platform engineer to integrate them with {product_name_rhdh}.
 
-For convenience, {product_name_rhdh} has been predeployed via OpenShift GitOps using the official https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/assembly-install-rhdh-ocp-helm[{product_name_rhdh} Helm Chart^, window="_content"]. Specifically, a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap] Application has been configured to deploy the official {product_name_rhdh} Helm Chart along with a set prerequisite Secrets and ConfigMaps.
+For convenience, {product_name_rhdh} has been predeployed via OpenShift GitOps using the official https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/assembly-install-rhdh-ocp-helm[{product_name_rhdh} Helm Chart^, window="content"]. Specifically, a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap] Application has been configured to deploy the official {product_name_rhdh} Helm Chart along with a set prerequisite Secrets and ConfigMaps.
 
 {nbsp} +
 
@@ -123,13 +123,13 @@ Currently, adding running an instance and adding plugins to upstream Backstage r
 . Edit the Backstage React and Node.js source code to load the plugin.
 . Build a container image and deploy it.
 
-The ability to load plugins dynamically is a value added feature included in {product_name_rhdh} that's currently unavailable in upstream Backstage - you can read more about it in the https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/introduction_to_plugins/con-rhdh-plugins#con-rhdh-plugins[{product_name_rhdh} documentation^, window="_content"]. The dynamic plugin support in {product_name_rhdh} means that new plugins can be installed without the need to edit code and rebuild the {product_name_rhdh} container image.
+The ability to load plugins dynamically is a value added feature included in {product_name_rhdh} that's currently unavailable in upstream Backstage - you can read more about it in the https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/introduction_to_plugins/con-rhdh-plugins#con-rhdh-plugins[{product_name_rhdh} documentation^, window="content"]. The dynamic plugin support in {product_name_rhdh} means that new plugins can be installed without the need to edit code and rebuild the {product_name_rhdh} container image.
 
 You'll see dynamic plugins in action shortly.
 
 === Understanding the {product_name_rhdh} Configuration
 
-Upstream Backstage uses an https://backstage.io/docs/conf/[app-config.yaml^, window="_content"] file to define configuration values. {product_name_rhdh} is no different.
+Upstream Backstage uses an https://backstage.io/docs/conf/[app-config.yaml^, window="content"] file to define configuration values. {product_name_rhdh} is no different.
 
 A simple Backstage configuration file looks similar to the following example:
 
@@ -159,23 +159,23 @@ techdocs:
     runIn: local
 ```
 
-Since you're using the {product_name_rhdh} Helm Chart to install and manage your internal developer portal, your configuration is nested under an `upstream.backstage.appConfig` property in a Helm Values file. View your configuration by visiting your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"].
+Since you're using the {product_name_rhdh} Helm Chart to install and manage your internal developer portal, your configuration is nested under an `upstream.backstage.appConfig` property in a Helm Values file. View your configuration by visiting your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="gitlab"].
 
-Your workshop environment has been pre-configured such that this repository in GitLab is continuously monitored and deployed using a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="_argo"] (login using the `admin` user and the password `{openshift_gitops_password}`).
+Your workshop environment has been pre-configured such that this repository in GitLab is continuously monitored and deployed using a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"] (login using the `admin` user and the password `{openshift_gitops_password}`).
 
 With that out of the way, let's get to work on configuring your instance of {product_name_rhdh}!
 
 == Activity: Access Developer Hub
 
-{product_name_rhdh} has been pre-deployed with a base configuration in your workshop environment. You can find and access your instance in the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage[backstage project on OpenShift^, window="_console"].
+{product_name_rhdh} has been pre-deployed with a base configuration in your workshop environment. You can find and access your instance in the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage[backstage project on OpenShift^, window="console"].
 
 Login to {product_name_rhdh}:
 
-. Visit the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage?view=graph[backstage project^, window="_console"] in your OpenShift cluster. You can login as *admin/{common_password}*
+. Visit the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage?view=graph[backstage project^, window="console"] in your OpenShift cluster. You can login as *admin/{common_password}*
 . Select the *backstage-developer-hub* Deployment in the Topology View.
 +
 image::./m2/openshift-backstage-deployment.png[Red Hat Developer Hub deployment on OpenShift]
-. Click the URL listed under the *Resources* tab; it will be similar to https://backstage-backstage.{openshift_cluster_ingress_domain}[https://backstage-backstage.{openshift_cluster_ingress_domain}^, window="_rhdh"]
+. Click the URL listed under the *Resources* tab; it will be similar to https://backstage-backstage.{openshift_cluster_ingress_domain}[https://backstage-backstage.{openshift_cluster_ingress_domain}^, window="rhdh"]
 
 The sign-in page will be displayed, with the option to login as a Guest. Click the *Enter* button to use the Guest sign-in.
 
@@ -191,11 +191,11 @@ image::./m2/rhdh-empty-catalog.png[Empty Red Hat Developer Hub Catalog]
 
 == Activity: Synchronize User & Group Entities
 
-You previously learned that the Software Catalog contains Entities, and saw a sample `appConfig` that contained a `catalog.locations` configuration. That example configuration imported entities from a file located in a Git repository. This pattern is known as a https://backstage.io/docs/features/software-catalog/#static-catalog-configuration[static configuration^, window="_content"]. {product_name_rhdh} will occasionally poll for updates to the specified file locations and update the Entities in the Software Catalog accordingly.
+You previously learned that the Software Catalog contains Entities, and saw a sample `appConfig` that contained a `catalog.locations` configuration. That example configuration imported entities from a file located in a Git repository. This pattern is known as a https://backstage.io/docs/features/software-catalog/#static-catalog-configuration[static configuration^, window="content"]. {product_name_rhdh} will occasionally poll for updates to the specified file locations and update the Entities in the Software Catalog accordingly.
 
 Another option for importing and synchronizing Entities is via _providers_. Providers are typically provided by way of plugins, and are configured using the `catalog.providers` entry in the `appConfig`. Let's use the Keycloak plugin to synchronize Users and Groups to your Software Catalog.
 
-. View your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in the developer-hub-config repository^, window="_gitlab"].
+. View your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in the developer-hub-config repository^, window="gitlab"].
 . Select **Edit > Edit single file**. When prompted, login as *(pe1/{common_password})*
 . You will find the `janus-idp-backstage-plugin-keycloak-backend-dynamic` package under the `dynamic.plugins` field that is set `disabled: false`. This means that, this plugin has been enabled in your installation. +
 Note: This Keycloak backend plugin integrates Keycloak into Developer Hub and can synchronize Keycloak groups and their users in a realm.
@@ -207,21 +207,21 @@ This block of configuration instructs the Keycloak provider to synchronize Users
 
 . Scroll down and enter a commit message: `feat: enable the keycloak catalog provider`
 . Click the *Commit* button.
-. Visit the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="_argo"] and click *Refresh*. 
+. Visit the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"] and click *Refresh*. 
 +
 If needed, login using `admin`/`{openshift_gitops_password}`.
 +
 NOTE: ArgoCD has been setup to auto-sync every two minutes. Instead of having to wait for auto-sync to kick in, you are instructed to manually sync the ArgoCD application.
 
-Your changes will start to rollout. Confirm this by visiting the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage?view=graph[backstage project, window="_console"] on OpenShift and checking that a new Pod is being started, or waiting until the Application in OpenShift GitOps reports *Healthy* instead of *Progressing*.
+Your changes will start to rollout. Confirm this by visiting the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage?view=graph[backstage project, window="console"] on OpenShift and checking that a new Pod is being started, or waiting until the Application in OpenShift GitOps reports *Healthy* instead of *Progressing*.
 
 image::./m2/gitops-progressing.png[Backstage Application in Progressing Status]
 
-Once the new Pod has started, navigate to https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/core%7Ev1%7EPod[OpenShift^, window="_console"] and check the logs for lines that reference the `KeycloakOrgEntityProvider`. You should see a line stating that a number of Users and Groups have been read from Keycloak.
+Once the new Pod has started, navigate to https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/core%7Ev1%7EPod[OpenShift^, window="console"] and check the logs for lines that reference the `KeycloakOrgEntityProvider`. You should see a line stating that a number of Users and Groups have been read from Keycloak.
 
 image::./m2/openshift-pod-logs.png[{product_name_rhdh} Pod logs as seen in the OpenShift Console]
 
-You can further confirm the Users and Groups have been synchronized by visiting the Software Catalog on [Developer Hub^, window="_rhdh"] and setting the *Kind* dropdown to User. 
+You can further confirm the Users and Groups have been synchronized by visiting the Software Catalog on [Developer Hub^, window="rhdh"] and setting the *Kind* dropdown to User. 
 
 image::./m2/rhdh-users-list.png[User Entities listed in {product_name_rhdh}]
 
@@ -240,15 +240,15 @@ In this activity you'll configure an OpenID Connect authentication provider - th
 
 === High-Level Workflow
 
-A complete set of documentation for configuring OpenID Connect authentication using Red Hat Single-Sign On is available in the https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html-single/authentication/index#enabling-authentication-with-rhsso[{product_name_rhdh} documentation^, window="_console"]. 
+A complete set of documentation for configuring OpenID Connect authentication using Red Hat Single-Sign On is available in the https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html-single/authentication/index#enabling-authentication-with-rhsso[{product_name_rhdh} documentation^, window="console"]. 
 
 NOTE: Don't worry if some of the following bullet points are hard to understand upon first reading them. You'll be guided through each step-by-step.
 
 The high-level steps involve:
 
 . Creating a Realm and Client in Red Hat Single-Sign On. These have been pre-configured for you. View the Realm using the following URL and credentials:
-    * *URL*: https://sso.{openshift_cluster_ingress_domain}[https://sso.{openshift_cluster_ingress_domain}^, window="_sso"]
-    * *Credentials*: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/keycloak/secrets/keycloak-initial-admin[View on OpenShift, window="_content"]
+    * *URL*: https://sso.{openshift_cluster_ingress_domain}[https://sso.{openshift_cluster_ingress_domain}^, window="sso"]
+    * *Credentials*: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/keycloak/secrets/keycloak-initial-admin[View on OpenShift, window="content"]
 . Configuring the {product_name_rhdh} Keycloak plugin to synchronize users from Red Hat Single-Sign On to {product_name_rhdh}.
 . Configuring the `oidc` {product_name_rhdh} authentication provider with the Realm details.
 . Setting `oidc` as `signInPage` page type for {product_name_rhdh}.
@@ -256,7 +256,7 @@ The high-level steps involve:
 
 === Configure the OpenID Connect Authentication Provider
 
-. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/[rhdh/developer-hub-config repository on GitLab, window="_gitlab"].
+. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/[rhdh/developer-hub-config repository on GitLab, window="gitlab"].
 . Open the *values.yaml* file, then select *Edit > Edit single file*.
 . Locate the `appConfig.auth` object in the YAML. You can search for `============ AUTHENTICATION ============` in this file to locate this section.
 . Delete the existing `auth` configuration that contains the `guest` provider.
@@ -293,15 +293,15 @@ This is an example standard Backstage `auth` configuration. Here's a summary of 
     * Provide a `production` configuration (corresponding to the `environment` defined previously).
     * Use the `backstage` Realm (`metadataUrl`).
     * Load the `clientId` and `clientSecret` from environment variables (loaded from the precreated https://console-openshift-console.apps.cluster-kccz6.dynamic.redhatworkshops.io/k8s/ns/backstage/secrets/oauth-client[*oauth-client*] Secret, specified in `extraEnvVarsSecrets` in the _values.yaml_)
-    * Map any signing in user identity to a User Entity in {product_name_rhdh} using the specified https://backstage.io/docs/auth/identity-resolver/[resolver^, window="_console"].
+    * Map any signing in user identity to a User Entity in {product_name_rhdh} using the specified https://backstage.io/docs/auth/identity-resolver/[resolver^, window="console"].
 
 The `signInPage` property is specific to {product_name_rhdh}. It ensures the correct sign-in UI is rendered. In upstream Backstage this requires React code changes.
 
-Commit the changes with a message similar to `feat: enable openid connect`, and click Refresh on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="_argo"]. Wait until the Application reports being in a *Healthy* state.
+Commit the changes with a message similar to `feat: enable openid connect`, and click Refresh on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"]. Wait until the Application reports being in a *Healthy* state.
 
 === Login using OpenID Connect Authentication
 
-. Once the latest version of your `appConfig` has been synchronized and rolled out, visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[{product_name_rhdh} instance^, window="_rhdh"]. You will be prompted to sign-in using OpenID Connect.
+. Once the latest version of your `appConfig` has been synchronized and rolled out, visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[{product_name_rhdh} instance^, window="rhdh"]. You will be prompted to sign-in using OpenID Connect.
 +
 image::./m2/rhdh-oidc-login.png[OIDC Sign-In Prompt]
 . Login using the username `pe1` and password `{common_password}` in the popup that appears. After logging in, visit the *Settings* page in {product_name_rhdh} to confirm you're logged in as the `pe1` user.
@@ -314,12 +314,12 @@ Now that the import of User and Group entities, and authentication is enabled fo
 
 === Enable GitLab Entity Discovery and TechDocs
 
-Much like the Keycloak provider, you can use a https://backstage.io/docs/integrations/gitlab/discovery/[GitLab provider to discover^, window="_console"] and import Entities from repositories in GitLab. This functionality is provided by the 	
-https://npmjs.com/package/@backstage/plugin-catalog-backend-module-gitlab/v/0.3.21[@backstage/plugin-catalog-backend-module-gitlab plugin^, window="_console"]. You can see that this is a supported https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/dynamic_plugins_reference/con-preinstalled-dynamic-plugins#rhdh-community-plugins[dynamic plugin in the {product_name_rhdh} documentation^, window="_console"].
+Much like the Keycloak provider, you can use a https://backstage.io/docs/integrations/gitlab/discovery/[GitLab provider to discover^, window="console"] and import Entities from repositories in GitLab. This functionality is provided by the 	
+https://npmjs.com/package/@backstage/plugin-catalog-backend-module-gitlab/v/0.3.21[@backstage/plugin-catalog-backend-module-gitlab plugin^, window="console"]. You can see that this is a supported https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/dynamic_plugins_reference/con-preinstalled-dynamic-plugins#rhdh-community-plugins[dynamic plugin in the {product_name_rhdh} documentation^, window="console"].
 
 To install and configure this plugin:
 
-. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository^, window="_gitlab"] in your GitLab instance.
+. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository^, window="gitlab"] in your GitLab instance.
 . Select *Edit > Edit single file*.
 . Uncomment the following section in `dynamic.plugins` section of the YAML, to enable the TechDocs and GitLab dynamic plugins. +
 Look for the `======== TECHDOCS_GITLAB ======` block; highlight the block, then press `CMD + SHIFT` or `CTRL +SHIFT`.
@@ -333,18 +333,18 @@ image::./m2/gitlab-catalog-provider.png[GitLab Catalog Provider, width=70%]
 . Commit your changes with the message `feat: add gitlab autodiscovery`.
 // +
 // image::./m2/gitlab-discovery.png[GitLab code editor showing catalog providers configuration for {product_name_rhdh}]
-. Click the *Refresh* button on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="_argo"].
+. Click the *Refresh* button on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"].
 
 === Verify GitLab Entity Discovery is Active
 
-. After a few moments your new {product_name_rhdh} configuration will finish rolling out. Check the logs for the new https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/core%7Ev1%7EPod[{product_name_rhdh} Pod^, window="_console"]. You should see that a repository was discovered - that means the repository contains https://backstage.io/docs/features/software-catalog/descriptor-format/[catalog-info.yaml, window="_blank"] file.
+. After a few moments your new {product_name_rhdh} configuration will finish rolling out. Check the logs for the new https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/core%7Ev1%7EPod[{product_name_rhdh} Pod^, window="console"]. You should see that a repository was discovered - that means the repository contains https://backstage.io/docs/features/software-catalog/descriptor-format/[catalog-info.yaml, window="blank"] file.
 +
 image::./m2/rhdh-logs-gitlab-discovery.png[GitLab Autodiscovery Logs in the OpenShift Console]
-. The repository in question is the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/global/global-techdocs[global/global-techdocs^, window="_gitlab"]. This repository contains a _catalog-info.yaml_ that defines a Component, and an annotation `backstage.io/techdocs-ref` that tells the TechDocs plugin where to find the source for documentation builds for the Component. 
+. The repository in question is the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/global/global-techdocs[global/global-techdocs^, window="gitlab"]. This repository contains a __catalog-info.yaml__ that defines a Component, and an annotation `backstage.io/techdocs-ref` that tells the TechDocs plugin where to find the source for documentation builds for the Component. 
 +
 image::./m2/global-techdocs-cat-info.png[Global TechDocs catalog-info.yaml file]
 
-. Visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}^, window="_rhdh"] and view the Software Catalog. Make sure that the _Kind_ dropdown is set to _Component_. You should see the _global-techdocs_ Component.
+. Visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}^, window="rhdh"] and view the Software Catalog. Make sure that the __Kind__ dropdown is set to _Component_. You should see the _global-techdocs_ Component.
 +
 image::./m2/global-techdocs-component.png[The Global TechDocs Component in the Software Catalog]
 
