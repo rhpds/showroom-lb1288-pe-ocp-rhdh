@@ -110,13 +110,6 @@ You might have recognized this as a https://json-schema.org/[JSON Schema] struct
 
 The properties that have a `ui` prefix might have piqued your interest. These are special properties that provide instructions to the form, for example to enable autocomplete or autofocus certain form fields when it is displayed in the {product_name_rhdh} UI.
 
-TODO: 
-
-* Discuss Quay and OpenShift as repositories
-* Discuss why the template need dev to create a Quay account
-* Best practices about this isolated dev environment being created  in developer's personal git repo and personal Quay
-* Because this template is meant for experimental purposes and not meant for production. 
-
 
 === Steps
 
@@ -149,7 +142,7 @@ spec:
 
 == Platform Engineer Activity: Import the Software Template
 
-The Software Template you'll be using in this activity is stored in the _template.yaml_ file in the https://gitlab-gitlab.apps.cluster-kccz6.dynamic.redhatworkshops.io/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple, window="_gitlab"] repository in GitLab.
+The Software Template you'll be using in this activity is stored in the _template.yaml_ file in the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple, window="_gitlab"] repository in GitLab.
 
 Register this template using the {product_name_rhdh} UI:
 
@@ -241,7 +234,8 @@ Currently, it's not possible for the developer to see the deployment status of t
 
 === Install the Argo CD Plugins
 
-. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config/values.yaml] file.
+. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config/values.yaml] file. 
+. Select **Edit > Edit single file**. When prompted, login as *(pe1/{common_password})*
 . Add the following entries to the `dynamic.plugins` list:
 +
 [source,yaml,subs=attributes+]
@@ -268,6 +262,7 @@ argocd:
 +
 image::./m3/argocd-plugin-config.png[Argo CD Plugin Configuration Example]
 . Click Refresh on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="_blank"]. 
+. Wait until the Application reports being in a `Healthy` state.
 
 You might have noticed that the `url` provided to the Argo CD plugin doesn't match the URL of the Argo CD instance you've been using to manage your {product_name_rhdh} deployment. That's because your environment contains two separate instances of OpenShift GitOps; one to manage platform components, and another to manage applications.
 
@@ -311,3 +306,12 @@ Congratulations! You've learned how to:
 * Create new Components using a Software Template
 * Use annotations to provide information to plugins
 * Force refresh Entities in the Software Catalog
+
+
+== TODO: 
+
+* Discuss Quay and OpenShift as repositories
+* Discuss why the template need dev to create a Quay account
+* Best practices about this isolated dev environment being created  in developer's personal git repo and personal Quay
+* Because this template is meant for experimental purposes and not meant for production. 
+
