@@ -258,7 +258,7 @@ The high-level steps involve:
 
 . Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/[rhdh/developer-hub-config repository on GitLab, window="_gitlab"].
 . Open the *values.yaml* file, then select *Edit > Edit single file*.
-. Locate the `appConfig.auth` object in the YAML. You can search for `= AUTHENTICATION = in this file to locate this section.
+. Locate the `appConfig.auth` object in the YAML. You can search for `--- AUTHENTICATION --- ` in this file to locate this section.
 . Delete the existing `auth` configuration that contains the `guest` provider.
 . Uncomment the entire `auth` configuration containing the `oidc` provider, and the `signInPage` setting below it.
 +
@@ -322,11 +322,11 @@ To install and configure this plugin:
 . Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository^, window="_gitlab"] in your GitLab instance.
 . Select *Edit > Edit single file*.
 . Uncomment the following section in `dynamic.plugins` section of the YAML, to enable the TechDocs and GitLab dynamic plugins. +
-Look for the `= TECHDOCS_GITLAB =` block; highlight the block, then press `CMD + SHIFT` or `CTRL +SHIFT`.
+Look for the `--- TECHDOCS_GITLAB ---` block; highlight the block, then press `CMD + SHIFT` or `CTRL +SHIFT`.
 +
 image::./m2/gitlab-techdoc-plugin.png[TechDocs and GitLab dynamic plugins, width=60%]
 . Find the `appConfig.catalog.providers` configuration and uncomment the following block as shown below. +
-Look for the `= GITLAB_CATALOG_PROVIDER =` block; highlight the block, then press `CMD + SHIFT` or `CTRL +SHIFT`.
+Look for the `--- GITLAB_CATALOG_PROVIDER ---` block; highlight the block, then press `CMD + SHIFT` or `CTRL +SHIFT`.
 +
 image::./m2/gitlab-catalog-provider.png[GitLab Catalog Provider, width=70%]
 // . Verify that you indentation matches that shown in the screenshot, 

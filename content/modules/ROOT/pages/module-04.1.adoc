@@ -118,14 +118,14 @@ The import-existing-app/api templates need 2 dynamic plugins that are described 
 
 . Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"].
 . You should already be in Edit mode of the `values.yaml` file.
-. Locate the comment `# ============ DYNAMIC_PLUGINS_IMPORT_COMPONENTS ============ #`
+. Locate the comment `--- DYNAMIC_PLUGINS_IMPORT_COMPONENTS ---`
 . Highlight the YAML as shown in the below screenshot, and comment those lines. Type *Ctrl+ /* command to do so.
 +
 image::./m4/uncomment-dynamic-plugin.png[width=60%]
 . Don't Save yet. We need to next turn on auto-discovery
 
 == Turn auto-discovery
-. Locate the comment `# ============ AUTO_DISCOVERY_IMPORT_COMPONENTS ============ #`
+. Locate the comment `--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---`
 . Highlight the YAML as shown in the below screenshot, and comment those lines. Type *Ctrl+ /* command to do so.
 +
 image::./m4/uncomment-auto-discovery.png[width=60%]

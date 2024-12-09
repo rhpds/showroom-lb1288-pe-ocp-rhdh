@@ -1,19 +1,19 @@
 :imagesdir: ../assets/images
 
 
-= Module 4.3: Setup Developer Sandbox
+= Module 4.3: Setup Developer Environment
 
 include::style.adoc[]
 
-A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of the `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will where the developer writes test all changes in an isolated sandbox code in a continuous loop.
+A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of the `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will where the developer develops and tests all changes in an isolated dev environment in a continuous loop.
 
-So as to help the developer continue to work on the enhancement, the Platform Engineer creates a new S/W template that can setup a Sandbox environment for the Developer for this `parasol-store` application. The template performs a number of things
+So as to help the developer continue to work on the enhancement, the Platform Engineer creates a new S/W template that can setup an isolated dev environment for the Developer for this `parasol-store` application. The template performs a number of things
 
 * Creates GitOps/Argo manifests within the user's repo
 * Sets up a development pipelines to make development easy 
-* The  Sandbox connects to the *developer* DB instance 
+* The  isolated dev environment connects to the *developer* DB instance 
 
-With this, the Platform Engineers are able to provide an environment that allows the developer to just focus on coding. The templates make it easy for developers to set up sandboxes repeatedly in a self-service fashion.
+With this, the Platform Engineers are able to provide an environment that allows the developer to just focus on coding. The templates make it easy for developers to set up isolated dev environments repeatedly in a self-service fashion.
 
 
 == Platform Engineer: Onboard parasol-store Dev Template
@@ -47,7 +47,7 @@ image:./m4/create-branch-name.png[width=70%]
 
 image:./m4/choose-parasol-store-template.png[width=30%]
 
-* In *Step 1: Provide Information for the sandbox deployment*
+* In *Step 1: Provide Information for the isolated dev environment deployment*
 ** Enter the feature-branch name `my-feature-branch` or the name you have picked for your branch.
 
 image:./m4/choose-parasol-store-template-step1.png[]
@@ -73,7 +73,7 @@ and turns green when it finishes the run successfully
 +
 image:./m4/parasol-branch-first-pipeline-success.png[]
 
-** Explore the other tabs to see how RHDH allows a single pane of glass for the Developers' Sandbox environment
+** Explore the other tabs to see how RHDH allows a single pane of glass for the Developers' isolated environment
 
 * If you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment[click here^, window="_console"]
 
@@ -116,5 +116,5 @@ NOTE: The first pipeline was triggered when you registered using the s.w templat
 
 * Once you are happy with the changes, you are now ready to create a merge request to the main branch.
 
-* This is the end of development within the Sandbox. In the next section, the developer will create merge request to the main branch, to initiate the outer loop
+* This is the end of development within the isolated dev environment. In the next section, the developer will create merge request to the main branch, to initiate the outer loop
 

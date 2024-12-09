@@ -114,7 +114,7 @@ TODO:
 
 * Discuss Quay and OpenShift as repositories
 * Discuss why the template need dev to create a Quay account
-* Best practices about this sandbox env being created  in developer's personal git repo and personal Quay
+* Best practices about this isolated dev environment being created  in developer's personal git repo and personal Quay
 * Because this template is meant for experimental purposes and not meant for production. 
 
 
@@ -241,7 +241,7 @@ Currently, it's not possible for the developer to see the deployment status of t
 
 === Install the Argo CD Plugins
 
-. Visit the https://gitlab-gitlab.apps.cluster-gl28t.gl28t.sandbox776.opentlc.com/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config/values.yaml] file.
+. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config/values.yaml] file.
 . Add the following entries to the `dynamic.plugins` list:
 +
 [source,yaml,subs=attributes+]
@@ -279,7 +279,7 @@ Installing the Argo CD plugin won't automatically make the deployment informatio
 
 Start by updating your Quarkus application with the correct annotation:
 
-. Visit the https://gitlab-gitlab.apps.cluster-gl28t.gl28t.sandbox776.opentlc.com/pe1/my-quarkus-app/-/blob/main/catalog-info.yaml[dev1/my-quarkus-app/catalog-info.yaml] file in GitLab.
+. Visit the https://gitlab-gitlab.apps.{openshift_cluster_ingress_domain}/pe1/my-quarkus-app/-/blob/main/catalog-info.yaml[dev1/my-quarkus-app/catalog-info.yaml] file in GitLab.
 . Select _Edit > Edit single file_.
 . Add the following annotation:
 +
