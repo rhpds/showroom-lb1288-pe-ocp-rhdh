@@ -1,41 +1,31 @@
 :imagesdir: ../../assets/images
 
 
-= Module 5: Build, Test, & Deploy (outer loop)
+== Developer Activity: Merge request from feature-branch to main
 
 include::../style.adoc[]
 
-== Overview
 
-* PE builds a production-level pipelines (pre and post merge) based org needs via Tekton
-* Developer creates a new merge-request, the pre-merge pipeline is triggered via Gitlab webhook, and the image is built
-* An application owner/team member reviews and accepts the merge-request.
-* This kicks off a post-merge pipeline which updates manifests in Dev and Stage env 
-* This also issues a merge-request to deploy to the Production Environment. 
-* Once this prod merge-request is accepted, the application is deployed to production through GitOps/ArgoCD
-
-
-== As Developer: Merge request from feature-branch to main
 * On RHDH, navigate to the Catalog menu, and access the dev environment component you had created. This will be From the feature-branch components's overview page on RHDH, click on *View Source* link to access the git repo of this component.
 * You will see an alert asking you to create a *merge request*
 +
-image:./m5/view-merge-alert.png[]
+image:m5/view-merge-alert.png[]
 +
 NOTE: If you don't see this alert, you can access this via the *Code -> Merge Requests* left-hand menu, and proceed to click on the *New merge request* button
 
 * In the *New merge request* page, continue to create this merge request by clicking on the *Create merge request* button at the bottom of the page
 +
-image:./m5/create-merge-alert.png[width=60%]
+image:m5/create-merge-alert.png[width=60%]
 
 * Since this merge request is to the `parasol-store` component, the `parasol-store-build-pr-open` pipeline gets triggered and can viewed in the `parasol-store` component
 +
-image:./m5/parasol-store-pr-open-pipeline-start.png[]
+image:m5/parasol-store-pr-open-pipeline-start.png[]
 * Once the pipeline is run, it has an additional `gitlab-update-task`, which updates the Gitlab's Merge Request with status of the pipeline
 +
-image:./m5/parasol-store-pr-open-pipeline-done.png[]
+image:m5/parasol-store-pr-open-pipeline-done.png[]
 * This status update can be visible in the Merge Request page. Note that the Pipeline is marked as _Passed_ and ready to be merged
 +
-image:./m5/parasol-store-pr-status-update.png[]
+image:m5/parasol-store-pr-status-update.png[]
 
 *TODO: Under the hood, the handoff between the pipelines and Gitlab is through the use of webhooks. +
 Click to see more details about this
@@ -43,21 +33,21 @@ Click to see more details about this
 * In a real-world scenario, there would be a peer-review or team-lead who would review and _merge_ the PR. For the purposes of this workshop, let us go ahead and assume the role of a reviewer. Click on the _Merge_ button.
 * The `Merge` action triggers another Pipeline which will update the Argo manifests with the new image tag.
 +
-image:./m5/parasol-store-pr-merge-start.png[]
+image:m5/parasol-store-pr-merge-start.png[]
 * When this Pipeline is run, it will update the Dev and Staging ArgoCD manifests (deployment YAMLs are updated with the new image tag), and another PR is created against the Production ArgoCD manifests. This is because the Production manifests should only be updated after proper approvals typically from a release manager. +
 Click to see a snapshot of how the pipeline looks like it is complete
 +
-image:./m5/parasol-store-pr-merge-done.png[]
+image:m5/parasol-store-pr-merge-done.png[]
 * Let us now see what happened to the Dev and Staging ArgoCD manifests updates. In RHDH, access the CD tab of the https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store/cd[parasol-store component^, window="_argo"]
 +
-image:./m5/parasol-store-argo.png[]
+image:m5/parasol-store-argo.png[]
 * Click on the the outgoing-arrow icon next to *parasol-store-dev* and *parasol-store-staging*
 ** You will note that both *dev* and *staging* are tagged by the Tekton Pipeline to the same image tag
 ** *Dev Argo*
-image:./m5/parasol-store-argo-dev.png[]
+image:m5/parasol-store-argo-dev.png[]
 ** *Staging Argo*
 +
-image:./m5/parasol-store-argo-staging.png[]
+image:m5/parasol-store-argo-staging.png[]
 +
 NOTE: You can click on the `parasol-store` deploy highlighted to view the deployment YAML of both dev and staging, and you can verify they are both pointing to the same Quay image 
 
@@ -66,33 +56,33 @@ NOTE: You can click on the `parasol-store` deploy highlighted to view the deploy
 * In the preview section, we noted that a PR has been raised on the Prod Argo manifest to update the prod image
 * On RHDH, in the component overview page of parasol-store, you can view the *Deployment Summary* section
 +
-image:./m5/parasol-store-deployment-summary.png[]
+image:m5/parasol-store-deployment-summary.png[]
 * Click on the Revision link shown `parasol-store-prod`. This will take you to the `parasol-store-manifests` repo showing the commits. 
 * From the left-hand navigation, access the _Merge requests_ menu
 +
-image:./m5/parasol-store-merge-menu.png[]
+image:m5/parasol-store-merge-menu.png[]
 * You can see this Merge Request created for the parasol-store-manifests repo. You can also click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-manifests/-/merge_requests[here^, window="_gitlab"] to view.
 +
-image:./m5/parasol-store-prod-pr.png[]
+image:m5/parasol-store-prod-pr.png[]
 * Click on the _Changes_ tab and you can see that the change is to the `value-prod.yaml` file, and that the image's is now updated to match the same image tag we notice for the dev & staging deployments
 +
-image:./m5/parasol-store-prod-pr-changes.png[]
+image:m5/parasol-store-prod-pr-changes.png[]
 * You can now assume the persona of a release manager. Navigate back to the _Overview_ tab and proceed to _Merge_ it.
 +
-image:./m5/parasol-store-prod-pr-merge.png[width=70%]
+image:m5/parasol-store-prod-pr-merge.png[width=70%]
 * Navigate to {product_name_rhdh} -> parasol-store component, and from the _CD_ tab, access the `parasol-store-prod` ArgoCD app by clicking on the arrow.
 +
-image:./m5/parasol-store-go2argo.png[]
+image:m5/parasol-store-go2argo.png[]
 
 * Click on the _Refresh_ button. 
 +
-image:./m5/parasol-store-prod-argo-sync-start.png[width=70%]
+image:m5/parasol-store-prod-argo-sync-start.png[width=70%]
 * The Argo app will begin Sync-ing.
 +
-image:./m5/parasol-store-prod-argo-sync-progress.png[width=70%]
+image:m5/parasol-store-prod-argo-sync-progress.png[width=70%]
 * In less than a minute, the new image will be deployed on Prod as well. 
 +
-image:./m5/parasol-store-prod-argo-sync-done.png[width=70%]
+image:m5/parasol-store-prod-argo-sync-done.png[width=70%]
 +
 NOTE: In ArgoCD, open the *parasol-store* deployment, and you can validate that the image deployed on Prod is the same image as in Dev and Staging that we saw earlier.
 

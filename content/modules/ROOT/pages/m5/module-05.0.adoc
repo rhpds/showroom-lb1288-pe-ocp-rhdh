@@ -1,0 +1,15 @@
+:imagesdir: ../../assets/images
+
+
+= Module 5: Build, Test, & Deploy (outer loop)
+
+include::../style.adoc[]
+
+== Overview
+
+* To handle the outer-loop, Platform Engineer has built a production-level pipelines (pre and post merge) based org needs via Tekton
+* Developer creates a new merge-request, the pre-merge pipeline is triggered via Gitlab webhook, and the image is built
+* An application owner/team member reviews and accepts the merge-request.
+* This kicks off a post-merge pipeline which updates manifests in Dev and Stage env 
+* This also issues a merge-request to deploy to the Production Environment. 
+* Once this prod merge-request is accepted, the application is deployed to production through GitOps/ArgoCD
