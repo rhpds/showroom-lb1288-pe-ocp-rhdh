@@ -19,7 +19,7 @@ TODO:
 
 
 == As Developer: Merge request from feature-branch to main
-* On RHDH, navigate to the Catalog menu, and access the sandbox component you had created. This will be From the feature-branch components's overview page on RHDH, click on *View Source* link to access the git repo of this component.
+* On RHDH, navigate to the Catalog menu, and access the dev environment component you had created. This will be From the feature-branch components's overview page on RHDH, click on *View Source* link to access the git repo of this component.
 * You will see an alert asking you to create a *merge request*
 +
 image:./m5/view-merge-alert.png[]
@@ -102,4 +102,4 @@ NOTE: In ArgoCD, open the *parasol-store* deployment, and you can validate that 
 
 == Conclusion
 
-A developer can easily setup a sandbox env, test their code, and then the code can be progressed till Production with all the necessary guardrails in place.
+A developer can easily setup a isolated dev environment, develop and test their code, and then the code can be progressed till Production with all the necessary guardrails in place.
