@@ -75,18 +75,16 @@ image::m4/import-templates-list.png[width=70%]
 
 === Enable Dynamic Plugins 
 
-The Import API/APP templates described above need a couple of Dynamic Plugins. 
+. The Import API/APP templates described above need a couple of Dynamic Plugins. 
 
-* The `roadiehq-scaffolder-backend-module-utils-dynamic` plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported.
-* The `backstage-plugin-catalog-backend-module-gitlab-dynamic` plugin helps to discover catalog files located in your GitLab instance. 
+.. The `roadiehq-scaffolder-backend-module-utils-dynamic` plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported.
+.. The `backstage-plugin-catalog-backend-module-gitlab-dynamic` plugin helps to discover catalog files located in your GitLab instance. 
 +
 .What are Dynamic Plugins?
 [%collapsible]
 ====
 The Red Hat Developer Hub application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
 ====
-
-
 . Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"]. If prompted, login using `pe1/{common_password}`.
 . You should already be in Edit mode of the `values.yaml` file.
 . Locate the comment `--- DYNAMIC_PLUGINS_IMPORT_COMPONENTS ---`
@@ -95,13 +93,14 @@ The Red Hat Developer Hub application offers a unified platform with various plu
 image::m4/uncomment-dynamic-plugin.png[width=60%]
 . Don't Save yet. We need to next turn on auto-discovery
 
-== Turn on auto-discovery
-. Locate the comment `--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---`
+=== Turn on auto-discovery
+. Locate the comment `--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---` in the same values.yaml file.
 . Highlight the YAML as shown in the below screenshot, and comment those lines. Type `CMD + / or CTRL + /` command to do so.
 +
 image::m4/uncomment-auto-discovery.png[width=60%]
-. This YAML snippet enables auto-discovery for all files named *envelope.yaml* [entityFilename] where the repo name starts with the word *envelope* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
-. Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
++
+NOTE: This YAML snippet enables auto-discovery for all files named *envelope.yaml* [entityFilename] where the repo name starts with the word *envelope* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
+. Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page with a suitable commit message.
 +
 image::m4/commit-rhdh-config.png[]
 
@@ -109,20 +108,22 @@ image::m4/commit-rhdh-config.png[]
 
 Argo is tuned to pull changes from the repo every two minutes or so. Instead of waiting that to kick in, you can *Refresh* the RHDH Argo Application as follows:
 
-* Access ArgoCD from https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ here^, window="_argo"], and login 
-* *username*: admin
-* *Password* : {openshift_gitops_password}
+* Access ArgoCD from https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ here^, window="_argo"], and login as (admin/{openshift_gitops_password})
 * Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will sync the content from Gitlab.
 +
+.Click to view screenshot
+[%collapsible]
+====
 image::m4/rhdh-argo-refresh.png[]
-* The card will turn green when it is ready. Go ahead and refresh RHDH. This might take a minute or so, since the backstage pod gets redeployed with the new configuration
+====
+* Wait till the app turns green and marked as Healthy. 
 
 
 == Onboard Parasol's System and Domain
 
-In a previous chapter you learnt about how System and Domain help in organizing the components in RHDH. In this section you will setup Parasol's System and Domain
+In a previous chapter you learnt about how System and Domain help in organizing the components in {product_name_rhdh}. In this section you will setup Parasol's System and Domain
 
-. From RHDH, navigate to Create menu; choose *Register Existing Component* button
+. From {product_name_rhdh}, navigate to Create menu; choose *Register Existing Component* button
 . Paste the below URL and click on *Analyze*
 +
 [source,yaml,subs=attributes+]
@@ -130,10 +131,12 @@ In a previous chapter you learnt about how System and Domain help in organizing 
 https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/rhdh-entities/-/blob/main/locations.yaml
 ----
 . Click *Import* in the Review section.
+. The Systems and Domain are setup. 
 +
-image::m4/rhdh-system.png[width=60%]
-. The Systems and Domain are setup. These help form an important abstraction level to help us reason about software ecosystems.
+.Learn more about Systems and Domain
+[%collapsible]
+====
 * _systems_ are the basic level of encapsulation for related entities
 * _domains_ are useful to group a collection of systems that share terminology, domain models, business purpose etc.
-+
-Read more https://backstage.io/docs/features/software-catalog/system-model/#system[here^, window="_content"]
+* Read more https://backstage.io/docs/features/software-catalog/system-model/#system[here^, window="_content"]
+====
