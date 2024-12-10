@@ -1,8 +1,8 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 = Module 7: Continuous Platform improvements
 
-include::style.adoc[]
+include::../style.adoc[]
 
 
 == Objectives

@@ -1,9 +1,9 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 
 = Module 4.1: Introduction to Concepts
 
-include::style.adoc[]
+include::../style.adoc[]
 
 == Software templates to import existing applications
 

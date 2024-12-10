@@ -1,9 +1,9 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 
 = Module 4.4: Setup Developer Environment
 
-include::style.adoc[]
+include::../style.adoc[]
 
 A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of the `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will where the developer develops and tests all changes in an isolated dev environment in a continuous loop.
 

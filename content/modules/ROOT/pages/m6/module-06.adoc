@@ -1,8 +1,8 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 = Module 6: Observability: Security
 
-include::style.adoc[]
+include::../style.adoc[]
 
 
 

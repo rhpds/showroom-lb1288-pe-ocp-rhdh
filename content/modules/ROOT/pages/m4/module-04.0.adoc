@@ -1,8 +1,8 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 = Module 4: Accelerate Developer Inner-Loop
 
-include::style.adoc[]
+include::../style.adoc[]
 
 == Overview
 

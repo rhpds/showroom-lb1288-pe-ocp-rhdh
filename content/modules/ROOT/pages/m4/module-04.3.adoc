@@ -1,9 +1,9 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 
 = Module 4.3: As a Platform Engineer: Onboard Parasol API and Parasol Store service
 
-include::style.adoc[]
+include::../style.adoc[]
 
 
 == Import parasol-store-api OpenAPI 

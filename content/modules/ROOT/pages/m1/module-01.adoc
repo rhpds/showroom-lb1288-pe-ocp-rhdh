@@ -1,8 +1,8 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 = Module 1: Discovery
 
-include::style.adoc[]
+include::../style.adoc[]
 
 
 == Objectives

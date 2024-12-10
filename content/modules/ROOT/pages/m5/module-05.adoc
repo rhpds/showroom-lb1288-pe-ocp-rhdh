@@ -1,9 +1,9 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 
 = Module 5: Build, Test, & Deploy (outer loop)
 
-include::style.adoc[]
+include::../style.adoc[]
 
 == Overview
 

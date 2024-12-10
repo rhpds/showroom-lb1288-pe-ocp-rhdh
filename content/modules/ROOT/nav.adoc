@@ -1,4 +1,4 @@
-* xref:module-01.adoc[1. Discovery]
+* xref:m1/module-01.adoc[1. Discovery]
 
 * xref:module-02.0.adoc[2. Design the Internal Developer Platform]
 ** xref:module-02.1.adoc[2.1. Introduction to Concepts]
@@ -16,15 +16,15 @@
 ** xref:module-03.6.adoc[3.6 Platform Engineer Activity: Enhance the Template & Component with Plugins]
 ** xref:module-03.7.adoc[3.7 Platform Engineer Activity: Setup RBAC]
 
-* xref:module-04.0.adoc[4. Accelerate Developer Inner-Loop]
-** xref:module-04.1.adoc[4.1 Import Existing API/Apps]
-** xref:module-04.2.adoc[4.2 Onboard parasol application]
-** xref:module-04.3.adoc[4.3 Developer environment]
+* xref:m4/module-04.0.adoc[4. Accelerate Developer Inner-Loop]
+** xref:m4/module-04.1.adoc[4.1 Import Existing API/Apps]
+** xref:m4/module-04.2.adoc[4.2 Onboard parasol application]
+** xref:m4/module-04.3.adoc[4.3 Developer environment]
 
 
-* xref:module-05.adoc[5. Setup Build, Test, & Deploy Outer-loop]
+* xref:m5/module-05.adoc[5. Setup Build, Test, & Deploy Outer-loop]
 
-* xref:module-06.adoc[6. Establish Security and Compliance]
+* xref:m6/module-06.adoc[6. Establish Security and Compliance]
 
 * xref:env.adoc[My lab environment details]
 
