@@ -1,0 +1,38 @@
+== Developer Activity: Create a new Component from the Template
+
+Create a new software Component and supporting infrastructure using the *Quarkus Service* template that was created by the platform engineer:
+
+. Make sure you've logged in to {product_name_rhdh} as `dev1` using the password `{common_password}`.
+. Select the *Create* item from the sidemenu.
++
+image::./m3/rhdh-create.png[The {product_name_rhdh} Create UI]
+. Click the *Choose* button on the *Quarkus Service*. The *Software Templates* screen will be displayed.
+. You'll be prompted to enter a set of application parameters. Thankfully defaults are provided by the template, so you can simply click *Next*.
+. When prompted to *Provide Image Registry Information*:
+  * Select the *Quay* image registry.
+  * Enter your Quay password: `{common_password}`
+  * Click *Next*.
++
+NOTE: Your username is automatically determined by the Template using your current session.
+. Select the default *Repository Location* and click *Review*.
++
+image::./m3/rhdh-template-review.png[Reviewing template parameters in {product_name_rhdh}]
+. Confirm you're satisfied with your parameters and click *Create*. 
+
+After a few moments the process should be finished, and you'll see a screen with a series of green checkmarks.
+
+image::./m3/rhdh-template-success.png[A successful template run in {product_name_rhdh}]
+
+Click the *Open Component in catalog* link to view the new Component. You'll see links the GitLab repository (*View Source* link) and note that you're listed as the owner since you created the Component.
+
+image::./m3/rhdh-new-component.png[A successful template run in {product_name_rhdh}]
+
+If you select the *CI* tab you'll be able to view the status of the OpenShift Pipelines (Tekton) build.
+
+image::./m3/rhdh-new-component-ci.png[CI status for the Quarkus Service]
+
+Wait for the build to complete, and visit the https://quay.{openshift_cluster_ingress_domain}/user/dev1/[dev1 organization in Quay]. You'll be able to view the new _my-quarkus-app_ repository and see the newly pushed _latest_ image tag.
+
+image::./m3/quay-image-tag.png[Quay Latest Image Tag]
+
+In the next section you'll learn how to enable and disable differnt plugin intregrations with your Components, using OpenShift GitOps (Argo CD) as an example.

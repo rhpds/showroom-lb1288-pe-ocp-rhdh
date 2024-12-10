@@ -1,0 +1,35 @@
+== Platform Engineer Activity: Update the the Component Template
+
+While the developer can add the necessary annotation to their Component, it's best to update the Template so future developers can benefit from the Argo CD integration without having to manually add the annotation.
+
+To ensure that future Quarkus applications created using the Template...TODO
+
+. Visit the https://gitlab-gitlab.apps.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple/-/blob/main/skeleton/catalog-info.yaml[rhdh/template-quarkus-simple/skeleton/catalog-info.yaml] file in GitLab.
++
+NOTE: Login to GitLab in using `pe1/{common_password}` to view and edit this file.
+. Select _Edit > Edit single file_.
+. Add the following to the `annotations` section of the file:
++
+----
+argocd/app-selector: rht-gitops.com/${{ values.gitops_namespace }}=${{ values.owner }}-${{values.component_id}}
+----
++
+image::./m3/gitlab-template-edit.png[Edit the Template in Argo CD]
+. Use the *Commit changes* button to commit the new annotation.
+
+The annotation value will be automatically generated, similar to the Argo CD label, using the values provided by developers when they use the Template.
+
+Return to your developer hub instance after committing the change. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 
+
+NOTE: Manually refreshing is an optional step, since {product_name_rhdh} will check for upstream Entity changes every few minutes.
+
+image::./m3/rhdh-template-refresh.png[Refresh Template Button]
+
+== Conclusion
+
+Congratulations! You've learned how to:
+
+* Create and Import Software Templates
+* Create new Components using a Software Template
+* Use annotations to provide information to plugins
+* Force refresh Entities in the Software Catalog

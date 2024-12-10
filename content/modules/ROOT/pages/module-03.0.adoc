@@ -1,0 +1,30 @@
+= Module 3: Software Templates and Developer Experience
+
+include::style.adoc[]
+
+== Overview
+
+Software Templates in {product_name_rhdh} enable your team(s) to create Components and - through the use of "actions" provided by plugins - create resources in other systems such as your GitLab and OpenShift GitOps instances. Each Template is stored as an Entity, meaning you can import them similar to any other Entity.
+
+Platform engineers will typically be the authors of Templates, and use them to create "golden paths" that follow best-practices and use approved processes and tooling. Development teams will be the consumers of Templates to create new software. Using Templates reduces cognitive load on the development teams by allowing them to focus on development tasks, while platform concerns are addressed by the template.
+
+Templates are defined using YAML, but are rendered as a rich form in the {product_name_rhdh} UI when used by development teams.
+
+== Module Objectives
+
+* Create a Template (as the Platform Engineer)
+* Register the Template in the Software Catalog
+* Create a new Component, GitLab Repository, and GitOps Application from the Template (as a Developer)
+
+== Workshop Environment
+
+Your workshop environment has been preconfigured with the following software and platform components:
+
+* Red Hat Build of Keycloak
+* OpenShift GitOps
+* OpenShift Pipelines
+* GitLab
+
+For the purposes of this workshop, we'll assume that your organization has standardized on these tools, and it's your objective as the platform engineer to integrate them with {product_name_rhdh}.
+
+For convenience, {product_name_rhdh} has been predeployed via OpenShift GitOps using the official https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/assembly-install-rhdh-ocp-helm[{product_name_rhdh} Helm Chart^, window="_content"]. Specifically, a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap^, window="_rhdh"] Application has been configured to deploy the official {product_name_rhdh} Helm Chart along with a set prerequisite Secrets and ConfigMaps.

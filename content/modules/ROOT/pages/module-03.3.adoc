@@ -1,0 +1,32 @@
+== Developer Activity: Developer On-Boarding Example
+
+Until now, you've been acting in the role of a platform engineer. Let's switch persona to that of a developer: `dev1`. 
+
+=== Login to {product_name_rhdh} as a Developer
+
+. Navigate to the *Settings* side-menu and click on th kebab menu in the *Profile* card
++
+image::./m3/rhdh-settings.png[Settings of {product_name_rhdh}]
+. Sign out of {product_name_rhdh} using the Settings screen as shown.
++
+image::./m3/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
+
+. Login to {product_name_rhdh} as `dev1` using the password `{common_password}`. 
+
+=== Create an Account in Quay
+
+You'll need an account in Quay to push your developers container images to.
+
+. Visit the https://quay.{openshift_cluster_ingress_domain}[Quay Registry^, window="_quay"] deployed in your workshop environment.
+. Click the *Create Account* link.
++
+image::./m3/quay-create-account-link.png[Creating a Quay Account, width="60%"]
+. Enter the following information:
+  * Username: `dev1`
+  * Email: `dev1@rhdh.com`
+  * Password: {common_password}
++
+image::./m3/quay-create-account.png[Creating a Quay Account]
+. Click *Create Account*.
+
+You're almost ready to create an application from a Template!
