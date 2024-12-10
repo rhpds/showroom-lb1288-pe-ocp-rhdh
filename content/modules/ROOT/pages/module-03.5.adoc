@@ -39,28 +39,16 @@ g, group:default/platformengineers, role:default/platformengineer
 ```
 .. The result is that users belonging to `platformengineers` group can create Catalog Entities
 . The RBAC plugins and other config are in the Developer Hub configuration file store in GitLab. Access the  your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config configuration on GitLab, window="gitlab"]. Select *Edit > Edit single file*. When prompted, login as *(pe1/{common_password})*
-. There are 3 sections in the Developer Hub configuration that need to be setup. All of them are under `-- RBAC --` blocks
-.. Look for the first `--- RBAC ---` block; This has the `janus-idp-backstage-plugin-rbac` dynamic plugin which allows you to assign permissions to users and groups; highlight this block, then press `CMD + /` or `CTRL + /`.
+. There are 3 sections in the Developer Hub configuration that need to be setup. All of them are under `-- RBAC --` blocks. You can use `CMD + /` or `CTRL + /` keys to uncomment the blocks.
+.. Look for the first `--- RBAC ---` block; This has the `janus-idp-backstage-plugin-rbac` dynamic plugin which allows you to assign permissions to users and groups; highlight this block and uncomment
 +
-.Click to view screenshot
-[%collapsible]
-====
 image:m3/rbac-block1.png[width=60%]
-====
-.. The second `--- RBAC ---` block sets the admin users and references to the ConfigMap we referred to in the prev section; highlight it, then press `CMD + /` or `CTRL + /`.
+.. The second `--- RBAC ---` block sets the admin users and references to the ConfigMap we referred to in the prev section; highlight and uncomment.
 +
-.Click to view screenshot
-[%collapsible]
-====
 image:m3/rbac-block2.png[width=60%]
-====
-.. The final `-- RBAC --` sets up the volumes and mounts needed to enable the RBAC config. This section is a bit long and so the screenshot is edited for brevity; highlight the whole section and press `CMD + /` or `CTRL + /` to uncomment.
+.. The final `-- RBAC --` sets up the volumes and mounts needed to enable the RBAC config. This section is a bit long and so the screenshot is edited for brevity; highlight the whole section and uncomment.
 +
-.Click to view screenshot
-[%collapsible]
-====
 image:m3/rbac-block3.png[width=70%]
-====
 .. Scroll down and enter a commit message: `feat: enable RBAC` and
 Click the *Commit* button.
 . Visit the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"] and click *Refresh*. Wait till it turns `Healthy`
