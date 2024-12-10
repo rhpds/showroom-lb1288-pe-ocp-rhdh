@@ -266,27 +266,6 @@ The high-level steps involve:
 . Uncomment the entire `auth` configuration containing the `oidc` provider, and the `signInPage` setting below it.
 +
 image::./m2/auth-section-original.png[appConfig.auth object in the YAML, width=80%]
-
-. The end result will look similar to:
-+
-[source,yaml,subs=attributes+]
-----
-auth:
-  session:
-    secret: ${BACKEND_SECRET}
-  environment: production
-    providers:
-      oidc:
-        production:
-          prompt: auto
-          metadataUrl: https://sso.{openshift_cluster_ingress_domain}/realms/backstage/.well-known/openid-configuration
-          clientId: ${OAUTH_CLIENT_ID}
-          clientSecret: ${OAUTH_CLIENT_SECRET}
-          signIn:
-            resolvers:
-              - resolver: preferredUsernameMatchingUserEntityName
-signInPage: oidc
-----
 +
 This is an example standard Backstage `auth` configuration. 
 +
@@ -375,7 +354,3 @@ image::./m2/global-docs-menu.png[Docs side-menu]
 
 Congratulations! You've learned the core concepts of Backstage and {product_name_rhdh}. You also learned how to deploy and manage an instance of {product_name_rhdh} using the official Helm Chart via OpenShift GitOps.
 
-TODO: 
-
-* Types of deployment - local vs AWS bucket/external
-* Add details to "You also learned how to deploy and manage an instance of" - or should we add the Arcade here?
