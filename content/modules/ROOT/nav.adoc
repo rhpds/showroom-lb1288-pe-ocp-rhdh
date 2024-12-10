@@ -1,6 +1,11 @@
 * xref:module-01.adoc[1. Discovery]
 
-* xref:module-02.adoc[2. Design the Internal Developer Platform]
+* xref:module-02.0.adoc[2. Design the Internal Developer Platform]
+** xref:module-02.1.adoc[2.1. Introduction to Concepts]
+** xref:module-02.2.adoc[2.2 Activity: Access Developer Hub]
+** xref:module-02.3.adoc[2.3 Activity: Synchronize User & Group Entities]
+** xref:module-02.4.adoc[2.4 Activity: Configure OpenID Connect Authentication]
+** xref:module-02.5.adoc[2.5 Activity: Enabling GitLab Entity Discovery & TechDocs]
 
 * xref:module-03.adoc[3. Test drive Red Hat Developer Hub]
 ** xref:module-03.5.adoc[Setup RBAC]

@@ -1,0 +1,25 @@
+:imagesdir: ../assets/images
+
+== Activity: Access Developer Hub
+
+{product_name_rhdh} has been pre-deployed with a base configuration in your workshop environment. You can find and access your instance in the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage[backstage project on OpenShift^, window="console"].
+
+Login to {product_name_rhdh}:
+
+. Visit the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage?view=graph[backstage project^, window="console"] in your OpenShift cluster. You can login as *admin/{common_password}*
+. Select the *backstage-developer-hub* Deployment in the Topology View.
++
+image::./m2/openshift-backstage-deployment.png[Red Hat Developer Hub deployment on OpenShift]
+. Click the URL listed under the *Resources* tab; it will be similar to https://backstage-backstage.{openshift_cluster_ingress_domain}[https://backstage-backstage.{openshift_cluster_ingress_domain}^, window="rhdh"]
+
+The sign-in page will be displayed, with the option to login as a Guest. Click the *Enter* button to use the Guest sign-in.
+
+NOTE: Ignore the GitHub sign-in method if it's displayed. It is not configured and will not work. 
+
+image::./m2/backstage-guest-signin.png[Red Hat Developer Hub deployment on OpenShift, width=60%]
+
+WARNING: The Guest sign-in option is currently enabled, but you'll configure a production-ready sign-in option based on OpenID Connect shortly. The Guest sign-in option is only meant for development and testing purposes.
+
+Visit the *Catalog* using the link in the menu on the left-hand side of the {product_name_rhdh} UI. You'll find that it's empty, and that the *Kind* dropdown doesn't provide any options - let's fix that!
+
+image::./m2/rhdh-empty-catalog.png[Empty Red Hat Developer Hub Catalog]
