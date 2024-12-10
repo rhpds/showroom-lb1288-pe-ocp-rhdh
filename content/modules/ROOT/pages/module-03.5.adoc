@@ -25,3 +25,4 @@ image::./m3/rhdh-entity-refresh.png[Entity Refresh Button]
 Next, refresh your browser. The *CD* tab should appear, and you can view build information.
 
 image::./m3/rhdh-cd-tab.png[CD Tab in Component]
+:imagesdir: ../assets/images

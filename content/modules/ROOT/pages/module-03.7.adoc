@@ -1,0 +1,105 @@
+= Platform Engineer Activity: Setup RBAC [Optional Module]
+
+include::style.adoc[]
+
+== Role-Based Access Control (RBAC) in Red Hat Developer Hub
+
+By setting up the Role-Based Access Control (RBAC) configuration, the Platform Engineer can manage access of the users. You can define specific with specific permissions and then assigning those roles to the users to meet the specific needs of your organization. RBAC can be enable via REST API or configuration files. 
+
+In this module you will 
+
+* define policies in a declarative fashion using a simple CSV based format
+* upload them to  OpenShift as a ConfigMap
+* configure Developer Hub to use this ConfigMap
+
+
+== Enable RBAC Plugin and setup the policies
+
+. The policies are managed as a ConfigMap within OpenShift, and this has been pre-deployed to make deployment of this workshop easier. 
+. Click https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/configmaps/rbac-policy[here to view, window="console"] the policies on OpenShift `backstage` namespace. The RBAC policies are defined following Casbin rules format
++
+.What is Casbin?
+[%collapsible]
+====
+NOTE: Casbin is a powerful and efficient open-source access control library  that supports various access control models for enforcing authorization. For information about the Casbin rules format, see https://casbin.org/docs/category/the-basics[Basics of Casbin rules, window="content"].
+====
+. Policies can contain Role permissions (which roles can do what), and assign the role to a group or a user.
+.. Following role permission states that any user or group with role `role:default/platformengineer` can create Catalog Entities
++
+``` yaml
+p, role:default/platformengineer, catalog.entity.create, create, allow
+```
+.. Next, assign this role to the group `group:default/platformengineers`
++
+``` yaml
+g, group:default/platformengineers, role:default/platformengineer
+```
+.. The result is that users belonging to `platformengineers` group can create Catalog Entities
+. The RBAC plugins and other config are in the Developer Hub configuration file store in GitLab. Access the  your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config configuration on GitLab, window="gitlab"]. Select *Edit > Edit single file*. When prompted, login as *(pe1/{common_password})*
+. There are 3 sections in the Developer Hub configuration that need to be setup. All of them are under `-- RBAC --` blocks. You can use `CMD + /` or `CTRL + /` keys to uncomment the blocks.
+.. Look for the first `--- RBAC ---` block; This has the `janus-idp-backstage-plugin-rbac` dynamic plugin which allows you to assign permissions to users and groups; highlight this block and uncomment
++
+image:m3/rbac-block1.png[width=60%]
+.. The second `--- RBAC ---` block sets the admin users and references to the ConfigMap we referred to in the prev section; highlight and uncomment.
++
+image:m3/rbac-block2.png[width=60%]
+.. The final `-- RBAC --` sets up the volumes and mounts needed to enable the RBAC config. This section is a bit long and so the screenshot is edited for brevity; highlight the whole section and uncomment.
++
+image:m3/rbac-block3.png[width=70%]
+.. Scroll down and enter a commit message: `feat: enable RBAC` and
+Click the *Commit* button.
+. Visit the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"] and click *Refresh*. Wait till it turns `Healthy`
++
+If needed, login using `admin`/`{openshift_gitops_password}`.
+
+== Test the RBAC setup
+
+. Access https://backstage-backstage.{openshift_cluster_ingress_domain}[Developer Hub^, window="rhdh"]. 
+
+=== As a Platform Engineer
+
+. If you are already logged in ensure you are logged in as a as a Platform Engineer
++
+.Click to see how
+[%collapsible]
+====
+* Navigate to Developer Hub' https://backstage-backstage.{openshift_cluster_ingress_domain}/settings[Settings, window="rhdh"] menu and check the logged-in user's name under the Profile section. 
+* If you are not logged in as a Platform Engineer, Click on Sign Out.
++
+image:pe-signout.png[width=70%]
+====
+. If you are not already logged-in, login in as `pe1/{common_password}`.
+. You will now be able to view the RBAC policies you setup in the https://backstage-backstage.{openshift_cluster_ingress_domain}/rbac[Administration > RBAC, window="rhdh"] left-hand menu.
++
+.Click for more info
+[%collapsible]
+====
+* The policies generated from a policy.csv or ConfigMap file cannot be edited or deleted using the Developer Hub Web UI. 
+* You can download the list of users in CSV format using the Developer Hub web interface.
++
+image:m3/rbac-download-users.png[]
+* This downloaded file contains a list of active users and last logged in times as shown below
++
+``` txt
+userEntityRef,displayName,email,lastAuthTime
+user:default/dev1,dev1 rhdh,dev1@rhdemo.com,"Tue, 10 Dec 2024 05:25:00 GMT"
+user:default/pe1,pe1 rhdh,pe1@rhdemo.com,"Tue, 10 Dec 2024 05:25:22 GMT"
+```
+====
+. Navigate to the https://backstage-backstage.apps.cluster-zgzdt.zgzdt.sandbox2867.opentlc.com/create[_Create_ menu, window="rhdh"], and you can still see the *Register Existing Component* button. 
+
+=== As a Developer
+. Logout from your pe1 user, and login back as a developer with `dev1/{common_password}`. 
+. You will not be able to see the `Administration > RBAC` menu, since developers are not assigned the `admin` role in the Developer Hub configuration
+. Navigate to the https://backstage-backstage.apps.cluster-zgzdt.zgzdt.sandbox2867.opentlc.com/create[_Create_ menu, window="rhdh"]. 
+. Note that you cannot see the *Register Existing Component* button. But you can still use the templates already created.
++
+image:m3/developer-rbac-create.png[]
+. This is because, as we saw earlier, the RBAC policy has been setup to allow `catalog.entity.create` only for `group:default/platformengineers`
+
+
+== Conclusion
+
+In this workshop, we have assume that only Platform Engineers can create Catalog Entities. But, you can setup the policies as it suits your organization. 
+
+For details on other ways to setup RBAC polices refer to the https://docs.redhat.com/en/documentation/red_hat_developer_hub/latest/html-single/authorization[Authorization guide, window="content"]

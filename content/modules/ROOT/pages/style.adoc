@@ -13,6 +13,10 @@ u {
     cursor: pointer;
 }
 
+summary  {
+    cursor: pointer;
+}
+
 </style>
 
 ++++

@@ -7,9 +7,6 @@ include::style.adoc[]
 
 == Overview
 
-TODO:
-[NOTE] This instruction at the moment only has sparse instructions and needs to be updated for clarity.
-
 * PE builds a production-level pipelines (pre and post merge) based org needs via Tekton
 * Developer creates a new merge-request, the pre-merge pipeline is triggered via Gitlab webhook, and the image is built
 * An application owner/team member reviews and accepts the merge-request.
