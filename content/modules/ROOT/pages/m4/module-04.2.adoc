@@ -1,14 +1,13 @@
 :imagesdir: ../../assets/images
 
 
-= Module 4.2: Import Existing API/Apps
+== Platform Engineer Activity: Setup Software Templates Import Existing API/Apps
 
 include::../style.adoc[]
 
 Platform Engineering team creates two templates for importing existing Apps/Services and APIs into Developer Hub. While it is possible to use the same template to import both of them, there are some key differences in data gathered. As best practice, Platform Engg team creates as many Software Templates as necessary to assist developers.
 
-== Explore and Import the `import-existing-api` Software Template
-
+== Register the Import API/App Software Templates
 
 Since you have already learnt how to create a Software Template, we will walk through a template that has been built for you. 
 
@@ -30,36 +29,32 @@ image:m4/st-api-steps.png[width=70%]
 Gitlab allows only one type of action (such as Amend/Update) in a given Merge Request (MR). Therefore, we need a one MR to _create_ the the new catalog-info and TechDocs file, and another MR to _update_ the envelope location file with a reference to the catalog-info.yaml file
 ====
 
-
-== Add the the `import-api-catalog` Software Template to Developer Hub
+=== Register Import API Software Template
 
 * Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="_rhdh"]) and login using `pe1/{common_password}`
 * Click on the Create menu on the left-hand navigation. 
-
-image::./m4/nav-create.png[]
-* Click on the `Register Existing Component` button on the top-right of the page to launch the *Register an existing component* wizard 
-
-image::./m4/nav-register-wizard.png[]
-* Paste the following URL into the `Select URL` field and click on *Analyze* button
 +
+image::m4/nav-create.png[]
+* Click on the `Register Existing Component` button on the top-right of the page to launch the *Register an existing component* wizard 
++
+image::m4/nav-register-wizard.png[]
+* Paste the following URL into the `Select URL` field and click on *Analyze* button. This URL points to Software Template's https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[template.yaml, window="gitlab"] file.
++ 
 [source,bash,role=execute,subs="attributes"]
 ----
 https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml
 ----
 * Review, and Import the template by clicking on the *Import* button
++
+image::m4/nav-register-import.png[]
 
-image::./m4/nav-register-import.png[]
+* The  *import-api-catalog* Template is successfully registered
++
+image::m4/nav-access-api-template.png[]
 
-* Click on *import-api-catalog* to launch the API
+=== Register Import App Software Template
 
-image::./m4/nav-access-api-template.png[]
-
-* Let us now register the import-app template as well
-
-
-== Explore and Import the `import-existing-app` Software Template
-
-* Repeat the same steps to import the `import-existing-app-template`
+* Let us now register the import-app template as well similar to the *Import API* template.
 * Click *Create* (left hand nav) -> *Register Existing Component* (top right)
 * Paste the following URL 
 +
@@ -69,46 +64,46 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 ----
 * Review, and Import the template by clicking on the *Import* button
 
-== View available templates
+=== View the imported templates
 
 * Navigate back to *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
++
+image::m4/import-templates-list.png[width=70%]
 
-image::./m4/import-templates-list.png[width=70%]
 
+== Setup Developer Hub config
 
+=== Enable Dynamic Plugins 
 
-== Prepare Red Hat Developer Hub with the right Dynamic Plugin
+The Import API/APP templates described above need a couple of Dynamic Plugins. 
 
-The templates described above need a couple of Dynamic Plugins. 
-
-*What are Dynamic Plugins?* +
+* The `roadiehq-scaffolder-backend-module-utils-dynamic` plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported.
+* The `backstage-plugin-catalog-backend-module-gitlab-dynamic` plugin helps to discover catalog files located in your GitLab instance. 
++
+.What are Dynamic Plugins?
+[%collapsible]
+====
 The Red Hat Developer Hub application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
-
-The import-existing-app/api templates need 2 dynamic plugins that are described below.
-
-1. `roadiehq-scaffolder-backend-module-utils-dynamic`: This plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported
-2. `backstage-plugin-catalog-backend-module-gitlab-dynamic`: This plugin helps to discover catalog files located in your GitLab instance. In the next step we will turn ON the auto-discovery feature.
+====
 
 
-=== Update RHDH config
-
-. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"].
+. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"]. If prompted, login using `pe1/{common_password}`.
 . You should already be in Edit mode of the `values.yaml` file.
 . Locate the comment `--- DYNAMIC_PLUGINS_IMPORT_COMPONENTS ---`
 . Highlight the YAML as shown in the below screenshot, and comment those lines. Type `CMD + / or CTRL + /` command to do so.
 +
-image::./m4/uncomment-dynamic-plugin.png[width=60%]
+image::m4/uncomment-dynamic-plugin.png[width=60%]
 . Don't Save yet. We need to next turn on auto-discovery
 
-== Turn auto-discovery
+== Turn on auto-discovery
 . Locate the comment `--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---`
 . Highlight the YAML as shown in the below screenshot, and comment those lines. Type `CMD + / or CTRL + /` command to do so.
 +
-image::./m4/uncomment-auto-discovery.png[width=60%]
+image::m4/uncomment-auto-discovery.png[width=60%]
 . This YAML snippet enables auto-discovery for all files named *envelope.yaml* [entityFilename] where the repo name starts with the word *envelope* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
 +
-image::./m4/commit-rhdh-config.png[]
+image::m4/commit-rhdh-config.png[]
 
 == Refresh RHDH on Argo
 
@@ -119,7 +114,7 @@ Argo is tuned to pull changes from the repo every two minutes or so. Instead of 
 * *Password* : {openshift_gitops_password}
 * Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will sync the content from Gitlab.
 +
-image::./m4/rhdh-argo-refresh.png[]
+image::m4/rhdh-argo-refresh.png[]
 * The card will turn green when it is ready. Go ahead and refresh RHDH. This might take a minute or so, since the backstage pod gets redeployed with the new configuration
 
 
@@ -136,7 +131,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/rhdh-entities/-/bl
 ----
 . Click *Import* in the Review section.
 +
-image::./m4/rhdh-system.png[width=60%]
+image::m4/rhdh-system.png[width=60%]
 . The Systems and Domain are setup. These help form an important abstraction level to help us reason about software ecosystems.
 * _systems_ are the basic level of encapsulation for related entities
 * _domains_ are useful to group a collection of systems that share terminology, domain models, business purpose etc.
