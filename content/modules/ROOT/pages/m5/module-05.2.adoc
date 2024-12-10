@@ -1,7 +1,7 @@
 :imagesdir: ../../assets/images
 
 
-== Developer Activity: Updates to Production Argo Manifests
+== Updates to Production Argo Manifests
 * In the preview section, we noted that a PR has been raised on the Prod Argo manifest to update the prod image
 * On RHDH, in the component overview page of parasol-store, you can view the *Deployment Summary* section
 +

@@ -21,10 +21,12 @@
 ** xref:m4/module-04.2.adoc[4.2 Platform Engineer Activity: Setup Software Templates]
 ** xref:m4/module-04.3.adoc[4.3 Developer Activity: Onboard Parasol API and Parasol Store service]
 ** xref:m4/module-04.4.adoc[4.4 Platform Engineer Activity: Template to Setup Dev Environment]
-** xref:m4/module-04.5.adoc[4.4 Developer Activity: Work on feature-branch]
+** xref:m4/module-04.5.adoc[4.5 Developer Activity: Work on feature-branch]
 
 
-* xref:m5/module-05.adoc[5. Setup Build, Test, & Deploy Outer-loop]
+* xref:m5/module-05.0.adoc[5. Setup Build, Test, & Deploy Outer-loop]
+** xref:m5/module-05.1.adoc[5.1 Developer Activity: Merge request from feature-branch to main]
+** xref:m5/module-05.2.adoc[5.2 Updates to Production Argo Manifests]
 
 * xref:m6/module-06.adoc[6. Establish Security and Compliance]
 
