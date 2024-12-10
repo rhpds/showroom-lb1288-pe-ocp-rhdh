@@ -197,40 +197,11 @@ image::./m3/quay-create-account-link.png[Creating a Quay Account, width="60%"]
 image::./m3/quay-create-account.png[Creating a Quay Account]
 . Click *Create Account*.
 
-Now you're ready to create an application from a Template!
-
-== Developer Activity: Create a new Component from the Template
-
-Create a new software Component and supporting infrastructure using the *Quarkus Service* template that was created by the platform engineer:
-
-. Make sure you've logged in to {product_name_rhdh} as `dev1` using the password `{common_password}`.
-. Select the *Create* item from the sidemenu.
-+
-image::./m3/rhdh-create.png[The {product_name_rhdh} Create UI]
-. Click the *Choose* button on the *Quarkus Service*. The *Software Templates* screen will be displayed.
-. You'll be prompted to enter a set of application parameters. Thankfully defaults are provided by the template, so you can simply click *Next*.
-. When prompted to *Provide Image Registry Information*:
-  * Select the *Quay* image registry.
-  * Enter your Quay password: `{common_password}`
-  * Click *Next*.
-+
-NOTE: Your username is automatically determined by the Template using your current session.
-. Select the default *Repository Location* and click *Review*.
-+
-image::./m3/rhdh-template-review.png[Reviewing template parameters in {product_name_rhdh}]
-. Confirm you're satisfied with your parameters and click *Create*. 
-
-After a few moments the process should be finished, and you'll see a screen with a series of green checkmarks.
-
-image::./m3/rhdh-template-success.png[A successful template run in {product_name_rhdh}]
-
-Click the *Open Component in catalog* link to view the new Component.
-
-image::./m3/rhdh-new-component.png[A successful template run in {product_name_rhdh}]
+You're almost ready to create an application from a Template!
 
 == Platform Engineer Activity: Enhance the Template & Component with Plugins
 
-Currently, it's not possible for the developer to see the deployment status of the Argo CD application that was created when they used the Template to create their Quarkus application. Let's fix that using the Argo CD plugin to display the status of Argo CD application in the Component view in the Software Catalog.
+Prior to using the Template, the platform needs to be configured with Argo CD plugins. These plugins add actions to the scaffolder that allow it to integrate with Argo CD, and also show Argo CD information when viewing deployed Components in {product_name_rhdh}.
 
 === Install the Argo CD Plugins
 
@@ -297,6 +268,35 @@ image::./m3/rhdh-cd-tab.png[CD Tab in Component]
 === Update the Software Template
 
 To ensure that future Quarkus applications created using the Template...TODO
+
+== Developer Activity: Create a new Component from the Template
+
+Create a new software Component and supporting infrastructure using the *Quarkus Service* template that was created by the platform engineer:
+
+. Make sure you've logged in to {product_name_rhdh} as `dev1` using the password `{common_password}`.
+. Select the *Create* item from the sidemenu.
++
+image::./m3/rhdh-create.png[The {product_name_rhdh} Create UI]
+. Click the *Choose* button on the *Quarkus Service*. The *Software Templates* screen will be displayed.
+. You'll be prompted to enter a set of application parameters. Thankfully defaults are provided by the template, so you can simply click *Next*.
+. When prompted to *Provide Image Registry Information*:
+  * Select the *Quay* image registry.
+  * Enter your Quay password: `{common_password}`
+  * Click *Next*.
++
+NOTE: Your username is automatically determined by the Template using your current session.
+. Select the default *Repository Location* and click *Review*.
++
+image::./m3/rhdh-template-review.png[Reviewing template parameters in {product_name_rhdh}]
+. Confirm you're satisfied with your parameters and click *Create*. 
+
+After a few moments the process should be finished, and you'll see a screen with a series of green checkmarks.
+
+image::./m3/rhdh-template-success.png[A successful template run in {product_name_rhdh}]
+
+Click the *Open Component in catalog* link to view the new Component.
+
+image::./m3/rhdh-new-component.png[A successful template run in {product_name_rhdh}]
 
 == Conclusion
 
