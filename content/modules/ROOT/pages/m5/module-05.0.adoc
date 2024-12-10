@@ -7,8 +7,17 @@ include::../style.adoc[]
 
 == Overview
 
+Now that the development inner-loop is complete, the code now running in the Developer's isolated/sandboxed feature-branch namespace, is ready to be deployed to Dev, Staging and Production environments.
+
+* Platform Engineers create production-level pipelines to handle merge requests from the Developer. Tekton makes is really easy to build cloud-native pipelines based org needs.
+* When a Developer issues a merge request from the feature branch to main, there should be a peer review process post which the changes can be merged to main. 
+* Post-merge, the  pipeline updates manifests in Dev and Stage env; additionally, this raises a PR to Production manifest.
+* Manifest updates to Prod environment is only based on appropriate approvals and in this case based on manual merging of a PR raised by the post-merge  pipeline
+
+== Module objectives
+
 * To handle the outer-loop, Platform Engineer has built a production-level pipelines (pre and post merge) based org needs via Tekton
-* Developer creates a new merge-request, the pre-merge pipeline is triggered via Gitlab webhook, and the image is built
+* Developer creates a new merge-request, and the pre-merge pipeline is triggered via Gitlab webhook, and the image is built
 * An application owner/team member reviews and accepts the merge-request.
 * This kicks off a post-merge pipeline which updates manifests in Dev and Stage env 
 * This also issues a merge-request to deploy to the Production Environment. 
