@@ -80,7 +80,7 @@ image:pe-signout.png[width=70%]
 * The policies generated from a policy.csv or ConfigMap file cannot be edited or deleted using the Developer Hub Web UI. 
 * You can download the list of users in CSV format using the Developer Hub web interface.
 +
-image:rbac-download-users.png[]
+image:m3/rbac-download-users.png[]
 * This downloaded file contains a list of active users and last logged in times as shown below
 +
 ``` txt
@@ -97,7 +97,7 @@ user:default/pe1,pe1 rhdh,pe1@rhdemo.com,"Tue, 10 Dec 2024 05:25:22 GMT"
 . Navigate to the https://backstage-backstage.apps.cluster-zgzdt.zgzdt.sandbox2867.opentlc.com/create[_Create_ menu, window="rhdh"]. 
 . Note that you cannot see the *Register Existing Component* button. But you can still use the templates already created.
 +
-image: developer-rbac-create.png[]
+image:m3/developer-rbac-create.png[]
 . This is because, as we saw earlier, the RBAC policy has been setup to allow `catalog.entity.create` only for `group:default/platformengineers`
 
 
