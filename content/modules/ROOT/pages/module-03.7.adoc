@@ -66,7 +66,7 @@ If needed, login using `admin`/`{openshift_gitops_password}`.
 * Navigate to Developer Hub' https://backstage-backstage.{openshift_cluster_ingress_domain}/settings[Settings, window="rhdh"] menu and check the logged-in user's name under the Profile section. 
 * If you are not logged in as a Platform Engineer, Click on Sign Out.
 +
-image:pe-signout.png[width=70%]
+image:m3/pe-signout.png[width=70%]
 ====
 . If you are not already logged-in, login in as `pe1/{common_password}`.
 . You will now be able to view the RBAC policies you setup in the https://backstage-backstage.{openshift_cluster_ingress_domain}/rbac[Administration > RBAC, window="rhdh"] left-hand menu.

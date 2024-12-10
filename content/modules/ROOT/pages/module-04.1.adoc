@@ -1,168 +1,47 @@
 :imagesdir: ../assets/images
 
 
-= Module 4.1: Import Existing API/Apps
+= Module 4.1: Introduction to Concepts
 
 include::style.adoc[]
 
-There are two templates created for importing existing software into Developer Hub for APIs and apps/service. While it is possible to use the same template to import both of them, there are some key differences in the 
+== Software templates to import existing applications
+
+You've already seen the magic of the `catalog-info.yaml` file. Developer Hub identifies components based on a `catalog-info.yaml` file in the repository. This file contains details about 
+
+* where the source code is
+* how to access the documentation
+* who the owners are
+* what are the dependencies and dependents etc.
+
+With the right plugins, this `catalog-info.yaml` file can also help to show these critical information in a single pane of glass within the component itself on Developer Hub:
+
+* CI pipelines
+* CD deployments
+* Git merge statuses
+* Cluster details
+
+To make importing a large number of existing applications into Developer Hub possible/feasible, the Platform Engineering (PE) team creates a *Software Template* that can automate both creation of the `catalog-info.yaml` file, and also auto-create `techdocs` skeleton structure.
+
+There are two options in terms of where the Catalog Info and TechDocs could be stored for these existing software apps.
+
+. The entities can be added to the same Git repositories as the existing source-code repo
+. Create an entity which acts like a collection of all of the catalog-info files and TechDocs of the existing code
+
+In this case, so as to not change existing source code, Parasol team goes with the 2nd approach of creating _an *Envelope* of all the `catalog-info.yaml` files_ of the apps. The Envelopes are nothing but *Location* files which contain references to a bunch of other catalog-info.yaml` files.  
+
+We can then setup Developer Hub to _auto-discover_ these special Envelope files based on the file names (_envelope-*.yaml_ wildcard) across the git repo. The reason why we look for specific file names is to ensure we don't overload Git with multiple "searches" while performing auto-discovery.
+
+Note: While setting up auto-discovery you can define the schedule defining how often you want this to run. You will need to judicious with this scheduling so as not to hit Git API ratelimits. https://backstage.io/docs/integrations/github/discovery/[Learn more, window="content"] about Github rate limits
 
 
-== Explore and Import the `import-existing-api` Software Template
+== An overview of Parasol online web-app
 
+The Parasol web app consists of 
 
-Since you have already learnt how to create a Software Template, we will walk through a template that has been built for you. 
+* `parasol-web` online web-app (Node + Angular)
+* `parasol-store` core services called parasol-store (Quarkus), and 
+* `parasol-db` core database (PostgreSQL)
+* `parasol-api` (OpenAPI Spec)
 
-Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^, window="_gitlab"] to view the `import-existing-app` Software Template
-
-This template does the following things.
-
-=== *Section 1: Gather the following details*
-
-
-```yaml
-  # The `parameters` section defines the data gathered from the user
-  parameters:
-    # Git repo details about where this API Envelope repo lives
-    - title: Provide information about Catalog Envelope to which API will be included
-      properties:
-        gitlabHost:
-        envelopeGitlabOrganization:
-        envelopeRepositoryName:
-
-    # Details about the API that needs to be imported
-    - title: Provide information about your existing API
-      properties:
-        gitlabOrganization:
-        repositoryName:
-        #Path to where API spec is defined
-        apiPathText:
-        #Type of API - Options are openapi/grpc etc - which helps in visualising the API
-        apiType:
-    
-    # Additional details about the existing API being imported as a component
-    - title: Provide information about the new component for your existing API
-        componentName:
-        componentOwner:
-        description:
-
-```
-
-=== *Section 2: Action steps*
-
-Update the *_Envelope repo_* as a two step process
-
-.. *Merge Request 1*: Create a new folder within the *_Envelope repo_* and push these changes
-.. *Merge Request 2*: Update the envelope file which has a list of all these _catalog_info.yaml_ files to register the newly created component, and raise a _Merge Request_
-
-== Add the the `import-api-catalog` Software Template to Developer Hub
-
-* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="_rhdh"]) and login using `pe1/{common_password}`
-* Click on the Create menu on the left-hand navigation. 
-
-image::./m4/nav-create.png[]
-* Click on the `Register Existing Component` button on the top-right of the page to launch the *Register an existing component* wizard 
-
-image::./m4/nav-register-wizard.png[]
-* Paste the following URL into the `Select URL` field and click on *Analyze* button
-+
-[source,bash,role=execute,subs="attributes"]
-----
-https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml
-----
-* Review, and Import the template by clicking on the *Import* button
-
-image::./m4/nav-register-import.png[]
-
-* Click on *import-api-catalog* to launch the API
-
-image::./m4/nav-access-api-template.png[]
-
-* Let us now register the import-app template as well
-
-
-== Explore and Import the `import-existing-app` Software Template
-
-* Repeat the same steps to import the `import-existing-app-template`
-* Click *Create* (left hand nav) -> *Register Existing Component* (top right)
-* Paste the following URL 
-+
-[source,bash,role=execute,subs="attributes"]
-----
-https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-app-template/-/blob/main/template.yaml
-----
-* Review, and Import the template by clicking on the *Import* button
-
-== View available templates
-
-* Navigate back to *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
-
-image::./m4/import-templates-list.png[width=70%]
-
-
-
-== Prepare Red Hat Developer Hub with the right Dynamic Plugin
-
-The templates described above need a couple of Dynamic Plugins. 
-
-*What are Dynamic Plugins?* +
-The Red Hat Developer Hub application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
-
-The import-existing-app/api templates need 2 dynamic plugins that are described below.
-
-1. `roadiehq-scaffolder-backend-module-utils-dynamic`: This plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported
-2. `backstage-plugin-catalog-backend-module-gitlab-dynamic`: This plugin helps to discover catalog files located in your GitLab instance. In the next step we will turn ON the auto-discovery feature.
-
-
-=== Update RHDH config
-
-. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"].
-. You should already be in Edit mode of the `values.yaml` file.
-. Locate the comment `--- DYNAMIC_PLUGINS_IMPORT_COMPONENTS ---`
-. Highlight the YAML as shown in the below screenshot, and comment those lines. Type `CMD + / or CTRL + /` command to do so.
-+
-image::./m4/uncomment-dynamic-plugin.png[width=60%]
-. Don't Save yet. We need to next turn on auto-discovery
-
-== Turn auto-discovery
-. Locate the comment `--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---`
-. Highlight the YAML as shown in the below screenshot, and comment those lines. Type `CMD + / or CTRL + /` command to do so.
-+
-image::./m4/uncomment-auto-discovery.png[width=60%]
-. This YAML snippet enables auto-discovery for all files named *envelope.yaml* [entityFilename] where the repo name starts with the word *envelope* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
-. Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page.
-+
-image::./m4/commit-rhdh-config.png[]
-
-== Refresh RHDH on Argo
-
-Argo is tuned to pull changes from the repo every two minutes or so. Instead of waiting that to kick in, you can *Refresh* the RHDH Argo Application as follows:
-
-* Access ArgoCD from https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ here^, window="_argo"], and login 
-* *username*: admin
-* *Password* : {openshift_gitops_password}
-* Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will sync the content from Gitlab.
-+
-image::./m4/rhdh-argo-refresh.png[]
-* The card will turn green when it is ready. Go ahead and refresh RHDH. This might take a minute or so, since the backstage pod gets redeployed with the new configuration
-
-
-== Onboard Parasol's System and Domain
-
-In a previous chapter you learnt about how System and Domain help in organizing the components in RHDH. In this section you will setup Parasol's System and Domain
-
-. From RHDH, navigate to Create menu; choose *Register Existing Component* button
-. Paste the below URL and click on *Analyze*
-+
-[source,yaml,subs=attributes+]
-----
-https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/rhdh-entities/-/blob/main/locations.yaml
-----
-. Click *Import* in the Review section.
-+
-image::./m4/rhdh-system.png[]
-. The Systems and Domain are setup. These help form an important abstraction level to help us reason about software ecosystems.
-* _systems_ are the basic level of encapsulation for related entities
-* _domains_ are useful to group a collection of systems that share terminology, domain models, business purpose etc.
-+
-Read more https://backstage.io/docs/features/software-catalog/system-model/#system[here^, window="_content"]
+In the next sections of this module, we will shadow both the Platform Engineers and the Developers as they navigate through onboarding existing applications, and accelerate dev inner-loop leading to increased developer productivity.

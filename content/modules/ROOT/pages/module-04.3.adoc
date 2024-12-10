@@ -1,120 +1,219 @@
 :imagesdir: ../assets/images
 
 
-= Module 4.3: Setup Developer Environment
+= Module 4.3: As a Platform Engineer: Onboard Parasol API and Parasol Store service
 
 include::style.adoc[]
 
-A developer is assigned a JIRA to enhance the Parasol application, and they begin to work on the `parasol-store` application. To begin, they will create a branch of the `parasol-store` repo  on gitlab, and work on this _feature-branch_ till the time they are ready to merge their changes to the main branch. This will where the developer develops and tests all changes in an isolated dev environment in a continuous loop.
 
-So as to help the developer continue to work on the enhancement, the Platform Engineer creates a new S/W template that can setup an isolated dev environment for the Developer for this `parasol-store` application. The template performs a number of things
+== Import parasol-store-api OpenAPI 
 
-* Creates GitOps/Argo manifests within the user's repo
-* Sets up a development pipelines to make development easy 
-* The  isolated dev environment connects to the *developer* DB instance 
+* As a first step, we will import the API so that this API can then be associated with the App automatically.
+* From the *Create* section, click on the *Choose* button of `Import API to Existing Catalog Envelope` template.
 
-With this, the Platform Engineers are able to provide an environment that allows the developer to just focus on coding. The templates make it easy for developers to set up isolated dev environments repeatedly in a self-service fashion.
+image:m4/import-api-template.png[width=40%]
+
+=== Step 1: Provide information about Catalog Envelope to which API will be included
+
+Fill out the following values and click *Next*
+
+.Click to view a screenshot
+[%collapsible]
+====
+image:m4/import-api-template-1.png[]
+====
+
+[cols="1,1,2", options="header"]
+|====
+| *Field* | *Description* | *Value*
+| Gitlab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
+| GitLab Organization | Enter value | `parasol`
+| Repository Name | Enter value. TODO: What is Envelope | `envelope-parasol-catalog`
+|====
+
+=== Step 2: Provide information about your existing API
+
+Fill out the following values and click *Next*
+
+.Click to view a screenshot
+[%collapsible]
+====
+image:m4/import-api-template-2.png[]
+====
+
+[cols="1,2,2", options="header"]
+|====
+
+| *Field* | *Description* | *Value*
+| GitLab Organization | This is the Git org where the repo resides| `parasol`
+| Repository Name | enter this value | `parasol-store-api` 
+| System Name | TODO: System | `system:default/parasol-system`
+| Path to where API spec is defined | Enter full path of the API | `https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-api/-/blob/main/openapi.yaml`
+| A Short Description Of This Component | Enter value | `API for parasol-store`
+| Type Of API | Choose from options | `openapi` 
+|====
+
+=== Step 3: Provide information about the new component for your existing app
+
+Fill out the following values and click *Next*
+
+.Click to view a screenshot
+[%collapsible]
+====
+image:m4/import-api-template-3.png[]
+====
+
+[cols="1,2,2", options="header"]
+|====
+| *Field* | *Description* | *Value*
+| Component Name | This is how this API will be identified by Developer Hub | `parasol-store-api` 
+| Owner | Choose from dropdown | `group:default/dev1`
+| A Short Description Of This Component |Enter a suitable description | `Open API specification for the parasol-store application`
+| Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known  values `experimental`, `production` and `deprecated`)
+
+ | `Production` 
+|====
 
 
-== Platform Engineer: Onboard parasol-store Dev Template
+=== Step 4: Review & Create
 
-* To help developers to be able to accelerate development through RHDH, the PE creates a new template with  parasol-store-dev-template.
+Review the fields, and click on the *Create* button
 
-=== Create a branch 
-* On RHDH, choose *Create* menu on the left-hand, and choose *Register Existing Component*.
-* Create a template by pasting this template URL into the *URL* textbox 
+.Click to view a screenshot
+[%collapsible]
+====
+image:m4/import-api-template-4.png[]
+====
+
+
+* Click on both the URLs and merge the requests
+
+* Open the envelope-parasol-catalog repo
+* URL to the catalog-info has been added to the envelope
+
+* Under the parasol-store-api folder docs and catalog-info.yaml are created
+
+* In a few minutes you will notice that this API automatically starts appearing in the APIs section
+
+* This is because of the Autodiscovery feature of RHDH 
+
+
+
+=== Gitlab Merge Requests 
+
+. The wizard is complete and you are presented with two Merge Requests
 +
-[source,bash,role=execute,subs="attributes"]
-----
-https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-template/-/blob/main/template.yaml
-----
-* Click on *Analyze* button followed by clicking the *Import* button to import the template.
-
-== App Developer: Onboard parasol-store Dev Template
-
-* Click here to access the repo https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store
-* Click on the *(+)* button as shown in the screenshot below, and click on *New branch* menu
+image:m4/import-api-template-5.png[]
+. Click on each of the links to open the merge request, and complete the merge by click on the *Merge* button
+.. Open PR for update to catalog envelope
 +
-image:./m4/create-branch.png[width=65%]
-
-* Name the branch as `my-feature-branch` so as to make it easier to follow the rest of the instructions
+image:m4/api-template-merge-component.png[width=70%]
+.. Open PR with catalog-info.yaml
 +
-image:./m4/create-branch-name.png[width=70%]
+image:m4/api-template-merge-envelope.png[width=70%]
 
-=== Onboard the Feature Branch using template
+=== View the component in RHDH API
 
-* In {product_name_rhdh}, choose the *Create* side-menu, and you will see the *Parasol Store Development* template. Click on *Choose*
+In a few minutes the API you just imported will start appearing in the API section of RHDH automatically. This is because of the auto-discover feature that you had enabled in the previous steps
 
-image:./m4/choose-parasol-store-template.png[width=30%]
+image:m4/view-api.png[]
 
-* In *Step 1: Provide Information for the isolated dev environment deployment*
-** Enter the feature-branch name `my-feature-branch` or the name you have picked for your branch.
 
-image:./m4/choose-parasol-store-template-step1.png[]
+== Import parasol-store service
 
-* In *Step 2: Provide database information*
-** Keep all the fields as it is - no need to make changes. The parameters are already set based on the OpenShift Service names from the existing deployments of the application
+* From the *Create* section, click on the *Choose* button of `Import Existing App to Catalog Envelope` template.
 
-image:./m4/choose-parasol-store-template-step2.png[]
+image:m4/import-app-template.png[width=40%]
 
-* Click on *Review*, and proceed to *Create*
+Fill out the following values in the wizard similarly by going through the steps. Refer to the following table for the data for each step
 
-image:./m4/choose-parasol-store-template-step3.png[]
+=== Step 1: Import existing application, autocreate config-info.yaml and conditionally setup techdocs.
 
-* Click on the *Open component on catalog* link
+image:m4/import-app-template-1.png[]
+[cols="1,1,2", options="header"]
+|====
+| *Field* | *Description* | *Value*
+| Gitlab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
+| GitLab Organization | Enter value | `parasol`
+| Repository Name | Enter value. TODO: What is Envelope | `envelope-parasol-catalog`
+|====
 
-image:./m4/parasol-branch-component.png[]
 
-** You can see under the *CI* tab, a pipeline is already running 
+
+=== Step 2: Provide information about your existing app
+
+image:m4/import-app-template-2.png[]
+
+[cols="1,2,2", options="header"]
+|====
+| GitLab Organization | This is the Git org where the repo resides| `parasol`
+| Repository Name | enter this value | `parasol-store` 
+| System Name | TODO: System | `system:default/parasol-system`
+
+| Does this repo contain manifests? | This option conditionally auto-generates the labels which will be used to pull in CI/CD, Deployment and other details| Check the box
+| A Short Description Of This Component | Enter value | `API for parasol-store`
+| Type Of API | Choose from options | `openapi` 
+|====
+
+
+=== Step 3: Provide information about the new component for your existing app
+
+image:m4/import-app-template-3.png[]
+
+[cols="1,2,2", options="header"]
+|====
+| *Field* | *Description* | *Value*
+| Component Name | This is how this API will be identified by Developer Hub | `parasol-store` 
+| Owner | Choose from dropdown | `group:default/dev1`
+| Type | The type of component. Well-known and common values: service, website, library. | service
+| A Short Description Of This Component |Enter a suitable description | Core services for the Parasol application
+| Check to add TechDocs | This option conditionally auto-generates TechDocs skeleton for the component | Check the box
+| Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known  values `experimental`, `production` and `deprecated`)
+
+ | `Production` 
+|====
+
+
+=== Step 4: Review & Create
+
+Review the fields, and click on the *Create* button
+
+image:m4/import-app-template-4.png[]
+
+=== Gitlab Merge Requests 
+
+. The wizard is complete and you are presented with two Merge Requests
 +
-image:./m4/parasol-branch-first-pipeline.png[]
+image:m4/import-app-template-5.png[]
+. Click on each of the links to open the merge request, and complete the merge by click on the *Merge* button
+.. Open PR for update to catalog envelope
 +
-and turns green when it finishes the run successfully
+image:m4/app-template-merge-component.png[width=70%]
+.. Open PR with catalog-info.yaml
 +
-image:./m4/parasol-branch-first-pipeline-success.png[]
+image:m4/app-template-merge-envelope.png[width=70%]
 
-** Explore the other tabs to see how RHDH allows a single pane of glass for the Developers' isolated environment
+=== Explore the `parasol-store` component in RHDH Catalog section
 
-* If you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment[click here^, window="_console"]
+In a few minutes the `parasol-store` Component you just imported will start appearing in the Catalog section of RHDH automatically. This is because of the auto-discover feature that you had enabled in the previous steps
 
-image:./m4/parasol-branch-deployment1.png[]
+image:m4/view-parasol-store-component.png[]
 
+Click on the `parasol-store` link to view the component. You can step through each of the tabs to see how RHDH provides a single pane of glass to see
 
-=== Enhancing the application
+* Topology showing the deployments on OpenShift
+* CI showing *Pipeline Runs* is currently empty, because there are no pipeline runs yet.
+* CD tab showing the deployed components/systems using ArgoCD plugin
+* Api tab showing the Consume API `parasol-store-api`
+* View docs
 
-* Click on the *< > View Source* button on the Component Overview page to open the source repository
-+
-image:./m4/parasol-branch-component-overview.png[]
+TODO: walk through catalog-info.yaml
 
-* Switch to the *my-feature-branch* 
-+
-image:./m4/parasol-switchbranch.png[]
+ 
 
-* Click on the Web IDE of the *my-feature-branch* to access the code via the inbuilt editor
-+
-image:./m4/parasol-webide.png[]
+== [Optional] Onboard parasol-web
 
-* For the sake of the workshop, let us make some changes to the README file. +
-E.g. add this text to the README file `This service store provides the core services of Parasol web-app`
+You can now optionally import the `parasol-web` component as well.
 
-* Click on the *Source Control* menu on the left-hand (highlighted below), add a Commit Message *Chore: Improved README file*, and click the *Commit and push to "my-feature-branch"* button
-+
-image:./m4/parasol-webide-paste-commit.png[width=80%]
-* You can now close the gitlab browser.
-
-=== View component on RHDH
-* In RHDH, navigate to the `parasol-store` component. You can https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store/ci[click here^, window="_rhdh"] to access it.
-*  Access the CI tab  to view the pipeline
-+
-image:./m4/parasol-innerloop-pipeline1.png[width=80%]
-
-* Very shortly, the pipeline will be marked as *Succeeded*
-+
-image:./m4/parasol-innerloop-pipeline-ok.png[width=80%]
-+
-NOTE: The first pipeline was triggered when you registered using the s.w template. and the next is by git commit
-
-* Once you are happy with the changes, you are now ready to create a merge request to the main branch.
-
-* This is the end of development within the isolated dev environment. In the next section, the developer will create merge request to the main branch, to initiate the outer loop
-
+* The org is `parasol`
+* Repo for parasol-web is `parasol-web`

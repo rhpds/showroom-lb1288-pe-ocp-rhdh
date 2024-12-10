@@ -16,15 +16,15 @@
 ** xref:module-03.6.adoc[3.6 Platform Engineer Activity: Enhance the Template & Component with Plugins]
 ** xref:module-03.7.adoc[3.7 Platform Engineer Activity: Setup RBAC]
 
-* xref:module-04.0.adoc[4. Import existing apps]
+* xref:module-04.0.adoc[4. Accelerate Developer Inner-Loop]
 ** xref:module-04.1.adoc[4.1 Import Existing API/Apps]
 ** xref:module-04.2.adoc[4.2 Onboard parasol application]
 ** xref:module-04.3.adoc[4.3 Developer environment]
 
 
-* xref:module-05.adoc[5. Build, Test, & Deploy (outer loop)]
+* xref:module-05.adoc[5. Setup Build, Test, & Deploy Outer-loop]
 
-* xref:module-06.adoc[6. Observability: Security]
+* xref:module-06.adoc[6. Establish Security and Compliance]
 
 * xref:env.adoc[My lab environment details]
 
