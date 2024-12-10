@@ -306,12 +306,3 @@ Congratulations! You've learned how to:
 * Create new Components using a Software Template
 * Use annotations to provide information to plugins
 * Force refresh Entities in the Software Catalog
-
-
-== TODO: 
-
-* Discuss Quay and OpenShift as repositories
-* Discuss why the template need dev to create a Quay account
-* Best practices about this isolated dev environment being created  in developer's personal git repo and personal Quay
-* Because this template is meant for experimental purposes and not meant for production. 
-
