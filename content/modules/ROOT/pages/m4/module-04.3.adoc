@@ -1,27 +1,15 @@
 :imagesdir: ../../assets/images
 
 
-= Module 4.3: Developer Activity: Onboard Parasol API and Parasol Store service
+== Developer Activity: Innerloop
 
 include::../style.adoc[]
 
-* You will perform this activity as a Developer. Logout from https://backstage-backstage.{openshift_cluster_ingress_domain}[Developer Hub^, window="rhdh"]
-+
-.Click to see how to logout
-[%collapsible]
-====
-. Navigate to the *Settings* side-menu of Developer Hub and click on th kebab menu in the *Profile* card
-+
-image::./m3/rhdh-settings.png[Settings of {product_name_rhdh}]
-. Sign out of {product_name_rhdh} using the Settings screen as shown.
-+
-image::./m3/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
-====
-* Login to {product_name_rhdh} as `dev1/{common_password}`. 
+include::../login-developer.adoc[]
 
 == Import parasol-store-api OpenAPI 
 
-* As a first step, we will import the API so that this API can then be associated with the parasol-store component .
+* As a first step, import the API so that this API can then be associated with the parasol-store component .
 * From the *Create* side-menu, click on the *Choose* button of `Import API to Existing Catalog Envelope` template.
 +
 image:m4/import-api-template.png[width=30%]
@@ -243,5 +231,6 @@ image:m4/parasol-store-argo.png[]
 == [Optional] Import `parasol-web`
 
 You can now optionally import the `parasol-web` component as well just like you imported `parasol-store`.
+
 * The org is `parasol`
 * Repo for parasol-web is `parasol-web`

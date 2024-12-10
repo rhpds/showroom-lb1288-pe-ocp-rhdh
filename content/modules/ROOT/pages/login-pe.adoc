@@ -1,0 +1,25 @@
+=== Login as Platform Engineer
+* You will perform this activity as a Platform Engineer. 
+** Logout from https://backstage-backstage.{openshift_cluster_ingress_domain}[Developer Hub^, window="rhdh"]
++
+.Click to see how to logout
+[%collapsible]
+====
+** Navigate to the *Settings* side-menu of Developer Hub and click on th kebab menu in the *Profile* card
++
+image::common/rhdh-settings.png[Settings of {product_name_rhdh}]
+** Sign out of {product_name_rhdh} using the Settings screen as shown.
++
+image::common/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
+====
+** Logout from  https://gitlab-gitlab.{openshift_cluster_ingress_domain}[Gitlab^, window="gitlab"]
++
+.Click to see how to logout
+[%collapsible]
+====
+** Click on the Profile icon, and Sign out from the dropdown.
++
+image::common/gitlab-sign-out.png[Signing out of {product_name_rhdh}]
+====
+
+* Login to {product_name_rhdh} and GitLab as `pe1/{common_password}`

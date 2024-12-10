@@ -7,6 +7,8 @@ include::../style.adoc[]
 
 Platform Engineering team creates two templates for importing existing Apps/Services and APIs into Developer Hub. While it is possible to use the same template to import both of them, there are some key differences in data gathered. As best practice, Platform Engg team creates as many Software Templates as necessary to assist developers.
 
+include::../login-pe.adoc[]
+
 == Register the Import API/App Software Templates
 
 Since you have already learnt how to create a Software Template, we will walk through a template that has been built for you. 

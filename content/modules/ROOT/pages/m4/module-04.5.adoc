@@ -1,0 +1,95 @@
+:imagesdir: ../../assets/images
+
+== Developer Activity: Work on feature-branch
+include::../style.adoc[]
+
+include::../login-developer.adoc[]
+
+=== Create a feature-branch
+
+* Click here to access the repo https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store
+* Click on the *(+)* button as shown in the screenshot below, and click on *New branch* menu
++
+image:m4/create-branch.png[width=65%]
+
+* Name the branch as `my-feature-branch` so as to make it easier to follow the rest of the instructions
++
+image:m4/create-branch-name.png[width=70%]
+
+=== Onboard the Feature Branch using template
+
+* In {product_name_rhdh}, choose the *Create* side-menu, and you will see the *Parasol Store Development* template. Click on *Choose*
+
+image:m4/choose-parasol-store-template.png[width=30%]
+
+* In *Step 1: Provide Information for the isolated dev environment deployment*
+** Enter the feature-branch name `my-feature-branch` or the name you have picked for your branch.
+
+image:m4/choose-parasol-store-template-step1.png[]
+
+* In *Step 2: Provide database information*
+** Keep all the fields as it is - no need to make changes. The parameters are already set based on the OpenShift Service names from the existing deployments of the application
+
+image:m4/choose-parasol-store-template-step2.png[]
+
+* Click on *Review*, and proceed to *Create*
+
+image:m4/choose-parasol-store-template-step3.png[]
+
+* Click on the *Open component on catalog* link
+
+image:m4/parasol-branch-component.png[]
+
+** You can see under the *CI* tab, a pipeline is already running 
++
+image:m4/parasol-branch-first-pipeline.png[]
++
+and turns green when it finishes the run successfully
++
+image:m4/parasol-branch-first-pipeline-success.png[]
+
+** Explore the other tabs to see how RHDH allows a single pane of glass for the Developers' isolated environment
+
+* If you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment[click here^, window="_console"]
+
+image:m4/parasol-branch-deployment1.png[]
+
+
+=== Enhancing the application
+
+* Click on the *< > View Source* button on the Component Overview page to open the source repository
++
+image:m4/parasol-branch-component-overview.png[]
+
+* Switch to the *my-feature-branch* 
++
+image:m4/parasol-switchbranch.png[]
+
+* Click on the Web IDE of the *my-feature-branch* to access the code via the inbuilt editor
++
+image:m4/parasol-webide.png[]
+
+* For the sake of the workshop, let us make some changes to the README file. +
+E.g. add this text to the README file `This service store provides the core services of Parasol web-app`
+
+* Click on the *Source Control* menu on the left-hand (highlighted below), add a Commit Message *Chore: Improved README file*, and click the *Commit and push to "my-feature-branch"* button
++
+image:m4/parasol-webide-paste-commit.png[width=80%]
+* You can now close the gitlab browser.
+
+=== View component on RHDH
+* In RHDH, navigate to the `parasol-store` component. You can https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store/ci[click here^, window="_rhdh"] to access it.
+*  Access the CI tab  to view the pipeline
++
+image:m4/parasol-innerloop-pipeline1.png[width=80%]
+
+* Very shortly, the pipeline will be marked as *Succeeded*
++
+image:m4/parasol-innerloop-pipeline-ok.png[width=80%]
++
+NOTE: The first pipeline was triggered when you registered using the s.w template. and the next is by git commit
+
+* Once you are happy with the changes, you are now ready to create a merge request to the main branch.
+
+* This is the end of development within the isolated dev environment. In the next section, the developer will create merge request to the main branch, to initiate the outer loop
+
