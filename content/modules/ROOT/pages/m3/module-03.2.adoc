@@ -4,7 +4,7 @@
 
 include::style.adoc[]
 
-The Software Template you'll be using in this activity is stored in the _template.yaml_ file in the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple, window="_gitlab"] repository in GitLab.
+The Software Template you'll be using in this activity is stored in the _template.yaml_ file in the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple, window="gitlab"] repository in GitLab.
 
 Register this template using the {product_name_rhdh} UI:
 

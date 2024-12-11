@@ -21,7 +21,7 @@ image:m3/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
 
 You'll need an account in Quay to push your developers container images to.
 
-. Visit the https://quay.{openshift_cluster_ingress_domain}[Quay Registry^, window="_quay"] deployed in your workshop environment.
+. Visit the https://quay.{openshift_cluster_ingress_domain}[Quay Registry^, window="quay"] deployed in your workshop environment.
 . Click the *Create Account* link.
 +
 image:m3/quay-create-account-link.png[Creating a Quay Account, width="60%"]

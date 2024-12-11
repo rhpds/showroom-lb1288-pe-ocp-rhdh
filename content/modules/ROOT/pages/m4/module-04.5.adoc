@@ -62,7 +62,7 @@ image:m4/parasol-branch-first-pipeline-success.png[]
 
 ** Explore the other tabs to see how Developer Hub allows a single pane of glass for the Developers' isolated/sandboxed environment
 
-* If you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment[click here^, window="_console"]
+* If you are curious to view the deployment on OpenShift: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment[click here^, window="console"]
 +
 .Click to view screenshot
 [%collapsible]

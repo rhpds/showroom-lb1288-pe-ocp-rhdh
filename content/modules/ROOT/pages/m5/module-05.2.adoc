@@ -8,7 +8,7 @@
 * Click on the Revision link shown for `parasol-store-prod`. This will take you to the `parasol-store-manifests` repo showing the commits. 
 +
 image:m5/parasol-store-deployment-summary.png[]
-* From the left-hand navigation, access the _Merge requests_ menu. Or click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-manifests/-/merge_requests[here^, window="_gitlab"] to navigate to the Merge requests page.
+* From the left-hand navigation, access the _Merge requests_ menu. Or click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-manifests/-/merge_requests[here^, window="gitlab"] to navigate to the Merge requests page.
 * You can see the Merge Request created for the parasol-store-manifests repo. 
 +
 image:m5/parasol-store-prod-pr.png[]
