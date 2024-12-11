@@ -2,6 +2,8 @@
 
 == Developer Activity: Developer On-Boarding Example
 
+include::style.adoc[]
+
 Until now, you've been acting in the role of a platform engineer. Let's switch persona to that of a developer: `dev1`. 
 
 === Login to {product_name_rhdh} as a Developer

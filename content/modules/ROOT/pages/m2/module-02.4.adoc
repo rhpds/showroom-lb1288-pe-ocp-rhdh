@@ -2,6 +2,8 @@
 
 == Activity: Configure OpenID Connect Authentication
 
+include::style.adoc[]
+
 {product_name_rhdh} supports four authentication providers:
 
 * Guest (suitable for experimentation and demos only)

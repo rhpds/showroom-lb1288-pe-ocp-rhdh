@@ -2,6 +2,8 @@
 
 == Introduction to Concepts
 
+include::style.adoc[]
+
 {product_name_rhdh}, and internal developer portals in general, can be thought of as a modular system where you aggregate and display data related to the software within an organization.
 
 The core features of {product_name_rhdh} are the:

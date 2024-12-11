@@ -2,6 +2,8 @@
 
 == Activity: Enabling GitLab Entity Discovery & TechDocs
 
+include::style.adoc[]
+
 Now that the import of User and Group entities, and authentication is enabled for those same users, let's focus on importing more Entities from your Git repositories.
 
 === Enable GitLab Entity Discovery and TechDocs

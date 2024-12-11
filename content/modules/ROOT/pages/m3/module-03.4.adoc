@@ -2,6 +2,8 @@
 
 == Developer Activity: Create a new Component from the Template
 
+include::style.adoc[]
+
 Create a new software Component and supporting infrastructure using the *Quarkus Service* template that was created by the platform engineer:
 
 . Make sure you've logged in to {product_name_rhdh} as `dev1` using the password `{common_password}`.

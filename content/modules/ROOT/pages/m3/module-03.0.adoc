@@ -4,6 +4,8 @@ include::style.adoc[]
 
 == Overview
 
+include::style.adoc[]
+
 Software Templates in {product_name_rhdh} enable your team(s) to create Components and - through the use of "actions" provided by plugins - create resources in other systems such as your GitLab and OpenShift GitOps instances. Each Template is stored as an Entity, meaning you can import them similar to any other Entity.
 
 Platform engineers will typically be the authors of Templates, and use them to create "golden paths" that follow best-practices and use approved processes and tooling. Development teams will be the consumers of Templates to create new software. Using Templates reduces cognitive load on the development teams by allowing them to focus on development tasks, while platform concerns are addressed by the template.
