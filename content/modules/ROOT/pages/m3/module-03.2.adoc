@@ -1,3 +1,5 @@
+:imagesdir: ../../assets/images
+
 == Platform Engineer Activity: Import the Software Template
 
 The Software Template you'll be using in this activity is stored in the _template.yaml_ file in the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple[rhdh/template-quarkus-simple, window="_gitlab"] repository in GitLab.
@@ -8,7 +10,7 @@ Register this template using the {product_name_rhdh} UI:
 . Select *Create* from the sidemenu.
 . Click the *Register Existing Component* button.
 +
-image::./m3/rhdh-catalog-create.png[The empty Create UI]
+image:m3/rhdh-catalog-create.png[The empty Create UI]
 . Enter the following URL in the *Select URL* field and click *Analyze*:
 +
 [source,bash,role=execute,subs=attributes+]
@@ -17,11 +19,11 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-s
 ----
 . You'll be asked to review the entities being imported, as shown:
 +
-image::./m3/rhdh-register-template.png[Registering and Entity]
+image:m3/rhdh-register-template.png[Registering and Entity]
 . Click *Import* when prompted.
 
 Return to the Software Catalog and set the _Kind_ filter to _Template_. Your new *Quarkus Service* template will be listed. Clicking on the template reveals that it looks a lot like the Component Entity you imported in the previous module.
 
-image::./m3/rhdh-quarkus-template.png[Registering and Entity]
+image:m3/rhdh-quarkus-template.png[Registering and Entity]
 
 Before using the Template, we'll need to onboard a developer. Continue to the next section to complete a developer-focused task.

@@ -1,4 +1,4 @@
-:imagesdir: ../assets/images
+:imagesdir: ../../assets/images
 
 == Activity: Configure OpenID Connect Authentication
 
@@ -35,7 +35,7 @@ The high-level steps involve:
 . Delete the existing `auth` configuration that contains the `guest` provider.
 . Uncomment the entire `auth` configuration containing the `oidc` provider, and the `signInPage` setting below it.
 +
-image::./m2/auth-section-original.png[appConfig.auth object in the YAML, width=80%]
+image:m2/auth-section-original.png[appConfig.auth object in the YAML, width=80%]
 
 . The end result will look similar to:
 +
@@ -81,7 +81,7 @@ The `signInPage` property is specific to {product_name_rhdh}. It ensures the cor
 
 . Once the latest version of your `appConfig` has been synchronized and rolled out, visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[{product_name_rhdh} instance^, window="rhdh"]. You will be prompted to sign-in using OpenID Connect.
 +
-image::./m2/rhdh-oidc-login.png[OIDC Sign-In Prompt]
+image:m2/rhdh-oidc-login.png[OIDC Sign-In Prompt]
 . Login using the username `pe1` and password `{common_password}` in the popup that appears. After logging in, visit the *Settings* page in {product_name_rhdh} to confirm you're logged in as the `pe1` user.
 + 
-image::./m2/rhdh-pe1-user.png[Viewing the user details on the Settings UI in {product_name_rhdh}]
+image:m2/rhdh-pe1-user.png[Viewing the user details on the Settings UI in {product_name_rhdh}]

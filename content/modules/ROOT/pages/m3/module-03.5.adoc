@@ -1,3 +1,5 @@
+:imagesdir: ../../assets/images
+
 == Developer Activity: Update a Component's Catalog Info
 
 Installing the Argo CD plugin doesn't automatically make the deployment information visible when viewing Components in the Software Catalog. An `argocd/app-selector` annotation must be added to the Component's YAML definition. This annotation instructs the Argo CD plugin to fetch the information related to the Component from the Argo CD instance you configured.
@@ -15,14 +17,14 @@ argocd/app-selector: rht-gitops.com/rhdh-gitops=dev1-my-quarkus-app
 ----
 . You can confirm this annotation is correct by visiting the https://rhdh-gitops-server-rhdh-gitops.{openshift_cluster_ingress_domain}/applications/rhdh-gitops/dev1-my-quarkus-app-dev[dev1-my-quarkus-app-dev in the rhdh-gitops instance] and clicking the *Details* button to view the applied labels.
 +
-image::./m3/argocd-label.png[Argo CD Details with Labels]
+image:m3/argocd-label.png[Argo CD Details with Labels]
 . Use the *Commit changes* button to commit the annotation.
 
 Return to your developer hub instance after committing the change. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 
 
-image::./m3/rhdh-entity-refresh.png[Entity Refresh Button]
+image:m3/rhdh-entity-refresh.png[Entity Refresh Button]
 
 Next, refresh your browser. The *CD* tab should appear, and you can view build information.
 
-image::./m3/rhdh-cd-tab.png[CD Tab in Component]
+image:m3/rhdh-cd-tab.png[CD Tab in Component]
 :imagesdir: ../assets/images

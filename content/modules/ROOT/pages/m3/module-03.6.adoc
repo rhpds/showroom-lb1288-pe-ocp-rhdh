@@ -1,3 +1,5 @@
+:imagesdir: ../../assets/images
+
 == Platform Engineer Activity: Update the the Component Template
 
 While the developer can add the necessary annotation to their Component, it's best to update the Template so future developers can benefit from the Argo CD integration without having to manually add the annotation.
@@ -14,7 +16,7 @@ NOTE: Login to GitLab in using `pe1/{common_password}` to view and edit this fil
 argocd/app-selector: rht-gitops.com/${{ values.gitops_namespace }}=${{ values.owner }}-${{values.component_id}}
 ----
 +
-image::./m3/gitlab-template-edit.png[Edit the Template in Argo CD]
+image:m3/gitlab-template-edit.png[Edit the Template in Argo CD]
 . Use the *Commit changes* button to commit the new annotation.
 
 The annotation value will be automatically generated, similar to the Argo CD label, using the values provided by developers when they use the Template.
@@ -23,7 +25,7 @@ Return to your developer hub instance after committing the change. Use the *Sche
 
 NOTE: Manually refreshing is an optional step, since {product_name_rhdh} will check for upstream Entity changes every few minutes.
 
-image::./m3/rhdh-template-refresh.png[Refresh Template Button]
+image:m3/rhdh-template-refresh.png[Refresh Template Button]
 
 == Conclusion
 

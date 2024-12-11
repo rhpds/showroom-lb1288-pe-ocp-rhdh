@@ -1,3 +1,5 @@
+:imagesdir: ../../assets/images
+
 = Platform Engineer Activity: Setup RBAC [Optional Module]
 
 include::style.adoc[]
