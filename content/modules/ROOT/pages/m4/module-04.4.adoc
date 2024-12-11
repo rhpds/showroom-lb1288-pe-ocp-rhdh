@@ -31,4 +31,4 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-
 * Click on *Analyze* button followed by clicking the *Import* button to import the template.
 * The Template will start appearing in the Create side-menu
 +
-image::./m4/parasol-store-dev-template-create.png[]
+image::m4/parasol-store-dev-template-create.png[]

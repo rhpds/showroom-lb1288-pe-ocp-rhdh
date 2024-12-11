@@ -19,10 +19,11 @@ This roadshow is meant for Platform Engineers who are in charge of
 
 Development Teams who are in charge of creating a software solution and empower (traditionally speaking) in picking their own tools for coding, building, deploying, running, monitoring and documentation may also benefit from this.
 
-== *What you will learn:*
+image:common/pew-journey-map.png[]
 
-* Understand the need to implement Platform Engineering disciplines in their organization and see the clearly benefits of improving the Developer Productivity
+== What you will learn:
+
+* Understand the need to implement Platform Engineering disciplines in your organization and see the clearly benefits of improving the Developer Productivity
 * How to design a Thinnest Viable Platform (TVP) based on the needs of ALL development teams in the organization and ensure they are highly productive as possible
-* Constantly assessing the investment into their own IDP and understand how they can enhance and convince ALL development teams to start adopting
+* Constantly assess the investment into your own IDP and understand how they can be enhanced, and convince development teams to start adopting it
 * See how Red Hat can help as a partner in your Platform Engineering journey
-

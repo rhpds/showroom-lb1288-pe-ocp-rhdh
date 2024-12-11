@@ -79,36 +79,38 @@ image::m4/import-templates-list.png[width=70%]
 
 . The Import API/APP templates described above need a couple of Dynamic Plugins. 
 
-.. The `roadiehq-scaffolder-backend-module-utils-dynamic` plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported.
-.. The `backstage-plugin-catalog-backend-module-gitlab-dynamic` plugin helps to discover catalog files located in your GitLab instance. 
+.. The _roadiehq-scaffolder-backend-module-utils-dynamic_ plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported.
+.. The _backstage-plugin-catalog-backend-module-gitlab-dynamic_ plugin helps to discover catalog files located in your GitLab instance. 
+
+. You will also enable a couple of Community plugins which will help view Merge requests and Issues from Gitlab
 +
 .What are Dynamic Plugins?
 [%collapsible]
 ====
 The Red Hat Developer Hub application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
 ====
-. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"]. If prompted, login using `pe1/{common_password}`.
+. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="_gitlab"]. If prompted, login using (pe1/{common_password}).
 . You should already be in Edit mode of the `values.yaml` file.
 . Locate the comment `--- DYNAMIC_PLUGINS_IMPORT_COMPONENTS ---`
-. Highlight the YAML as shown in the below screenshot, and comment those lines. Type `CMD + / or CTRL + /` command to do so.
+. Highlight the YAML section shown in the below screenshot, and uncomment those lines. Type _CMD+/ or CTRL+/_ command to do so.
 +
 image::m4/uncomment-dynamic-plugin.png[width=60%]
-. Don't Save yet. We need to next turn on auto-discovery
+. Don't commit the changes yet. We need to next turn on auto-discovery
 
 === Turn on auto-discovery
-. Locate the comment `--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---` in the same values.yaml file.
-. Highlight the YAML as shown in the below screenshot, and comment those lines. Type `CMD + / or CTRL + /` command to do so.
+. Locate the comment _--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---_ in the same values.yaml file.
+. Highlight the YAML as shown in the below screenshot, and comment those lines. Type _CMD+/ or CTRL+/_ command to do so.
 +
 image::m4/uncomment-auto-discovery.png[width=60%]
 +
-NOTE: This YAML snippet enables auto-discovery for all files named *envelope.yaml* [entityFilename] where the repo name starts with the word *envelope* [projectPattern]. The Catalog Envelope for Parasol is called *envelope-catalog-parasol* 
+NOTE: This YAML snippet enables auto-discovery for all files named _envelope.yaml_ [entityFilename] where the repo name starts with the word _envelope_ [projectPattern]. The Catalog Envelope for Parasol is called _envelope-catalog-parasol_
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page with a suitable commit message.
 +
 image::m4/commit-rhdh-config.png[]
 
-== Refresh RHDH on Argo
+== Refresh Developer Hub on Argo
 
-Argo is tuned to pull changes from the repo every two minutes or so. Instead of waiting that to kick in, you can *Refresh* the RHDH Argo Application as follows:
+Argo is tuned to pull changes from the repo every two minutes or so. Instead of waiting for the sync to kick in, you can *Refresh* the RHDH Argo Application as follows:
 
 * Access ArgoCD from https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ here^, window="_argo"], and login as (admin/{openshift_gitops_password})
 * Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will sync the content from Gitlab.
