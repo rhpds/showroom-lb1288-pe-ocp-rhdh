@@ -12,7 +12,7 @@ Update your Quarkus application's _catalog-info.yaml_ with the correct annotatio
 +
 NOTE: Login to GitLab in using `dev1/{common_password}` to view and edit this file.
 . Select _Edit > Edit single file_.
-. Add the following annotation:
+. Uncomment the following annotation:
 +
 ----
 argocd/app-selector: rht-gitops.com/rhdh-gitops=dev1-my-quarkus-app

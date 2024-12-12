@@ -12,7 +12,7 @@ To ensure that future Quarkus applications created using the Template...TODO
 +
 NOTE: Login to GitLab in using `pe1/{common_password}` to view and edit this file.
 . Select _Edit > Edit single file_.
-. Add the following to the `annotations` section of the file:
+. Uncomment the following in the `annotations` section of the file:
 +
 ----
 argocd/app-selector: rht-gitops.com/${{ values.gitops_namespace }}=${{ values.owner }}-${{values.component_id}}
