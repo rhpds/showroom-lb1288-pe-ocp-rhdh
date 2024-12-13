@@ -54,11 +54,28 @@ image:m2/global-techdocs-docs.png[Global TechDocs being rendered]
 +
 image:m2/global-docs-menu.png[Docs side-menu]
 
+== TechDocs Generation and Storage Configuration
+
+Recall the `techdocs` configuration from your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in GitLab, window="gitlab"]. It should resemble the following example:
+
+[source,yaml,subs=attributes+]
+----
+techdocs:
+  builder: 'local'
+  publisher:
+    type: 'local'
+  generator:
+    runIn: local
+----
+
+This particular configuration is instructing TechDocs to build (`builder`) and store documentation locally (`publisher.type`), in the container. 
+
+The `generator: local` option instructs TechDocs to build the documentation on-demand. This requires the underlying container to have the necessary dependencies installed - {product_name_rhdh} has these dependencies in place.
+
+It's possible to offload the TechDocs build process to a CI/CD pipeline that uses the TechDocs CLI. In this scenario, the pipeline builds and publishes the TechDocs to S3 or another storage system. The platform engineer must configure a `builder` of type `external` and the `publisher` to read from the same storage system to load the desired TechDocs for a given Entity.
+
+Using the `external` builder strategy reduces load on the {product_name_rhdh} instance, but places the burden of building and publishing the TechDocs on authors.
+
 == Conclusion
 
 Congratulations! You've learned the core concepts of Backstage and {product_name_rhdh}. You also learned how to deploy and manage an instance of {product_name_rhdh} using the official Helm Chart via OpenShift GitOps.
-
-TODO: 
-
-* Types of deployment - local vs AWS bucket/external
-* Add details to "You also learned how to deploy and manage an instance of" - or should we add the Arcade here?
