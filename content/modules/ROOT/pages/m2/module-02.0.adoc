@@ -40,6 +40,3 @@ Your workshop environment has been preconfigured with the following software and
 * GitLab
 
 For the purposes of this workshop, we'll assume that your organization has standardized on these tools, and it's your objective as the platform engineer to integrate them with {product_name_rhdh}.
-
-For convenience, {product_name_rhdh} has been predeployed via OpenShift GitOps using the official https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/index#assembly-install-rhdh-ocp-helm[{product_name_rhdh} Helm Chart^, window="content"]. Specifically, a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap, window="argo"] Application has been configured to deploy the official {product_name_rhdh} Helm Chart along with a set prerequisite Secrets and ConfigMaps. +
-You can login as `admin/{openshift_gitops_password}`

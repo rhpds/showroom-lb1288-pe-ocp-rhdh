@@ -1,89 +1,42 @@
 :imagesdir: ../../assets/images
 
-== Activity: Configure OpenID Connect Authentication
+== Activity: Synchronize User & Group Entities
 
 include::../style.adoc[]
 
-{product_name_rhdh} supports four authentication providers:
+You previously learned that the Software Catalog contains Entities, and saw a sample `appConfig` that contained a `catalog.locations` configuration. That example configuration imported entities from a file located in a Git repository. This pattern is known as a https://backstage.io/docs/features/software-catalog/#static-catalog-configuration[static configuration^, window="content"]. {product_name_rhdh} will occasionally poll for updates to the specified file locations and update the Entities in the Software Catalog accordingly.
 
-* Guest (suitable for experimentation and demos only)
-* OpenID Connect
-* GitHub
-* Microsoft Azure
+Another option for importing and synchronizing Entities is via _providers_. Providers are typically provided by way of plugins, and are configured using the `catalog.providers` entry in the `appConfig`. Let's use the Keycloak plugin to synchronize Users and Groups to your Software Catalog.
 
-In this activity you'll configure an OpenID Connect authentication provider - this will enable developers within your organization to login using their single-sign on credentials.
-
-=== High-Level Workflow
-
-A complete set of documentation for configuring OpenID Connect authentication using Red Hat Single-Sign On is available in the https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html-single/authentication/index#enabling-authentication-with-rhsso[{product_name_rhdh} documentation^, window="console"]. 
-
-NOTE: Don't worry if some of the following bullet points are hard to understand upon first reading them. You'll be guided through each step-by-step.
-
-The high-level steps involve:
-
-. Creating a Realm and Client in Red Hat Single-Sign On. These have been pre-configured for you. View the `backstage` Realm using the following URL and credentials:
-    * *URL*: https://sso.{openshift_cluster_ingress_domain}[https://sso.{openshift_cluster_ingress_domain}/admin/master/console/#/backstage^, window="sso"]
-    * *Credentials*: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/keycloak/secrets/keycloak-initial-admin[View on OpenShift, window="content"]
-. Configuring the {product_name_rhdh} Keycloak plugin to synchronize users from Red Hat Single-Sign On to {product_name_rhdh}.
-. Configuring the `oidc` {product_name_rhdh} authentication provider with the Realm details.
-. Setting `oidc` as `signInPage` page type for {product_name_rhdh}.
-. Enabling session support on {product_name_rhdh}.
-
-=== Configure the OpenID Connect Authentication Provider
-
-. Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/[rhdh/developer-hub-config repository on GitLab, window="gitlab"].
-. Open the *values.yaml* file, then select *Edit > Edit single file*.
-. Locate the `appConfig.auth` object in the YAML. You can search for `--- AUTHENTICATION ---` in this file to locate this section.
-. Delete the existing `auth` configuration that contains the `guest` provider.
-. Uncomment the entire `auth` configuration containing the `oidc` provider, and the `signInPage` setting below it.
+. View your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in the developer-hub-config repository^, window="gitlab"].
+. Select **Edit > Edit single file**. When prompted, login as *(pe1/{common_password})*
+. You will find the `janus-idp-backstage-plugin-keycloak-backend-dynamic` package under the `dynamic.plugins` field that is set `disabled: false`. This means that, this plugin has been enabled in your installation.
 +
-image:m2/auth-section-original.png[appConfig.auth object in the YAML, width=80%]
-
-. The end result will look similar to:
+image:m2/keycloak-dynamic-plugin.png[width=60%]
+. Uncomment the `keycloakOrg` configuration within the `appConfig.catalog.providers` block (look for `--- KEYCLOAK_CATALOG_PROVIDERS ---`, highlight the block, then press `CMD + /` or `CTRL + /`).
 +
-[source,yaml,subs=attributes+]
-----
-auth:
-  session:
-    secret: ${BACKEND_SECRET}
-  environment: production
-    providers:
-      oidc:
-        production:
-          prompt: auto
-          metadataUrl: https://sso.{openshift_cluster_ingress_domain}/realms/backstage/.well-known/openid-configuration
-          clientId: ${OAUTH_CLIENT_ID}
-          clientSecret: ${OAUTH_CLIENT_SECRET}
-          signIn:
-            resolvers:
-              - resolver: preferredUsernameMatchingUserEntityName
-signInPage: oidc
-----
+image:m2/keycloak-commented-block.png[width=70%]
+
+This block of configuration instructs the Keycloak provider to synchronize *Users and Groups* from the specified Keycloak Realm to the Software Catalog. Doing so will enable developers and platform engineers to associate Users and Groups with Entities in the Software Catalog - very useful for finding out which individual or team is responsible for a particular microservice or database, for example.
+
+. Scroll down and enter a commit message: `feat: enable the keycloak catalog provider`
+. Click the *Commit* button.
+. Visit the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"] and click *Refresh*. 
 +
-This is an example standard Backstage `auth` configuration. 
+If needed, login using `admin`/`{openshift_gitops_password}`.
 +
-.Click to view a summary of what this configuration specifies
-[%collapsible]
-====
-. Enable sessions, and use the `BACKEND_SECRET` environment variable to sign sessions.
-. Set the authentication `environment` to `production`. Environments can have any arbitrary name.
-. Enable the OpenID Connect provider (`providers.oidc`) with the following configuration:
-    * Provide a `production` configuration (corresponding to the `environment` defined previously).
-    * Use the `backstage` Realm (`metadataUrl`).
-    * Load the `clientId` and `clientSecret` from environment variables (loaded from the precreated https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/secrets/oauth-client[*oauth-client*] Secret, specified in `extraEnvVarsSecrets` in the _values.yaml_)
-    * Map any signing in user identity to a User Entity in {product_name_rhdh} using the specified https://backstage.io/docs/auth/identity-resolver/[resolver^, window="console"].
+NOTE: ArgoCD has been setup to auto-sync every two minutes. Instead of having to wait for auto-sync to kick in, you are instructed to manually sync the ArgoCD application.
 
-The `signInPage` property is specific to {product_name_rhdh}. It ensures the correct sign-in UI is rendered. In upstream Backstage this requires React code changes.
+Your changes will start to rollout. Confirm this by visiting the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage?view=graph[backstage project, window="console"] on OpenShift and checking that a new Pod is being started, or waiting until the Application in OpenShift GitOps reports *Healthy* instead of *Progressing*.
 
-. Commit the changes with a message similar to `feat: enable openid connect`
-. Click Refresh on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"]. If prompte, login as `admin/{openshift_gitops_password}`.
-. Wait until the Application reports being in a *Healthy* state.
+image:m2/gitops-progressing.png[Backstage Application in Progressing Status]
 
-=== Login using OpenID Connect Authentication
+Once the new Pod has started, navigate to https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/core%7Ev1%7EPod[OpenShift^, window="console"] and check the logs for lines that reference the `KeycloakOrgEntityProvider`. You should see a line stating that a number of Users and Groups have been read from Keycloak.
 
-. Once the latest version of your `appConfig` has been synchronized and rolled out, visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[{product_name_rhdh} instance^, window="rhdh"]. You will be prompted to sign-in using OpenID Connect.
-+
-image:m2/rhdh-oidc-login.png[OIDC Sign-In Prompt]
-. Login using the username `pe1` and password `{common_password}` in the popup that appears. After logging in, visit the *Settings* page in {product_name_rhdh} to confirm you're logged in as the `pe1` user.
-+ 
-image:m2/rhdh-pe1-user.png[Viewing the user details on the Settings UI in {product_name_rhdh}]
+image:m2/openshift-pod-logs.png[{product_name_rhdh} Pod logs as seen in the OpenShift Console]
+
+You can further confirm the Users and Groups have been synchronized by visiting the Software Catalog on https://backstage-backstage.{openshift_cluster_ingress_domain}[Developer Hub^, window="rhdh"] and setting the *Kind* dropdown to User. 
+
+image:m2/rhdh-users-list.png[User Entities listed in {product_name_rhdh}]
+
+Nice work! You enabled a dynamic plugin and configured a catalog provider based on it!
