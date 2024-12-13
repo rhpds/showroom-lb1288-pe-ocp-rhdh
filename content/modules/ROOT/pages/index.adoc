@@ -19,7 +19,7 @@ This roadshow is meant for Platform Engineers who are in charge of
 
 Development Teams who are in charge of creating a software solution and empower (traditionally speaking) in picking their own tools for coding, building, deploying, running, monitoring and documentation may also benefit from this.
 
-image:common/pew-journey-map.png[]
+image:common/pew-journey-map.png[width=80%]
 
 == What you will learn:
 
