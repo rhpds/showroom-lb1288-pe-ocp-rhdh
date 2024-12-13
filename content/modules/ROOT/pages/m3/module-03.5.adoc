@@ -2,7 +2,7 @@
 
 == Developer Activity: Update a Component's Catalog Info
 
-include::style.adoc[]
+include::../style.adoc[]
 
 Installing the Argo CD plugin doesn't automatically make the deployment information visible when viewing Components in the Software Catalog. An `argocd/app-selector` annotation must be added to the Component's YAML definition. This annotation instructs the Argo CD plugin to fetch the information related to the Component from the Argo CD instance you configured.
 

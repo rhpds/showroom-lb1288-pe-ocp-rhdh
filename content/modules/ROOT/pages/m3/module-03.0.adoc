@@ -1,10 +1,8 @@
 = Module 3: Software Templates and Developer Experience
 
-include::style.adoc[]
+include::../style.adoc[]
 
 == Overview
-
-include::style.adoc[]
 
 Software Templates in {product_name_rhdh} enable your team(s) to create Components and - through the use of "actions" provided by plugins - create resources in other systems such as your GitLab and OpenShift GitOps instances. Each Template is stored as an Entity, meaning you can import them similar to any other Entity.
 

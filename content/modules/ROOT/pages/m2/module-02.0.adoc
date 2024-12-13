@@ -2,7 +2,7 @@
 
 = Module 2: Design the Internal Developer Portal
 
-include::style.adoc[]
+include::../style.adoc[]
 
 == Overview
 

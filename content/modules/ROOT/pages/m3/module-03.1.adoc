@@ -2,7 +2,7 @@
 
 == Introduction to Concepts
 
-include::style.adoc[]
+include::../style.adoc[]
 
 As mentioned earlier, Templates are defined using YAML and rendered as a rich form in the {product_name_rhdh} UI when used by development teams.
 

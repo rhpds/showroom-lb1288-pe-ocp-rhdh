@@ -2,7 +2,7 @@
 
 == Platform Engineer Activity: Update the the Component Template
 
-include::style.adoc[]
+include::../style.adoc[]
 
 While the developer can add the necessary annotation to their Component, it's best to update the Template so future developers can benefit from the Argo CD integration without having to manually add the annotation.
 

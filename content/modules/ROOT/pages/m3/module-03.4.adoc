@@ -2,7 +2,7 @@
 
 == Developer Activity: Create a new Component from the Template
 
-include::style.adoc[]
+include::../style.adoc[]
 
 Create a new software Component and supporting infrastructure using the *Quarkus Service* template that was created by the platform engineer:
 
