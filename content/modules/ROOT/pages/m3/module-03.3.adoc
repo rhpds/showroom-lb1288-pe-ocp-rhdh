@@ -29,7 +29,7 @@ image:m3/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
 
 === Create an Account in Quay
 
-You'll need an account in Quay to push your developer's container images to.
+You'll need an account in Quay to push your developer's container images to for scanning and deployment.
 
 . Visit the https://quay.{openshift_cluster_ingress_domain}[Quay Registry^, window="quay"] deployed in your workshop environment.
 . Click the *Create Account* link.
