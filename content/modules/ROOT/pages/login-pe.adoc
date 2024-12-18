@@ -5,7 +5,7 @@
 .Click to see how to logout
 [%collapsible]
 ====
-** Navigate to the *Settings* side-menu of Developer Hub and click on th kebab menu in the *Profile* card
+** Navigate to the *Settings* side-menu of Developer Hub and click on the kebab menu in the *Profile* card
 +
 image::common/rhdh-settings.png[Settings of {product_name_rhdh}]
 ** Sign out of {product_name_rhdh} using the Settings screen as shown.

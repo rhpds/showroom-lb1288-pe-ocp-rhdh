@@ -8,7 +8,7 @@ Until now, you've been acting in the role of a platform engineer. Let's switch p
 
 === Login to {product_name_rhdh} as a Developer
 
-. Navigate to the *Settings* side-menu and click on th kebab menu in the *Profile* card
+. Navigate to the *Settings* side-menu and click on the kebab menu in the *Profile* card
 +
 image:m3/rhdh-settings.png[Settings of {product_name_rhdh}]
 . Sign out of {product_name_rhdh} using the Settings screen as shown.
