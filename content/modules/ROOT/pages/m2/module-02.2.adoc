@@ -19,15 +19,15 @@ image:m2/gitops-helm.png[GitOps Architecture Overview]
 
 Since this isn't a GitOps-focused workshop, we've setup the basic GitOps workflow ahead of time. Specifically we've pre-created a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap Application in OpenShift GitOps, window="argo"] - you can view this by clicking the link and logging in as the `admin` user with the password `{openshift_gitops_password}`.
 
-The https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap, window="argo"] Application creates Secrets, ConfigMaps, and another Application named https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage[backstage, window="argo"]. The https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage[backstage, window="argo"] Application deploys {product_name_rhdh} using the Helm Chart. The configuration values passed to the Helm Chart are sourced from the https://gitlab-gitlab.apps.cluster-wwbcz.wwbcz.sandbox1079.opentlc.com/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config/values.yaml file in GitLab, window="gitlab"]. OpenShift GitOps will detect changes to this file and redeploy {product_name_rhdh} in response. You can see these two sources in the *Details* tab of the `backstage` Application as shown.
+The https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap, window="argo"] Application creates Secrets, ConfigMaps, and another Application named https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage[backstage, window="argo"]. The https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage[backstage, window="argo"] Application deploys {product_name_rhdh} using the Helm Chart. The configuration values passed to the Helm Chart are sourced from the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config/values.yaml file in GitLab, window="gitlab"]. OpenShift GitOps will detect changes to this file and redeploy {product_name_rhdh} in response. You can see these two sources in the *Details* tab of the `backstage` Application as shown.
 
 image:m2/gitops-sources.png[GitOps Sources for the Backstage Application]
 
 === Platform Engineer Activity: Verify GitOps is Working
 
-Let's verify that changes to the https://gitlab-gitlab.apps.cluster-wwbcz.wwbcz.sandbox1079.opentlc.com/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in GitLab, window="gitlab"] actually get rolled out by OpenShift GitOps.
+Let's verify that changes to the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in GitLab, window="gitlab"] actually get rolled out by OpenShift GitOps.
 
-. Open your https://gitlab-gitlab.apps.cluster-wwbcz.wwbcz.sandbox1079.opentlc.com/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file, window="gitlab"].
+. Open your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file, window="gitlab"].
 . Select *Edit > Edit single file*.
 . Find the YAML surrounded by `--- APP TITLE ---` and uncomment it by highlighting it and pressing `CMD + /` or `CTRL + /`.
 +

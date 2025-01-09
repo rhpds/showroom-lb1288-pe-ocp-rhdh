@@ -88,12 +88,12 @@ user:default/dev1,dev1 rhdh,dev1@rhdemo.com,"Tue, 10 Dec 2024 05:25:00 GMT"
 user:default/pe1,pe1 rhdh,pe1@rhdemo.com,"Tue, 10 Dec 2024 05:25:22 GMT"
 ```
 ====
-. Navigate to the https://backstage-backstage.apps.cluster-zgzdt.zgzdt.sandbox2867.opentlc.com/create[_Create_ menu, window="rhdh"], and you can still see the *Register Existing Component* button. 
+. Navigate to the https://backstage-backstage.{openshift_cluster_ingress_domain}/create[_Create_ menu, window="rhdh"], and you can still see the *Register Existing Component* button. 
 
 === As a Developer
 . Logout from your pe1 user, and login back as a developer with `dev1/{common_password}`. 
 . You will not be able to see the `Administration > RBAC` menu, since developers are not assigned the `admin` role in the Developer Hub configuration
-. Navigate to the https://backstage-backstage.apps.cluster-zgzdt.zgzdt.sandbox2867.opentlc.com/create[_Create_ menu, window="rhdh"]. 
+. Navigate to the https://backstage-backstage.{openshift_cluster_ingress_domain}/create[_Create_ menu, window="rhdh"]. 
 . Note that you cannot see the *Register Existing Component* button. But you can still use the templates already created.
 +
 image:m3/developer-rbac-create.png[]
