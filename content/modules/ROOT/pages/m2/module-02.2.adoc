@@ -15,7 +15,7 @@ The instance of OpenShift Container Platform used in this workshop environment h
 
 TODO: replace with product icons
 
-image:m2/gitops-helm.png[GitOps Architecture Overview]
+image:m2/gitops-helm.png[GitOps Architecture Overview, width=80%]
 
 Since this isn't a GitOps-focused workshop, we've setup the basic GitOps workflow ahead of time. Specifically we've pre-created a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap Application in OpenShift GitOps, window="argo"] - you can view this by clicking the link and logging in as the `admin` user with the password `{openshift_gitops_password}`.
 
@@ -28,7 +28,7 @@ image:m2/gitops-sources.png[GitOps Sources for the Backstage Application]
 Let's verify that changes to the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in GitLab, window="gitlab"] actually get rolled out by OpenShift GitOps.
 
 . Open your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file, window="gitlab"].
-. Select *Edit > Edit single file*.
+. Select *Edit > Edit single file*. When prompted, login as a Platform Engineer with `pe1/{common_password}`
 . Find the YAML surrounded by `--- APP TITLE ---` and uncomment it by highlighting it and pressing `CMD + /` or `CTRL + /`.
 +
 image:m2/gitlab-change-app-title.png[Customizing the Title]

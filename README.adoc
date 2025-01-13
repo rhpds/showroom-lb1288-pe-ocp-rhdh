@@ -1,7 +1,7 @@
 :imagesdir: ../assets/images
 
 
-= Platform Engineering Roadshow
+= Platform Engineering Workshop
 
 == Introduction
 Organizations often struggle with a variety of circumstances that can impact productivity within the teams (high cognitive load, lack of standardization, domain knowledge fragmentation). +
@@ -10,7 +10,7 @@ This could result in inefficient or reduced Productivity, higher maintenance cos
 Red Hat provides the tools and know-how to help "The Providers" (The Platform Engineers) to create "The Product" (their custom IDP) based on the needs of "The Customers" (all Development Teams within the organization).
 
 
-This roadshow is meant for Platform Engineers who are in charge of 
+This workshop is meant for Platform Engineers who are in charge of 
 
 * creating standard technologies that can be used in all environments (Development, Testing, Production), and
 * defining processes and ensuring they are maximizing the time and resources for Development Teams.
