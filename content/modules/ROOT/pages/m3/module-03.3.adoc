@@ -22,8 +22,6 @@ IMPORTANT: Please make sure to log in as a *Developer* with *dev1/{common_passwo
 include::../login-developer.adoc[]
 
 
-IMPORTANT: Please make sure you are logged in as a Developer with dev1/{common_password} as you were guided to in the previous step.
-
 === Create an Account in Quay
 
 You'll need an account in Quay to push your developer's container images for scanning and deployment.
