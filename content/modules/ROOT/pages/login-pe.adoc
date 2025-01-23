@@ -1,4 +1,4 @@
-=== Login as Platform Engineer
+*Login as Platform Engineer*
 
 You will perform this activity as a Platform Engineer. Please follow the below steps to logout from {product_name_rhdh} and GitLab, and login back as a Platform Engineer (`pe1/{common_password}`)
 

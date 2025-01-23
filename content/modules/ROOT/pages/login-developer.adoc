@@ -1,4 +1,5 @@
-=== Login as Developer
+*Login as Developer*
+
 * You will perform this activity as a Developer. 
 * Logout from https://backstage-backstage.{openshift_cluster_ingress_domain}[{product_name_rhdh}^, window="rhdh"]
 +
