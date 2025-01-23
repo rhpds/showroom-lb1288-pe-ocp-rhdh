@@ -22,14 +22,14 @@ With a rapidly evolving and expanding team, it is getting harder and harder for 
 * providing self-service for developers without need to be listening to a please-wait music tone
 * offering choices of features, and easy ways to hit the road running
 
-The team hears about the magic words - _Internal Developer Platform (IDP)_, and some research shows that Red Hat Developer Hub would be perfect because of how customizable it is and especially the fact that it can run on on-prem to air gap sensitive content.
+The team hears about the magic words - _Internal Developer Platform (IDP)_, and some research shows that {product_name_rhdh} would be perfect because of how customizable it is and especially the fact that it can run on on-prem to air gap sensitive content.
 
 
-== Hello Red Hat Developer Hub!
+== Hello {product_name_rhdh}!
 
-Red Hat Developer Hub streamlines development through a unified and open platform that reduces cognitive load and frustration for developers. It provides pre-architected and supported approaches that can help Parasol get their applications into production faster and more securely—without sacrificing code quality.
+{product_name_rhdh} streamlines development through a unified and open platform that reduces cognitive load and frustration for developers. It provides pre-architected and supported approaches that can help Parasol get their applications into production faster and more securely—without sacrificing code quality.
 
-Red Hat Developer Hub and its associated plugins extend the popular upstream Backstage product by providing additional features such as integration with OpenShift, enterprise role-based access control (RBAC), and dynamic plugins - while including all the nice goodies that come with Backstage project itself.
+{product_name_rhdh} and its associated plugins extend the popular upstream Backstage product by providing additional features such as integration with OpenShift, enterprise role-based access control (RBAC), and dynamic plugins - while including all the nice goodies that come with Backstage project itself.
 
 
 == Hello Workshop!
@@ -43,6 +43,6 @@ In this workshop, you will walk through in the steps of the platform engineers
 * setup workflows - from laptop to Production
 * and a touch of Security as well
 
-All of this boiling down to _how to setup  Development Teams up for success in a cloud native, AI infused world_!
+All of this boiling down to _how to setup Development Teams up for success in a cloud native, AI infused world_!
 
 == Conclusion

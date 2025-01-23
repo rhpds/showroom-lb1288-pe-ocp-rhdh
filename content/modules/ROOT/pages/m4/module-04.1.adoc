@@ -7,32 +7,32 @@ include::../style.adoc[]
 
 == Software templates to import existing applications
 
-You've already seen the magic of the `catalog-info.yaml` file. Developer Hub identifies components based on a `catalog-info.yaml` file in the repository. This file contains details about 
+You've already seen the magic of the `catalog-info.yaml` file. {product_name_rhdh} identifies components based on a `catalog-info.yaml` file in the repository. This file contains details about 
 
 * where the source code is
 * how to access the documentation
 * who the owners are
 * what are the dependencies and dependents etc.
 
-With the right plugins, this `catalog-info.yaml` file can also help to show these critical information in a single pane of glass within the component itself on Developer Hub:
+With the right plugins, this `catalog-info.yaml` file can also help to show these critical information in a single pane of glass within the component itself on {product_name_rhdh}:
 
 * CI pipelines
 * CD deployments
 * Git merge statuses
 * Cluster details
 
-To make importing a large number of existing applications into Developer Hub possible/feasible, the Platform Engineering (PE) team creates a *Software Template* that can automate both creation of the `catalog-info.yaml` file, and also auto-create `techdocs` skeleton structure.
+To make importing a large number of existing applications into {product_name_rhdh} possible/feasible, the Platform Engineering (PE) team creates a *Software Template* that can automate both the creation of the `catalog-info.yaml` file, and also auto-create `techdocs` skeleton structure.
 
 There are two options in terms of where the Catalog Info and TechDocs could be stored for these existing software apps.
 
 . The entities can be added to the same Git repositories as the existing source-code repo
-. Create an entity which acts like a collection of all of the catalog-info files and TechDocs of the existing code
+. Create an entity that acts like a collection of all of the catalog-info files and TechDocs of the existing code
 
-In this case, so as to not change existing source code, Parasol team goes with the 2nd approach of creating _an *Envelope* of all the `catalog-info.yaml` files_ of the apps. The Envelopes are nothing but *Location* files which contain references to a bunch of other catalog-info.yaml` files.  
+In this case, so as to not change existing source code, Parasol team goes with the 2nd approach of creating _an *Envelope* of all the `catalog-info.yaml` files_ of the apps. The Envelopes are nothing but *Location* files that contain references to a bunch of other catalog-info.yaml` files.
 
-We can then setup Developer Hub to _auto-discover_ these special Envelope files based on the file names (_envelope-*.yaml_ wildcard) across the git repo. The reason why we look for specific file names is to ensure we don't overload Git with multiple "searches" while performing auto-discovery.
+We can then setup {product_name_rhdh} to _auto-discover_ these special Envelope files based on the file names (_envelope-*.yaml_ wildcard) across the git repo. The reason why we look for specific file names is to ensure we don't overload Git with multiple "searches" while performing auto-discovery.
 
-Note: While setting up auto-discovery you can define the schedule defining how often you want this to run. You will need to judicious with this scheduling so as not to hit Git API ratelimits. https://backstage.io/docs/integrations/github/discovery/[Learn more, window="content"] about Github rate limits
+Note: While setting up auto-discovery you can set up the schedule defining how often you want it to run. Be judicious with the scheduling frequency so as not to hit Git API rate limits. https://backstage.io/docs/integrations/github/discovery/[Learn more, window="content"] about Github rate limits.
 
 
 == An overview of Parasol online web-app
@@ -44,4 +44,4 @@ The Parasol web app consists of
 * `parasol-db` core database (PostgreSQL)
 * `parasol-api` (OpenAPI Spec)
 
-In the next sections of this module, we will shadow both the Platform Engineers and the Developers as they navigate through onboarding existing applications, and accelerate dev inner-loop leading to increased developer productivity.
+In the next sections of this module, we will shadow both the Platform Engineers and the Developers as they navigate through onboarding existing applications and accelerate dev inner-loop leading to increased developer productivity.

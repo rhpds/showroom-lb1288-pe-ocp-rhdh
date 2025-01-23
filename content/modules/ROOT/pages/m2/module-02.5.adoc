@@ -59,24 +59,19 @@ auth:
               - resolver: preferredUsernameMatchingUserEntityName
 signInPage: oidc
 ----
-+
-This is an example standard Backstage `auth` configuration. 
-+
-.Click to view a summary of what this configuration specifies
-[%collapsible]
-====
-. Enable sessions, and use the `BACKEND_SECRET` environment variable to sign sessions.
-. Set the authentication `environment` to `production`. Environments can have any arbitrary name.
-. Enable the OpenID Connect provider (`providers.oidc`) with the following configuration:
-    * Provide a `production` configuration (corresponding to the `environment` defined previously).
-    * Use the `backstage` Realm (`metadataUrl`).
-    * Load the `clientId` and `clientSecret` from environment variables (loaded from the precreated https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/secrets/oauth-client[*oauth-client*] Secret, specified in `extraEnvVarsSecrets` in the _values.yaml_)
-    * Map any signing in user identity to a User Entity in {product_name_rhdh} using the specified https://backstage.io/docs/auth/identity-resolver/[resolver^, window="console"].
 
-The `signInPage` property is specific to {product_name_rhdh}. It ensures the correct sign-in UI is rendered. In upstream Backstage this requires React code changes.
+. This is an example standard Backstage `auth` configuration. and here is a summary of what this configuration specifies.
+* Enable sessions, and use the `BACKEND_SECRET` environment variable to sign sessions.
+* Set the authentication `environment` to `production`. Environments can have any arbitrary name.
+* Enable the OpenID Connect provider (`providers.oidc`) with the following configuration:
+** Provide a `production` configuration (corresponding to the `environment` defined previously).
+** Use the `backstage` Realm (`metadataUrl`).
+** Load the `clientId` and `clientSecret` from environment variables (loaded from the precreated https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/secrets/oauth-client[*oauth-client*] Secret, specified in `extraEnvVarsSecrets` in the _values.yaml_)
+** Map any signing in user identity to a User Entity in {product_name_rhdh} using the specified https://backstage.io/docs/auth/identity-resolver/[resolver^, window="console"].
+* The `signInPage` property is specific to {product_name_rhdh}. It ensures the correct sign-in UI is rendered. In upstream Backstage this requires React code changes.
 
 . Commit the changes with a message similar to `feat: enable openid connect`
-. Click Refresh on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"]. If prompte, login as `admin/{openshift_gitops_password}`.
+. Click Refresh on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"]. If prompted, login as `admin/{openshift_gitops_password}`.
 . Wait until the Application reports being in a *Healthy* state.
 
 === Login using OpenID Connect Authentication

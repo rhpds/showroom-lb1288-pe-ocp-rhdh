@@ -8,7 +8,7 @@
 ** xref:m2/module-02.5.adoc[2.5 Activity: Configure OpenID Connect Authentication]
 ** xref:m2/module-02.6.adoc[2.6 Activity: Enabling GitLab Entity Discovery & TechDocs]
 
-* xref:m3/module-03.0.adoc[3. Test drive Red Hat Developer Hub]
+* xref:m3/module-03.0.adoc[3. Test drive {product_name_rhdh}]
 ** xref:m3/module-03.1.adoc[3.1 Introduction to Concepts]
 ** xref:m3/module-03.2.adoc[3.2 Platform Engineer Activity: Import the Software Template]
 ** xref:m3/module-03.3.adoc[3.3 Developer Activity: Developer On-Boarding Example]

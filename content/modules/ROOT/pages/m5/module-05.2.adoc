@@ -1,10 +1,10 @@
 :imagesdir: ../../assets/images
 
 
-== Explore updates to Production Argo Manifests
+== Explore updates to Production ArgoCD Manifests
 
-* In the previous section, we noted that a PR has been raised on the Prod Argo manifest to update the prod image
-* On Developer Hub, in the https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store[`parasol-store` component, window="rhdh"] overview page, you can view the *Deployment Summary* section
+* In the previous section, we noted that a PR has been raised on the Prod Argo manifest to update the prod image.
+* On {product_name_rhdh}, in the https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store[`parasol-store` component, window="rhdh"] overview page, you can view the *Deployment Summary* section.
 * Click on the Revision link shown for `parasol-store-prod`. This will take you to the `parasol-store-manifests` repo showing the commits. 
 +
 image:m5/parasol-store-deployment-summary.png[]
@@ -15,7 +15,7 @@ image:m5/parasol-store-prod-pr.png[]
 +
 image:m5/parasol-store-merge-menu.png[]
 
-* Click on the _Changes_ tab and you can see that the `value-prod.yaml` file is now updated to match the same image tag we noticed for the dev & staging deployments
+* Click on the _Changes_ tab, and you can see that the `value-prod.yaml` file is now updated to match the same image tag we noticed for the dev & staging deployments.
 +
 image:m5/parasol-store-prod-pr-changes.png[]
 
@@ -25,14 +25,14 @@ image:m5/parasol-store-prod-pr-changes.png[]
 +
 image:m5/parasol-store-prod-pr-merge.png[width=70%]
 
-* Navigate to {product_name_rhdh} https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store[`parasol-store` component, window="rhdh"], and access the _CD_ tab, access the `parasol-store-prod` ArgoCD app by clicking on the arrow.
+* Navigate to the {product_name_rhdh} https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store[`parasol-store` component, window="rhdh"]. From the *CD* tab, access the `parasol-store-prod` ArgoCD app by clicking on the arrow.
 +
 image:m5/parasol-store-go2argo.png[width=80%]
 
-* Click on the _Refresh_ button. 
+* Click on the *Refresh* button. 
 +
 image:m5/parasol-store-prod-argo-sync-start.png[width=70%]
-* The Argo app will begin Sync-ing.
+* The Argo app will begin syncing.
 +
 image:m5/parasol-store-prod-argo-sync-progress.png[width=70%]
 * In less than a minute, the new image will be deployed on Prod as well. 
@@ -43,6 +43,6 @@ NOTE: In ArgoCD, open the *parasol-store* deployment, and you can validate that 
 
 == Conclusion
 
-A developer can easily setup a isolated dev environment, develop and test their code, and then the code can be progressed till Production with all the necessary guardrails in place.
+A developer can easily setup an isolated dev environment, develop and test their code, and then the code can be progressed till Production with all the necessary guardrails in place.
 
-All of this is possible, from a single-pane of glass on Red Hat Developer Hub, without the developer having to move across different tools and platforms to view the inner-loop and outer-loop progress and statuses.
+All of this is possible from a single-pane of glass on {product_name_rhdh}, without the developer having to move across different tools and platforms to view the inner-loop and outer-loop progress and statuses.

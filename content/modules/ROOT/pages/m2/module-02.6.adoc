@@ -50,9 +50,9 @@ image:m2/global-techdocs-component-view.png[Global TechDocs being rendered, widt
 . It should compile and render the TechDocs.
 +
 image:m2/global-techdocs-docs.png[Global TechDocs being rendered]
-. You might have noticed that the side-menu has a new _Docs_ entry too. This appeared when you enabled the TechDocs plugin! 
+. You might have noticed that the side menu has a new _Docs_ entry too. This appeared when you enabled the TechDocs plugin! 
 +
-image:m2/global-docs-menu.png[Docs side-menu]
+image:m2/global-docs-menu.png[Docs side menu]
 
 == TechDocs Generation and Storage Configuration
 

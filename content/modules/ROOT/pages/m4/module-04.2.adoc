@@ -5,7 +5,7 @@
 
 include::../style.adoc[]
 
-Platform Engineering team creates two templates for importing existing Apps/Services and APIs into Developer Hub. While it is possible to use the same template to import both of them, there are some key differences in data gathered. As best practice, Platform Engg team creates as many Software Templates as necessary to assist developers.
+Platform Engineering team creates two templates for importing existing Apps/Services and APIs into {product_name_rhdh}. While it is possible to use the same template to import both of them, there are some key differences in data gathered. As best practice, Platform Engg team creates as many Software Templates as necessary to assist developers.
 
 include::../login-pe.adoc[]
 
@@ -28,12 +28,12 @@ image:m4/st-api-steps.png[width=70%]
 .Why are there 2 merge requests?
 [%collapsible]
 ====
-Gitlab allows only one type of action (such as Amend/Update) in a given Merge Request (MR). Therefore, we need a one MR to _create_ the the new catalog-info and TechDocs file, and another MR to _update_ the envelope location file with a reference to the catalog-info.yaml file
+GitLab allows only one type of action (such as Amend/Update) in a given Merge Request (MR). Therefore, we need a one MR to _create_ the new catalog-info and TechDocs file, and another MR to _update_ the envelope location file with a reference to the catalog-info.yaml file
 ====
 
 === Register Import API Software Template
 
-* Access Red Hat Developer Hub (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="rhdh"]) and login using `pe1/{common_password}`
+* Access {product_name_rhdh} (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="rhdh"]) and login using `pe1/{common_password}`
 * Click on the Create menu on the left-hand navigation. 
 +
 image::m4/nav-create.png[]
@@ -50,7 +50,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 +
 image::m4/nav-register-import.png[]
 
-* The  *import-api-catalog* Template is successfully registered
+* The *import-api-catalog* Template is successfully registered.
 +
 image::m4/nav-access-api-template.png[]
 
@@ -68,27 +68,28 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 
 === View the imported templates
 
-* Navigate back to *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to Developer hub
+* Navigate back to *Create* (left hand nav) and you should be able to see both the templates for importing APIs and Apps to {product_name_rhdh}.
 +
 image::m4/import-templates-list.png[width=70%]
 
 
-== Setup Developer Hub config
+== Setup {product_name_rhdh} config
 
 === Enable Dynamic Plugins 
 
 . The Import API/APP templates described above need a couple of Dynamic Plugins. 
 
-.. The _roadiehq-scaffolder-backend-module-utils-dynamic_ plugin helps in manipulating file system, and in this case helps in update the the Catalog Envelope file with references to the new component being imported.
+.. The _roadiehq-scaffolder-backend-module-utils-dynamic_ plugin helps in manipulating file system, and in this case helps in update the Catalog Envelope file with references to the new component being imported.
 .. The _backstage-plugin-catalog-backend-module-gitlab-dynamic_ plugin helps to discover catalog files located in your GitLab instance. 
 
-. You will also enable a couple of Community plugins which will help view Merge requests and Issues from Gitlab
+. You will also enable a couple of Community plugins which will help view Merge requests and Issues from GitLab
 +
 .What are Dynamic Plugins?
 [%collapsible]
 ====
-The Red Hat Developer Hub application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in RHDH to access various software development tools. RHDH provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the RHDH application, while dynamic plugins can be side-loaded into your Developer Hub instance without the need to recompile your code or rebuild the container.
+The {product_name_rhdh} application offers a unified platform with various plugins. Plugins extend functionality, streamline development workflows, and improve the developer experience. You can add and configure plugins in {product_name_rhdh} to access various software development tools. {product_name_rhdh} provides both static and dynamic plugins that enhance its functionality. Static plugins are integrated into the core of the {product_name_rhdh} application, while dynamic plugins can be side-loaded into your {product_name_rhdh} instance without the need to recompile your code or rebuild the container.
 ====
+
 . Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="gitlab"]. If prompted, login using (pe1/{common_password}).
 . You should already be in Edit mode of the `values.yaml` file.
 . Locate the comment `--- DYNAMIC_PLUGINS_IMPORT_COMPONENTS ---`
@@ -108,18 +109,14 @@ NOTE: This YAML snippet enables auto-discovery for all files named _envelope.yam
 +
 image::m4/commit-rhdh-config.png[]
 
-== Refresh Developer Hub on Argo
+== Refresh {product_name_rhdh} on Argo
 
-Argo is tuned to pull changes from the repo every two minutes or so. Instead of waiting for the sync to kick in, you can *Refresh* the RHDH Argo Application as follows:
+Argo is tuned to pull changes from the repo every two minutes or so. Instead of waiting for the sync to kick in, you can *Refresh* the {product_name_rhdh} ArgoCD Application as follows:
 
 * Access ArgoCD from https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ here^, window="argo"], and login as (admin/{openshift_gitops_password})
-* Click on the *Refresh* button of the *backstage* stage to trigger a refresh; this will sync the content from Gitlab.
+* Click on the *Refresh* button of the *backstage*  ArgoCD application to trigger a refresh; this will sync the content from GitLab.
 +
-.Click to view screenshot
-[%collapsible]
-====
 image::m4/rhdh-argo-refresh.png[]
-====
 * Wait till the app turns green and marked as Healthy. 
 
 
@@ -136,11 +133,6 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/rhdh-entities/-/bl
 ----
 . Click *Import* in the Review section.
 . The Systems and Domain are setup. 
-+
-.Learn more about Systems and Domain
-[%collapsible]
-====
-* _systems_ are the basic level of encapsulation for related entities
-* _domains_ are useful to group a collection of systems that share terminology, domain models, business purpose etc.
-* Read more https://backstage.io/docs/features/software-catalog/system-model/#system[here^, window="content"]
-====
+** _systems_ are the basic level of encapsulation for related entities.
+** _domains_ are useful to group a collection of _systems_ that share terminology, domain models, business purpose etc.
+** Read more https://backstage.io/docs/features/software-catalog/system-model/#system[here^, window="content"].

@@ -23,7 +23,7 @@ We'll dive deeper into Software Templates in another module!
 
 The Software Catalog is a centralised asset tracker for all of the software in your organization. It stores and tracks *Entities*:
 
-* Components: Units of software, e.g microservices, websites, libraries.
+* Components: Units of software, e.g. microservices, websites, libraries.
 * Resources: Databases, S3 buckets, brokers.
 * APIs: Represent interfaces such as REST, gRPC, and GraphQL APIs.
 * Systems: Collections of Components that make up an application or platform.

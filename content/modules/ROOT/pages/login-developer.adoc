@@ -1,25 +1,25 @@
 === Login as Developer
 * You will perform this activity as a Developer. 
-** Logout from https://backstage-backstage.{openshift_cluster_ingress_domain}[Developer Hub^, window="rhdh"]
+* Logout from https://backstage-backstage.{openshift_cluster_ingress_domain}[{product_name_rhdh}^, window="rhdh"]
 +
 .Click to see how to logout
 [%collapsible]
 ====
-** Navigate to the *Settings* side-menu of Developer Hub and click on the kebab menu in the *Profile* card
+** Navigate to the *Settings* menu at the bottom right side of {product_name_rhdh} and click on the kebab menu in the *Profile* card
 +
 image::common/rhdh-settings.png[Settings of {product_name_rhdh}]
-** Sign out of {product_name_rhdh} using the Settings screen as shown.
+** Sign out of {product_name_rhdh} from the Settings section as shown in the screenshot below.
 +
 image::common/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
 ====
-** Logout from  https://gitlab-gitlab.{openshift_cluster_ingress_domain}[Gitlab^, window="gitlab"]
+* Logout from https://gitlab-gitlab.{openshift_cluster_ingress_domain}[GitLab^, window="gitlab"]
 +
 .Click to see how to logout
 [%collapsible]
 ====
-** Click on the Profile icon, and Sign out from the dropdown.
+** Click on the Profile icon, and Sign out from the dropdown as shown in the screenshot below.
 +
 image::common/gitlab-sign-out.png[Signing out of {product_name_rhdh}]
 ====
 
-* Login to {product_name_rhdh} and GitLab as `dev1/{common_password}`
+* Login back as a *Developer* to to *{product_name_rhdh}* and *GitLab* using the credentials `dev1/{common_password}`

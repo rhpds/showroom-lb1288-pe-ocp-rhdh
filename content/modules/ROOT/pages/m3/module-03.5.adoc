@@ -4,13 +4,15 @@
 
 include::../style.adoc[]
 
+IMPORTANT: Please ensure you are logged in as a Developer with dev1/{common_password} as you were guided to in a previous step.
+
 Installing the Argo CD plugin doesn't automatically make the deployment information visible when viewing Components in the Software Catalog. An `argocd/app-selector` annotation must be added to the Component's YAML definition. This annotation instructs the Argo CD plugin to fetch the information related to the Component from the Argo CD instance you configured.
 
 Update your Quarkus application's _catalog-info.yaml_ with the correct annotation:
 
-. Visit the https://gitlab-gitlab.apps.{openshift_cluster_ingress_domain}/pe1/my-quarkus-app/-/blob/main/catalog-info.yaml[dev1/my-quarkus-app/catalog-info.yaml] file in GitLab.
+. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/dev1/my-quarkus-app/-/blob/main/catalog-info.yaml[dev1/my-quarkus-app/catalog-info.yaml] file in GitLab.
 +
-NOTE: Login to GitLab in using `dev1/{common_password}` to view and edit this file.
+NOTE: Login to GitLab using `dev1/{common_password}` to view and edit this file.
 . Select _Edit > Edit single file_.
 . Uncomment the following annotation:
 +
@@ -22,11 +24,10 @@ argocd/app-selector: rht-gitops.com/rhdh-gitops=dev1-my-quarkus-app
 image:m3/argocd-label.png[Argo CD Details with Labels]
 . Use the *Commit changes* button to commit the annotation.
 
-Return to your developer hub instance after committing the change. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 
+Return to your {product_name_rhdh} instance after committing the change. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 
 
 image:m3/rhdh-entity-refresh.png[Entity Refresh Button]
 
 Next, refresh your browser. The *CD* tab should appear, and you can view build information.
 
 image:m3/rhdh-cd-tab.png[CD Tab in Component]
-:imagesdir: ../assets/images

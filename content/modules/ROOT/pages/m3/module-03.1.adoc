@@ -67,7 +67,7 @@ spec:
           description: Maven Group Id
 ```
 
-You might have recognized this as a https://json-schema.org/[JSON Schema] structure. By using JSON Schema you can define the parameters that are supported by the template, and more importantly, enforce validation on those parameters. The rendering of the form in the {product_name_rhdh} UI is managed by the https://github.com/rjsf-team/react-jsonschema-form[react-jsonschema-form^, window="content"] library.
+You might have recognized this as a https://json-schema.org/[JSON Schema] structure. By using JSON Schema you can define the parameters that are supported by the template, and, more importantly, enforce validation on those parameters. The rendering of the form in the {product_name_rhdh} UI is managed by the https://github.com/rjsf-team/react-jsonschema-form[react-jsonschema-form^, window="content"] library.
 
 
 .Click to learn: What is `react-jsonschema-form`?
@@ -79,14 +79,14 @@ You might have recognized this as a https://json-schema.org/[JSON Schema] struct
 
 ====
 
-The properties that have a `ui` prefix might have piqued your interest. These are special properties that provide instructions to the form, for example to enable autocomplete or autofocus certain form fields when it is displayed in the {product_name_rhdh} UI.
+The properties that have a `ui` prefix might have piqued your interest. These are special properties that provide instructions to the form, for example, to enable autocomplete or autofocus certain form fields when it is displayed in the {product_name_rhdh} UI.
 
 
 === Steps
 
 Once a developer has entered and confirmed their parameters, the Template is executed by the scaffolder - a service within the {product_name_rhdh} backend.
 
-The scaffolder executes the actions defined in _spec.steps_, for example to publish code to a Git repository and register it in the Software Catalog:
+The scaffolder executes the actions defined in _spec.steps_, for example, to publish code to a Git repository and register it in the Software Catalog:
 
 ```yaml
 spec:
