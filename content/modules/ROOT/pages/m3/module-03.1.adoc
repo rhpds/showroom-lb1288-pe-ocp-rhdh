@@ -70,13 +70,9 @@ spec:
 You might have recognized this as a https://json-schema.org/[JSON Schema] structure. By using JSON Schema you can define the parameters that are supported by the template, and, more importantly, enforce validation on those parameters. The rendering of the form in the {product_name_rhdh} UI is managed by the https://github.com/rjsf-team/react-jsonschema-form[react-jsonschema-form^, window="content"] library.
 
 
-.Click to learn: What is `react-jsonschema-form`?
-[%collapsible]
+[NOTE]
 ====
-
-* This library is a React component for building Web forms from JSON Schema, and is core to the frontend part of the scaffolder plugin.
-* It  is responsible for rendering the form in which developers and end users fill out data needed to use the Software Template.
-
+`react-jsonschema-form` is a set of React components for building web forms from JSON Schema. It is core to scaffolder plugin's frontend functionality. These React components are responsible for rendering the form in which developers and end users fill out data needed to use the Software Template.
 ====
 
 The properties that have a `ui` prefix might have piqued your interest. These are special properties that provide instructions to the form, for example, to enable autocomplete or autofocus certain form fields when it is displayed in the {product_name_rhdh} UI.
