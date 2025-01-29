@@ -5,7 +5,7 @@
 
 include::../style.adoc[]
 
-The Platform Engineering team creates two Templates for importing existing applications/services, and APIs into {product_name_rhdh}. While it is possible to use the same template to import both of them, there are some key differences in the data that must be gathered. Per best practice, the Platform Engineering team creates as many Software Templates as necessary to assist developers.
+The Platform Engineering team will create two Templates; one for importing existing Components and another for APIs. While it is possible to use the same template to import both Entity Kinds, there are some key differences in the data that must be gathered. Per best practice, the Platform Engineering team creates as many Software Templates as necessary to assist developers.
 
 include::../login-pe.adoc[]
 
@@ -13,9 +13,7 @@ include::../login-pe.adoc[]
 
 === Procedure Overview 
 
-You learned how to create a Software Template in module 3. In this section we will walk through a Template that has been pre-built for you. 
-
-Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^, window="gitlab"] to view the `import-existing-app` Software Template you'll be using.
+You learned how to create a Software Template in module 3. In this section we will walk through a Template that has been pre-built for you. Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^, window="gitlab"] to view the `import-existing-app` Software Template you'll be using.
 
 This template does the following:
 

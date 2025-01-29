@@ -35,10 +35,12 @@ The necessary Catalog Info and TechDocs could be stored in one of two locations 
 
 In this case, so as to not change existing source code, Parasol team goes with the 2nd approach. This repository will contain a set of https://backstage.io/docs/features/software-catalog/descriptor-format/#kind-location[*Location*, window="content"] files that contain references to other `catalog-info.yaml` files.
 
-{product_name_rhdh} can _auto-discover_ these Location files based on the file names (, e.g an _envelope-*.yaml_ wildcard) across the Git repository. The reason we look for specific file names is to ensure we don't overload Git with multiple queries while performing auto-discovery.
+{product_name_rhdh} can _auto-discover_ these Location files based on the file names (e.g an _envelope-*.yaml_ wildcard) across the Git repository. The reason we look for specific file names is to ensure we don't overload Git with multiple queries while performing auto-discovery.
 
-Note: Auto-discovery can be configured with a _schedule_ that defines how often you want it to run. Be judicious with the scheduling frequency so as not to hit API rate limits with your Git hosting provider. https://backstage.io/docs/integrations/github/discovery/[Learn more, window="content"] about GitHub rate limits.
-
+[NOTE]
+====
+Auto-discovery can be configured with a _schedule_ that defines how often you want it to run. Be judicious with the scheduling frequency so as not to hit API rate limits with your Git hosting provider. https://backstage.io/docs/integrations/github/discovery/[Learn more, window="content"] about GitHub rate limits.
+====
 
 == An Overview of Parasol Application
 
