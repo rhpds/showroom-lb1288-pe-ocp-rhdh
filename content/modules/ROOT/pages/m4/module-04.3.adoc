@@ -1,7 +1,7 @@
 :imagesdir: ../../assets/images
 
 
-== Developer Activity: Innerloop
+== Developer Activity: Import API and Component
 
 include::../style.adoc[]
 
@@ -9,12 +9,14 @@ include::../login-developer.adoc[]
 
 == Import parasol-store-api OpenAPI 
 
-* As a first step, import the API so that this API can then be associated with the parasol-store component .
-* From the *Create* side menu, click on the *Choose* button of `Import API to Existing Catalog Envelope` template.
+It's time to use the *Import API to Existing Catalog Envelope* Template that you registered earlier. Doing so will allow this API to be associated with the `parasol-store` Component.
+
+. Select *Create* from the {product_name_rhdh} side menu.
+. Click the *Choose* button on the *Import API to Existing Catalog Envelope* Template.
 +
 image:m4/import-api-template.png[width=30%]
-* You will be presented with the Software Templates wizard. Follow the next steps to fill out this wizard.
-* *Step 1*: Provide information about Catalog Envelope to which API will be included. Fill out the following values and click *Next*.
+. You will be presented with the Software Templates wizard.
+.. *Step 1*: Provide information about Catalog Envelope to which API will be added. Fill out the following values and click *Next*.
 +
 image:m4/import-api-template-1.png[]
 
@@ -27,7 +29,7 @@ image:m4/import-api-template-1.png[]
 | Repository Name | Enter value | `envelope-parasol-catalog`
 |====
 
-* *Step 2*: Provide information about your existing API. Fill out the following values and click *Next*
+.. *Step 2*: Provide information about your existing API. Fill out the following values and click *Next*
 +
 image:m4/import-api-template-2.png[]
 
@@ -35,8 +37,8 @@ image:m4/import-api-template-2.png[]
 [cols="1,2,2", options="header"]
 |====
 | *Field* | *Description* | *Value*
-| GitLab Organization | This is the Git org where the repo resides| `parasol`
-| Repository Name | enter this value | `parasol-store-api` 
+| GitLab Organization | Organization where the repository resides| `parasol`
+| Repository Name | Repository containing source code | `parasol-store-api` 
 | System Name | System (auto-populated) | `system:default/parasol-system`
 | Path to where API spec is defined | Enter full path of the API | \https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-api/-/blob/main/openapi.yaml
 | A Short Description Of This Component | Enter value | `API for parasol-store`

@@ -6,15 +6,15 @@ include::../style.adoc[]
 
 == Overview
 
-Organizations need a way to import existing services, APIs and resources with little impact to the existing components. This module focused on an opinionated way to onboard existing projects and applications so that the developer teams can access them through a single plane of glass. 
+Organizations need to provide a pathway for teams to import their existing services, APIs and resources to {product_name_rhdh}. This module focuses on an opinionated way to onboard existing projects and applications so that the developer teams can discover them through a the internal developer portal. 
 
-Platform Engineering teams can Software Templates which can then be used by developers to import their apps into {product_name_rhdh}. The Softwares template can be built intelligent enough to gather details about the component's Source Repo, TechDocs, Pipelines, dependencies, CI/CD, and various other details which then allows developer teams to accelerate their inner-loop of developing the assigned features and tasks.
+Platform Engineering teams can create Software Templates that enable teams to import their apps into {product_name_rhdh}. The Softwares Template can gather details about the component's repository, documentation, dependencies, CI/CD, and various other details which allows development teams to accelerate their inner-loop of developing the assigned features and tasks.
 
 == Module Objectives
 
-* Platform Engineers create Software Templates and Integrations to import existing software components from Git
+* Platform Engineers create Software Templates and integrations that support importing existing software components from Git.
 * Developers use these Software Templates to import their existing software components and APIs. 
-* Developer is assigned the task of enhancing an existing application, and creates a Git Feature Branch
-* Developer used another templates to setup an isolated dev environment based on Feature Branch
-* Developer can rapidly develop and view all actions performed right from {product_name_rhdh} thereby reducing cognitive load.
-* Once code is ready, Developer issues a PR from the feature branch of their fork to the project repo
+* Developer is assigned the task of enhancing an existing application, and creates a Git feature branch.
+* Developer uses Software Templates to setup an isolated development environment based on the feature branch.
+* Developer can rapidly develop and view actions performed right from {product_name_rhdh} thereby reducing cognitive load.
+* Once code is ready, the Developer issues a PR from the feature branch to the upstream project repository.
