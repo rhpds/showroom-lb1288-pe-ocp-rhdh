@@ -11,6 +11,8 @@ While the developer can add the necessary annotation to their Component, it's be
 
 === Login as Platform Engineer
 
+IMPORTANT: Please ensure you are logged in as a *Platform Engineer* 
+
 You are most probably quite familiar by now how to login as a *Platform Engineer* with pe1/{common_password}. If you are unsure, please refer to the below note.
 
 .Click to know how to login as a Platform Engineer
@@ -21,11 +23,7 @@ include::../login-pe.adoc[]
 
 === Update the Quarkus Service template in GitLab
 
-
-IMPORTANT: Please ensure you are logged in as a *Platform Engineer* 
-
-
-. Visit the https://gitlab-gitlab.apps.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple/-/blob/main/skeleton/catalog-info.yaml[rhdh/template-quarkus-simple/skeleton/catalog-info.yaml] file in GitLab.
+. Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/template-quarkus-simple/-/blob/main/skeleton/catalog-info.yaml[rhdh/template-quarkus-simple/skeleton/catalog-info.yaml,  window="gitlab"] file in GitLab.
 . Select _Edit > Edit single file_.
 . Uncomment the following in the `annotations` section of the file:
 +
@@ -40,10 +38,7 @@ The annotation value will be automatically generated, similar to the Argo CD lab
 
 === Refresh the Quarkus Service template on {product_name_rhdh}
 
-
-IMPORTANT: Please ensure you are logged in as a *Platform Engineer* 
-
-Return to your {product_name_rhdh} instance after committing the change. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 
+Return to your {product_name_rhdh} instance to view the https://backstage-backstage.{openshift_cluster_ingress_domain/catalog/default/template/quarkus-web-template[quarkus-web-template^, window="rhdh"] after committing the change. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 
 
 NOTE: Manually refreshing is an optional step, since {product_name_rhdh} will check for upstream Entity changes every few minutes.
 
