@@ -19,27 +19,17 @@ include::../login-pe.adoc[]
 
 == Register the Import Software Templates
 
-=== Procedure Overview 
+=== Software Template Overview 
 
 You learned how to create a Software Template in module 3. In this section we will walk through a Template that has been pre-built for you. 
 
-Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^, window="gitlab"] to view the `import-existing-app` Software Template you'll be using.
+Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-api-template/-/blob/main/template.yaml[here^, window="gitlab"] to view the `import-existing-api` Software Template you'll be using.
 
 This template does the following:
 
-. Gather details of the API, the target location (repository) of catalog info, and the details of the software component.
-+
-image:m4/st-api-params.png[width=70%]
-. Update the *Envelope* location file with the details as a two step process.
-+
-image:m4/st-api-steps.png[width=70%]
-
-[NOTE]
-====
-*Why are two merge requests necessary?*
-
-GitLab allows only one type of action (such as Amend/Update) in a given Merge Request (MR). Therefore, we need one MR to _create_ the new catalog-info and TechDocs file, and another MR to _update_ the location file with a reference to the catalog-info.yaml file
-====
+. Gather details of the API (GitLab org name, repo name)
+. Gather details of the new Software Component to be created (target location of the component, the catalog info, API Path etc)
+. Creates a Merge Request to create the new catalog-info and TechDocs file of the component
 
 === Register the Import API Software Template
 
@@ -58,7 +48,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 image::m4/nav-register-wizard.png[]
 . Review, and import the template by clicking on the *Import* button.
 +
-image::m4/nav-register-import.png[]
+image::m4/ image:nav-register-import.png[] .png[]
 
 . The *import-api-catalog* Template is successfully registered.
 +
@@ -67,7 +57,8 @@ image::m4/nav-access-api-template.png[]
 === Register Import App Software Template
 
 . Let us now register the *Import existing application* template as well.
-. Click *Create* (left hand nav) -> *Register Existing Component* (top right)
+. Click on *Register another* button from the previous step; 
+.. If that is not accessible anymore, click *Create* (left hand nav) -> *Register Existing Component* (top right)
 . Paste the following URL:
 +
 [source,bash,role=execute,subs="attributes"]
