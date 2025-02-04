@@ -14,7 +14,7 @@ https://npmjs.com/package/@backstage/plugin-catalog-backend-module-gitlab/v/0.3.
 To install and configure this plugin:
 
 . Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository^, window="gitlab"] in your GitLab instance.
-. Select *Edit > Edit single file*.
+. Select *Edit > Edit single file*. If prompted, login as a Platform Engineer with `pe1/{common_password}`.
 . Uncomment the `--- TECHDOCS_PLUGIN ---` section in `dynamic.plugins` section of the YAML, to enable the TechDocs and GitLab dynamic plugins. Highlight the YAML and process `CMD + /` or `CTRL + /` to uncomment the necessary lines shown.
 +
 image:m2/gitlab-techdoc-plugin.png[TechDocs and GitLab dynamic plugins, width=60%]
@@ -27,7 +27,7 @@ image:m2/gitlab-catalog-provider.png[GitLab Catalog Provider, width=70%]
 . Commit your changes with the message `feat: add gitlab autodiscovery`.
 // +
 // image:m2/gitlab-discovery.png[GitLab code editor showing catalog providers configuration for {product_name_rhdh}]
-. Click the *Refresh* button on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Application in OpenShift GitOps^, window="argo"].
+. Click the *Refresh* button on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` ArgoCD Application in OpenShift GitOps^, window="argo"].
 
 === Verify GitLab Entity Discovery is Active
 
