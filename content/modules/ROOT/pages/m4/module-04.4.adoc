@@ -17,7 +17,12 @@ The Platform Engineer creates a new S/W template that can setup an isolated dev 
 With this, the Platform Engineers are able to provide this environment that allows the developer to just focus on coding. The templates make it easy for developers to set up _isolated dev environments repeatedly in a self-service fashion_, thereby rapidly increasing developer productivity.
 
 
+.Click to know how to login as a Platform Engineer
+[%collapsible]
+====
 include::../login-pe.adoc[]
+====
+
 
 == Create parasol-store Dev Template
 

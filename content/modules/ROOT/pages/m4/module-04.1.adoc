@@ -1,20 +1,20 @@
 :imagesdir: ../../assets/images
 
 
-= Module 4.1: Introduction to Concepts
+== Introduction to Concepts and Module Overview
 
 include::../style.adoc[]
 
-== Using Software Templates to Import Existing Applications
+Let's look at a few concepts relevant to using Software Templates to import existing applications. 
 
 === Catalog Info: A Refresher
 
 You've already seen the magic of the `catalog-info.yaml` file. {product_name_rhdh} can identify and import components based on the presence of a `catalog-info.yaml` file in the repository. This file contains:
 
-* Helpful links.
-* Ownership information.
-* Instructions on where to find the TechDocs.
-* Relationships between the Component and other Entities.
+* Helpful links
+* Ownership information
+* Instructions on where to find the TechDocs
+* Relationships between the Component and other Entities
 
 With the right plugins, configuration can be added to the `catalog-info.yaml` to show critical information in the Component view on {product_name_rhdh}:
 
@@ -24,9 +24,23 @@ With the right plugins, configuration can be added to the `catalog-info.yaml` to
 * Cluster details
 * API documentation
 
-=== The Approach
+=== What is Inner-Loop and Outer-Loop
 
-To make importing a large number of existing applications into {product_name_rhdh} scalable, the Platform Engineering (PE) team creates a *Software Template* that automates both the creation of the `catalog-info.yaml` file, and auto-creates a TechDocs skeleton structure.
+Application development and deployment cycles can be defined to have an Inner-Loop and an Outer-Loop.
+
+image:m4/inner-outer-loops.png[width=60%] 
+
+* The *Inner Loop* is the iterative development cycle that developers follow when writing, testing, and debugging code _locally_ before integrating it into a shared environment. Developers primarily live within the inner loop. In many organizations, the inner loop typically takes place on a developer's computer. However, for simplicity, this workshop defines the inner loop within an isolated environment (namespace) on OpenShift.
+
+* The *Outer Loop*  begins when a developer pushes code to a version control system. It involves integration, validation, compliance and security checks, and and deployment to target environments. Typically this is where Platform Engineers operate in.
+
+The two cycles operate independently, except when the developer pushes code to Git, which triggers the outer loop.
+
+=== An Opinionated Approach
+
+NOTE: Different organizations have different ways of to achieve the inner and outer loops. This module is a highly opinionated approach to the inner and outer loops. The primary intent is to showcase the art of the possible with {product_name_rhdh}.
+
+To make importing a large number of existing applications into {product_name_rhdh} scalable, the Platform Engineering (PE) team creates a *Software Template* that automates both the creation of the `catalog-info.yaml` file and a TechDocs skeleton structure.
 
 The necessary Catalog Info and TechDocs could be stored in one of two locations for these existing applications:
 
@@ -35,14 +49,14 @@ The necessary Catalog Info and TechDocs could be stored in one of two locations 
 
 In this case, so as to not change existing source code, Parasol team goes with the 2nd approach. This repository will contain a set of https://backstage.io/docs/features/software-catalog/descriptor-format/#kind-location[*Location*, window="content"] files that contain references to other `catalog-info.yaml` files.
 
-{product_name_rhdh} can _auto-discover_ these Location files based on the file names (, e.g an _envelope-*.yaml_ wildcard) across the Git repository. The reason we look for specific file names is to ensure we don't overload Git with multiple queries while performing auto-discovery.
+{product_name_rhdh} can _auto-discover_ these *Location* files based on the file names (e.g an _envelope-*.yaml_ wildcard) across the Git repository. The reason we look for specific file names is to ensure we don't overload Git with multiple queries while performing auto-discovery.
 
-Note: Auto-discovery can be configured with a _schedule_ that defines how often you want it to run. Be judicious with the scheduling frequency so as not to hit API rate limits with your Git hosting provider. https://backstage.io/docs/integrations/github/discovery/[Learn more, window="content"] about GitHub rate limits.
+NOTE: Auto-discovery can be configured with a _schedule_ that defines how often you want it to run. In real world, be judicious with the scheduling frequency so as not to hit API rate limits with your Git hosting provider. https://backstage.io/docs/integrations/github/discovery/[Learn more^, window="content"] about GitHub rate limits.
 
 
-== An Overview of Parasol Application
+=== An Overview of Parasol Application
 
-The Parasol application consists of the following Components:
+The Developer is asked to build new features into the existing Parasol application which consists of the following Components:
 
 * `parasol-web` online web-app (Node.js & Angular)
 * `parasol-store` core services (Quarkus)
