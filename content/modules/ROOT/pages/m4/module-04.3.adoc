@@ -10,11 +10,11 @@ IMPORTANT: Please make sure to log in as a *Developer*
 You are most probably quite familiar by now how to login as a *Developer* with `dev1/{common_password}`. If you are unsure, please refer to the below note.
 
 //TODO
-// .Click to know how to login as a Developer
-// [%collapsible]
-// ====
-// include::../login-developer.adoc[]
-// ====
+.Click to know how to login as a Developer
+[%collapsible]
+====
+include::../login-developer.adoc[]
+====
 
 == Import parasol-store-api OpenAPI 
 
