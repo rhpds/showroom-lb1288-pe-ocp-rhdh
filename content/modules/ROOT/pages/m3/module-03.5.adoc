@@ -19,7 +19,7 @@ NOTE: Login to GitLab using `dev1/{common_password}` to view and edit this file.
 ----
 argocd/app-selector: rht-gitops.com/rhdh-gitops=dev1-my-quarkus-app
 ----
-. You can confirm this annotation is correct by visiting the https://rhdh-gitops-server-rhdh-gitops.{openshift_cluster_ingress_domain}/applications/rhdh-gitops/dev1-my-quarkus-app-dev[dev1-my-quarkus-app-dev in the rhdh-gitops instance] and clicking the *Details* button to view the applied labels.
+. You can confirm this annotation is correct by visiting the https://rhdh-gitops-server-rhdh-gitops.{openshift_cluster_ingress_domain}/applications/rhdh-gitops/dev1-my-quarkus-app-dev[dev1-my-quarkus-app-dev in the rhdh-gitops instance] and clicking the *Details* button to view the applied labels. Login as `admin` using `{common_password}` if prompted.
 +
 image:m3/argocd-label.png[Argo CD Details with Labels]
 . Use the *Commit changes* button to commit the annotation.
