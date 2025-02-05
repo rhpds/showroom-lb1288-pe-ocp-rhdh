@@ -15,12 +15,16 @@ To install and configure this plugin:
 
 . Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository^, window="gitlab"] in your GitLab instance.
 . Select *Edit > Edit single file*.
-. Uncomment the `--- TECHDOCS_PLUGIN ---` section in `dynamic.plugins` section of the YAML, to enable the TechDocs and GitLab dynamic plugins. Highlight the YAML and process `CMD + /` or `CTRL + /` to uncomment the necessary lines shown.
+. Uncomment the `--- TECHDOCS_PLUGIN ---` section in `dynamic.plugins` section of the YAML, to enable the TechDocs and GitLab dynamic plugins.
++
+[NOTE]
+====
+To uncomment multiple lines of code, highlight the lines and press `CMD + /` (on macOS) or `CTRL + /` (on Linux/Windows).
+====
 +
 image:m2/gitlab-techdoc-plugin.png[TechDocs and GitLab dynamic plugins, width=60%]
-. Look for the YAML between the `--- TECHDOCS_CONFIG ---` block. Highlight the block, then press `CMD + /` or `CTRL + /` to uncomment it.
-. Find the `appConfig.catalog.providers` configuration and uncomment the following block as shown below. +
-Look for the `--- GITLAB_CATALOG_PROVIDER ---` block; highlight the block, then press `CMD + /` or `CTRL + /`.
+. Look for the YAML between the `--- TECHDOCS_CONFIG ---` block and uncomment it.
+. Find the `appConfig.catalog.providers` configuration and uncomment the `--- GITLAB_CATALOG_PROVIDER ---` block as shown below. +
 +
 image:m2/gitlab-catalog-provider.png[GitLab Catalog Provider, width=70%]
 // . Verify that you indentation matches that shown in the screenshot, 
