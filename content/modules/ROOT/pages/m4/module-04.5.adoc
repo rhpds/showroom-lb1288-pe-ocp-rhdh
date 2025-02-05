@@ -3,7 +3,14 @@
 == Developer Activity: Work on feature-branch
 include::../style.adoc[]
 
+IMPORTANT: Please make sure to log in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
+
+.Click to know how to login as a Developer
+[%collapsible]
+====
 include::../login-developer.adoc[]
+====
+
 
 === Create a feature-branch
 
@@ -77,7 +84,7 @@ image:m4/parasol-webide.png[]
 
 === View component on {product_name_rhdh}
 * From {product_name_rhdh}, access `parasol-store-my-feature-branch` component https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store-my-feature-branch/ci[from here^, window="rhdh"] 
-* Access the CI tab to view the pipeline
+* Access the CI tab to view the pipeline. You will see a new pipeline being triggered for the change you have just made.
 +
 image:m4/parasol-innerloop-pipeline1.png[width=80%]
 
