@@ -78,8 +78,9 @@ image::m4/import-templates-list.png[]
 
 The new templates require a set of dynamic plugins to function correctly: 
 
-* *roadiehq-scaffolder-backend-module-utils-dynamic*: used to manipulate the file system. In this case it's used to update the location file with references to the new component being imported.
-* *backstage-plugin-catalog-backend-module-gitlab-dynamic*: enables auto-discovery of `catalog-info.yaml` files located in your GitLab instance.
+* *roadiehq-scaffolder-backend-module-utils-dynamic*: used to manipulate the file system. In this case it's used to update commit the newly created `catalog-info.yaml` files to GitLab.
+* *backstage-plugin-catalog-backend-module-gitlab-dynamic* to enable auto-discovery of `catalog-info.yaml` files.
+* *immobiliarelabs-backstage-plugin* to interact with GitLab to MergeRequests, Issues, Pipeline runs etc
 
 === Enable Dynamic Plugins 
 
@@ -99,10 +100,8 @@ image::m4/uncomment-dynamic-plugin.png[width=60%]
 +
 image::m4/uncomment-auto-discovery.png[width=60%]
 +
-NOTE: This YAML snippet enables auto-discovery for all files named _envelope.yaml_ (entityFilename) where the repo name starts with the word _envelope_ (projectPattern). The Catalog Envelope for Parasol is called _envelope-catalog-parasol_.
+NOTE: This YAML snippet enables auto-discovery for all files named _envelope.yaml_ (entityFilename) where the repo name starts with the word _envelope_ (projectPattern). 
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page with a suitable commit message.
-+
-image::m4/commit-rhdh-config.png[]
 
 . Refresh Red Hat Developer Hub instance on https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ ArgoCD^, window="argo"]. Login as (admin/{openshift_gitops_password}). Click on the *Refresh* button of the *backstage*  ArgoCD Application to trigger a refresh. Wait until the Application turns green and marked as Healthy. 
 
