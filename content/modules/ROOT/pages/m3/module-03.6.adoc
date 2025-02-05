@@ -11,10 +11,9 @@ While the developer can add the necessary annotation to their Component, it's be
 
 === Login as Platform Engineer
 
+By now you're probably familiar with how you can login as a *Platform Engineer* using the `pe1` user and the password `{common_password}`. If you are unsure, please expand the section below.
 
-You are most probably quite familiar by now how to login as a *Platform Engineer* with pe1/{common_password}. If you are unsure, please refer to the below note.
-
-.Click to know how to login as a Platform Engineer
+.Click to learn how to login as a Platform Engineer
 [%collapsible]
 ====
 include::../login-pe.adoc[]
