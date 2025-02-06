@@ -38,7 +38,7 @@ The two cycles operate independently, except when the developer pushes code to G
 
 === An Opinionated Approach
 
-NOTE: Different organizations have different ways of to achieve the inner and outer loops. This module is a highly opinionated approach to the inner and outer loops. The primary intent is to showcase the art of the possible with {product_name_rhdh}.
+NOTE: Different organizations have different ways of achieving the inner and outer loops. This module is a highly opinionated approach to the inner and outer loops. The primary intent is to showcase the art of the possible with {product_name_rhdh}.
 
 To make importing a large number of existing applications into {product_name_rhdh} scalable, the Platform Engineering (PE) team creates a *Software Template* that automates both the creation of the `catalog-info.yaml` file and a TechDocs skeleton structure.
 
@@ -66,11 +66,11 @@ spec:
   target: ./**/catalog-info.yaml
 ```
 * Platform Engineers create Software Templates to import existing APIs, services and apps into {product_name_rhdh}
-* Developers can register their components by using these Software Templates. This creates a `catalog-info.yaml` file and a skeleton TechDocs for each component within this `envelope-parasol-catalog` repo. 
+* Developers can register their components by using these Software Templates. The template auto creates a `catalog-info.yaml` file and a skeleton TechDocs for each component. 
  
 {product_name_rhdh} can _auto-discover_ these *Location* files based on the file and repository names (e.g _envelope.yaml_ file in a folder which begins with the word _envelope_ ) across Git. You can also configure a  _schedule_ that defines how often you want it to run. For this workshop we have a super short frequency of 15 seconds. 
 
-But, it is good practice to limit the auto-discovery to specific filenames and be judicious with the scheduling frequency  to ensure you don't API rate limits with your Git hosting provider. Click https://backstage.io/docs/integrations/github/discovery/[here^, window="content"] to know more about GitHub rate limits. 
+But, it is good practice to limit auto-discovery to specific filenames and be judicious with the scheduling frequency  to ensure you don't hit API rate limits with your Git hosting provider. Click https://backstage.io/docs/integrations/github/discovery/[here^, window="content"] to know more about GitHub rate limits. 
 
 
 ``` yaml
