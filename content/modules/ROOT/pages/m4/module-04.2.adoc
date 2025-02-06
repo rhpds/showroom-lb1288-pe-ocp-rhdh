@@ -47,7 +47,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 image::m4/nav-register-wizard.png[]
 . Review, and import the template by clicking on the *Import* button.
 +
-image::m4/ image:nav-register-import.png[] .png[]
+image::m4/nav-register-import.png[]
 
 . The *import-api-catalog* Template is successfully registered.
 +
@@ -91,7 +91,7 @@ The new templates require a set of dynamic plugins to function correctly:
 . Highlight the YAML section shown in the below screenshot, and uncomment those lines. Use `CMD + /` or `CTRL + /` to do so.
 +
 image::m4/uncomment-dynamic-plugin.png[width=60%]
-. Don't commit the changes yet - you need enable auto-discovery.
+. Don't commit the changes yet - you need to also enable auto-discovery.
 
 === Enable Auto-Discovery
 . Locate the comment `--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---` in the same `values.yaml` file.
@@ -102,7 +102,7 @@ image::m4/uncomment-auto-discovery.png[width=60%]
 NOTE: This YAML snippet enables auto-discovery for all files named _envelope.yaml_ (entityFilename) where the repo name starts with the word _envelope_ (projectPattern). 
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page with a suitable commit message.
 
-. Refresh Red Hat Developer Hub instance on https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ ArgoCD^, window="argo"]. Login as (admin/{openshift_gitops_password}). Click on the *Refresh* button of the *backstage*  ArgoCD Application to trigger a refresh. Wait until the Application turns green and marked as Healthy. 
+. Refresh Red Hat Developer Hub instance (`backstage` ArgoCD Application) on https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ ArgoCD^, window="argo"]. Login as `admin/{openshift_gitops_password}`. Click on the *Refresh* button of the *backstage*  ArgoCD Application to trigger a refresh. Wait until the Application turns green and marked as Healthy. 
 
 
 == Onboard Parasol's System and Domain
