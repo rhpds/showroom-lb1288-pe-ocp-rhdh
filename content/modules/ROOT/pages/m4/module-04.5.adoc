@@ -15,91 +15,91 @@ include::../login-developer.adoc[]
 ====
 
 
-=== Create a feature-branch
+== Create a feature-branch
 
-* Click here to access the repository https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store[https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store^, window="gitlab"]
-* Click on the *(+)* button as shown in the screenshot below, and click on *New branch* menu
+. Click here to access the repository https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store[https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store^, window="gitlab"]
+. Click on the *(+)* button as shown in the screenshot below, and click on *New branch* menu
 +
 image:m4/create-branch.png[width=65%]
 
-* Name the branch as `my-feature-branch` so as to make it easier to follow the rest of the instructions.
+. Name the branch as `my-feature-branch` so as to make it easier to follow the rest of the instructions.
 +
 image:m4/create-branch-name.png[width=70%]
 
-=== Onboard the Feature Branch using template
+== Onboard the Feature Branch using template
 
-* In {product_name_rhdh}, choose the *Create* side menu, and you will see the *Parasol Store Development* template. Click on *Choose*
+. In {product_name_rhdh}, choose the *Create* side menu, and you will see the *Parasol Store Development* template. Click on *Choose*
 +
 image:m4/choose-parasol-store-template.png[width=30%]
 
-* In *Step 1: Provide Information for the sandbox deployment*, enter the feature-branch name `my-feature-branch` or the name you have picked for your branch.
+. In *Step 1: Provide Information for the sandbox deployment*, enter the feature-branch name `my-feature-branch` or the name you have picked for your branch.
 +
 image:m4/choose-parasol-store-template-step1.png[]
-* In *Step 2: Provide database information*. Keep all the fields as they are - no need to make changes. The parameters are already set based on the OpenShift Service names from the existing deployments of the application.
+. In *Step 2: Provide database information*. Keep all the fields as they are - no need to make changes. The parameters are already set based on the OpenShift Service names from the existing deployments of the application.
 +
 image:m4/choose-parasol-store-template-step2.png[]
 
-* Click on *Review*, and proceed to *Create*
+. Click on *Review*, and proceed to *Create*
 +
 image:m4/choose-parasol-store-template-step3.png[]
 
-* Click on the *Open component on catalog* link
+. Click on the *Open component on catalog* link
 +
 image:m4/parasol-branch-component.png[]
 
 
 === Explore the Component
 
-The newly created component for the isolated environment acts as a single pane of glass to perform most of the acivities as a developer
+. The newly created component for the isolated environment acts as a single pane of glass to perform most of the acivities as a developer
++
+image:m4/parasol-branch-component-laanding.png[width=90%]
 
-image:m4/parasol-branch-component-laanding.png[]
-
-* Notice that under the *CI* tab, a pipeline is in progress.
+. Notice that under the *CI* tab, a pipeline is in progress.
 +
 image:m4/parasol-branch-first-pipeline.png[]
 . The pipeline turns green when it finishes the run successfully
 +
 image:m4/parasol-branch-first-pipeline-success.png[]
 
-. Explore the other tabs to see how {product_name_rhdh} allows a single pane of glass for the Developer's isolated/sandboxed environment.
-.. The Overview tab provides easy access to the sourcecode and deployments
-.. The Topology tab provides a window to the deployment on OpenShift
-.. The Issues and Pull/Merge Requests tabs provide insights about the GitLab repo
-.. CI tab shows an easy view of the pipeline in both OpenShift (Tekton based pipeline), and on GitLab
-.. The CD tab shows the deployed components/systems in the namespace using ArgoCD plugin
+. Explore the other tabs to see how {product_name_rhdh} provides a single pane of glass for the Developer's isolated dev environment.
+.. The *Overview* tab provides easy access to the sourcecode and deployments
+.. The *Topology* tab provides a window to the deployment on OpenShift
+.. The *Issues and Pull/Merge Requests* tabs provide insights about the GitLab repo
+.. *CI* tab shows an easy view of the pipeline in both OpenShift (Tekton based pipeline), and on GitLab
+.. The *CD* tab shows the deployed components/systems in the namespace using ArgoCD plugin
 
 
-*View the  deployment on OpenShift*
+=== View the  deployment on OpenShift
 
-If you are curious to view the deployment on OpenShift, https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/deployments/parasol-store[click here^, window="console"]
+. If you are curious to view the deployment on OpenShift, https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/deployments/parasol-store[click here^, window="console"]
 
 image:m4/parasol-branch-deployment1.png[]
 
 
-=== Adding features to the application
+== Adding features to the application
 
-* Click on the *< > View Source* button on the {product_name_rhdh} https://backstage-backstage.{openshift_cluster_ingress_domain}[Component Overview page^, window="rhdh"] access the source repository of `parasol-store`.
+. Click on the *< > View Source* button on the {product_name_rhdh} https://backstage-backstage.{openshift_cluster_ingress_domain}[Component Overview page^, window="rhdh"] access the source repository of `parasol-store`.
 +
 image:m4/parasol-branch-component-overview.png[]
 
-* Switch to the *my-feature-branch* 
+. Switch to the *my-feature-branch* 
 +
-image:m4/parasol-switchbranch.png[]
+image:m4/parasol-switchbranch.png[width=60%]
 
-* The feature is to expose a REST API call which will return the total number of Products available. For the sake of the workshop, we will (again) uncomment some code.
-* The file to be changed is at `parasol-store> src> main> java> org> parasol> retail> store> catalog> rest> CatalogResource.java`. You can click (https://backstage-backstage.{openshift_cluster_ingress_domain}/parasol/parasol-store/-/blob/my-feature-branch/src/main/java/org/parasol/retail/store/catalog/rest/CatalogResource.java[here^, window="gitlab"] to directly access the `CatalogResource.java` file.
-* Select the *Edit > Edit single file*. If prompted, login with `dev1/{common_password}`.
+. The feature request is to expose a REST API call which will return the total number of products available. For the sake of the workshop, we will (again) uncomment some code.
+. Changes are needed in the `parasol-store> src> main> java> org> parasol> retail> store> catalog> rest> CatalogResource.java` file. You can click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store/-/blob/my-feature-branch/src/main/java/org/parasol/retail/store/catalog/rest/CatalogResource.java[here^, window="gitlab"] to directly access this file on GitLab.
+. Select *Edit > Edit single file*. If prompted, login with `dev1/{common_password}`.
 +
 image:m4/parasol-webide.png[]
 
-* Right at the bottom of this file the `getProductCount()` method is blocked out.
+. Right at the bottom of this file the `getProductCount()` method is blocked out.
 +
 image:m4/parasol-commented-prodcount.png[]
-* The Java file should look like this
+. After deletion, the file should look like this
 +
 image:m4/parasol-un-commented-prodcount.png[]
 
-* Add a Commit Message *Chore: Add ProdCount REST API call* at the bottom of the page; make sure the Target Branch is `my-feature-branch`; Click *Commit changes*
+. Add a Commit Message *Chore: Add ProdCount REST API call* at the bottom of the page; make sure the Target Branch is `my-feature-branch`; Click *Commit changes*
 * You can now close the GitLab browser.
 
 === View component on {product_name_rhdh}
