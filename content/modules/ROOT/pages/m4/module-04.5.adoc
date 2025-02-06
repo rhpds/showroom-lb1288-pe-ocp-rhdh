@@ -76,7 +76,7 @@ image:m4/parasol-branch-first-pipeline-success.png[]
 image:m4/parasol-branch-deployment1.png[]
 
 
-== Adding features to the application
+== Add features to the application
 
 . Click on the *< > View Source* button on the {product_name_rhdh} https://backstage-backstage.{openshift_cluster_ingress_domain}[Component Overview page^, window="rhdh"] access the source repository of `parasol-store`.
 +
@@ -86,41 +86,41 @@ image:m4/parasol-branch-component-overview.png[]
 +
 image:m4/parasol-switchbranch.png[width=60%]
 
-. The feature request is to expose a REST API call which will return the total number of products available. For the sake of the workshop, we will (again) uncomment some code.
+. The feature request is to provide a REST API call endpoint that returns the total number of available products. For the purposes of this workshop, we will (once again) uncomment some code.
 . Changes are needed in the `parasol-store> src> main> java> org> parasol> retail> store> catalog> rest> CatalogResource.java` file. You can click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store/-/blob/my-feature-branch/src/main/java/org/parasol/retail/store/catalog/rest/CatalogResource.java[here^, window="gitlab"] to directly access this file on GitLab.
 . Select *Edit > Edit single file*. If prompted, login with `dev1/{common_password}`.
 +
 image:m4/parasol-webide.png[]
 
-. Right at the bottom of this file the `getProductCount()` method is blocked out.
+. Right at the bottom of this file, you will find the `getProductCount()` method that's been commented out.
 +
-image:m4/parasol-commented-prodcount.png[]
+image:m4/parasol-commented-prodcount.png[width=85%]
+. Carefully delete the these two lines:  `/* DELETE THIS COMMENT LINE` and `DELETE THIS COMMENT LINE */`. This will remove the comments.
 . After deletion, the file should look like this
 +
 image:m4/parasol-un-commented-prodcount.png[]
 
 . Add a Commit Message *Chore: Add ProdCount REST API call* at the bottom of the page; make sure the Target Branch is `my-feature-branch`; Click *Commit changes*
-* You can now close the GitLab browser.
+. You can now close the GitLab browser.
 
-=== View component on {product_name_rhdh}
+=== View `parasol-store` component on {product_name_rhdh}
 
-* From {product_name_rhdh}, access `parasol-store-my-feature-branch` component https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store-my-feature-branch/ci[from here^, window="rhdh"] 
-* Access the CI tab to view the pipeline. You will see a new pipeline being triggered for the change you have just made.
+* Navigate to `parasol-store-my-feature-branch` component https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store-my-feature-branch/ci[from your {product_name_rhdh}^, window="rhdh"] 
+* Access the *CI tab* to view the pipeline.  You will see a new pipeline being triggered for the change you just made.
 +
 image:m4/parasol-innerloop-pipeline1.png[width=80%]
 
-* Very shortly, the pipeline will be marked as *Succeeded*
+* Shortly, the pipeline will be marked as *Succeeded*
 +
 image:m4/parasol-innerloop-pipeline-ok.png[width=80%]
 +
-NOTE: The first pipeline was triggered when you created this branch using the Software Template. and the next is by the Git commit.
+NOTE: The first pipeline was triggered when you created this branch using the Software Template, and the next is by the Git commit.
 
-* Once you are happy with the changes, you are now ready to create a merge request to the main branch.
+* Once you're happy with the changes, you can proceed to create a merge request to the main branch.
 
 
 == Conclusion
 
-In this module you learnt about how Software Templates and plugins can accelerate developer productivity. Developers have access to all the tools they need right from {product_name_rhdh} thereby reducing cognitive load.
+In this module you learnt how Software Templates and plugins can accelerate developer productivity. With {product_name_rhdh}, developers have access to all the necessary tools via a single pane of glass, reducing cognitive load.
 
-This is the end of the inner-loop within the isolated/sandboxed dev environment. In the next section, as a developer, you will create a merge request to the main branch to initiate the outer loop.
-
+This marks the end of the inner loop within the isolated/sandboxed development environment. In the next section, you will create a merge request to the main branch to initiate the outer loop.
