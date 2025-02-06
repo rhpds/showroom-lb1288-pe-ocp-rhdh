@@ -5,168 +5,163 @@
 
 include::../style.adoc[]
 
+In this module, you will import an existing API and an existing service as Components by using the Software Templates that have been setup by Platform Engineers.
+
+IMPORTANT: Please make sure to log in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
+
+//TODO
+.Click to know how to login as a Developer
+[%collapsible]
+====
 include::../login-developer.adoc[]
+====
 
 == Import parasol-store-api OpenAPI 
 
-It's time to use the *Import API to Existing Catalog Envelope* Template that you registered earlier. Doing so will allow this API to be associated with the `parasol-store` Component.
-
-. Select *Create* from the {product_name_rhdh} side menu.
-. Click the *Choose* button on the *Import API to Existing Catalog Envelope* Template.
+. Access {product_name_rhdh} (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="rhdh"]). If prompted login using `dev1/{common_password}`
+. Click on the *Create* menu on the left-hand navigation, and click the *Choose* button on the *Import Existing API* Template.
 +
 image:m4/import-api-template.png[width=30%]
-. You will be presented with the Software Templates wizard.
-.. *Step 1*: Provide information about Catalog Envelope to which API will be added. Fill out the following values and click *Next*.
-+
-image:m4/import-api-template-1.png[]
+. You will be presented with the Software Template wizard. +
+*NOTE*: A number of these fields have been prepopulated with default values for convenience only for workshop purposes. In real life, developers will need provide almost all of the values that are needed to import existing apps/APIs.
 
+. *Step 1: Information about your existing API*. Fill out the following values and click *Next*.
 +
 [cols="1,1,2", options="header"]
 |====
 | *Field* | *Description* | *Value*
-| GitLab Hostname | Keep default value | \https://gitlab-gitlab.{openshift_cluster_ingress_domain}
-| GitLab Organization | Enter value | `parasol`
-| Repository Name | Enter value | `envelope-parasol-catalog`
+| GitLab hostname | Keep default value | \https://gitlab-gitlab.{openshift_cluster_ingress_domain}
+| GitLab Organization of Existing API | Keep default value | `parasol`
+| Repository name of Existing API | Keep default value | `parasol-store-api`
+| API specification path | Enter full path of the API | \https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-api/-/blob/main/openapi.yaml
+| Type Of API | Keep default value | `openapi` 
 |====
-
-.. *Step 2*: Provide information about your existing API. Fill out the following values and click *Next*
 +
-image:m4/import-api-template-2.png[]
+image:m4/import-api-1.png[] 
 
+
+. *Step 2: New Component details*. +
+Provide information about the new component you are registering. Fill out the following values and click *Review*
 +
 [cols="1,2,2", options="header"]
 |====
 | *Field* | *Description* | *Value*
-| GitLab Organization | Organization where the repository resides| `parasol`
-| Repository Name | Repository containing source code | `parasol-store-api` 
+| Component GitLab Organization | Keep default value| `parasol`
+| Component Repository name | Keep default value | `envelope-parasol-catalog` 
+| Component Name of API | Keep default value | `parasol-store-api`
 | System Name | System (auto-populated) | `system:default/parasol-system`
-| Path to where API spec is defined | Enter full path of the API | \https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-api/-/blob/main/openapi.yaml
-| A Short Description Of This Component | Enter value | `API for parasol-store`
-| Type Of API | Choose from dropdown | `openapi` 
-|====
-
-* *Step 3*: Provide information about the new component for your existing API. Fill out the following values and click *Next*
-+
-image:m4/import-api-template-3.png[]
-
-+
-[cols="1,2,2", options="header"]
-|====
-| *Field* | *Description* | *Value*
-| Component Name | This is how this API will be identified by {product_name_rhdh} | `parasol-store-api` 
 | Owner | Choose from dropdown | `group:default/dev1`
 | A Short Description Of This Component |Enter a suitable description | `Open API specification for the parasol-store application`
-| Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known values `experimental`, `production` and `deprecated`)
-
- | `Production` 
+| Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known values `experimental`, `production` and `deprecated`) | `production` 
 |====
-
-
-* *Step 4*: Review & Create. Review the fields, and click on the *Create* button
 +
-image:m4/import-api-template-4.png[]
+image:m4/import-api-2.png[]
 
-* You will be presented with two URLs pointing to merge the requests. 
+. *Step 3: Review & Create.*  +
+Review the fields, and click on the *Create* button
 +
-image:m4/import-api-template-5.png[]
+image:m4/import-api-3.png[]
 
-* Click on each of the links to open the merge request, and complete the merge by click on the *Merge* button
-** Merge the PR catalog envelope
+. *Run of import-api-catalog*: +
+You are presented with a Component Merge Request URL
 +
-image:m4/api-template-merge-component.png[width=70%]
+image:m4/import-api-4.png[]
 
-** Merge PR to push catalog-info.yaml and TechDocs
+. Click on the link to open the merge request, and complete the merge by click on the *Merge* button. 
 +
 image:m4/api-template-merge-envelope.png[width=70%]
 
-* You can navigate to the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/envelope-parasol-catalog[envelope-parasol-catalog repo, window="gitlab"] to see that the API's catalog-info has been added to the envelope.yaml file, and under the `parasol-store-api` folder docs and catalog-info.yaml are created.
-* In a few minutes, the Parasol API that you just imported will appear in the API section automatically. This is because of the auto-discover feature that you had enabled in the previous steps
+. You can navigate to the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/envelope-parasol-catalog[envelope-parasol-catalog repo, window="gitlab"] to see that a new folder named `parasol-store-api` has been creates with a `catalog-info.yaml` and a docs folder for `TechDocs`.
++
+image:m4/parasol-store-api-gitlab.png[width=70%] 
+
+=== Explore the `parasol-store-api` component in the APIs section
+
+. The *Parasol Store API* that you just imported will appear in the *APIs* section automatically shortly. This is because of the auto-discover feature that you had enabled in the previous steps
 +
 image:m4/view-api.png[]
 
 ** Click on `parasol-store-api` and explore the component. The *Docs* tab displays the skeleton techdocs that was added.
-** More interestingly the *Definition* tab showcases the OpenAPI spec nicely formatted. This is due to the fact that you selected `openapi` as the API type while importing the API.
+** The *Definition* tab showcases the OpenAPI spec nicely formatted. This is due to the fact that you selected `openapi` as the API type while importing the API.
 +
 
 image:m4/view-api-definition.png[]
 
-
 == Import parasol-store service
 
-* From the Create side menu of {product_name_rhdh}, click on the *Choose* button of the `Import Existing App to Catalog Envelope` template.
+* From the *Create* left side menu of {product_name_rhdh}, click on the *Choose* button of the `Import Existing Application` template.
 +
 image:m4/import-app-template.png[width=40%]
 
-* Fill out the following values in the wizard similarly by going through the steps. Refer to the following table for the data for each step
+* Fill out the following values in the Software Template wizard. +
+*NOTE*: A number of these fields have been prepopulated with default values for convenience during the workshop.
 
-* *Step 1*: Import existing application, autocreate config-info.yaml and conditionally setup techdocs.
-+
-image:m4/import-app-template-1.png[]
-
+* *Step 1: Information about your existing application*: +
+Provide information about your existing service
 +
 [cols="1,1,2", options="header"]
 |====
 | *Field* | *Description* | *Value*
 | GitLab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
-| GitLab Organization | Enter value | `parasol`
-| Repository Name | Enter value | `envelope-parasol-catalog`
+| GitLab Organization | Keep default value | `parasol`
+| Repository Name | Keep default value | `parasol-store`
 |====
-
-* *Step 2*: Provide information about your existing app
 +
+image:m4/import-app-template-1.png[]
 
-image:m4/import-app-template-2.png[]
 
-+
-[cols="1,2,2", options="header"]
-|====
-| GitLab Organization | This is the Git org where the repo resides| `parasol`
-| Repository Name | enter this value | `parasol-store` 
-| System Name | System | `system:default/parasol-system`
-
-| Does this repo contain manifests? | This option conditionally auto-generates the metadata with the right labels which will be used to pull in CI/CD, Deployment and other details| Make sure to check the box
-|====
-
-* *Step 3*: Provide information about the new component for your existing app
-+
-image:m4/import-app-template-3.png[]
-
+* *Step 2: New Component details*: +
+Provide information about your existing app
 +
 [cols="1,2,2", options="header"]
 |====
 | *Field* | *Description* | *Value*
-| Component Name | This is how this API will be identified by {product_name_rhdh} | `parasol-store` 
-| Owner | Choose from dropdown | `group:default/dev1`
-| Type | The type of component. Well-known and common values: service, website, library. | service
-| A Short Description Of This Component |Enter a suitable description | Core services for the Parasol application
-| Check to add TechDocs | This option conditionally auto-generates TechDocs skeleton for the component | Check the box
-| Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known values `experimental`, `production` and `deprecated`)
-
- | `Production` 
+| Component GitLab Organization | Keep default value | `parasol`
+| Component Repository Name | Keep default value | `envelope-parasol-catalog` 
+| Component Name of the App | Keep default value | `parasol-store`
+| System name | System (auto-populated) | `system:default/parasol-system`
+| Owner | Keep default value | `group:default/dev1`
+| A Short Description Of This Component | Keep default value | Core services for the Parasol application
 |====
++
+image:m4/import-app-template-2.png[]
 
 
-* *Step 4*: Review & Create. Review the fields, and click on the *Create* button
+* *Step 3: Additional Component details*: +
+Provide additional information about the new component
++
+[cols="1,2,2", options="header"]
+|====
+| *Field* | *Description* | *Value*
+| Does this repo contain manifests? | This option conditionally auto-generates the metadata with the right labels which will be used to pull in CI/CD, Deployment and other details| Make sure to check the box
+| Type | The type of component. Well-known and common values: service, website, library. | `service`
+| Indentify the APIs consumed by this component | This multi-select allows you to attach APIs to the component | Choose `parasol-store-api`
+| Check to add TechDocs | Conditionally auto-generates TechDocs skeleton for the component | Check the box
+| Lifecycle | Choose from dropdown  | `production` 
+|====
++
+image:m4/import-app-template-3.png[]
+
+
+
+* *Step 4: Review* +
+ Review the fields, and click on the *Create* button
 +
 image:m4/import-app-template-4.png[]
 
-* In the final step you are presented with two Merge Requests
+* *Run of import-existing-app-template*
+In the final step you are presented with a Merge Request.
 +
 image:m4/import-app-template-5.png[]
 
-* Click on each of the links to open the merge request, and complete the merge by click on the *Merge* button
-** Merge the PR to update catalog envelope
+* Click on *Component Merge Request* link to open the merge request on GitLab, and complete the merge by clicking on the *Merge* button
 +
 image:m4/app-template-merge-component.png[width=70%]
-
-** Merge PR for catalog-info.yaml
-+
-image:m4/app-template-merge-envelope.png[width=70%]
-
+. The *Parasol Store* service that you just imported will appear in the {product_name_rhdh} *Catalog*  shortly.
 
 === Explore the `parasol-store` component in the Catalog section
 
-* In a few minutes the `parasol-store` Component you just imported will start appearing in the Catalog section of RHDH automatically. This is because of the auto-discover feature that you had enabled in the previous steps
+* In a few minutes the `parasol-store` Component you just imported will start appearing in the Catalog section of {product_name_rhdh} automatically.
 +
 image:m4/view-parasol-store-component.png[]
 
@@ -182,12 +177,12 @@ image:m4/parasol-store-topo.png[]
 image:m4/parasol-store-argo.png[]
 
 * The Api tab shows the Consumed API `parasol-store-api`. Explore the Dependencies tab as well.
-* The Docs contains the skeleton TechDocs created by the template. You can click on the Pencil icon to go ahead a edit the docs.
+* The Docs contains the skeleton TechDocs created by the template. You can click on the `Pencil icon` to edit the docs.
  
 
-== [Optional] Import `parasol-web`
+// == [Optional] Import `parasol-web`
 
-You can now optionally import the `parasol-web` component as well just like you imported `parasol-store`.
+// You can now optionally import the `parasol-web` component as well just like you imported `parasol-store`.
 
-* The org is `parasol`
-* Repo for parasol-web is `parasol-web`
+// * The org is `parasol`
+// * Repo for parasol-web is `parasol-web`
