@@ -8,9 +8,9 @@ Software supply chain security for cloud-native applications requires months of 
 
 There are element involved in crafting a trusted software supply chain:
 
-image:m6/tssc.png
+image:m6/tssc.png[]
 
-* Code: Use standardized templates, sign code and commits, and use dependency analytics provided by Red Hat Trusted Profile Analyzer.
-* Build: Red Hat Trusted Application Pipeline provides default continuous integration pipelines that automate security checks and compliance with https://www.redhat.com/en/blog/securing-open-source-development-supply-chain-perspective[Supply Chain Levels for Software Artifacts (SLSA) Level 3].
-* Deploy: Implement policy enforcement using Red Hat Advanced Cluster Security for Kubernetes, and security focused workflows that prevent untrusted code being deployed.
-* Monitor: Use Red Hat Advanced Cluster Security for Kubernetes to continuously enforce policies and redmedy issues in containers and the Kubernetes runtime. 
+* *Code*: Use standardized templates, sign code and commits, and use dependency analytics provided by Red Hat Trusted Profile Analyzer.
+* *Build*: Red Hat Trusted Application Pipeline provides default continuous integration pipelines that automate security checks and compliance with https://www.redhat.com/en/blog/securing-open-source-development-supply-chain-perspective[Supply Chain Levels for Software Artifacts (SLSA) Level 3].
+* *Deploy*: Implement policy enforcement using Red Hat Advanced Cluster Security for Kubernetes, and security focused workflows that prevent untrusted code being deployed.
+* *Monitor*: Use Red Hat Advanced Cluster Security for Kubernetes to continuously enforce policies and redmedy issues in containers and the Kubernetes runtime. 
