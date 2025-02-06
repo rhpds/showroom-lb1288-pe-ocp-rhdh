@@ -73,16 +73,15 @@ Navigate back to *Create* using the side menu. You should see both the templates
 image::m4/import-templates-list.png[]
 
 
-== Setup {product_name_rhdh} config
+== Setup GitLab Entity Auto-Discovery
 
-The new templates require a set of dynamic plugins to function correctly: 
+The new templates require a set of dynamic plugins to function detect the newly created Entities: 
 
 * *roadiehq-scaffolder-backend-module-utils-dynamic*: used to manipulate the file system. In this case it's used to update commit the newly created `catalog-info.yaml` files to GitLab.
 * *backstage-plugin-catalog-backend-module-gitlab-dynamic* to enable auto-discovery of `catalog-info.yaml` files.
 * *immobiliarelabs-backstage-plugin* to interact with GitLab to MergeRequests, Issues, Pipeline runs etc
 
-=== Enable Dynamic Plugins 
-
+=== Enable the Plugins 
 
 . You will also enable a couple of Community plugins which will help view Merge requests and Issues from GitLab
 . Visit your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/edit/main/values.yaml[rhdh/developer-hub-config repository on GitLab^, window="gitlab"]. If prompted, login with `pe1/{common_password}`.
@@ -95,14 +94,14 @@ image::m4/uncomment-dynamic-plugin.png[width=60%]
 
 === Enable Auto-Discovery
 . Locate the comment `--- AUTO_DISCOVERY_IMPORT_COMPONENTS ---` in the same `values.yaml` file.
-. Highlight the YAML as shown in the below screenshot, and comment those lines.
+. Highlight the YAML as shown in the below screenshot, and uncomment those lines.
 +
 image::m4/uncomment-auto-discovery.png[width=60%]
 +
 NOTE: This YAML snippet enables auto-discovery for all files named _envelope.yaml_ (entityFilename) where the repo name starts with the word _envelope_ (projectPattern). 
 . Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page with a suitable commit message.
 
-. Refresh Red Hat Developer Hub instance (`backstage` ArgoCD Application) on https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[ ArgoCD^, window="argo"]. Login as `admin/{openshift_gitops_password}`. Click on the *Refresh* button of the *backstage*  ArgoCD Application to trigger a refresh. Wait until the Application turns green and marked as Healthy. 
+. Refresh the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[`backstage` Application, window="argo"] to rollout the new {product_name_rhdh} configuration - login as `admin` / `{openshift_gitops_password}`. Wait until the Application turns green and marked as Healthy. 
 
 
 == Onboard Parasol's System and Domain

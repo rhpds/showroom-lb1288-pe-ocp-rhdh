@@ -5,12 +5,12 @@
 
 include::../style.adoc[]
 
-In this module, you will import an existing API and an existing service as Components by using the Software Templates that have been setup by Platform Engineers.
+In this module, you will import an existing API and an existing Service using the Software Templates that you setup as the Platform Engineer in the previous section.
 
 IMPORTANT: Please make sure to log in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
 
 //TODO
-.Click to know how to login as a Developer
+.Click here to view instructions to login as the Developer.
 [%collapsible]
 ====
 include::../login-developer.adoc[]
@@ -23,8 +23,11 @@ include::../login-developer.adoc[]
 +
 image:m4/import-api-template.png[width=30%]
 . You will be presented with the Software Template wizard. +
-*NOTE*: A number of these fields have been prepopulated with default values for convenience only for workshop purposes. In real life, developers will need provide almost all of the values that are needed to import existing apps/APIs.
-
++
+[NOTE]
+====
+A number of these fields have been prepopulated with default values for convenience. In reality, developers will need provide almost all of the values that are needed to import existing apps/APIs.
+====
 . *Step 1: Information about your existing API*. Fill out the following values and click *Next*.
 +
 [cols="1,1,2", options="header"]
@@ -94,7 +97,11 @@ image:m4/view-api-definition.png[]
 image:m4/import-app-template.png[width=40%]
 
 * Fill out the following values in the Software Template wizard. +
-*NOTE*: A number of these fields have been prepopulated with default values for convenience during the workshop.
++
+[NOTE]
+====
+A number of these fields have been prepopulated with default values for convenience. In reality, developers will need provide almost all of the values that are needed to import existing apps/APIs.
+====
 
 * *Step 1: Information about your existing application*: +
 Provide information about your existing service
