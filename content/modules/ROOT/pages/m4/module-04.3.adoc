@@ -5,7 +5,7 @@
 
 include::../style.adoc[]
 
-In this module, you will import an existing API and an existing service as Components by using the Software Tempplates that have been setup by Platform Engineers.
+In this module, you will import an existing API and an existing service as Components by using the Software Templates that have been setup by Platform Engineers.
 
 IMPORTANT: Please make sure to log in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
 
@@ -23,10 +23,9 @@ include::../login-developer.adoc[]
 +
 image:m4/import-api-template.png[width=30%]
 . You will be presented with the Software Template wizard. +
-NOTE: A number of these fields have been prepopulated with default values for convenience during the workshop.
+*NOTE*: A number of these fields have been prepopulated with default values for convenience only for workshop purposes. In real life, developers will need provide almost all of the values that are needed to import existing apps/APIs.
 
-. *Step 1: Information about your existing API*. +
-Fill out the following values and click *Next*.
+. *Step 1: Information about your existing API*. Fill out the following values and click *Next*.
 +
 [cols="1,1,2", options="header"]
 |====
@@ -76,6 +75,8 @@ image:m4/api-template-merge-envelope.png[width=70%]
 +
 image:m4/parasol-store-api-gitlab.png[width=70%] 
 
+=== Explore the `parasol-store-api` component in the APIs section
+
 . The *Parasol Store API* that you just imported will appear in the *APIs* section automatically shortly. This is because of the auto-discover feature that you had enabled in the previous steps
 +
 image:m4/view-api.png[]
@@ -93,7 +94,7 @@ image:m4/view-api-definition.png[]
 image:m4/import-app-template.png[width=40%]
 
 * Fill out the following values in the Software Template wizard. +
-NOTE: A number of these fields have been prepopulated with default values for convenience during the workshop.
+*NOTE*: A number of these fields have been prepopulated with default values for convenience during the workshop.
 
 * *Step 1: Information about your existing application*: +
 Provide information about your existing service
@@ -134,7 +135,7 @@ Provide additional information about the new component
 | *Field* | *Description* | *Value*
 | Does this repo contain manifests? | This option conditionally auto-generates the metadata with the right labels which will be used to pull in CI/CD, Deployment and other details| Make sure to check the box
 | Type | The type of component. Well-known and common values: service, website, library. | `service`
-| Indentify the APIs consumed by this component | This multi-select allows you to attach APIs to the component | Choose `api:default/parasol-store-api`
+| Indentify the APIs consumed by this component | This multi-select allows you to attach APIs to the component | Choose `parasol-store-api`
 | Check to add TechDocs | Conditionally auto-generates TechDocs skeleton for the component | Check the box
 | Lifecycle | Choose from dropdown  | `production` 
 |====
@@ -179,9 +180,9 @@ image:m4/parasol-store-argo.png[]
 * The Docs contains the skeleton TechDocs created by the template. You can click on the `Pencil icon` to edit the docs.
  
 
-== [Optional] Import `parasol-web`
+// == [Optional] Import `parasol-web`
 
-You can now optionally import the `parasol-web` component as well just like you imported `parasol-store`.
+// You can now optionally import the `parasol-web` component as well just like you imported `parasol-store`.
 
-* The org is `parasol`
-* Repo for parasol-web is `parasol-web`
+// * The org is `parasol`
+// * Repo for parasol-web is `parasol-web`

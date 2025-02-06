@@ -3,7 +3,10 @@
 == Developer Activity: Work on feature-branch
 include::../style.adoc[]
 
-IMPORTANT: Please make sure to log in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
+
+In this module, as a Developer you are tasked to make change to an existing service - the `parasol-store` service. You will create a feature branch of the repository and then work in an isolated environment that allows you to work independently without impacting other developers in your team. Once you are ready with the changes, you can raise a merge request to push your changes to main branch, and there progressing the changes to production deployment
+
+Please make sure you are logged in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
 
 .Click to know how to login as a Developer
 [%collapsible]
@@ -44,28 +47,38 @@ image:m4/choose-parasol-store-template-step3.png[]
 +
 image:m4/parasol-branch-component.png[]
 
-* Explore the Component
-+
+
+=== Explore the Component
+
+The newly created component for the isolated environment acts as a single pane of glass to perform most of the acivities as a developer
+
 image:m4/parasol-branch-component-laanding.png[]
 
-** Notice that under the *CI* tab, a pipeline is in progress.
+* Notice that under the *CI* tab, a pipeline is in progress.
 +
 image:m4/parasol-branch-first-pipeline.png[]
-+
-and turns green when it finishes the run successfully
+. The pipeline turns green when it finishes the run successfully
 +
 image:m4/parasol-branch-first-pipeline-success.png[]
 
-** Explore the other tabs to see how {product_name_rhdh} allows a single pane of glass for the Developer's isolated/sandboxed environment.
+. Explore the other tabs to see how {product_name_rhdh} allows a single pane of glass for the Developer's isolated/sandboxed environment.
+.. The Overview tab provides easy access to the sourcecode and deployments
+.. The Topology tab provides a window to the deployment on OpenShift
+.. The Issues and Pull/Merge Requests tabs provide insights about the GitLab repo
+.. CI tab shows an easy view of the pipeline in both OpenShift (Tekton based pipeline), and on GitLab
+.. The CD tab shows the deployed components/systems in the namespace using ArgoCD plugin
 
-* If you are curious to view the deployment on OpenShift, https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/apps%7Ev1%7EDeployment[click here^, window="console"]
-+
+
+*View the  deployment on OpenShift*
+
+If you are curious to view the deployment on OpenShift, https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/parasol-store-my-feature-branch/deployments/parasol-store[click here^, window="console"]
+
 image:m4/parasol-branch-deployment1.png[]
 
 
-=== Enhancing the application
+=== Adding features to the application
 
-* Click on the *< > View Source* button on the Component Overview page to access the source repository.
+* Click on the *< > View Source* button on the {product_name_rhdh} https://backstage-backstage.{openshift_cluster_ingress_domain}[Component Overview page^, window="rhdh"] access the source repository of `parasol-store`.
 +
 image:m4/parasol-branch-component-overview.png[]
 
@@ -73,16 +86,24 @@ image:m4/parasol-branch-component-overview.png[]
 +
 image:m4/parasol-switchbranch.png[]
 
-* Open the `README.md` and then select *Edit > Edit single file*.
+* The feature is to expose a REST API call which will return the total number of Products available. For the sake of the workshop, we will (again) uncomment some code.
+* The file to be changed is at `parasol-store> src> main> java> org> parasol> retail> store> catalog> rest> CatalogResource.java`. You can click (https://backstage-backstage.{openshift_cluster_ingress_domain}/parasol/parasol-store/-/blob/my-feature-branch/src/main/java/org/parasol/retail/store/catalog/rest/CatalogResource.java[here^, window="gitlab"] to directly access the `CatalogResource.java` file.
+* Select the *Edit > Edit single file*. If prompted, login with `dev1/{common_password}`.
 +
 image:m4/parasol-webide.png[]
 
-* For the sake of the workshop, let us just make some changes to the README file. E.g., add this text to the README file `This service store provides the core services of Parasol web-app`
+* Right at the bottom of this file the `getProductCount()` method is blocked out.
++
+image:m4/parasol-commented-prodcount.png[]
+* The Java file should look like this
++
+image:m4/parasol-un-commented-prodcount.png[]
 
-* Add a Commit Message *Chore: Improved README file* at the bottom of the page; make sure the Target Branch is `my-feature-branch`; Click *Commit changes*
+* Add a Commit Message *Chore: Add ProdCount REST API call* at the bottom of the page; make sure the Target Branch is `my-feature-branch`; Click *Commit changes*
 * You can now close the GitLab browser.
 
 === View component on {product_name_rhdh}
+
 * From {product_name_rhdh}, access `parasol-store-my-feature-branch` component https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store-my-feature-branch/ci[from here^, window="rhdh"] 
 * Access the CI tab to view the pipeline. You will see a new pipeline being triggered for the change you have just made.
 +
@@ -96,5 +117,10 @@ NOTE: The first pipeline was triggered when you created this branch using the So
 
 * Once you are happy with the changes, you are now ready to create a merge request to the main branch.
 
-* This is the end of the inner-loop within the isolated/sandboxed dev environment. In the next section, as a developer, you will create a merge request to the main branch to initiate the outer loop.
+
+== Conclusion
+
+In this module you learnt about how Software Templates and plugins can accelerate developer productivity. Developers have access to all the tools they need right from {product_name_rhdh} thereby reducing cognitive load.
+
+This is the end of the inner-loop within the isolated/sandboxed dev environment. In the next section, as a developer, you will create a merge request to the main branch to initiate the outer loop.
 
