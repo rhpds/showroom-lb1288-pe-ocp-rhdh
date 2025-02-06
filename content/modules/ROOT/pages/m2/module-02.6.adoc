@@ -19,6 +19,8 @@ To install and configure this plugin:
 +
 image:m2/gitlab-techdoc-plugin.png[TechDocs and GitLab dynamic plugins, width=60%]
 . Look for the YAML between the `--- TECHDOCS_CONFIG ---` block. Highlight the block, then press `CMD + /` or `CTRL + /` to uncomment it.
++
+image:m2/gitlab-techdoc-config.png[TechDocs Config, width=60%]
 . Find the `appConfig.catalog.providers` configuration and uncomment the following block as shown below. +
 Look for the `--- GITLAB_CATALOG_PROVIDER ---` block; highlight the block, then press `CMD + /` or `CTRL + /`.
 +
@@ -37,7 +39,7 @@ image:m2/rhdh-logs-gitlab-discovery.png[GitLab Autodiscovery Logs in the OpenShi
 . The repository in question is the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/global/global-techdocs[global/global-techdocs^, window="gitlab"]. This repository contains a __catalog-info.yaml__ that defines a Component, and an annotation `backstage.io/techdocs-ref` that tells the TechDocs plugin where to find the source for documentation builds for the Component. 
 +
 image:m2/global-techdocs-cat-info.png[Global TechDocs catalog-info.yaml file]
-
+. Click the *Refresh* button on the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` ArgoCD Application in OpenShift GitOps^, window="argo"].
 . Visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}^, window="rhdh"] and view the Software Catalog. Make sure that the `Kind` dropdown is set to _Component_. You should see the _global-techdocs_ Component.
 +
 image:m2/global-techdocs-component.png[The Global TechDocs Component in the Software Catalog]

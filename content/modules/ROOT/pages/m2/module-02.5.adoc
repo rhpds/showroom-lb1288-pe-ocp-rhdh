@@ -23,7 +23,7 @@ The high-level steps involve:
 
 . Creating a Realm and Client in Red Hat Single-Sign On. These have been pre-configured for you. View the `backstage` Realm using the following URL and credentials:
     * *URL*: https://sso.{openshift_cluster_ingress_domain}[https://sso.{openshift_cluster_ingress_domain}/admin/master/console/#/backstage^, window="sso"]
-    * *Credentials*: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/keycloak/secrets/keycloak-initial-admin[View on OpenShift, window="content"]
+    * *Credentials*: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/keycloak/secrets/keycloak-initial-admin[View on OpenShift, window="console"]. (Login to OpenShift as `admin/{common_password}`)
 . Configuring the {product_name_rhdh} Keycloak plugin to synchronize users from Red Hat Single-Sign On to {product_name_rhdh}.
 . Configuring the `oidc` {product_name_rhdh} authentication provider with the Realm details.
 . Setting `oidc` as `signInPage` page type for {product_name_rhdh}.
@@ -66,7 +66,7 @@ signInPage: oidc
 * Enable the OpenID Connect provider (`providers.oidc`) with the following configuration:
 ** Provide a `production` configuration (corresponding to the `environment` defined previously).
 ** Use the `backstage` Realm (`metadataUrl`).
-** Load the `clientId` and `clientSecret` from environment variables (loaded from the precreated https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/secrets/oauth-client[*oauth-client*] Secret, specified in `extraEnvVarsSecrets` in the _values.yaml_)
+** Load the `clientId` and `clientSecret` from environment variables (loaded from the precreated https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/backstage/secrets/oauth-client[*oauth-client*, window="console"] Secret, specified in `extraEnvVarsSecrets` in the _values.yaml_)
 ** Map any signing in user identity to a User Entity in {product_name_rhdh} using the specified https://backstage.io/docs/auth/identity-resolver/[resolver^, window="console"].
 * The `signInPage` property is specific to {product_name_rhdh}. It ensures the correct sign-in UI is rendered. In upstream Backstage this requires React code changes.
 
