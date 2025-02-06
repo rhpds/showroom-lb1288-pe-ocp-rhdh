@@ -22,7 +22,9 @@ include::../login-developer.adoc[]
 . Click on the *Create* menu on the left-hand navigation, and click the *Choose* button on the *Import Existing API* Template.
 +
 image:m4/import-api-template.png[width=30%]
-. You will be presented with the Software Template wizard.
+. You will be presented with the Software Template wizard. +
+NOTE: A number of these fields have been prepopulated with default values for convenience during the workshop.
+
 . *Step 1: Information about your existing API*. +
 Fill out the following values and click *Next*.
 +
@@ -30,10 +32,10 @@ Fill out the following values and click *Next*.
 |====
 | *Field* | *Description* | *Value*
 | GitLab hostname | Keep default value | \https://gitlab-gitlab.{openshift_cluster_ingress_domain}
-| GitLab Organization of Existing API | Enter value | `parasol`
-| Repository name of Existing API | Enter value | `parasol-store-api`
+| GitLab Organization of Existing API | Keep default value | `parasol`
+| Repository name of Existing API | Keep default value | `parasol-store-api`
 | API specification path | Enter full path of the API | \https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store-api/-/blob/main/openapi.yaml
-| Type Of API | Choose from dropdown | `openapi` 
+| Type Of API | Keep default value | `openapi` 
 |====
 +
 image:m4/import-api-1.png[] 
@@ -45,9 +47,9 @@ Provide information about the new component you are registering. Fill out the fo
 [cols="1,2,2", options="header"]
 |====
 | *Field* | *Description* | *Value*
-| Component GitLab Organization | Component Organization name| `parasol`
-| Component Repository name | Component Repo name | `envelope-parasol-catalog` 
-| Component Name of API | How the Component is identified in Developer Hub | `parasol-store-api`
+| Component GitLab Organization | Keep default value| `parasol`
+| Component Repository name | Keep default value | `envelope-parasol-catalog` 
+| Component Name of API | Keep default value | `parasol-store-api`
 | System Name | System (auto-populated) | `system:default/parasol-system`
 | Owner | Choose from dropdown | `group:default/dev1`
 | A Short Description Of This Component |Enter a suitable description | `Open API specification for the parasol-store application`
@@ -90,7 +92,8 @@ image:m4/view-api-definition.png[]
 +
 image:m4/import-app-template.png[width=40%]
 
-* Fill out the following values in the Software Template wizard.
+* Fill out the following values in the Software Template wizard. +
+NOTE: A number of these fields have been prepopulated with default values for convenience during the workshop.
 
 * *Step 1: Information about your existing application*: +
 Provide information about your existing service
@@ -99,8 +102,8 @@ Provide information about your existing service
 |====
 | *Field* | *Description* | *Value*
 | GitLab Hostname | Keep default value | https://gitlab-gitlab.{openshift_cluster_ingress_domain}
-| GitLab Organization | Enter value | `parasol`
-| Repository Name | Enter value | `parasol-store`
+| GitLab Organization | Keep default value | `parasol`
+| Repository Name | Keep default value | `parasol-store`
 |====
 +
 image:m4/import-app-template-1.png[]
@@ -112,12 +115,12 @@ Provide information about your existing app
 [cols="1,2,2", options="header"]
 |====
 | *Field* | *Description* | *Value*
-| Component GitLab Organization | Organization where the repository resides
-| `parasol`
-| Component Repository Name | enter this value | `envelope-parasol-catalog` 
-| Component Name of the App | enter this value | `parasol-store`
-| Owner | Choose from dropdown | `group:default/dev1`
-| A Short Description Of This Component |Enter a suitable description | Core services for the Parasol application
+| Component GitLab Organization | Keep default value | `parasol`
+| Component Repository Name | Keep default value | `envelope-parasol-catalog` 
+| Component Name of the App | Keep default value | `parasol-store`
+| System name | System (auto-populated) | `system:default/parasol-system`
+| Owner | Keep default value | `group:default/dev1`
+| A Short Description Of This Component | Keep default value | Core services for the Parasol application
 |====
 +
 image:m4/import-app-template-2.png[]
@@ -132,8 +135,8 @@ Provide additional information about the new component
 | Does this repo contain manifests? | This option conditionally auto-generates the metadata with the right labels which will be used to pull in CI/CD, Deployment and other details| Make sure to check the box
 | Type | The type of component. Well-known and common values: service, website, library. | `service`
 | Indentify the APIs consumed by this component | This multi-select allows you to attach APIs to the component | Choose `api:default/parasol-store-api`
-| Check to add TechDocs | This option conditionally auto-generates TechDocs skeleton for the component | Check the box
-| Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known values `experimental`, `production` and `deprecated`)  | `production` 
+| Check to add TechDocs | Conditionally auto-generates TechDocs skeleton for the component | Check the box
+| Lifecycle | Choose from dropdown  | `production` 
 |====
 +
 image:m4/import-app-template-3.png[]
