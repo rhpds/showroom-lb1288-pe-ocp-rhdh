@@ -6,19 +6,23 @@
 include::../style.adoc[]
 
 
-* Navigate to the https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store-my-feature-branch[feature-branch component, window="rhdh"] you had created. If prompted, login as dev1/{common_password}.
+. Navigate to the https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store-my-feature-branch[feature-branch component, window="rhdh"] you had created. If prompted, login as dev1/{common_password}.
 
-* Click on the *View Source* link to access the git repo of this component.
-* You will see an alert asking you to create a *merge request*.
+. Click on the *View Source* link to access the git repo of this component.
+. Navigate to the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store/-/merge_requests[Merge Requests page^, window="gitlab"]. Initiate a merge request by clicking on the *New merge request* button.
 +
-image:m5/view-merge-alert.png[]
-* If you don't see this alert, you can access this via the *Code -> Merge Requests* left-hand menu and proceed to click on the *New merge request* button.
-
-* In the *New merge request* page, create a merge request by clicking on the *Create merge request* button at the bottom of the page.
+image:m5/merge-requests-page.png[] 
+. In the *New merge request* window, choose `my-feature-branch` in the `Select source branch` dropdown. Leave the `Target branch` options as is.
 +
-image:m5/create-merge-alert.png[width=60%]
+image:m5/initiate-new-merge.png[]
+. Click on *Compare branches and continue*  button
++
+image:m5/compare-branch-continue.png[] 
+. In the next page - New merge request - scroll down to the bottom of the page and choose *Create merge request* button
++
+image:m5/create-merge-request.png[] 
 
-* Since this merge request is to the `parasol-store` component, the `parasol-store-build-pr-open` pipeline gets triggered and can be viewed in the https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store/ci[`parasol-store` component, window="rhdh"].
+. Since this merge request is to the `parasol-store` component, the `parasol-store-build-pr-open` pipeline gets triggered and can be viewed in the https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/parasol-store/ci[`parasol-store` component, window="rhdh"].
 +
 image:m5/parasol-store-pr-open-pipeline-start.png[]
 
