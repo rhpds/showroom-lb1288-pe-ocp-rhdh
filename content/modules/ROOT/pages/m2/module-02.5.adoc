@@ -60,7 +60,7 @@ auth:
 signInPage: oidc
 ----
 
-. This is an example standard Backstage `auth` configuration. and here is a summary of what this configuration specifies.
+. This is an example standard Backstage `auth` configuration. Below is a summary of what this configuration specifies:
 * Enable sessions, and use the `BACKEND_SECRET` environment variable to sign sessions.
 * Set the authentication `environment` to `production`. Environments can have any arbitrary name.
 * Enable the OpenID Connect provider (`providers.oidc`) with the following configuration:

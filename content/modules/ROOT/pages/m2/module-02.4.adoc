@@ -9,7 +9,7 @@ In xref:m2/module-02.1.adoc[module 2.1] you learned that the Software Catalog co
 An option for dynamically importing and synchronizing Entities is via _providers_. Providers are typically provided by way of plugins, and are configured using the `catalog.providers` entry in the `appConfig`. Let's use the Keycloak plugin to synchronize Users and Groups to your Software Catalog.
 
 . View your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in the developer-hub-config repository^, window="gitlab"].
-. Select **Edit > Edit single file**. When prompted, login as *(pe1/{common_password})*
+. Select **Edit > Edit single file**. When prompted, login as `pe1` / `{common_password}`*
 . You will find the `janus-idp-backstage-plugin-keycloak-backend-dynamic` package under the `dynamic.plugins` field that is set to `disabled: false`. This means that, this plugin has been enabled in your installation.
 +
 image:m2/keycloak-dynamic-plugin.png[width=60%]
