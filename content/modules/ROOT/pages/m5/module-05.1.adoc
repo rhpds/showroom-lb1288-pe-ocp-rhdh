@@ -74,7 +74,7 @@ NOTE: You may need to *REFRESH* the Argo apps if you don't see the updates immed
 
 image:m5/parasol-store-argo-dev.png[]
 
-===Staging Argo CD: parasol-store-staging
+=== Staging Argo CD: parasol-store-staging
 
 image:m5/parasol-store-argo-staging.png[]
 

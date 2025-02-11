@@ -1,5 +1,6 @@
 :imagesdir: ../../assets/images
 
+include::../style.adoc[]
 
 == Explore updates to Production ArgoCD Manifests
 
