@@ -36,7 +36,7 @@ The annotation value will be automatically generated, similar to the Argo CD lab
 
 === Refresh the Quarkus Service template on {product_name_rhdh}
 
-Return to your {product_name_rhdh} instance to view the https://backstage-backstage.{openshift_cluster_ingress_domain/catalog/default/template/quarkus-web-template[quarkus-web-template^, window="rhdh"] after committing the change. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 
+Return to your {product_name_rhdh} instance to view the https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/template/quarkus-web-template[quarkus-web-template^, window="rhdh"] after committing the change. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 
 
 NOTE: Manually refreshing is an optional step, since {product_name_rhdh} will check for upstream Entity changes every few minutes.
 
