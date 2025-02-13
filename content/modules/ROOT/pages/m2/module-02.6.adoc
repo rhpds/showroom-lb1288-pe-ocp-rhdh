@@ -15,13 +15,17 @@ To install and configure this plugin:
 
 . Visit the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config repository^, window="gitlab"] in your GitLab instance.
 . Select *Edit > Edit single file*. If prompted, login as a Platform Engineer with `pe1/{common_password}`.
-. Uncomment the `--- TECHDOCS_PLUGIN ---` section in `dynamic.plugins` section of the YAML, to enable the TechDocs and GitLab dynamic plugins. Highlight the YAML and process `CMD + /` or `CTRL + /` to uncomment the necessary lines shown.
+. Uncomment the `--- TECHDOCS_PLUGIN ---` section in `dynamic.plugins` section of the YAML, to enable the TechDocs and GitLab dynamic plugins.
 +
+[NOTE]
+====
+To uncomment multiple lines of code, highlight the lines and press `CMD + /` (on macOS) or `CTRL + /` (on Linux/Windows).
+====
 image:m2/gitlab-techdoc-plugin.png[TechDocs and GitLab dynamic plugins, width=60%]
-. Look for the YAML between the `--- TECHDOCS_CONFIG ---` block. Highlight the block, then press `CMD + /` or `CTRL + /` to uncomment it.
+. Look for the YAML between the `--- TECHDOCS_CONFIG ---` block and uncomment it.
 +
 image:m2/gitlab-techdoc-config.png[TechDocs Config, width=60%]
-. Find the `appConfig.catalog.providers` configuration and uncomment the following block as shown below. +
+. Find the `appConfig.catalog.providers` configuration and uncomment the `--- GITLAB_CATALOG_PROVIDER ---` block as shown below. +
 Look for the `--- GITLAB_CATALOG_PROVIDER ---` block; highlight the block, then press `CMD + /` or `CTRL + /`.
 +
 image:m2/gitlab-catalog-provider.png[GitLab Catalog Provider, width=70%]
@@ -52,7 +56,7 @@ image:m2/global-techdocs-component-view.png[Global TechDocs being rendered, widt
 . It should compile and render the TechDocs.
 +
 image:m2/global-techdocs-docs.png[Global TechDocs being rendered]
-. You might have noticed that the side menu has a new _Docs_ entry too. This appeared when you enabled the TechDocs plugin! 
+. You might have noticed that the side menu has a new *Docs* entry too. This appeared when you enabled the TechDocs plugin! 
 +
 image:m2/global-docs-menu.png[Docs side menu]
 
@@ -70,13 +74,13 @@ techdocs:
     runIn: local
 ----
 
-This particular configuration is instructing TechDocs to build (`builder`) and store documentation locally (`publisher.type`), in the container. 
+This particular configuration is instructing TechDocs to build (`builder`) and store documentation locally (`publisher.type`), in the running {product_name_rhdh} container. 
 
 The `generator: local` option instructs TechDocs to build the documentation on-demand. This requires the underlying container to have the necessary dependencies installed - {product_name_rhdh} has these dependencies in place.
 
-It's possible to offload the TechDocs build process to a CI/CD pipeline that uses the TechDocs CLI. In this scenario, the pipeline builds and publishes the TechDocs to S3 or another storage system. The platform engineer must configure a `builder` of type `external` and the `publisher` to read from the same storage system to load the desired TechDocs for a given Entity.
+It's possible to offload the TechDocs build process to a CI/CD pipeline that uses the TechDocs CLI. In this scenario, the pipeline builds and publishes the TechDocs to https://backstage.io/docs/features/techdocs/using-cloud-storage/[S3 or other storage solution, window="content"]. The platform engineer must configure a `builder` of type `external` and the `publisher` to read from the same storage system to load the desired TechDocs for a given Entity if an alternative storage solution is used.
 
-Using the `external` builder strategy reduces load on the {product_name_rhdh} instance, but places the burden of building and publishing the TechDocs on authors.
+Using the `external` builder strategy reduces load on the {product_name_rhdh} instance, but places the burden of building and publishing the TechDocs on authors. Repository owners and authors can build their TechDocs using the https://backstage.io/docs/features/techdocs/cli/[TechDocs CLI, window="content"].
 
 == Conclusion
 

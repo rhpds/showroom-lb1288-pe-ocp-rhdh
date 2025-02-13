@@ -8,7 +8,7 @@ The Software Template you'll be using in this activity is stored in the _templat
 
 Register this template using the {product_name_rhdh} UI:
 
-. Login to your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}] as the `pe1` user.
+. Login to your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}^, window="rhdh"] as the `pe1` user with password `{common_password}`.
 . Select *Create* from the side menu.
 . Click the *Register Existing Component* button.
 +

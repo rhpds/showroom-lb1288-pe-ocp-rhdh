@@ -106,3 +106,22 @@ spec:
       repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
       catalogInfoPath: "/catalog-info.yaml"
 ```
+
+=== Output
+
+The _spec.output_ makes use the variables that individual steps output to do display useful information such a 
+
+* links to newly created Components
+* Source Code Repository links
+* links to Git Merge Requests that are needed etc
+* markdown text blobs
+
+```yaml
+  output:
+    links:
+      - title: Source Code Repository
+        url: {{ '${{ steps.publish.output.remoteUrl }}' }}
+      - title: Open Component in catalog
+        icon: catalog
+        entityRef: {{ '${{ steps.register.output.entityRef }}' }}
+```

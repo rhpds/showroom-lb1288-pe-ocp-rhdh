@@ -1,10 +1,10 @@
 :imagesdir: ../../assets/images
 
-= Platform Engineer Activity: Setup RBAC [Optional Module]
-
 include::../style.adoc[]
 
-== Role-Based Access Control (RBAC) in {product_name_rhdh}
+== Platform Engineer Activity: Setup Role-Based Access Control
+
+NOTE: This is an Optional Module. You can choose to do this if time permits or this interests you.
 
 By setting up Role-Based Access Control (RBAC), the Platform Engineer can restrict the visibility of entities and availability of actions to subsets of users. It's possible to define roles with specific permissions and then assign those roles to the Users/Groups to meet the specific needs of your organization and teams. RBAC can be configured via the Red Hat Developer Hub UI and REST API, or by using configuration files. 
 
