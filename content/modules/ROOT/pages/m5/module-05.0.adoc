@@ -7,7 +7,7 @@ include::../style.adoc[]
 
 == Overview
 
-With the development inner-loop complete, the code running in the developer's isolated feature-branch namespace is now ready for deployment to Dev, Staging, and Production environments.
+With the development inner-loop complete, the code running in the ephemeral environment's feature-branch namespace is now ready for deployment to Dev, Staging, and Production environments.
 
 * Platform Engineers set up production-grade pipelines to handle merge requests from Developer.Tekton makes it really easy to build cloud-native pipelines that can be tailored to organizational needs.
 * When a developer submits a merge request from the feature branch to the main branch, a peer review process ensures code quality before merging.
