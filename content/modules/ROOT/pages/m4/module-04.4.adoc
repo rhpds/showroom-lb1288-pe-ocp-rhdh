@@ -1,20 +1,20 @@
 :imagesdir: ../../assets/images
 
 
-== Platform Engineer Activity: Setup an Isolated Dev Environment on OpenShift
+== Platform Engineer Activity: Setup an Ephemeral Dev Environment on OpenShift
 
 include::../style.adoc[]
 
-When developers are assigned a JIRA task or feature to enhance an application, they start by creating a *feature branch* on Git. They continue working on this branch until their changes are ready to be merged into the main branch. Providing an _isolated development environment_ for these developers enables a continuous inner loop, enhancing productivity and accelerating development.
+When developers are assigned a JIRA task or feature to enhance an application, they start by creating a *feature branch* on Git. They continue working on this branch until their changes are ready to be merged into the main branch. Providing an _ephemeral development environment_ for these developers enables a continuous inner loop, enhancing productivity and accelerating development.
 
-The Platform Engineer creates a new Software Template to set up an isolated development environment for Developers working on the `parasol-store` application. This template performs several tasks:
+The Platform Engineer creates a new Software Template to set up an ephemeral development environment for Developers working on the `parasol-store` application. This template performs several tasks:
 
 * Creates a dedicated namespace within OpenShift for the developer
-* Connects the isolated development environment to the *dev* DB instance running on OpenShift
+* Connects the ephemeral development environment to the *dev* DB instance running on OpenShift
 * Sets up development pipelines to build and deploy the developer's changes in the environment
 * Generates GitOps/Argo manifests to manage CI/CD for the developer's environment
 
-With this approach, the Platform Engineers enable developers to just focus on coding. The templates simplify the set up of these isolated dev environments in a self-service manner. This allows the developers to create them repeatedly and easily, thereby rapidly increasing developer productivity.
+With this approach, the Platform Engineers enable developers to just focus on coding. The templates simplify the set up of these ephemeral dev environments in a self-service manner. This allows the developers to create them repeatedly and easily, thereby rapidly increasing developer productivity.
 
 
 IMPORTANT: Please ensure you are logged in as a *Platform Engineer* 

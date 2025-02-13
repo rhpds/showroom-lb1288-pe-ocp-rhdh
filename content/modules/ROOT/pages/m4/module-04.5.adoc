@@ -4,7 +4,7 @@
 include::../style.adoc[]
 
 
-In this module, as a Developer you are tasked to make change to an existing service - the `parasol-store` service. You will create a feature branch of the repository and then work in an isolated environment that allows you to work independently without impacting other developers in your team. Once you are ready with the changes, you can raise a merge request to push your changes to main branch, and there progressing the changes to production deployment
+In this module, as a Developer you are tasked to make change to an existing service - the `parasol-store` service. You will create a feature branch of the repository and then work in an ephemeral environment that allows you to work independently without impacting other developers in your team. Once you are ready with the changes, you can raise a merge request to push your changes to main branch, and there progressing the changes to production deployment
 
 Please make sure you are logged in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
 
@@ -28,7 +28,8 @@ image:m4/create-branch-name.png[width=70%]
 
 == Onboard the Feature Branch using template
 
-. In {product_name_rhdh}, choose the *Create* side menu, and you will see the *Parasol Store Development* template. Click on *Choose*
+. Visit your instance of https://backstage-backstage.{openshift_cluster_ingress_domain}[{product_name_rhdh}^, window="rhdh"]. If prompted, login as `dev1/{common_password}`.
+. Choose the *Create* side menu, and you will see the *Parasol Store Development* template. Click on *Choose*.
 +
 image:m4/choose-parasol-store-template.png[width=30%]
 
@@ -50,18 +51,18 @@ image:m4/parasol-branch-component.png[]
 
 === Explore the Component
 
-. The newly created component for the isolated environment acts as a single pane of glass to perform most of the acivities as a developer
+. The newly created component for the ephemeral environment acts as a single pane of glass to perform most of the acivities as a developer
 +
 image:m4/parasol-branch-component-laanding.png[width=90%]
 
-. Notice that under the *CI* tab, a pipeline is in progress.
+. Notice that under the *CI* tab, a pipeline is in progress. If this isn't in progress yet, allow a few minutes for the pipeline to kickoff.
 +
 image:m4/parasol-branch-first-pipeline.png[]
 . The pipeline turns green when it finishes the run successfully
 +
 image:m4/parasol-branch-first-pipeline-success.png[]
 
-. Explore the other tabs to see how {product_name_rhdh} provides a single pane of glass for the Developer's isolated dev environment.
+. Explore the other tabs to see how {product_name_rhdh} provides a single pane of glass for the Developer's ephemeral dev environment.
 .. The *Overview* tab provides easy access to the sourcecode and deployments
 .. The *Topology* tab provides a window to the deployment on OpenShift
 .. The *Issues and Pull/Merge Requests* tabs provide insights about the GitLab repo
@@ -126,4 +127,4 @@ NOTE: The first pipeline was triggered when you created this branch using the So
 
 In this module you learnt how Software Templates and plugins can accelerate developer productivity. With {product_name_rhdh}, developers have access to all the necessary tools via a single pane of glass, reducing cognitive load.
 
-This marks the end of the inner loop within the isolated/sandboxed development environment. In the next section, you will create a merge request to the main branch to initiate the outer loop.
+This marks the end of the inner loop within the ephemeral development environment. In the next section, you will create a merge request to the main branch to initiate the outer loop.
