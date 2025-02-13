@@ -1,0 +1,7 @@
+:imagesdir: ../../assets/images
+
+
+== Introduction to Concepts and Module Overview
+
+include::../style.adoc[]
+

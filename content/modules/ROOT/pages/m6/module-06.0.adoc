@@ -1,0 +1,25 @@
+:imagesdir: ../../assets/images
+
+= Module 6: Security & Compliance
+
+include::../style.adoc[]
+
+
+== Overview
+
+Up to this point, our Platform Engineers have established an IDP (Internal Developer Portal) that developers can use as a "single pane of glass" to their code, development environment(s), deployments and much more.
+One core feature that we introduced was the use of *Software Templates* that help us create new components or onboard existing repositories.
+
+The goal of this module is to *augment* the development process we have established with *security guardrails* - ideally without blocking developers from performing their development work.
+
+After this module, we (as Platform Engineers) will have enhanced the inner and out loop of the software development process with 
+
+* dependency analysis (informing developers of possible problems in their code dependencies)
+* code and artifact integrity (signing and verification, but without the need to generate, distribute and generally manage private/public key pairs)
+* generating attestations (also signed and verifiable, for proof of provenance)
+* generating SBOMs (Software Bills of Materials) 
+* verify attestations and provenance of artifacts before deployment
+
+== Module Objectives
+
+* TODO

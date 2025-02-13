@@ -29,7 +29,15 @@
 ** xref:m5/module-05.1.adoc[5.1 Developer Activity: Merge request from feature-branch to main]
 ** xref:m5/module-05.2.adoc[5.2 Updates to Production Argo Manifests]
 
-* xref:m6/module-06.adoc[6. Establish Security and Compliance]
+* xref:m6/module-06.0.adoc[6. Establish Security and Compliance]
+** xref:m6/module-06.1.adoc[6.1 Introduction to Concepts]
+** xref:m6/module-06.2.adoc[6.2 Adding Dependency Analytics for Developers]
+** xref:m6/module-06.3.adoc[6.3 __Optional__ - Add git signing and verification]
+** xref:m6/module-06.4.adoc[6.4 Adding image signing]
+** xref:m6/module-06.5.adoc[6.5 Adding image verification]
+** xref:m6/module-06.6.adoc[6.6 Adding build attestations]
+** xref:m6/module-06.7.adoc[6.7 Adding attestation verification]
+
 
 * xref:env.adoc[My lab environment details]
 
