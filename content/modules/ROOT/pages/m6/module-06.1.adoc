@@ -1,7 +1,35 @@
 :imagesdir: ../../assets/images
 
+include::../style.adoc[]
 
 == Introduction to Concepts and Module Overview
 
-include::../style.adoc[]
+The practice of securing your software development process from end to end - in other words, from developers writing code to a deployment in production - is called *Software Supply Chain Security*
 
+It is important to understand that there are different requirements (and thus different tools) for different stages of the 
+process - which all together will make your Software Supply Chain more secure. 
+
+In this module we will look at some of the core principles and how Platform Engineers can apply them to build a safe and secure build and delivery platform for your developers.
+
+=== Red Hat Trusted Software Supply Chain
+
+Red Hat Trusted Software Supply Chain streamlines compliance with organizational security practices for platform engineering teams. By leveraging Red Hat's established open source software supply chain expertise, it helps mitigate and reduce risks in software delivery. This solution enables development and security teams to adopt best practices quickly, with minimal effort and cost.
+
+Every Software Supply Chain consists of four distinct stages, regardless of your programming language, your frameworks, your build platform and your deployment target:
+
+image:m6/tssc.png[]
+
+* *Code*: The coding process, typically including internal or external dependencies (e.g. logging - nobody will build a logging framework from scratch if there are Log4j [Java], loguru [Python], Zap [Golang] and spdlog [C++], to name a few).
+* *Build*: Whatever your language, you will need to build your artifacts, probably pulling in more dependencies (think of Java Runtimes, build-time dependencies - or in the case of container builds: Base images to include your build artifact in).
+* *Deploy*: Having built your artifact, it will need to be deployed - ideally in an automated fashion
+* *Monitor*: Ideally, you will have monitoring capabilities in your target platform
+
+So, how do we transform the Software Supply Chain we just built in previous chapters into a *__Trusted__ Software Supply Chain*?
+
+image:m6/tssc-detailed.png[]
+
+
+* *Code*: Use standardized templates, sign code and commits, and use dependency analytics provided by Red Hat Trusted Profile Analyzer.
+* *Build*: Red Hat Trusted Application Pipeline provides default continuous integration pipelines that automate security checks and compliance with https://www.redhat.com/en/blog/securing-open-source-development-supply-chain-perspective[Supply Chain Levels for Software Artifacts (SLSA) Level 3].
+* *Deploy*: Implement policy enforcement using Red Hat Advanced Cluster Security for Kubernetes, and security focused workflows that prevent untrusted code being deployed.
+* *Monitor*: Use Red Hat Advanced Cluster Security for Kubernetes to continuously enforce policies and redmedy issues in containers and the Kubernetes runtime. 
