@@ -1,0 +1,8 @@
+:imagesdir: ../../assets/images
+
+include::../style.adoc[]
+
+== Developer Self service
+
+
+WIP

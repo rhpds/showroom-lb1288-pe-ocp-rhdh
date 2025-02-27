@@ -1,0 +1,13 @@
+:imagesdir: ../../assets/images
+
+include::../style.adoc[]
+
+== Objectives
+
+
+WIP
+
+* Self service
+* Monitoring by PE, and Statistics around usage
+* Feedback loop with developer community  with Dynamic Plugin
+
