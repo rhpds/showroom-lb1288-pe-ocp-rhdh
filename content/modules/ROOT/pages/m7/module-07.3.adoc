@@ -7,19 +7,9 @@ include::../style.adoc[]
 As a Red Hat Developer Hub administrator, you can track user activities, system events, and data changes with Developer Hub audit logs.
 Administrators can view, search, filter, and manage the log data from the Red Hat OpenShift Container Platform web console
 
-== Audit logging
-
-=== Logging deployment
-
-
-=== Logging collector
-
-=== Log forwarding
-
-
 == Monitoring and logging
 
-In OpenShift Container Platform, metrics are exposed through an HTTP service endpoint under the /metrics canonical name. You can create a ServiceMonitor custom resource (CR) to scrape metrics from a service endpoint in a user-defined project.
+In OpenShift Container Platform, metrics are exposed through an HTTP service endpoint under the `/metrics` canonical name. You can create a ServiceMonitor custom resource (CR) to scrape metrics from a service endpoint in a user-defined project.
 
 === Setup monitoring for user-defined projects 
 
@@ -65,7 +55,6 @@ image:m7/new-service-monitor.png[]
 
 You can view the {product_name_rhdh}'s metrics  from the Developer perspective of the OpenShift web console within the `backstage` namespace
 
-
 . Visit the https://console-openshift-console.{openshift_cluster_ingress_domain}/dev-monitoring/ns/backstage[metrics^, window="console"] page to view this *Observe* menu on OpenShift
 . Click the Metrics tab, and from the `Select query` drop down, choose `Custom query`
 +
@@ -84,3 +73,11 @@ image:m7/scaffolder_task_count.png[]
 image::m7/scaffolder-task-count.png[]  
 
 . You can leverage the metrics to build custom Grafana dashboards to visualise them as well.
+
+
+== Audit logging and Telemetry 
+
+You can track user activities, system events, and data changes with Developer Hub audit logs. Telemetry data collection supports collecting and analyzing telemetry data to enhance Red Hat Developer Hub experience.
+
+These sections are outside the scope of this workshop, but you can learn amore about it in https://docs.redhat.com/en/documentation/red_hat_developer_hub/latest[documentations^]
+
