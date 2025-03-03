@@ -34,7 +34,7 @@
 * xref:m7/module-07.0.adoc[7. Enable Continuous Improvmeent]
 ** xref:m7/module-07.1.adoc[7.1 Introduction]
 ** xref:m7/module-07.2.adoc[7.2 Developer Self Service]
-** xref:m7/module-07.2.adoc[7.2 Developer Self Service]
+** xref:m7/module-07.3.adoc[7.3 Observability]
 
 * xref:env.adoc[My lab environment details]
 
