@@ -2,14 +2,6 @@
 
 include::../style.adoc[]
 
-== Objectives
-
-
-WIP
-
-* Self service
-* Monitoring by PE, and Statistics around usage
-* Feedback loop with developer community  with Dynamic Plugin
 
 == Enable Continuous Platform Improvements
 In Module 1, we looked at how a well-designed platform can support a wide range of user and application needs. However, user requirements evolve quickly. Platforms that do not adapt risk becoming bottlenecks. Agile, flexible platforms are crucial for platform engineers who must account for shifting technologies, security concerns, and business objectives. By continuously improving platform capabilities, teams keep pace with organizational goals.
