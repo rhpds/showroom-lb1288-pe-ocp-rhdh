@@ -70,13 +70,13 @@ image:m7/select-custom-query.png[]
 image::m7/expression-area.png[] 
 .. Enter `catalog_entities_count` into the textarea and hit `Enter` to view metrics such as how many components, users, templates etc are present in the 
 +
-image:m7/catalog-entities-count.png[] 
+image::m7/catalog-entities-count.png[] 
 .. `scaffolder_task_count` results in the count and user details
 +
-image:m7/scaffolder_task_count.png[] 
+image::m7/scaffolder-task-count.png[] 
 .. Other examples are `scaffolder_step_count`, `scaffolder_task_count` can yield interesting info about the template usage as well. The below screenshot shows output for `scaffolder_step_count`
 +
-image::m7/scaffolder-task-count.png[]  
+image::m7/scaffolder-step-count.png[]  
 
 . You can leverage the metrics to build custom Grafana dashboards to visualise them as well.
 
@@ -86,4 +86,3 @@ image::m7/scaffolder-task-count.png[]
 You can track user activities, system events, and data changes with Developer Hub audit logs. Telemetry data collection supports collecting and analyzing telemetry data to enhance Red Hat Developer Hub experience.
 
 These sections are outside the scope of this workshop, but you can learn amore about it in {product_name_rhdh}'s  https://docs.redhat.com/en/documentation/red_hat_developer_hub/latest[product documentation^] under the *Observability* section. 
-
