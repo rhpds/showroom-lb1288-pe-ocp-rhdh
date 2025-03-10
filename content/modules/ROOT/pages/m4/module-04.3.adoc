@@ -72,7 +72,7 @@ image:m4/import-api-4.png[]
 
 . Click on the link to open the merge request, and complete the merge by click on the *Merge* button. 
 +
-image:m4/api-template-merge-envelope.png[width=70%]
+image:m4/api-template-merge-all-location.png[width=70%]
 
 . You can navigate to the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/all-location-parasol[all-location-parasol repo, window="gitlab"] to see that a new folder named `parasol-store-api` has been creates with a `catalog-info.yaml` and a docs folder for `TechDocs`.
 +
