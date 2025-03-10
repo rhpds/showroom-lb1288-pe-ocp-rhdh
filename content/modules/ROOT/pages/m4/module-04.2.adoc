@@ -79,7 +79,7 @@ The new templates require a set of dynamic plugins to function detect the newly 
 
 * *roadiehq-scaffolder-backend-module-utils-dynamic*: used to manipulate the file system. In this case it's used to update commit the newly created `catalog-info.yaml` files to GitLab.
 * *backstage-plugin-catalog-backend-module-gitlab-dynamic* to enable auto-discovery of `catalog-info.yaml` files.
-* *immobiliarelabs-backstage-plugin* to interact with GitLab to MergeRequests, Issues, Pipeline runs etc
+* *immobiliarelabs-backstage-plugin* to interact with GitLab to create Merge Requests, Issues, Pipeline runs etc
 
 === Enable the Plugins 
 
