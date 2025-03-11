@@ -6,14 +6,11 @@ include::../style.adoc[]
 
 While the developer can add the necessary annotation to their Component, it's best to update the Template so future developers can benefit from the Argo CD integration without having to manually add the annotation.
 
-// TODO
-// To ensure that future Quarkus applications created using the Template...
-
 === Login as Platform Engineer
 
-By now you're probably familiar with how you can login as a *Platform Engineer* using the `pe1` user and the password `{common_password}`. If you are unsure, please expand the section below.
+IMPORTANT: Please make sure to log in as a *Platform Engineer* with `pe1/{common_password}`. If you are unsure, please refer to the below note.
 
-.Click to learn how to login as a Platform Engineer
+.Click to know how to login as a Platform Engineer
 [%collapsible]
 ====
 include::../login-pe.adoc[]

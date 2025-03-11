@@ -7,9 +7,9 @@ include::../style.adoc[]
 
 In this module, you will import an existing API and an existing Service using the Software Templates that were setup as a Platform Engineer in the previous section.
 
-IMPORTANT: Please make sure to log in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
+IMPORTANT: Please make sure to log in as a *Developer* with `dev1/{common_password}`. If you are unsure, please refer to the below note.
 
-//TODO
+
 .Click here to view instructions to login as the Developer.
 [%collapsible]
 ====
