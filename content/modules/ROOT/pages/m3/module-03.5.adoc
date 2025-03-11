@@ -14,6 +14,7 @@ Update your Quarkus application's _catalog-info.yaml_ with the correct annotatio
 . Select _Edit > Edit single file_.
 . Uncomment the following annotation:
 +
+[source,bash,role=execute,subs="attributes"]
 ----
 argocd/app-selector: rht-gitops.com/rhdh-gitops=dev1-my-quarkus-app
 ----

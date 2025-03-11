@@ -24,6 +24,8 @@ To uncomment multiple lines of code, highlight the lines and press `CMD + /` (on
 +
 image:m2/gitlab-techdoc-plugin.png[TechDocs and GitLab dynamic plugins, width=60%]
 . Look for the YAML between the `--- TECHDOCS_CONFIG ---` block and uncomment it.
++
+image:m2/gitlab-techdoc-config.png[TechDocs Config for Local Builder, width=50%]
 . Find the `appConfig.catalog.providers` configuration and uncomment the `--- GITLAB_CATALOG_PROVIDER ---` block as shown below. +
 +
 image:m2/gitlab-catalog-provider.png[GitLab Catalog Provider, width=70%]
