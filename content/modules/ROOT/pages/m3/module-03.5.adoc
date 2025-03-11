@@ -20,6 +20,7 @@ argocd/app-selector: rht-gitops.com/rhdh-gitops=dev1-my-quarkus-app
 . You can confirm this annotation is correct by visiting the https://rhdh-gitops-server-rhdh-gitops.{openshift_cluster_ingress_domain}/applications/rhdh-gitops/dev1-my-quarkus-app-dev[dev1-my-quarkus-app-dev in the rhdh-gitops instance, window="proj_argo"] and clicking the *Details* button to view the applied labels. Login as `admin` using `{common_password}` if prompted.
 +
 image:m3/argocd-label.png[Argo CD Details with Labels]
+. Scroll down and enter a commit message `feat: Add argocd/app-selector annotation`.
 . Use the *Commit changes* button to commit the annotation.
 
 . Return to your https://backstage-backstage.{openshift_cluster_ingress_domain}/catalog/default/component/my-quarkus-app[instance of {product_name_rhdh}^, window="rhdh"] after committing the change to view the newly created `my-quarkus-app` Component. Use the *Schedule entity refresh* button to pull this change from Git to {product_name_rhdh} for your Quarkus application. 

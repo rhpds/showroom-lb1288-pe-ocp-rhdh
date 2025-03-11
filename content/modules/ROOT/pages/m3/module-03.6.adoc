@@ -30,6 +30,7 @@ argocd/app-selector: rht-gitops.com/${{ values.gitops_namespace }}=${{ values.ow
 ----
 +
 image:m3/gitlab-template-edit.png[Edit the Template in Argo CD]
+. Scroll down and enter a commit message `feat: Enable argocd/app-selector annotation`.
 . Use the *Commit changes* button to commit the new annotation.
 
 The annotation value will be automatically generated, similar to the Argo CD label, using the values provided by developers when they use the Template.

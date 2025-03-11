@@ -36,7 +36,7 @@ image:m3/rhdh-template-success.png[A successful template run in {product_name_rh
 +
 image:m3/rhdh-new-component.png[A successful template run in {product_name_rhdh}]
 
-* Select the *CI* tab to view the status of the OpenShift Pipelines (Tekton) build.
+* Select the *CI* tab to view the status of the OpenShift Pipelines (Tekton) build. It might take a moment or two for the pipeline to appear.
 +
 image:m3/rhdh-new-component-ci.png[CI status for the Quarkus Service]
 

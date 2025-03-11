@@ -28,7 +28,7 @@ image:m5/parasol-store-prod-pr-merge.png[width=70%]
 +
 image:m5/parasol-store-go2argo.png[width=80%]
 
-* Click on the *Refresh* button. 
+* Click on the *Refresh* button. Login as (`admin` / `{common_password}`) if prompted.
 +
 image:m5/parasol-store-prod-argo-sync-start.png[width=70%]
 * The Argo app will begin syncing.

@@ -99,7 +99,8 @@ image::m4/uncomment-dynamic-plugin.png[width=60%]
 image::m4/uncomment-auto-discovery.png[width=60%]
 +
 NOTE: This YAML snippet enables auto-discovery for all files named _all-location.yaml_ (entityFilename) where the repo name starts with the word _all-location_ (projectPattern). 
-. Go ahead and commit the file now using the *Commit Changes* button at the bottom of the page with a suitable commit message.
+. Scroll down and enter a commit message `feat: Enable GitLab plugin and component auto discovery`.
+. Commit the file now using the *Commit Changes* button at the bottom of the page.
 
 . Refresh the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}[`backstage` Application, window="argo"] to rollout the new {product_name_rhdh} configuration - login as `admin` / `{openshift_gitops_password}`. Wait until the Application turns green and marked as Healthy. 
 

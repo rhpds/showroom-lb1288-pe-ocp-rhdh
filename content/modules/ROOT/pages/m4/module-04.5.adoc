@@ -106,7 +106,7 @@ image:m4/parasol-commented-prodcount.png[width=85%]
 +
 image:m4/parasol-un-commented-prodcount.png[]
 
-. Add a Commit Message *Chore: Add ProdCount REST API call* at the bottom of the page; make sure the Target Branch is `my-feature-branch`; Click *Commit changes*
+. Add a Commit Message `Chore: Add ProdCount REST API call` at the bottom of the page; make sure the Target Branch is `my-feature-branch`; Click *Commit changes*
 . You can now close the GitLab browser.
 
 == View `parasol-store` component on {product_name_rhdh}

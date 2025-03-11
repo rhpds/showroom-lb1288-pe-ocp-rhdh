@@ -5,7 +5,7 @@
 
 include::../style.adoc[]
 
-In this module, you will import an existing API and an existing Service using the Software Templates that you setup as the Platform Engineer in the previous section.
+In this module, you will import an existing API and an existing Service using the Software Templates that were setup as a Platform Engineer in the previous section.
 
 IMPORTANT: Please make sure to log in as a *Developer* with `dev1/{common_password}`. If you are unsure how to, please refer to the below note.
 
@@ -92,18 +92,18 @@ image:m4/view-api-definition.png[]
 
 == Import parasol-store service
 
-* From the *Create* left side menu of {product_name_rhdh}, click on the *Choose* button of the `Import Existing Application` template.
+. From the *Create* menu on the left-hand of {product_name_rhdh}, click on the *Choose* button of the `Import Existing Application` template.
 +
 image:m4/import-app-template.png[width=40%]
 
-* Fill out the following values in the Software Template wizard. +
+. Fill out the following values in the Software Template wizard. +
 +
 [NOTE]
 ====
 A number of these fields have been prepopulated with default values for convenience. In reality, developers will need provide almost all of the values that are needed to import existing apps/APIs.
 ====
 
-* *Step 1: Information about your existing application*: +
+. *Step 1: Information about your existing application*: +
 Provide information about your existing service
 +
 [cols="1,1,2", options="header"]
@@ -117,7 +117,7 @@ Provide information about your existing service
 image:m4/import-app-template-1.png[]
 
 
-* *Step 2: New Component details*: +
+. *Step 2: New Component details*: +
 Provide information about your existing app
 +
 [cols="1,2,2", options="header"]
@@ -134,7 +134,7 @@ Provide information about your existing app
 image:m4/import-app-template-2.png[]
 
 
-* *Step 3: Additional Component details*: +
+. *Step 3: Additional Component details*: +
 Provide additional information about the new component
 +
 [cols="1,2,2", options="header"]
@@ -151,40 +151,40 @@ image:m4/import-app-template-3.png[]
 
 
 
-* *Step 4: Review* +
+. *Step 4: Review* +
  Review the fields, and click on the *Create* button
 +
 image:m4/import-app-template-4.png[]
 
-* *Run of import-existing-app-template*
+. *Run of import-existing-app-template*
 In the final step you are presented with a Merge Request.
 +
 image:m4/import-app-template-5.png[]
 
-* Click on *Component Merge Request* link to open the merge request on GitLab, and complete the merge by clicking on the *Merge* button
+. Click on *Component Merge Request* link to open the merge request on GitLab, and complete the merge by clicking on the *Merge* button
 +
 image:m4/app-template-merge-component.png[width=70%]
 . The *Parasol Store* service that you just imported will appear in the {product_name_rhdh} *Catalog*  shortly.
 
 === Explore the `parasol-store` component in the Catalog section
 
-* In a few minutes the `parasol-store` Component you just imported will start appearing in the Catalog section of {product_name_rhdh} automatically.
+. In a few minutes the `parasol-store` Component you just imported will start appearing in the Catalog section of {product_name_rhdh} automatically.
 +
 image:m4/view-parasol-store-component.png[]
 
-Click on the `parasol-store` link to view the component. You can step through each of the tabs to see how RHDH provides a single pane of glass to see
+. Click on the `parasol-store` link to view the component. You can step through each of the tabs to see how {product_name_rhdh} provides a single pane of glass for your core development needs.
 
-* Topology showing the deployments on OpenShift
+. *Topology Tab* shows the deployments on OpenShift
 +
 image:m4/parasol-store-topo.png[]
 
-* CI showing *Pipeline Runs* is currently empty, because there are no pipeline runs yet.
-* CD tab showing the deployed components/systems using ArgoCD plugin
+. *CI Tab* displays any Pipeline Runs. This is currently empty because there are no pipeline runs yet.
+. *CD Tab* displays the deployed components/systems using ArgoCD plugin
 +
 image:m4/parasol-store-argo.png[]
 
-* The Api tab shows the Consumed API `parasol-store-api`. Explore the Dependencies tab as well.
-* The Docs contains the skeleton TechDocs created by the template. You can click on the `Pencil icon` to edit the docs.
+. *Api Tab* shows the Consumed API i.e. `parasol-store-api`. Explore the Dependencies tab as well.
+. *Docs Tab* contains the skeleton TechDocs created by the template. You can click on the `Pencil icon` to edit the docs.
  
 
 // == [Optional] Import `parasol-web`
