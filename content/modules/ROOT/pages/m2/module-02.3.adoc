@@ -1,27 +1,51 @@
-:imagesdir: ../../assets/images
 
-== Activity: Access {product_name_rhdh}
+:imagesdir: ../../assets/images
 
 include::../style.adoc[]
 
-{product_name_rhdh} has been pre-deployed with a base configuration in your workshop environment. You can find and access your instance in the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage[backstage project on OpenShift^, window="console"].
+== {product_name_rhdh} Deployment
 
-Login to {product_name_rhdh}:
+=== Deploying {product_name_rhdh}
 
-. Visit the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage?view=graph[backstage project^, window="console"] in your OpenShift cluster. You can login as *admin/{common_password}*
-. Select the *backstage-developer-hub* Deployment in the Topology View.
+Platform Engineers can deploy {product_name_rhdh} on OpenShift using the Operator or Helm Chart. Both of these installation methods are outlined in the https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.3/html/installing_red_hat_developer_hub_on_openshift_container_platform/index#assembly-install-rhdh-ocp-helm[{product_name_rhdh} documentation^, window="content"]. In this lab you'll use the Helm Chart to deploy and manage your instance of {product_name_rhdh}. The source code for this Helm Chart can be found at https://github.com/openshift-helm-charts/charts/tree/main/charts/redhat/redhat/redhat-developer-hub[openshift-helm-charts repository on GitHub^, window="content"].
+
+=== Using GitOps to Manage {product_name_rhdh}
+
+The instance of OpenShift Container Platform used in this workshop environment has been preconfigured with OpenShift GitOps (Argo CD). Your deployment of {product_name_rhdh} is kept up to date using a GitOps workflow, as illustrated below.
+
+// TODO: replace with product icons
+
+image:m2/gitops-helm.png[GitOps Architecture Overview, width=80%]
+
+Since this isn't a GitOps-focused workshop, we've setup the basic GitOps workflow ahead of time. Specifically we've pre-created a https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap Application in OpenShift GitOps, window="argo"] - you can view this by clicking the link and logging in as the `admin` user with the password `{openshift_gitops_password}`.
+
+The https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage-bootstrap[backstage-bootstrap, window="argo"] Argo CD Application creates Secrets, ConfigMaps, and another Argo CD Application named https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage[backstage, window="argo"]. The https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage[backstage, window="argo"] Argo CD Application deploys {product_name_rhdh} using the Helm Chart. The configuration values passed to the Helm Chart are sourced from the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config/values.yaml file in GitLab, window="gitlab"]. OpenShift GitOps will detect changes to this file and redeploy {product_name_rhdh} in response. You can see these two sources in the *Details* tab of the `backstage` Application as shown.
+
+image:m2/gitops-sources.png[GitOps Sources for the Backstage Application]
+
+=== Platform Engineer Activity: Verify GitOps is Working
+
+*Update the App Title of {product_name_rhdh}*
+
+Let's verify that changes to the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in GitLab, window="gitlab"] actually get rolled out by OpenShift GitOps.
+
+. Open your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file, window="gitlab"].
+. Select *Edit > Edit single file*. When prompted, login as a Platform Engineer with `pe1/{common_password}`
+. Find the YAML surrounded by `--- APP TITLE ---` and uncomment it by highlighting it and pressing `CMD + /` or `CTRL + /`.
 +
-image::m2/openshift-backstage-deployment.png[{product_name_rhdh} deployment on OpenShift]
-. Click the URL listed under the *Resources* tab; it will be similar to https://backstage-backstage.{openshift_cluster_ingress_domain}[https://backstage-backstage.{openshift_cluster_ingress_domain}^, window="rhdh"]
+image:m2/gitlab-change-app-title.png[Customizing the Title]
+. Scroll down and enter a commit message `feat: change application title`.
+. Click the *Commit changes* button.
 
-The sign-in page will be displayed, with the option to login as a Guest. Click the *Enter* button to use the Guest sign-in.
 
-NOTE: Ignore the GitHub sign-in method if it's displayed. It is not configured and will not work. 
+*Verify update to {product_name_rhdh}'s Custom Title*
 
-image:m2/backstage-guest-signin.png[{product_name_rhdh} deployment on OpenShift, width=60%]
+Let's wait for the new deployment of {product_name_rhdh} to complete to check if the custom title reflects as it should on {product_name_rhdh}
 
-WARNING: The Guest sign-in option is currently enabled, but you'll configure a production-ready sign-in option based on OpenID Connect shortly. The Guest sign-in option is only meant for development and testing purposes.
+. Return to the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications/openshift-gitops/backstage[backstage Application in Argo CD, window="argo"]. Depending on your timing, it might already be progressing the latest sync, but if not, click the *Refresh* button. When the sync is in progress, you'll see a new Pod starting - this Pod will run the latest version of your configuration.
++
+image:m2/rhdh-new-pod.png[{product_name_rhdh} with a Custom Title]
 
-Visit the *Catalog* using the link in the menu on the left-hand side of the {product_name_rhdh} UI. You'll find that it's empty, and that the *Kind* dropdown doesn't provide any options - let's fix that!
-
-image:m2/rhdh-empty-catalog.png[Empty {product_name_rhdh} Catalog]
+. Once the new Pod has started, visit your https://backstage-backstage.{openshift_cluster_ingress_domain}[{product_name_rhdh} instance, window="rhdh"]. You should see the new title *PE Developer Hub* in the page header.
++
+image:m2/rhdh-title.png[{product_name_rhdh} with a Custom Title]
