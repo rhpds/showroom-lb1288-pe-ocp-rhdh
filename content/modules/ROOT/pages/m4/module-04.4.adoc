@@ -12,7 +12,7 @@ The Platform Engineer creates a new Software Template to set up an ephemeral dev
 * Creates a dedicated namespace within OpenShift for the developer
 * Connects the ephemeral development environment to the *dev* DB instance running on OpenShift
 * Sets up development pipelines to build and deploy the developer's changes in the environment
-* Generates GitOps/Argo manifests to manage CI/CD for the developer's environment
+* Generates GitOps/Argo CD manifests to manage CI/CD for the developer's environment
 
 With this approach, the Platform Engineers enable developers to just focus on coding. The templates simplify the set up of these ephemeral dev environments in a self-service manner. This allows the developers to create them repeatedly and easily, thereby rapidly increasing developer productivity.
 

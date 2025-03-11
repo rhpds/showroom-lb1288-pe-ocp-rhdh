@@ -4,7 +4,7 @@
 
 include::../style.adoc[]
 
-The ArgoCD Backstage plugin brings synced status, health status, and updates history of your services to your {product_name_rhdh}. However, simply installing the Argo CD plugin doesn't automatically make the deployment information visible when viewing Components in the Software Catalog. An `argocd/app-selector` annotation must be added to the Component's YAML definition. This annotation instructs the Argo CD plugin to fetch the information related to the Component from the Argo CD instance you configured.
+The Argo CD Backstage plugin brings synced status, health status, and updates history of your services to your {product_name_rhdh}. However, simply installing the Argo CD plugin doesn't automatically make the deployment information visible when viewing Components in the Software Catalog. An `argocd/app-selector` annotation must be added to the Component's YAML definition. This annotation instructs the Argo CD plugin to fetch the information related to the Component from the Argo CD instance you configured.
 
 IMPORTANT: Please ensure you are logged in as a Developer with dev1/{common_password} as you were guided to in a previous step.
 
@@ -27,6 +27,6 @@ image:m3/argocd-label.png[Argo CD Details with Labels]
 +
 image:m3/rhdh-entity-refresh.png[Entity Refresh Button]
 
-. Next, refresh your browser. The *CD* tab should appear, and you can view the ArgoCD Application's information.
+. Next, refresh your browser. The *CD* tab should appear, and you can view the Argo CD Application's information.
 +
 image:m3/rhdh-cd-tab.png[CD Tab in Component]

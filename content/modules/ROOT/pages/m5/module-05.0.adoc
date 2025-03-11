@@ -1,7 +1,7 @@
 :imagesdir: ../../assets/images
 
 
-= Module 5: Build, Test, & Deploy (outer loop)
+= Module 5: Build, Test, & Deploy (Outer-Loop)
 
 include::../style.adoc[]
 
@@ -22,4 +22,4 @@ With the development inner-loop complete, the code running in the ephemeral envi
 * An application owner/team member reviews and approves the merge request.
 * This approval triggers a post-merge pipeline that updates manifests in the Dev and Staging environments.
 * The pipeline also generates a merge request for deploying to the Production environment.
-* Once this production merge request is accepted, the application is deployed to production through GitOps/ArgoCD.
+* Once this production merge request is accepted, the application is deployed to production through GitOps/Argo CD.

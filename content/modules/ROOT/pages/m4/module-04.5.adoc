@@ -67,7 +67,7 @@ image:m4/parasol-branch-first-pipeline-success.png[]
 .. The *Topology* tab provides a window to the deployment on OpenShift
 .. The *Issues and Pull/Merge Requests* tabs provide insights about the GitLab repo
 .. *CI* tab shows an easy view of the pipeline in both OpenShift (Tekton based pipeline), and on GitLab
-.. The *CD* tab shows the deployed components/systems in the namespace using ArgoCD plugin
+.. The *CD* tab shows the deployed components/systems in the namespace using Argo CD plugin
 
 
 === View the  deployment on OpenShift

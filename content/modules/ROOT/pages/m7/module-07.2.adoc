@@ -51,14 +51,14 @@ image:m7/uncomment-monitoring.png[width=50%]
 . Click the *Commit changes* button.
 
 
-=== Refresh the `backstage` ArgoCD application
+=== Refresh the `backstage` Argo CD application
 
 To apply the changes
 
-. Navigate to view the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` ArgoCD Application in OpenShift GitOps^, window="argo"]. Login as `admin/{openshift_gitops_password}` if prompted.
-. Click the *Refresh* button for the `backstage` ArgoCD application.
+. Navigate to view the https://openshift-gitops-server-openshift-gitops.{openshift_cluster_ingress_domain}/applications[`backstage` Argo CD Application in OpenShift GitOps^, window="argo"]. Login as `admin/{openshift_gitops_password}` if prompted.
+. Click the *Refresh* button for the `backstage` Argo CD application.
 . Wait until the Application status is *Healthy*.
-. A new `servicemonitor` for {product_name_rhdh} should now be created. You can verify this by viewing the `backstage` ArgoCD application. 
+. A new `servicemonitor` for {product_name_rhdh} should now be created. You can verify this by viewing the `backstage` Argo CD application. 
 +
 image:m7/new-service-monitor.png[] 
 
