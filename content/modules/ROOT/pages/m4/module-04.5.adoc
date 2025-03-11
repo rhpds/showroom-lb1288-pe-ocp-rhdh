@@ -1,6 +1,6 @@
 :imagesdir: ../../assets/images
 
-== Developer Activity: Work on feature-branch
+== Developer Activity: Work on feature branch
 include::../style.adoc[]
 
 
@@ -15,7 +15,7 @@ include::../login-developer.adoc[]
 ====
 
 
-== Create a feature-branch
+== Create a feature branch
 
 . Click https://gitlab-gitlab.{openshift_cluster_ingress_domain}/parasol/parasol-store[here to access the parasol-store^, window="gitlab"] repository.
 . Click on the *(+)* button as shown in the screenshot below, and click on *New branch* menu
@@ -33,7 +33,7 @@ image:m4/create-branch-name.png[width=70%]
 +
 image:m4/choose-parasol-store-template.png[width=30%]
 
-. In *Step 1: Provide Information for the sandbox deployment*, enter the feature-branch name `my-feature-branch` or the name you have picked for your branch.
+. In *Step 1: Provide Information for the sandbox deployment*, enter the feature branch name `my-feature-branch` or the name you have picked for your branch.
 +
 image:m4/choose-parasol-store-template-step1.png[]
 . In *Step 2: Provide database information*. Keep all the fields as they are - no need to make changes. The parameters are already set based on the OpenShift Service names from the existing deployments of the application.
