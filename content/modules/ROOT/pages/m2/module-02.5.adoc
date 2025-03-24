@@ -22,7 +22,7 @@ NOTE: Don't worry if some of the following bullet points are hard to understand 
 The high-level steps involve:
 
 . Creating a Realm and Client in Red Hat Single Sign-On. These have been pre-configured for you. View the `backstage` Realm using the following URL and credentials:
-    * *URL*: https://sso.{openshift_cluster_ingress_domain}[https://sso.{openshift_cluster_ingress_domain}/admin/master/console/#/backstage^, window="sso"]
+    * *URL*: https://sso.{openshift_cluster_ingress_domain}/admin/master/console/#/backstage[https://sso.{openshift_cluster_ingress_domain}/admin/master/console/#/backstage^, window="sso"]
     * *Credentials*: https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/keycloak/secrets/keycloak-initial-admin[View on OpenShift, window="content"]
 . Configuring the {product_name_rhdh} Keycloak plugin to synchronize users from Red Hat Single Sign-On to {product_name_rhdh}.
 . Configuring the `oidc` {product_name_rhdh} authentication provider with the Realm details.

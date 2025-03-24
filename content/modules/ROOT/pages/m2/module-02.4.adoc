@@ -10,7 +10,7 @@ An option for dynamically importing and synchronizing Entities is via _providers
 
 . View your https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[values.yaml file in the developer-hub-config repository^, window="gitlab"].
 . Select **Edit > Edit single file**. When prompted, login as `pe1` / `{common_password}`.
-. You will find the `janus-idp-backstage-plugin-keycloak-backend-dynamic` package under the `dynamic.plugins` field that is set to `disabled: false`. This means that, this plugin has been enabled in your installation.
+. You will find the `backstage-community-plugin-catalog-backend-module-keycloak-dynamic` package under the `dynamic.plugins` field that is set to `disabled: false`. This means that, this plugin has been enabled in your installation.
 +
 image:m2/keycloak-dynamic-plugin.png[width=60%]
 . Uncomment the `keycloakOrg` configuration within the `appConfig.catalog.providers` block (look for `--- KEYCLOAK_CATALOG_PROVIDERS ---`, highlight the block, then press `CMD + /` or `CTRL + /`).
