@@ -34,7 +34,7 @@ To assign this role to a group `group:default/platformengineers`, you'd use the 
 g, group:default/platformengineers, role:default/platformengineer
 ```
 
-The result is that users belonging to `platformengineers` group can create Catalog Entities.
+The result is that users belonging to the `platformengineers` group can create Catalog Entities.
 
 == Enable the RBAC Plugin and Setup the Policies
 
@@ -43,7 +43,7 @@ As with other {product_name_rhdh} plugins, enabling RBAC involves modifying the 
 . Access the https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/developer-hub-config/-/blob/main/values.yaml[rhdh/developer-hub-config configuration on GitLab, window="gitlab"].
 . Select *Edit > Edit single file*. When prompted, login as *(pe1/{common_password})*
 . There are 3 sections in the {product_name_rhdh} configuration that need to be modified. All of them are under `-- RBAC --` blocks. You can use `CMD + /` or `CTRL + /` keys to uncomment the blocks.
-.. Look for the first block; This enables the `janus-idp-backstage-plugin-rbac` dynamic plugin which allows you to assign permissions to users and groups; highlight this block and uncomment it.
+.. Look for the first block; This enables the `backstage-community-plugin-rbac` dynamic plugin which allows you to assign permissions to users and groups; highlight this block and uncomment it.
 +
 image:m3/rbac-block1.png[width=60%]
 .. The second block defines RBAC admin users and references the file contained in ConfigMap explained in the previous section; highlight and uncomment it.
