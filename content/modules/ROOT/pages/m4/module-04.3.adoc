@@ -53,7 +53,7 @@ Provide information about the new component you are registering. Fill out the fo
 | Component Repository name | Keep default value | `all-location-parasol` 
 | Component Name of API | Keep default value | `parasol-store-api`
 | System Name | System (auto-populated) | `system:default/parasol-system`
-| Owner | Choose from dropdown | `group:default/dev1`
+| Owner | Choose from dropdown | `user:default/dev1`
 | A Short Description Of This Component |Enter a suitable description | `Open API specification for the parasol-store application`
 | Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known values `experimental`, `production` and `deprecated`) | `production` 
 |====
@@ -127,7 +127,7 @@ Provide information about your existing app
 | Component Repository Name | Keep default value | `all-location-parasol` 
 | Component Name of the App | Keep default value | `parasol-store`
 | System name | System (auto-populated) | `system:default/parasol-system`
-| Owner | Keep default value | `group:default/dev1`
+| Owner | Keep default value | `user:default/dev1`
 | A Short Description Of This Component | Keep default value | Core services for the Parasol application
 |====
 +
