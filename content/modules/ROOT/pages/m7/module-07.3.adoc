@@ -9,9 +9,9 @@ Until now we have discussed Software Templates as a means for developers to acce
 Software templates can achieve this through custom plugins that interact with tools like Ansible and OpenShift API servers. 
 
 
-But, in real life, these developer self-service requests might require more than a Software Template can provide. For example, for certain activities an approval step might be required. This is where the Orchestrator plugin comes in. 
+But, in real life, these developer self-service requests might require more than what a Software Template can provide. For example, for certain activities an approval step might be required. This is where the Orchestrator plugin comes in. 
 
-The Orchestrator plugin acts as interface between {product_name_rhdh} and Serverless Workflow. Serverless Workflow is a cloud-native workflow engine which allows to design, deploy and execute arbitrarily complex workflows which can integrate with external systems through several mechanisms.
+The Orchestrator plugin acts as an interface between {product_name_rhdh} and Serverless Workflow. Serverless Workflow is a cloud-native workflow engine which allows to design, deploy and execute arbitrarily complex workflows which can integrate with external systems through several mechanisms.
 
 The Orchestrator plugin is also integrated with the Notifications plugin, which allows users or groups to be notified of milestones in the workflow execution.
 
@@ -149,7 +149,7 @@ image:m7/openshift-console-import.png[OpenShift Console Import]
 . Paste the ArgoCD manifest in the editor. Click the *Create* button.
 +
 image:m7/openshift-console-import-create.png[OpenShift Console Import Create]
-. Verify in the https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/orchestrator/core~v1~Pod[Orchestrator namespace in OpenShift] that a pod is created for the Serverless Workflow instance. The pod name starts with `create-ocp-namespace-swt`.
+. Verify in the https://console-openshift-console.{openshift_cluster_ingress_domain}/k8s/ns/orchestrator/core%7Ev1%7EPod[Orchestrator namespace in OpenShift^, window="console"] that a pod is created for the Serverless Workflow instance. The pod name starts with `create-ocp-namespace-swt`.
 +
 image:m7/openshift-console-orchestrator-namespace.png[OpenShift Pods in orchestrator namespace]
 . Visit your https://backstage-backstage.{openshift_cluster_ingress_domain}/[instance of {product_name_rhdh}^, window="rhdh"]. Ensure you're logged in as a Platform Engineer.
@@ -186,7 +186,7 @@ image:m7/orchestrator-select-workflow.png[]
 +
 image:m7/orchestrator-workflow-overview.png[]
 +
-The workflow itself is pretty simple: if the user requests a small namespace to be created, the workflow launches the relevant software template (no approval required). It checks the state of the software template execution and notifies the user of suuccess or failure.
+The workflow itself is pretty simple: if the user requests a small namespace to be created, the workflow launches the relevant software template (no approval required). It checks the state of the software template execution and notifies the user of success or failure.
 +
 If a large namespace is requested, the request needs to be approved. For simplicity reasons, we use issues in a GitLab repo as a ticketing system (in real life that would probably be ServiceNow or Jira or an equivalent system). If the request is approved, the software template is executed and the user notified. If the request is denied, the user is notified as well, but no namespace is created.
 . Click on the *Run* button at the top right of the screen to start an instance of the workflow.
