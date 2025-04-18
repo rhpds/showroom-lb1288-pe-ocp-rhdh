@@ -9,8 +9,8 @@ When developers are assigned a JIRA task or feature to enhance an application, t
 
 The Platform Engineer creates a new Software Template to set up an ephemeral development environment for Developers working on the `parasol-store` application. This template performs several tasks:
 
-* Creates a dedicated namespace within OpenShift for the developer
-* Connects the ephemeral development environment to the *dev* DB instance running on OpenShift
+* Creates a dedicated namespace for the feature branch in OpenShift
+* Connects the ephemeral development environment to a *dev* DB instance running in the same namespace OpenShift
 * Sets up development pipelines to build and deploy the developer's changes in the environment
 * Generates GitOps/Argo CD manifests to manage CI/CD for the developer's environment
 
@@ -37,6 +37,6 @@ include::../login-pe.adoc[]
 https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/parasol-store-dev-template/-/blob/main/template.yaml
 ----
 . Click on the *Analyze* button followed by clicking the *Import* button to import the template.
-. The Template will start appearing in the Create side menu.
+. The Template will appear on the Create screen.
 +
 image::m4/parasol-store-dev-template-create.png[]
