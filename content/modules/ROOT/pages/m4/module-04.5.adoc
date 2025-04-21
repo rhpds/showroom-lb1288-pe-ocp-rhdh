@@ -28,7 +28,7 @@ image:m4/create-branch-name.png[width=70%]
 
 == Onboard the Feature Branch using template
 
-. Visit your instance of https://backstage-backstage.{openshift_cluster_ingress_domain}[{product_name_rhdh}^, window="rhdh"]. If prompted, login as `dev1/{common_password}`.
+. Visit your instance of https://backstage-backstage.{openshift_cluster_ingress_domain}[{product_name_rhdh}^, window="rhdh"]. If prompted, login as `dev1` / `{common_password}`.
 . Choose the *Create* side menu, and you will see the *Parasol Store Development* template. Click on *Choose*.
 +
 image:m4/choose-parasol-store-template.png[width=30%]

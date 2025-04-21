@@ -2,7 +2,7 @@
 
 == Developer Activity: Create a new Component from the Template
 
-IMPORTANT: Please make sure you are logged in as a Developer with `dev1/{common_password}` as you were guided to in the previous step.
+IMPORTANT: Please make sure you are logged in as a Developer with `dev1` / `{common_password}` as you were guided to in the previous step.
 
 include::../style.adoc[]
 
