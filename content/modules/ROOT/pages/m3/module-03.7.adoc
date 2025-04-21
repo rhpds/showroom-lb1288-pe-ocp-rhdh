@@ -92,7 +92,7 @@ user:default/pe1,pe1 rhdh,pe1@rhdemo.com,"Tue, 10 Dec 2024 05:25:22 GMT"
 . Navigate to the https://backstage-backstage.{openshift_cluster_ingress_domain}/create[*Create* screen, window="rhdh"]. 
 . Note that you cannot see the *Register Existing Component* button. You can still use the templates already created.
 +
-image:m3/developer-rbac-create.png[]
+image:m3/rbac-developer-create.png[]
 . This is because, as we saw earlier, the RBAC policy has been setup to allow `catalog.entity.create` only for `group:default/platformengineers`
 
 
