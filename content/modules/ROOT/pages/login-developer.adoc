@@ -8,4 +8,4 @@
 +
 image::common/gitlab-sign-out.png[Signing out of {product_name_rhdh}]
 
-* Login back as a *Developer* to to *{product_name_rhdh}* and *GitLab* using the credentials `dev1/{common_password}`
+* Login back as a *Developer* to to *{product_name_rhdh}* and *GitLab* using the credentials `dev1` / `{common_password}`
