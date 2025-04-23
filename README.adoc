@@ -1,6 +1,5 @@
 :imagesdir: ../assets/images
 
-
 = Platform Engineering Workshop
 
 == Introduction
