@@ -1,5 +1,6 @@
 name: modules
-title: Platform Engineering Workshop
+title: |
+  LB1288 - Platform Engineering with Red Hat OpenShift and Red Hat Developer Hub: A Practical Guide
 version: master
 nav:
   - modules/ROOT/nav.adoc
