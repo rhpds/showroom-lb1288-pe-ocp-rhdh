@@ -2,7 +2,7 @@
 
 == Developer Activity: Create a new Component from the Template
 
-IMPORTANT: Please make sure you are logged in as a Developer with `dev1/{common_password}` as you were guided to in the previous step.
+IMPORTANT: Please make sure you are logged in as a Developer with `dev1` / `{common_password}` as you were guided to in the previous step.
 
 include::../style.adoc[]
 
@@ -53,7 +53,7 @@ NOTE: Manifests related to the developer's applications are managed by a second 
 image:m3/rhdh-new-component-ci.png[CI status for the Quarkus Service]
 
 Wait for the build to complete, and visit the https://quay.{openshift_cluster_ingress_domain}/user/dev1/[dev1 organization in Quay^, window="quay"]. You'll be able to view the new _my-quarkus-app_ repository and see the newly pushed _latest_ image tag.
-+
+
 image:m3/quay-image-tag.png[Quay Latest Image Tag]
 
 === Summary
