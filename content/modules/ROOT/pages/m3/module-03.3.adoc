@@ -33,7 +33,7 @@ image:m3/quay-create-account-link.png[Creating a Quay Account, width="60%"]
 . Enter the following information:
   * Username: `dev1`
   * Email: `dev1@rhdh.com`
-  * Password: {common_password}
+  * Password: `{common_password}`
 +
 image:m3/quay-create-account.png[Creating a Quay Account]
 . Click *Create Account*.

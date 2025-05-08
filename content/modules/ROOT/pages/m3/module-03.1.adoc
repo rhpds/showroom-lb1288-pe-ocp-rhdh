@@ -109,7 +109,7 @@ spec:
 
 Notice how the `parameters` are referenced in the `steps`? Another point of note is that a `user` variable is available to access data related to the user that's using the Template, and subsequent `steps` can access `output` from prior steps. 
 
-The `output` values are documented on a per plugin basis. You can find the values for the specific version of your installed plugins by accessing the https://backstage-backstage.{openshift_cluster_ingress_domain}/edit/actions[/edit/actions^, window="rhdh"] endpoint on your {product_name_rhdh} instance.
+The `output` values are documented on a per plugin basis. You can find the values for the specific version of your installed plugins by accessing the https://backstage-backstage.{openshift_cluster_ingress_domain}/create/actions[/create/actions^, window="rhdh"] endpoint on your {product_name_rhdh} instance.
 
 === Output
 

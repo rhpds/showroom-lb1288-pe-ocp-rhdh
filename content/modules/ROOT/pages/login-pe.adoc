@@ -1,6 +1,6 @@
 *Login as Platform Engineer*
 
-You will perform this activity as a Platform Engineer. Please follow the below steps to logout from {product_name_rhdh} and GitLab, and login back as a Platform Engineer (`pe1/{common_password}`)
+You will perform this activity as a Platform Engineer. Please follow the below steps to logout from {product_name_rhdh} and GitLab, and login back as a Platform Engineer (`pe1` / `{common_password}`)
 
 * Logout from https://backstage-backstage.{openshift_cluster_ingress_domain}[{product_name_rhdh}^, window="rhdh"]
 ** Sign out of {product_name_rhdh} from the Profile dropdown as shown in the screenshot below.
@@ -11,4 +11,4 @@ image::common/rhdh-sign-out.png[Signing out of {product_name_rhdh}]
 +
 image::common/gitlab-sign-out.png[Signing out of {product_name_rhdh}]
 
-* Login back as a *Platform Engineer* to {product_name_rhdh} and GitLab using the credentials `pe1/{common_password}`
+* Login back as a *Platform Engineer* to {product_name_rhdh} and GitLab using the credentials `pe1` / `{common_password}`
