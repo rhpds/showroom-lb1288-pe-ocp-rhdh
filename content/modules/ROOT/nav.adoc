@@ -29,10 +29,11 @@
 ** xref:m5/module-05.1.adoc[5.1 Developer Activity: Merge request from feature branch to main]
 ** xref:m5/module-05.2.adoc[5.2 Updates to Production Argo CD Manifests]
 
+////
 * xref:m7/module-07.0.adoc[6. Enable Continuous Improvement]
 ** xref:m7/module-07.1.adoc[6.1 Introduction]
 ** xref:m7/module-07.2.adoc[6.2 Observability]
 ** xref:m7/module-07.3.adoc[6.3 Developer Self Service]
+////
 
 * xref:env.adoc[My lab environment details]
-
