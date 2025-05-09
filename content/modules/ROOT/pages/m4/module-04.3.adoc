@@ -17,7 +17,7 @@ include::../login-developer.adoc[]
 
 == Import Parasol Store OpenAPI 
 
-. Click on the *Create* menu on the left-hand navigation, and click the *Choose* button on the *Import Existing API* Template.
+. Click on the *(+)* create icon from the top navigation, and click the *Choose* button on the *Import Existing API* Template.
 +
 image:m4/import-api-template.png[width=30%]
 . You will be presented with the Software Template wizard. +
@@ -50,8 +50,8 @@ Provide information about the new component you are registering. Fill out the fo
 | Component GitLab Organization | Keep default value| `parasol`
 | Component Repository name | Keep default value | `all-location-parasol` 
 | Component Name of API | Keep default value | `parasol-store-api`
-| System Name | System (auto-populated) | `system:default/parasol-system`
-| Owner | Choose from dropdown | `user:default/dev1`
+| System Name | Choose from dropdown | `system:default/parasol-system`
+| Owner | Keep default value | `user:default/dev1`
 | A Short Description Of This Component |Enter a suitable description | `Open API specification for the parasol-store application`
 | Lifecycle | Enter value. Can be any lifecycle value, but take great care to establish a proper taxonomy for these. (Well-known values `experimental`, `production` and `deprecated`) | `production` 
 |====
@@ -90,7 +90,7 @@ image:m4/view-api-definition.png[]
 
 == Import Parasol Store as a Component
 
-. Click the *Create* icon in the top-menu of {product_name_rhdh}.
+. Click the *Create* *(+)* icon in the top-menu of {product_name_rhdh}.
 . Click the *Choose* button of the `Import Existing Application` template.
 +
 image:m4/import-app-template.png[width=40%]

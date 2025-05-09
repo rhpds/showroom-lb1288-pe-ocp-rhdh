@@ -57,7 +57,7 @@ image::m4/nav-access-api-template.png[]
 
 . Let us now register the *Import existing application* template as well.
 . Click on *Register another* button from the previous step; 
-.. If that is not accessible anymore, click *Create* (left hand nav) -> *Register Existing Component* (top right)
+.. If that is not accessible anymore, click *(+)* create icon (top nav) -> *Register Existing Component* (top right)
 . Paste the following URL:
 +
 [source,bash,role=execute,subs="attributes"]
@@ -68,7 +68,7 @@ https://gitlab-gitlab.{openshift_cluster_ingress_domain}/rhdh/import-existing-ap
 
 === View the Imported Templates
 
-Navigate back to *Create* using the side menu. You should see both the templates for importing APIs and applications to {product_name_rhdh}.
+Navigate to the https://backstage-backstage.{openshift_cluster_ingress_domain}/create[*Create* screen, window="rhdh"]. You should see both the templates for importing APIs and applications to {product_name_rhdh}.
 
 image::m4/import-templates-list.png[]
 
@@ -108,7 +108,7 @@ NOTE: This YAML snippet enables auto-discovery for all files named _all-location
 
 In a previous chapter you learned how https://backstage.io/docs/features/software-catalog/system-model#system[System,window="content"] and https://backstage.io/docs/features/software-catalog/system-model/#domain[Domain,window="content"] Entities help organize and provide a hierarchy of Components in {product_name_rhdh}. In this section you will setup Parasol's System and Domain.
 
-. From {product_name_rhdh}, navigate to Create menu; choose *Register Existing Component* button
+. From {product_name_rhdh}, navigate to https://backstage-backstage.{openshift_cluster_ingress_domain}/create[*Create* screen, window="rhdh"]; choose *Register Existing Component* button
 . Paste the below URL and click on *Analyze*
 +
 [source,bash,role=execute,subs="attributes"]
