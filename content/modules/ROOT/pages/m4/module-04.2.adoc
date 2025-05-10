@@ -9,7 +9,7 @@ The Platform Engineering team creates two Templates for importing existing appli
 
 IMPORTANT: Please make sure to log in as a *Platform Engineer* with `pe1` / `{common_password}`. Refer to the below guide for assistance.
 
-.Click to learrn how to login as a Platform Engineer
+.Click to learn how to login as a Platform Engineer
 [%collapsible]
 ====
 include::../login-pe.adoc[]
@@ -33,7 +33,7 @@ This template does the following:
 === Register the Import API Software Template
 
 . Access {product_name_rhdh} (https://backstage-backstage.{openshift_cluster_ingress_domain}[click here^, window="rhdh"]). If prompted login using `pe1` / `{common_password}`
-. Click on the *Create* icon in the top navigation. 
+. Select the image:common/plus-icon.png[width=15px] icon on the top navigation bar to access the *Create* menu.
 +
 image::m4/nav-create.png[]
 . Click on the *Register Existing Component* button on the top-right of the page to launch the *Register an existing component* wizard. 
@@ -57,7 +57,7 @@ image::m4/nav-access-api-template.png[]
 
 . Let us now register the *Import existing application* template as well.
 . Click on *Register another* button from the previous step; 
-.. If that is not accessible anymore, click *(+)* create icon (top nav) -> *Register Existing Component* (top right)
+.. If that is not accessible anymore, select the image:common/plus-icon.png[width=15px] icon on the top navigation bar to access the *Create* menu, and then choose *Register Existing Component* (top right)
 . Paste the following URL:
 +
 [source,bash,role=execute,subs="attributes"]

@@ -29,7 +29,7 @@ include::../login-pe.adoc[]
 == Create parasol-store Dev Template
 
 . Access your https://backstage-backstage.{openshift_cluster_ingress_domain}/[{product_name_rhdh} instance^, window="rhdh"]. If prompted login using `pe1` / `{common_password}`
-. Click on the *(+)* *Create* menu on the top navigation, and choose *Register Existing Component*. 
+. Click on the image:common/plus-icon.png[width=15px] icon on the top navigation to access the *Create* menu, and choose *Register Existing Component*. 
 . Create a Software Template by pasting this template URL into the *URL* textbox 
 +
 [source,bash,role=execute,subs="attributes"]

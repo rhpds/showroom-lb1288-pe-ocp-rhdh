@@ -17,8 +17,10 @@ In OpenShift Container Platform, metrics are exposed through an HTTP service end
 To begin, create create the `cluster-monitoring-config` ConfigMap object:
 
 . Navigate to the https://console-openshift-console.{openshift_cluster_ingress_domain}/topology/ns/backstage?view=graph[OpenShift console^, window="console"]. Login as *admin/{common_password}* if prompted.
-. Click the (+) button on the top navigation bar of OpenShift Console to create a new resource.
+. Select the image:common/plus-icon.png[width=15px] icon on the top navigation bar of OpenShift Console to create a new resource.
++
 image:m7/create-yaml.png[] 
+
 . In the YAML editor, input the following ConfigMap. Setting the `enableUserWorkload` parameter to `true`, enables monitoring of user-defined projects in the OpenShift cluster.
 +
 [.console-input]
